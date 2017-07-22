@@ -45,9 +45,8 @@ namespace NoteControl
               
                 if (reader.Read())
                 {
-                    MessageBox.Show(reader["Id_Perfil"].ToString());
-                    Menu VentMen = new Menu();
-                    VentMen.Show();
+                    Menu menu = new Menu(reader);
+                    menu.Show();
                 }
                 else {
                     MessageBox.Show("Usuario o Contraseña no existen");

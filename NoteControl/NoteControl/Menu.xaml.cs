@@ -13,7 +13,7 @@ using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
 using System.Windows.Forms;
 using System.Windows.Navigation;
-
+using System.Data.SqlClient;
 
 namespace NoteControl
 {
@@ -24,21 +24,24 @@ namespace NoteControl
     {
          
 
-        public Menu()
+        public Menu(SqlDataReader reader)
         {
+            
             InitializeComponent();
-
-           
         }
 
 
-        private void btnCperfiles(object sender, RoutedEventArgs e)
+        private void btnMenuItemPerfiles(object sender, RoutedEventArgs e)
         {
             MantPerfiles mp = new MantPerfiles();
             frmMenu.Navigate(mp);
         }
-
-        private void btnCusuario(object sender, RoutedEventArgs e)
+        private void btnMenuItemCursos(object sender, RoutedEventArgs e)
+        {
+            MantPerfiles mp = new MantPerfiles();
+            frmMenu.Navigate(mp);
+        }
+        private void btnMenuItemUsuarios(object sender, RoutedEventArgs e)
         {
             MantUsuario musu = new MantUsuario();
             frmMenu.Navigate(musu);
