@@ -31,9 +31,6 @@
             </MenuItem>
         </Menu>
 
-
-
-
         <Frame x:Name="frmMenu" Grid.Row="1"  HorizontalAlignment="Stretch" VerticalAlignment="Stretch" Navigated="frmMenu_Navigated"/>
 
 

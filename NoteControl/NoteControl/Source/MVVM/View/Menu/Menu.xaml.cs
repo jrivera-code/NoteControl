@@ -11,10 +11,9 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
 using System.Windows.Navigation;
-using System.Data.SqlClient;
 using NoteControl.Source.DataAccess;
 using System.Windows;
-
+using NoteControl.Source.MVVM.Model;
 
 namespace NoteControl
 {
@@ -25,7 +24,7 @@ namespace NoteControl
     {
 
     
-        public Menu(SqlDataReader reader) //trae todo los datos del usuario logeado
+        public Menu(Usuario usuario) //recibe todo los datos del usuario logeado
         {
             InitializeComponent();
         }

@@ -18,8 +18,8 @@
         <ComboBox x:Name="comboBox" HorizontalAlignment="Left" Margin="200,145,0,0" VerticalAlignment="Top" Width="231" SelectionChanged="comboBox_SelectionChanged"/>
         <Label x:Name="nomEstado" Content="Estado : " HorizontalAlignment="Left" Margin="66,197,0,0" VerticalAlignment="Top" RenderTransformOrigin="0.458,3.128"/>
         <ComboBox x:Name="comboBox_Copy" HorizontalAlignment="Left" Margin="200,201,0,0" VerticalAlignment="Top" Width="60">
-            <ComboBoxItem Content="activo" HorizontalAlignment="Left" Width="92"/>
-            ComboBoxItem Content="desactivado" HorizontalAlignment="Left" Width="92"/>
+            <ComboBoxItem Content="Activo" HorizontalAlignment="Left" Width="92"/>
+            <ComboBoxItem Content="Desactivado" HorizontalAlignment="Left" Width="92"/>
         </ComboBox>
 
     </Grid>
