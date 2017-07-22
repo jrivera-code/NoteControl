@@ -22,11 +22,12 @@ namespace NoteControl
     /// </summary>
     public partial class Menu : Window
     {
-         
 
-        public Menu(SqlDataReader reader)
+        SqlDataReader readerUsuario;
+        public Menu(SqlDataReader reader) //trae todo los datos del usuario logeado
         {
-            
+            this.readerUsuario = reader;
+            //consultar los privilegios del usuario
             InitializeComponent();
         }
 

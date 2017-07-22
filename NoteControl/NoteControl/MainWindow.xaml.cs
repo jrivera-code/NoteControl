@@ -14,6 +14,7 @@ using System.Windows.Navigation;
 using System.Windows.Shapes;
 using System.Configuration;
 using System.Data.SqlClient;
+using NoteControl.Datos;
 
 namespace NoteControl
 {
@@ -22,11 +23,10 @@ namespace NoteControl
     /// </summary>
     public partial class MainWindow : Window
     {
-        SqlConnection conn;
+        Conexion conexion = new Conexion();
         public MainWindow()
         {
-       conn = new SqlConnection(@"Data Source=DESKTOP-16VNQA4;Initial Catalog=Note_Control;Integrated Security=True");
-       InitializeComponent();
+            InitializeComponent();
         }
 
 
@@ -37,10 +37,10 @@ namespace NoteControl
             string pass = txtPass.Password;
             if (usuario != "" && pass != "")
             {
-                conn.Open();
+                conexion.Conectar();
                 SqlCommand cmd = new SqlCommand();
                 cmd.CommandText = "SELECT * FROM Usuarios WHERE Nick = '"+usuario+"' AND Clave = '"+pass+"'";
-                cmd.Connection = conn;
+                cmd.Connection = conexion.getConexion();
                 var reader = cmd.ExecuteReader();
               
                 if (reader.Read())
@@ -56,7 +56,7 @@ namespace NoteControl
             else {
                 MessageBox.Show("Complete los Campos");
             }
-            conn.Close();
+            conexion.Desconectar();
         }
 
         private void btnsalir(object sender, RoutedEventArgs e)
