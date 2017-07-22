@@ -68,19 +68,19 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
-    <Page Include="MantPerfiles.xaml">
+    <Page Include="Source\MVVM\View\Mantenedores\MantPerfiles.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="MantUsuario.xaml">
+    <Page Include="Source\MVVM\View\Mantenedores\MantUsuario.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="Menu.xaml">
+    <Page Include="Source\MVVM\View\Menu\Menu.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="MainWindow.xaml">
+    <Page Include="Source\MVVM\View\Login\Login.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </Page>
@@ -88,18 +88,22 @@
       <DependentUpon>App.xaml</DependentUpon>
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="Datos\Conexion.cs" />
-    <Compile Include="MantPerfiles.xaml.cs">
+    <Compile Include="Source\DataAccess\NoteControlContext.cs" />
+    <Compile Include="Source\MVVM\Model\Perfil.cs" />
+    <Compile Include="Source\MVVM\Model\PerfilPrivilegio.cs" />
+    <Compile Include="Source\MVVM\Model\Privilegio.cs" />
+    <Compile Include="Source\MVVM\Model\Usuario.cs" />
+    <Compile Include="Source\MVVM\View\Mantenedores\MantPerfiles.xaml.cs">
       <DependentUpon>MantPerfiles.xaml</DependentUpon>
     </Compile>
-    <Compile Include="MantUsuario.xaml.cs">
+    <Compile Include="Source\MVVM\View\Mantenedores\MantUsuario.xaml.cs">
       <DependentUpon>MantUsuario.xaml</DependentUpon>
     </Compile>
-    <Compile Include="Menu.xaml.cs">
+    <Compile Include="Source\MVVM\View\Menu\Menu.xaml.cs">
       <DependentUpon>Menu.xaml</DependentUpon>
     </Compile>
-    <Compile Include="MainWindow.xaml.cs">
-      <DependentUpon>MainWindow.xaml</DependentUpon>
+    <Compile Include="Source\MVVM\View\Login\Login.xaml.cs">
+      <DependentUpon>Login.xaml</DependentUpon>
       <SubType>Code</SubType>
     </Compile>
   </ItemGroup>
@@ -130,6 +134,9 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="Source\MVVM\ViewModel\" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
