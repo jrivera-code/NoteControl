@@ -11,7 +11,7 @@ namespace NoteControl.Source.MVVM.Model
         public int UsuarioId { get; set; }
         public string Nombre { get; set; }
         public string Clave { get; set; }
-        public virtual Perfil Perfil { get; set; }
+        public virtual Perfil Perfiles { get; set; }
         public int Estado { get; set; }
 
     }

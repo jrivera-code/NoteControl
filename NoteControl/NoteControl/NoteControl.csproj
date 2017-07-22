@@ -88,7 +88,16 @@
       <DependentUpon>App.xaml</DependentUpon>
       <SubType>Code</SubType>
     </Compile>
+    <Compile Include="Source\BusinessLogic\BLPerfiles.cs" />
+    <Compile Include="Source\BusinessLogic\BLPrivilegios.cs" />
+    <Compile Include="Source\BusinessLogic\BLUsuarios.cs" />
+    <Compile Include="Source\DataAccess\Interfaces\IDAPerfiles.cs" />
+    <Compile Include="Source\DataAccess\Interfaces\IDAPrivilegios.cs" />
+    <Compile Include="Source\DataAccess\Interfaces\IDAUsuarios.cs" />
     <Compile Include="Source\DataAccess\NoteControlContext.cs" />
+    <Compile Include="Source\DataAccess\Source\DAPerfiles.cs" />
+    <Compile Include="Source\DataAccess\Source\DAPrivilegios.cs" />
+    <Compile Include="Source\DataAccess\Source\DAUsuarios.cs" />
     <Compile Include="Source\MVVM\Model\Perfil.cs" />
     <Compile Include="Source\MVVM\Model\PerfilPrivilegio.cs" />
     <Compile Include="Source\MVVM\Model\Privilegio.cs" />

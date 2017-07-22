@@ -12,7 +12,7 @@ using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
 using System.Windows.Navigation;
 using System.Data.SqlClient;
-using NoteControl.DataAccess;
+using NoteControl.Source.DataAccess;
 using System.Windows;
 
 
@@ -24,25 +24,9 @@ namespace NoteControl
     public partial class Menu : Window
     {
 
-        SqlDataReader readerUsuario;
-        Conexion conexion;
+    
         public Menu(SqlDataReader reader) //trae todo los datos del usuario logeado
         {
-            //crea una instancia de la conexion
-            conexion = new Conexion();
-            this.readerUsuario = reader;
-            string perfil = readerUsuario["Id_Perfil"].ToString();
-            //consultar los privilegios del usuario
-            string query = "SELECT Nombre, Privilegios.Id_Privilegios FROM RelPerfPrivi INNER JOIN" +
-                " Privilegios ON Privilegios.Id_Privilegios = RelPerfPrivi.Id_Privilegios " +
-                "INNER JOIN Perfiles ON Perfiles.Id_Perfil = RelPerfPrivi.Id_Perfil" +
-                " WHERE Perfiles.Id_Perfil = " + perfil;
-            SqlDataReader privilegiosReader = queryToReader(query);
-            while (privilegiosReader.Read()) {
-                string id = privilegiosReader["Id_Privilegios"].ToString(),
-                    nombrePrivilegio = privilegiosReader["Nombre"].ToString();
-            }
-            conexion.Desconectar();
             InitializeComponent();
         }
 
@@ -65,24 +49,6 @@ namespace NoteControl
         private void frmMenu_Navigated(object sender, NavigationEventArgs e)
         {
 
-        }
-
-        private SqlDataReader queryToReader(string query) {
-            SqlCommand cmd;
-            SqlDataReader reader = null;
-            try
-            {
-                conexion.Conectar();
-                cmd = new SqlCommand();
-                cmd.Connection = conexion.getConexion();
-                cmd.CommandText = query;
-                reader = cmd.ExecuteReader();
-            }
-            catch (SqlException ex)
-            {
-                System.Windows.Forms.MessageBox.Show(ex.Message);
-            }
-            return reader;
         }
     }
 }
