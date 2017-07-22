@@ -88,7 +88,6 @@
       <DependentUpon>App.xaml</DependentUpon>
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="conexion1.cs" />
     <Compile Include="MantPerfiles.xaml.cs">
       <DependentUpon>MantPerfiles.xaml</DependentUpon>
     </Compile>

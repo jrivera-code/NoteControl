@@ -12,6 +12,8 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
+using System.Configuration;
+using System.Data.SqlClient;
 
 namespace NoteControl
 {
@@ -20,20 +22,42 @@ namespace NoteControl
     /// </summary>
     public partial class MainWindow : Window
     {
+        SqlConnection conn;
         public MainWindow()
         {
-            InitializeComponent();
+       conn = new SqlConnection(@"Data Source=DESKTOP-16VNQA4;Initial Catalog=Note_Control;Integrated Security=True");
+       InitializeComponent();
         }
 
 
         
         private void btnAceptar(object sender, RoutedEventArgs e)
         {
-            Menu VentMen = new Menu();
-            VentMen.Show();
-
-            Close();
-
+            string usuario = txtUsuario.Text;
+            string pass = txtPass.Password;
+            if (usuario != "" && pass != "")
+            {
+                conn.Open();
+                SqlCommand cmd = new SqlCommand();
+                cmd.CommandText = "SELECT * FROM Usuarios WHERE Nick = '"+usuario+"' AND Clave = '"+pass+"'";
+                cmd.Connection = conn;
+                var reader = cmd.ExecuteReader();
+              
+                if (reader.Read())
+                {
+                    MessageBox.Show(reader["Id_Perfil"].ToString());
+                    Menu VentMen = new Menu();
+                    VentMen.Show();
+                }
+                else {
+                    MessageBox.Show("Usuario o Contraseña no existen");
+                }
+               
+            }
+            else {
+                MessageBox.Show("Complete los Campos");
+            }
+            conn.Close();
         }
 
         private void btnsalir(object sender, RoutedEventArgs e)

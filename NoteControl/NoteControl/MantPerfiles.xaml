@@ -10,8 +10,8 @@
     <Grid Background="White" Margin="0,0,-88,0">
         <Label x:Name="NomPerfil" Content="Nombre de Perfil" HorizontalAlignment="Left" Margin="66,53,0,0" VerticalAlignment="Top"/>
         <TextBox x:Name="txtperfil" HorizontalAlignment="Left" Height="23" Margin="200,53,0,0" TextWrapping="Wrap"  VerticalAlignment="Top" Width="231" />
-        <CheckBox x:Name="checkBox" Content="Perfiles" HorizontalAlignment="Left" Margin="40,142,0,0" VerticalAlignment="Top" Checked="checkBox_Checked"/>
-        <Label x:Name="NomPrivi" Content="Funcionalidades" HorizontalAlignment="Left" Margin="271,106,0,0" VerticalAlignment="Top" RenderTransformOrigin="0.5,0.5">
+       
+        <Label x:Name="NomPrivi" Content="Funcionalidades" HorizontalAlignment="Left" Margin="290,106,0,0" VerticalAlignment="Top" RenderTransformOrigin="0.5,0.5">
             <Label.RenderTransform>
                 <TransformGroup>
                     <ScaleTransform/>
@@ -21,14 +21,16 @@
                 </TransformGroup>
             </Label.RenderTransform>
         </Label>
-        <CheckBox x:Name="checkBox_Copy" Content="Usuarios" HorizontalAlignment="Left" Margin="40,162,0,0" VerticalAlignment="Top" Checked="checkBox_Checked"/>
-        <CheckBox x:Name="checkBox_Copy1" Content="Cursos" HorizontalAlignment="Left" Margin="40,182,0,0" VerticalAlignment="Top" Checked="checkBox_Checked"/>
-        <CheckBox x:Name="checkBox_Copy2" Content="profesores" HorizontalAlignment="Left" Margin="40,202,0,0" VerticalAlignment="Top" Checked="checkBox_Checked"/>
-        <CheckBox x:Name="checkBox_Copy3" Content="Especialidades" HorizontalAlignment="Left" Margin="40,222,0,0" VerticalAlignment="Top" Checked="checkBox_Checked"/>
-        <CheckBox x:Name="checkBox_Copy4" Content="Ingreso de notas por asignatura" HorizontalAlignment="Left" Margin="170,145,0,0" VerticalAlignment="Top" Checked="checkBox_Checked"/>
-        <CheckBox x:Name="checkBox_Copy5" Content="Ingreso de notas por alumno" HorizontalAlignment="Left" Margin="170,165,0,0" VerticalAlignment="Top" Checked="checkBox_Checked"/>
-        <CheckBox x:Name="checkBox_Copy6" Content="Consulta de curso" HorizontalAlignment="Left" Margin="398,150,0,0" VerticalAlignment="Top" Checked="checkBox_Checked"/>
-        <CheckBox x:Name="checkBox_Copy7" Content="consulta de profesores por curso" HorizontalAlignment="Left" Margin="398,170,0,0" VerticalAlignment="Top" Checked="checkBox_Checked"/>
-        <CheckBox x:Name="checkBox_Copy8" Content="Informe parcial de notas" HorizontalAlignment="Left" Margin="398,190,0,0" VerticalAlignment="Top" Checked="checkBox_Checked"/>
+        <CheckBox x:Name="cbPerfiles" Content="Perfiles" HorizontalAlignment="Left" Margin="59,142,0,0" VerticalAlignment="Top" />
+        <CheckBox x:Name="cbUsuarios" Content="Usuarios" HorizontalAlignment="Left" Margin="59,162,0,0" VerticalAlignment="Top" />
+        <CheckBox x:Name="cbCursos" Content="Cursos" HorizontalAlignment="Left" Margin="59,182,0,0" VerticalAlignment="Top" />
+        <CheckBox x:Name="cbProfesores" Content="Profesores" HorizontalAlignment="Left" Margin="59,202,0,0" VerticalAlignment="Top" />
+        <CheckBox x:Name="cbEspecialidades" Content="Especialidades" HorizontalAlignment="Left" Margin="59,222,0,0" VerticalAlignment="Top" />
+        <CheckBox x:Name="cbIngNotAsig" Content="Ingreso de notas por asignatura" HorizontalAlignment="Left" Margin="189,145,0,0" VerticalAlignment="Top"/>
+        <CheckBox x:Name="cbIngNotAlum" Content="Ingreso de notas por alumno" HorizontalAlignment="Left" Margin="189,165,0,0" VerticalAlignment="Top"/>
+        <CheckBox x:Name="cbConsCur" Content="Consulta de curso" HorizontalAlignment="Left" Margin="417,150,0,0" VerticalAlignment="Top"/>
+        <CheckBox x:Name="cbConsProfCur" Content="Consulta de profesores por curso" HorizontalAlignment="Left" Margin="417,170,0,0" VerticalAlignment="Top" />
+        <CheckBox x:Name="cbInfParNot" Content="Informe parcial de notas" HorizontalAlignment="Left" Margin="417,190,0,0" VerticalAlignment="Top"/>
+        <Button x:Name="btnGuardar" Content="Guardar" HorizontalAlignment="Left" Margin="246,240,0,0" VerticalAlignment="Top"  Width="156" Height="34" Click="btnGuardar_Click"/>
     </Grid>
 </Page>
