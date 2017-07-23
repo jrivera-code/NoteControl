@@ -5,6 +5,7 @@ using System.Text;
 using System.Threading.Tasks;
 using NoteControl.Source.DataAccess.Source;
 using NoteControl.Source.MVVM.Model;
+using System.Windows.Forms;
 
 namespace NoteControl.Source.BusinessLogic
 {
@@ -17,6 +18,7 @@ namespace NoteControl.Source.BusinessLogic
         {
             try {
                 _da.crearPerfil(perfil);
+                MessageBox.Show("Perfil Creado Exitosamente!");
             } catch (Exception ex) {
                 throw;
             }

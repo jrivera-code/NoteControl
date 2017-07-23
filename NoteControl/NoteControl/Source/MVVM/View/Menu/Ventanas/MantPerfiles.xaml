@@ -38,9 +38,9 @@
     </ResourceDictionary>
     </Page.Resources>
 
-    <Grid Background="Transparent" Margin="0,0,-88,0">
+    <Grid Background="Transparent">
         <Label x:Name="NomPerfil" Content="Nombre de Perfil" HorizontalAlignment="Stretch" Margin="66,53,0,0" VerticalAlignment="Top"/>
-        <TextBox x:Name="txtperfil" HorizontalAlignment="Left" Height="23" Margin="200,53,0,0" TextWrapping="Wrap"  VerticalAlignment="Top" Width="231" />
+        <TextBox x:Name="txtPerfil" HorizontalAlignment="Left" Height="23" Margin="200,53,0,0" TextWrapping="Wrap"  VerticalAlignment="Top" Width="231" />
        
         <Label x:Name="NomPrivi" Content="Funcionalidades" HorizontalAlignment="Left" Margin="290,106,0,0" VerticalAlignment="Top" RenderTransformOrigin="0.5,0.5">
             <Label.RenderTransform>

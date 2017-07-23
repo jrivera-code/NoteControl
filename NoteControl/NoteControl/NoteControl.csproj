@@ -110,6 +110,7 @@
     <Compile Include="Source\MVVM\Model\PerfilPrivilegio.cs" />
     <Compile Include="Source\MVVM\Model\Privilegio.cs" />
     <Compile Include="Source\MVVM\Model\Usuario.cs" />
+    <Compile Include="Source\MVVM\ViewModel\MantPerfilesViewModel.cs" />
     <Compile Include="Source\MVVM\View\Menu\Ventanas\MantPerfiles.xaml.cs">
       <DependentUpon>MantPerfiles.xaml</DependentUpon>
     </Compile>
@@ -152,9 +153,7 @@
   <ItemGroup>
     <None Include="App.config" />
   </ItemGroup>
-  <ItemGroup>
-    <Folder Include="Source\MVVM\ViewModel\" />
-  </ItemGroup>
+  <ItemGroup />
   <ItemGroup>
     <Resource Include="Source\MVVM\View\Img\fondo.jpg" />
   </ItemGroup>

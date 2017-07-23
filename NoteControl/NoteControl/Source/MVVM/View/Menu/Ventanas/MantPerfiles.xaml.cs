@@ -1,10 +1,12 @@
-﻿using System;
+﻿using NoteControl.Source.BusinessLogic;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows;
 using System.Windows.Controls;
+using NoteControl.Source.MVVM.Model;
 using System.Windows.Data;
 using System.Windows.Documents;
 using System.Windows.Input;
@@ -12,6 +14,7 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
+using NoteControl.Source.MVVM.ViewModel;
 
 namespace NoteControl
 {
@@ -20,15 +23,19 @@ namespace NoteControl
     /// </summary>
     public partial class MantPerfiles : Page
     {
+        MantPerfilesViewModel mantPerfilesViewModel = new MantPerfilesViewModel();
         public MantPerfiles()
         {
             InitializeComponent();
+            base.DataContext = mantPerfilesViewModel;
         }
 
         private void btnGuardar_Click(object sender, RoutedEventArgs e)
         {
-            var text = cbPerfiles.IsChecked;
-            MessageBox.Show(text+"");
+          string perfil =  txtPerfil.Text;
+          BLPerfiles blPerfiles = new BLPerfiles();
+          blPerfiles.crearPerfil(new Perfil() {Nombre = perfil });
         }
+       
     }
 }

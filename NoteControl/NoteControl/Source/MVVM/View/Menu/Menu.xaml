@@ -21,7 +21,7 @@
                 <MenuItem x:Name="MenuItemCursos" Header="Cursos" HorizontalAlignment="Left" Width="160" Click="btnMenuItemCursos" RenderTransformOrigin="0.9,0.364" Height="22"/>
             </MenuItem>
         </Menu>
-        <Image Margin="-307,57,-297,-194" Name="fondo" VerticalAlignment="Stretch" HorizontalAlignment="Stretch" Source="C:\ProyectoGIT\NoteControl\NoteControl\Source\MVVM\View\Img\fondo.jpg" />
+       
         <Frame x:Name="Main" Margin="0,57,0,0" NavigationUIVisibility="Hidden" />
     </Grid>
 

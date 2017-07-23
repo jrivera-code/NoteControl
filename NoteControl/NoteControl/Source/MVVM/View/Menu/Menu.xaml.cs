@@ -27,6 +27,8 @@ namespace NoteControl
         public Menu(Usuario usuario) //recibe todo los datos del usuario logeado
         {
             InitializeComponent();
+            //imagen de fondo para el menu
+            this.Background = new ImageBrush(new BitmapImage(new Uri(@"pack://application:,,,/NoteControl;component/Source/MVVM/View/Img/fondo.jpg")));
         }
 
         private void btnMenuItemPerfiles(object sender, RoutedEventArgs e)
