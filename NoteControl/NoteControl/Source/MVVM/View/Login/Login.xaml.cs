@@ -48,6 +48,7 @@ namespace NoteControl
                 Usuario usuarioEncontrado = usuarios.First();
 
                 Menu menu = new Menu(usuarioEncontrado);
+               
                 menu.Show();
                 this.Close();
             }

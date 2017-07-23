@@ -4,6 +4,7 @@
         TextElement.FontWeight="Medium"
         TextElement.FontSize="14"
         FontFamily="pack://application:,,,/MaterialDesignThemes.Wpf;component/Resources/Roboto/#Roboto"
+        xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
         xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
@@ -11,27 +12,19 @@
         xmlns:local="clr-namespace:NoteControl"
         mc:Ignorable="d" 
         
-        Title="-- NoteControl --" Height="474.812" Width="941.433" Foreground="#FF001985">
+        Height="474.812" Width="941.433" WindowStyle="None">
 
-    <Grid>
-        <Grid.RowDefinitions>
-            <RowDefinition Height="43"></RowDefinition>
-            <RowDefinition/>
-        </Grid.RowDefinitions>
+    <DockPanel>
 
-
-        <Menu x:Name="_Menu"  HorizontalAlignment="Stretch" VerticalAlignment="Stretch" Grid.Row="0" >
+        <Menu x:Name="_Menu"  HorizontalAlignment="Stretch" VerticalAlignment="Stretch" Grid.Row="0" Margin="0,0,0,410" >
             <MenuItem Header="_Administrador">
                 <MenuItem x:Name="MenuItemPerfiles" Header="Perfiles" HorizontalAlignment="Left" Width="160" Click="btnMenuItemPerfiles" RenderTransformOrigin="0.9,0.364"/>
                 <MenuItem x:Name="MenuItemUsuarios" Header="Usuarios" HorizontalAlignment="Left" Width="160" Click="btnMenuItemUsuarios" RenderTransformOrigin="0.9,0.364" Height="22"/>
                 <MenuItem x:Name="MenuItemCursos" Header="Cursos" HorizontalAlignment="Left" Width="160" Click="btnMenuItemCursos" RenderTransformOrigin="0.9,0.364" Height="22"/>
             </MenuItem>
         </Menu>
-
-        <Frame x:Name="frmMenu" Grid.Row="1"  HorizontalAlignment="Stretch" VerticalAlignment="Stretch" Navigated="frmMenu_Navigated" Margin="0,0,0,-67"/>
-
-
-    </Grid>
+    </DockPanel>
+    
 </Window>
     
     
