@@ -19,9 +19,7 @@ using NoteControl.Source.MVVM.Model;
 
 namespace NoteControl
 {
-    /// <summary>
-    /// Lógica de interacción para MainWindow.xaml
-    /// </summary>
+    
     public partial class MainWindow : Window
     {
         NoteControlContext db = new NoteControlContext();
@@ -34,7 +32,9 @@ namespace NoteControl
         }
 
 
-        
+        /// <summary>
+        /// Boton aceptar, ingreso a sistema
+        /// </summary>
         private void btnAceptar(object sender, RoutedEventArgs e)
         {
             //trae el usuario que cumpla con la condicion
@@ -49,13 +49,14 @@ namespace NoteControl
 
                 Menu menu = new Menu(usuarioEncontrado);
                 menu.Show();
-                
+                this.Close();
             }
             else {
                 MessageBox.Show("El usuario o la password son incorrectas");
+              
             }
 
-            this.Close();
+           
         }
 
         private void btnsalir(object sender, RoutedEventArgs e)
