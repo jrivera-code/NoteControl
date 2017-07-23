@@ -64,5 +64,14 @@ namespace NoteControl
             MessageBox.Show("Gracias!");
             Close();
         }
+
+        private void txtPass_TextChanged(object sender, TextChangedEventArgs e)
+        {
+            // Set to no text.
+           // txtPass.Text = "";
+            // The password character is an asterisk.
+            //txtPass.PasswordChar = '*';
+           
+        }
     }
 }
