@@ -5,10 +5,41 @@
       xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
       xmlns:local="clr-namespace:NoteControl"
       mc:Ignorable="d"
-      Title="MantPerfiles" Height="284.211" Width="575.188">
+      Title="MantPerfiles" Height="284.211" Width="640.625">
 
-    <Grid Background="White" Margin="0,0,-88,0">
-        <Label x:Name="NomPerfil" Content="Nombre de Perfil" HorizontalAlignment="Left" Margin="66,53,0,0" VerticalAlignment="Top"/>
+    <Page.Resources>
+    <ResourceDictionary>
+        <ResourceDictionary.MergedDictionaries>
+            <!-- note you only need bring in these extra resource dictionaries when using non-default styles, so only bring them into your controls where the default style is not what you want -->
+            <ResourceDictionary Source="pack://application:,,,/MaterialDesignThemes.Wpf;component/Themes/MaterialDesignTheme.ComboBox.xaml" />
+            <ResourceDictionary Source="pack://application:,,,/MaterialDesignThemes.Wpf;component/Themes/MaterialDesignTheme.Slider.xaml" />
+            <ResourceDictionary Source="pack://application:,,,/MaterialDesignThemes.Wpf;component/Themes/MaterialDesignTheme.TextBox.xaml" />
+        </ResourceDictionary.MergedDictionaries>
+        <Style TargetType="{x:Type TextBox}" BasedOn="{StaticResource MaterialDesignTextBox}">
+            <Setter Property="Margin" Value="0 8 0 8" />
+        </Style>
+        <Style TargetType="{x:Type PasswordBox}" BasedOn="{StaticResource MaterialDesignPasswordBox}">
+            <Setter Property="Margin" Value="0 8 0 8" />
+        </Style>
+        <Style TargetType="{x:Type ComboBox}" BasedOn="{StaticResource MaterialDesignComboBox}">
+            <Setter Property="HorizontalAlignment" Value="Stretch" />
+            <Setter Property="Margin" Value="0 8 0 8" />
+        </Style>
+        <Style TargetType="{x:Type Viewbox}">
+            <Setter Property="Width" Value="18" />
+            <Setter Property="Height" Value="18" />
+            <Setter Property="Margin" Value="0 0 8 0" />
+            <Setter Property="VerticalAlignment" Value="Center" />
+        </Style>
+        <Style TargetType="{x:Type Slider}" BasedOn="{StaticResource MaterialDesignSlider}">
+            <Setter Property="Margin" Value="0 8 0 8" />
+        </Style>
+
+    </ResourceDictionary>
+    </Page.Resources>
+
+    <Grid Background="Transparent" Margin="0,0,-88,0">
+        <Label x:Name="NomPerfil" Content="Nombre de Perfil" HorizontalAlignment="Stretch" Margin="66,53,0,0" VerticalAlignment="Top"/>
         <TextBox x:Name="txtperfil" HorizontalAlignment="Left" Height="23" Margin="200,53,0,0" TextWrapping="Wrap"  VerticalAlignment="Top" Width="231" />
        
         <Label x:Name="NomPrivi" Content="Funcionalidades" HorizontalAlignment="Left" Margin="290,106,0,0" VerticalAlignment="Top" RenderTransformOrigin="0.5,0.5">

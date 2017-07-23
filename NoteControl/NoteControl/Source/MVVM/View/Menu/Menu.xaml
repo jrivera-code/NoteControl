@@ -1,6 +1,6 @@
 ﻿<Window x:Class="NoteControl.Menu"
         TextElement.Foreground="{DynamicResource MaterialDesignBody}"
-        Background="{DynamicResource MaterialDesignPaper}"
+        
         TextElement.FontWeight="Medium"
         TextElement.FontSize="14"
         FontFamily="pack://application:,,,/MaterialDesignThemes.Wpf;component/Resources/Roboto/#Roboto"
@@ -12,19 +12,19 @@
         xmlns:local="clr-namespace:NoteControl"
         mc:Ignorable="d" 
         
-        Height="474.812" Width="941.433" WindowStyle="None">
-
-    <DockPanel>
-
+        Height="474.812" Width="941.433" WindowStyle="None" Background="Transparent">
+    <Grid>
         <Menu x:Name="_Menu"  HorizontalAlignment="Stretch" VerticalAlignment="Stretch" Grid.Row="0" Margin="0,0,0,410" >
             <MenuItem Header="_Administrador">
-                <MenuItem x:Name="MenuItemPerfiles" Header="Perfiles" HorizontalAlignment="Left" Width="160" Click="btnMenuItemPerfiles" RenderTransformOrigin="0.9,0.364"/>
+                <MenuItem x:Name="MenuItemPerfiles" Header="Perfiles" HorizontalAlignment="Left" Width="160" Click="btnMenuItemPerfiles" RenderTransformOrigin="0.9,0.364" Height="22"/>
                 <MenuItem x:Name="MenuItemUsuarios" Header="Usuarios" HorizontalAlignment="Left" Width="160" Click="btnMenuItemUsuarios" RenderTransformOrigin="0.9,0.364" Height="22"/>
                 <MenuItem x:Name="MenuItemCursos" Header="Cursos" HorizontalAlignment="Left" Width="160" Click="btnMenuItemCursos" RenderTransformOrigin="0.9,0.364" Height="22"/>
             </MenuItem>
         </Menu>
-    </DockPanel>
-    
+        <Image Margin="-307,57,-297,-194" Name="fondo" VerticalAlignment="Stretch" HorizontalAlignment="Stretch" Source="C:\ProyectoGIT\NoteControl\NoteControl\Source\MVVM\View\Img\fondo.jpg" />
+        <Frame x:Name="Main" Margin="0,57,0,0" NavigationUIVisibility="Hidden" />
+    </Grid>
+
 </Window>
     
     

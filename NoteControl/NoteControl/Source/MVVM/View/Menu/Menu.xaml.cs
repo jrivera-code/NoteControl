@@ -31,23 +31,18 @@ namespace NoteControl
 
         private void btnMenuItemPerfiles(object sender, RoutedEventArgs e)
         {
-            MantPerfiles mp = new MantPerfiles();
-            frmMenu.Navigate(mp);
+            Main.Content = new MantPerfiles();
+          
         }
         private void btnMenuItemCursos(object sender, RoutedEventArgs e)
         {
-            MantPerfiles mp = new MantPerfiles();
-            frmMenu.Navigate(mp);
+            
         }
         private void btnMenuItemUsuarios(object sender, RoutedEventArgs e)
         {
-            MantUsuario musu = new MantUsuario();
-            frmMenu.Navigate(musu);
+            Main.Content = new MantUsuario();
         }
 
-        private void frmMenu_Navigated(object sender, NavigationEventArgs e)
-        {
-
-        }
+        
     }
 }
