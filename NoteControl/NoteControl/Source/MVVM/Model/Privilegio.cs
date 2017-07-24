@@ -9,7 +9,7 @@ namespace NoteControl.Source.MVVM.Model
    public class Privilegio
     {
         public int PrivilegioId { get; set; }
-        public int Nombre { get; set; }
+        public string Nombre { get; set; }
         public virtual List<PerfilPrivilegio> PerfilesPrivilegios { get; set; }
     }
 }

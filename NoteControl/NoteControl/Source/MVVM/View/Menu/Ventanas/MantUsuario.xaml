@@ -18,6 +18,7 @@
             </ResourceDictionary.MergedDictionaries>
             <Style TargetType="{x:Type TextBox}" BasedOn="{StaticResource MaterialDesignTextBox}">
                 <Setter Property="Margin" Value="0 8 0 8" />
+                <Setter Property="FontSize" Value="15" />
             </Style>
             <Style TargetType="{x:Type PasswordBox}" BasedOn="{StaticResource MaterialDesignPasswordBox}">
                 <Setter Property="Margin" Value="0 8 0 8" />

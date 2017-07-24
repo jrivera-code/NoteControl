@@ -5,23 +5,28 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Windows.Forms;
 
 namespace NoteControl.Source.BusinessLogic
 {
-    public class BLPrivilegios
+   public class BLPerfilPrivilegio
     {
-        DAPrivilegios _da = new DAPrivilegios();
-        //metodo para listar todos los privilegios
-        public List<Privilegio> listarPrivilegios()
+        DAPerfilPrivilegio _da = new DAPerfilPrivilegio();
+        public void crearRelacionPerfilPrivilegio(Perfil perfil, int indexPrivilegio)
         {
             try
             {
-                return _da.listarPrivilegios();
+               
+                _da.crearRelacionPerfilPrivilegio(perfil, indexPrivilegio);
+              
             }
             catch (Exception ex)
             {
-                throw;
+                MessageBox.Show(ex.Message);
             }
+
         }
+
+
     }
 }

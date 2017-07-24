@@ -26,7 +26,20 @@ namespace NoteControl
         public MainWindow()
         {
             //crea la base de datos si no existe
-            db.Database.CreateIfNotExists();
+            if (!db.Database.Exists()) {
+                string[] privilegios = { "Mantenedor de Perfiles", "Mantenedor de Usuarios","Mantenedor de Cursos",
+                "Mantenedor de Profesores","Mantenedor de Especialidades","Ingresar Notas por Asignatura",
+                "Ingresar Notas por Estudiante","Consulta de Alumnos por Cursos","Consulta de Profesores por Cursos",
+                "Generacion de Informes"};
+                db.Database.Create();
+                for (int i =0;i<privilegios.Length;i++) {
+                 db.Privilegios.Add(new Privilegio() { Nombre = privilegios[i] });
+                }
+                Perfil perfil = new Perfil() { Nombre = "Administrador" };
+                db.Perfiles.Add(perfil);
+                db.Usuarios.Add(new Usuario() { Nombre = "jmolina", Clave = "1234", Estado = 1, Perfiles = perfil });
+                db.SaveChanges();
+            }
 
             InitializeComponent();
         }

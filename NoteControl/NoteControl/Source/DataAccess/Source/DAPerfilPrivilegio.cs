@@ -7,21 +7,18 @@ using System.Threading.Tasks;
 
 namespace NoteControl.Source.DataAccess.Source
 {
-   public class DAPerfiles : IDisposable
+    public class DAPerfilPrivilegio
     {
         private readonly NoteControlContext _db = new NoteControlContext();
 
         //metodo para agregar un nuevo perfil
-        public void crearPerfil(Perfil perfil) {
-            _db.Perfiles.Add(perfil);
-            _db.SaveChanges();
-        }
-
-        //metodo para listar todos los perfil
-        public List<Perfil> listarPerfiles()
+        public void crearRelacionPerfilPrivilegio(Perfil perfil ,int indexPrivilegio)
         {
-            List<Perfil> lista = _db.Perfiles.ToList();
-            return lista;
+            PerfilPrivilegio perfilprivilegio = new PerfilPrivilegio();
+            perfilprivilegio.PerfilId = perfil.PerfilId;
+            perfilprivilegio.PrivilegioId = indexPrivilegio;
+            _db.PerfilesPrivilegios.Add(perfilprivilegio);
+            _db.SaveChanges();
         }
 
         public void Dispose()

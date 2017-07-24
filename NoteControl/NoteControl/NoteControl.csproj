@@ -97,21 +97,20 @@
       <SubType>Code</SubType>
     </Compile>
     <Compile Include="Source\BusinessLogic\BLPerfiles.cs" />
+    <Compile Include="Source\BusinessLogic\BLPerfilPrivilegio.cs" />
     <Compile Include="Source\BusinessLogic\BLPrivilegios.cs" />
     <Compile Include="Source\BusinessLogic\BLUsuarios.cs" />
-    <Compile Include="Source\DataAccess\Interfaces\IDAPerfiles.cs" />
-    <Compile Include="Source\DataAccess\Interfaces\IDAPrivilegios.cs" />
-    <Compile Include="Source\DataAccess\Interfaces\IDAUsuarios.cs" />
     <Compile Include="Source\DataAccess\NoteControlContext.cs" />
     <Compile Include="Source\DataAccess\Source\DAPerfiles.cs" />
+    <Compile Include="Source\DataAccess\Source\DAPerfilPrivilegio.cs" />
     <Compile Include="Source\DataAccess\Source\DAPrivilegios.cs" />
     <Compile Include="Source\DataAccess\Source\DAUsuarios.cs" />
     <Compile Include="Source\MVVM\Model\Perfil.cs" />
     <Compile Include="Source\MVVM\Model\PerfilPrivilegio.cs" />
     <Compile Include="Source\MVVM\Model\Privilegio.cs" />
     <Compile Include="Source\MVVM\Model\Usuario.cs" />
+    <Compile Include="Source\MVVM\ViewModel\Commands\CommandBinding.cs" />
     <Compile Include="Source\MVVM\ViewModel\MantPerfilesViewModel.cs" />
-    <Compile Include="Source\MVVM\ViewModel\RelayCommand.cs" />
     <Compile Include="Source\MVVM\View\Menu\Ventanas\MantPerfiles.xaml.cs">
       <DependentUpon>MantPerfiles.xaml</DependentUpon>
     </Compile>
