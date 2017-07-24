@@ -5,44 +5,52 @@
       xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
       xmlns:local="clr-namespace:NoteControl"
       mc:Ignorable="d"
-      Title="MantPerfiles" Height="284.211" Width="640.625">
+      Title="MantPerfiles" Height="700.000" Width="1200.000" >
 
     <Page.Resources>
-    <ResourceDictionary>
-        <ResourceDictionary.MergedDictionaries>
-            <!-- note you only need bring in these extra resource dictionaries when using non-default styles, so only bring them into your controls where the default style is not what you want -->
-            <ResourceDictionary Source="pack://application:,,,/MaterialDesignThemes.Wpf;component/Themes/MaterialDesignTheme.ComboBox.xaml" />
-            <ResourceDictionary Source="pack://application:,,,/MaterialDesignThemes.Wpf;component/Themes/MaterialDesignTheme.Slider.xaml" />
-            <ResourceDictionary Source="pack://application:,,,/MaterialDesignThemes.Wpf;component/Themes/MaterialDesignTheme.TextBox.xaml" />
-        </ResourceDictionary.MergedDictionaries>
-        <Style TargetType="{x:Type TextBox}" BasedOn="{StaticResource MaterialDesignTextBox}">
-            <Setter Property="Margin" Value="0 8 0 8" />
-        </Style>
-        <Style TargetType="{x:Type PasswordBox}" BasedOn="{StaticResource MaterialDesignPasswordBox}">
-            <Setter Property="Margin" Value="0 8 0 8" />
-        </Style>
-        <Style TargetType="{x:Type ComboBox}" BasedOn="{StaticResource MaterialDesignComboBox}">
-            <Setter Property="HorizontalAlignment" Value="Stretch" />
-            <Setter Property="Margin" Value="0 8 0 8" />
-        </Style>
-        <Style TargetType="{x:Type Viewbox}">
-            <Setter Property="Width" Value="18" />
-            <Setter Property="Height" Value="18" />
-            <Setter Property="Margin" Value="0 0 8 0" />
-            <Setter Property="VerticalAlignment" Value="Center" />
-        </Style>
-        <Style TargetType="{x:Type Slider}" BasedOn="{StaticResource MaterialDesignSlider}">
-            <Setter Property="Margin" Value="0 8 0 8" />
-        </Style>
+        <ResourceDictionary>
+            <ResourceDictionary.MergedDictionaries>
+                <!-- note you only need bring in these extra resource dictionaries when using non-default styles, so only bring them into your controls where the default style is not what you want -->
+                <ResourceDictionary Source="pack://application:,,,/MaterialDesignThemes.Wpf;component/Themes/MaterialDesignTheme.ComboBox.xaml" />
+                <ResourceDictionary Source="pack://application:,,,/MaterialDesignThemes.Wpf;component/Themes/MaterialDesignTheme.Slider.xaml" />
+                <ResourceDictionary Source="pack://application:,,,/MaterialDesignThemes.Wpf;component/Themes/MaterialDesignTheme.TextBox.xaml" />
+            </ResourceDictionary.MergedDictionaries>
+            <Style TargetType="{x:Type TextBox}" BasedOn="{StaticResource MaterialDesignTextBox}">
+                <Setter Property="Margin" Value="0 8 0 8" />
+            </Style>
+            <Style TargetType="{x:Type PasswordBox}" BasedOn="{StaticResource MaterialDesignPasswordBox}">
+                <Setter Property="Margin" Value="0 8 0 8" />
+            </Style>
+            <Style TargetType="{x:Type ComboBox}" BasedOn="{StaticResource MaterialDesignComboBox}">
+                <Setter Property="HorizontalAlignment" Value="Stretch" />
+                <Setter Property="Margin" Value="0 8 0 8" />
+            </Style>
+            <Style TargetType="{x:Type Viewbox}">
+                <Setter Property="Width" Value="18" />
+                <Setter Property="Height" Value="18" />
+                <Setter Property="Margin" Value="0 0 8 0" />
+                <Setter Property="VerticalAlignment" Value="Center" />
+            </Style>
+            <Style TargetType="{x:Type Slider}" BasedOn="{StaticResource MaterialDesignSlider}">
+                <Setter Property="Margin" Value="0 8 0 8" />
+            </Style>
 
-    </ResourceDictionary>
+        </ResourceDictionary>
     </Page.Resources>
 
-    <Grid Background="Transparent">
-        <Label x:Name="NomPerfil" Content="Nombre de Perfil" HorizontalAlignment="Stretch" Margin="66,53,0,0" VerticalAlignment="Top"/>
-        <TextBox x:Name="txtPerfil" HorizontalAlignment="Left" Height="23" Margin="200,53,0,0" TextWrapping="Wrap"  VerticalAlignment="Top" Width="231" />
-       
-        <Label x:Name="NomPrivi" Content="Funcionalidades" HorizontalAlignment="Left" Margin="290,106,0,0" VerticalAlignment="Top" RenderTransformOrigin="0.5,0.5">
+    <Grid Background="Transparent" Height="750" VerticalAlignment="Bottom">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="108*"/>
+            <RowDefinition Height="197*"/>
+            <RowDefinition Height="445*"/>
+        </Grid.RowDefinitions>
+
+        <Grid.ColumnDefinitions></Grid.ColumnDefinitions>
+        <Label x:Name="NomPerfil" HorizontalAlignment="Center" Content="Nombre de Perfil"  Grid.Row="0" Margin="454,39,646,36" Width="100"  />
+        <TextBox x:Name="txtPerfil" Grid.Row="0" TextWrapping="Wrap" Margin="560,40,409,45" />
+
+
+        <Label x:Name="NomPrivi" Content="Funcionalidades" HorizontalAlignment="Left" Margin="494,13,0,0" VerticalAlignment="Top" RenderTransformOrigin="0.5,0.5" Grid.Row="1" Height="26" Width="95">
             <Label.RenderTransform>
                 <TransformGroup>
                     <ScaleTransform/>
@@ -52,16 +60,17 @@
                 </TransformGroup>
             </Label.RenderTransform>
         </Label>
-        <CheckBox x:Name="cbPerfiles" Content="Perfiles" HorizontalAlignment="Left" Margin="59,142,0,0" VerticalAlignment="Top" />
-        <CheckBox x:Name="cbUsuarios" Content="Usuarios" HorizontalAlignment="Left" Margin="59,162,0,0" VerticalAlignment="Top" />
-        <CheckBox x:Name="cbCursos" Content="Cursos" HorizontalAlignment="Left" Margin="59,182,0,0" VerticalAlignment="Top" />
-        <CheckBox x:Name="cbProfesores" Content="Profesores" HorizontalAlignment="Left" Margin="59,202,0,0" VerticalAlignment="Top" />
-        <CheckBox x:Name="cbEspecialidades" Content="Especialidades" HorizontalAlignment="Left" Margin="59,222,0,0" VerticalAlignment="Top" />
-        <CheckBox x:Name="cbIngNotAsig" Content="Ingreso de notas por asignatura" HorizontalAlignment="Left" Margin="189,145,0,0" VerticalAlignment="Top"/>
-        <CheckBox x:Name="cbIngNotAlum" Content="Ingreso de notas por alumno" HorizontalAlignment="Left" Margin="189,165,0,0" VerticalAlignment="Top"/>
-        <CheckBox x:Name="cbConsCur" Content="Consulta de curso" HorizontalAlignment="Left" Margin="417,150,0,0" VerticalAlignment="Top"/>
-        <CheckBox x:Name="cbConsProfCur" Content="Consulta de profesores por curso" HorizontalAlignment="Left" Margin="417,170,0,0" VerticalAlignment="Top" />
-        <CheckBox x:Name="cbInfParNot" Content="Informe parcial de notas" HorizontalAlignment="Left" Margin="417,190,0,0" VerticalAlignment="Top"/>
-        <Button x:Name="btnGuardar" Content="Guardar" HorizontalAlignment="Left" Margin="246,240,0,0" VerticalAlignment="Top"  Width="156" Height="34" Click="btnGuardar_Click"/>
+        <CheckBox x:Name="cbPerfiles" Content="Perfiles" HorizontalAlignment="Left" Margin="143,70,0,0" VerticalAlignment="Top" Grid.Row="1" Height="18" Width="60" />
+        <CheckBox x:Name="cbUsuarios" Content="Usuarios" HorizontalAlignment="Left" Margin="143,90,0,0" VerticalAlignment="Top" Grid.Row="1" Height="18" Width="67" />
+        <CheckBox x:Name="cbCursos" Content="Cursos" HorizontalAlignment="Left" Margin="143,110,0,0" VerticalAlignment="Top" Grid.Row="1" Height="18" Width="58" />
+        <CheckBox x:Name="cbProfesores" Content="Profesores" HorizontalAlignment="Left" Margin="143,132,0,0" VerticalAlignment="Top" Grid.Row="1" Height="18" Width="78" />
+        <CheckBox x:Name="cbEspecialidades" Content="Especialidades" HorizontalAlignment="Left" Margin="143,154,0,0" VerticalAlignment="Top" Grid.Row="1" Height="18" Width="98" />
+        <CheckBox x:Name="cbIngNotAsig" Content="Ingreso de notas por asignatura" HorizontalAlignment="Left" Margin="420,70,0,0" VerticalAlignment="Top" Grid.Row="1" Height="18" Width="191"/>
+        <CheckBox x:Name="cbIngNotAlum" Content="Ingreso de notas por alumno" HorizontalAlignment="Left" Margin="420,90,0,0" VerticalAlignment="Top" Grid.Row="1" Height="18" Width="175"/>
+        <CheckBox x:Name="cbConsCur" Content="Consulta de curso" HorizontalAlignment="Left" Margin="792,69,0,0" VerticalAlignment="Top" Grid.Row="1" Height="18" Width="117"/>
+        <CheckBox x:Name="cbConsProfCur" Content="Consulta de profesores por curso" HorizontalAlignment="Left" Margin="792,89,0,0" VerticalAlignment="Top" Grid.Row="1" Height="18" Width="198" />
+        <CheckBox x:Name="cbInfParNot" Content="Informe parcial de notas" HorizontalAlignment="Left" Margin="792,109,0,0" VerticalAlignment="Top" Grid.Row="1" Height="18" Width="151"/>
+        <Button x:Name="btnGuardar" Content="Guardar" HorizontalAlignment="Left" Margin="483,154,0,0" VerticalAlignment="Top"  Width="156" Height="34" Command="{Binding ButtonCommand}" Grid.Row="1"/>
+        <Grid HorizontalAlignment="Left" Height="304" Margin="60,42,0,0" Grid.Row="2" VerticalAlignment="Top" Width="1087" Background="{DynamicResource {x:Static SystemColors.HighlightTextBrushKey}}"/>
     </Grid>
 </Page>

@@ -111,6 +111,7 @@
     <Compile Include="Source\MVVM\Model\Privilegio.cs" />
     <Compile Include="Source\MVVM\Model\Usuario.cs" />
     <Compile Include="Source\MVVM\ViewModel\MantPerfilesViewModel.cs" />
+    <Compile Include="Source\MVVM\ViewModel\RelayCommand.cs" />
     <Compile Include="Source\MVVM\View\Menu\Ventanas\MantPerfiles.xaml.cs">
       <DependentUpon>MantPerfiles.xaml</DependentUpon>
     </Compile>

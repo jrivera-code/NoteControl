@@ -29,13 +29,20 @@ namespace NoteControl
             InitializeComponent();
             base.DataContext = mantPerfilesViewModel;
         }
+           public ICommand ButtonCommand { get; set; }
 
+       
+        private void MainButtonClick(object sender)
+        {
+            MessageBox.Show(sender.ToString());            
+        }
+    /*
         private void btnGuardar_Click(object sender, RoutedEventArgs e)
         {
           string perfil =  txtPerfil.Text;
           BLPerfiles blPerfiles = new BLPerfiles();
           blPerfiles.crearPerfil(new Perfil() {Nombre = perfil });
         }
-       
+       */
     }
 }
