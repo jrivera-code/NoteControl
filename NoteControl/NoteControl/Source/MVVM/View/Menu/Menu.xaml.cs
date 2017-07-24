@@ -15,10 +15,11 @@ using NoteControl.Source.DataAccess;
 using System.Windows;
 using NoteControl.Source.MVVM.Model;
 
+
 namespace NoteControl
 {
     /// <summary>
-    /// Lógica de interacción para Contenedor.xaml
+    /// Menu que alojara las paginas del sistema
     /// </summary>
     public partial class Menu : Window
     {
@@ -38,13 +39,28 @@ namespace NoteControl
         }
         private void btnMenuItemCursos(object sender, RoutedEventArgs e)
         {
-            
-        }
-        private void btnMenuItemUsuarios(object sender, RoutedEventArgs e)
+			Main.Content = new MantCurso();
+
+		}
+		private void btnMenuItemUsuarios(object sender, RoutedEventArgs e)
         {
             Main.Content = new MantUsuario();
         }
 
-        
-    }
+		private void btnSalir(object sender, RoutedEventArgs e)
+		{
+
+			if (MessageBox.Show("Seguro desea salir", "--.Salir.--", MessageBoxButton.YesNo) == MessageBoxResult.Yes)
+			{
+				this.Close();
+			}
+			else
+			{
+			//Vuelve al sistema
+			}
+
+
+			
+		}
+	}
 }
