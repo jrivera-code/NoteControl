@@ -45,7 +45,7 @@
 	<Grid Background="Transparent" HorizontalAlignment="Left" Width="1059" Margin="0,0,0,-42">
 		<Label x:Name="NomUsuario" Content="Nombre Usuario" Foreground="White" FontFamily="Kristen ITC" HorizontalAlignment="Left" Margin="66,53,0,0" VerticalAlignment="Top"  FontWeight="Bold" FontSize="20"  />
 
-		<TextBox x:Name="txtusuario" Foreground="White" HorizontalAlignment="Left" Height="23" Margin="256,53,0,0" TextWrapping="Wrap"  VerticalAlignment="Top" Width="231" FontSize="20" />
+		<TextBox x:Name="txtusuario" Foreground="White" HorizontalAlignment="Left" Height="46" Margin="256,44,0,0" TextWrapping="Wrap"  VerticalAlignment="Top" Width="231" FontSize="20" />
 
 		<Label x:Name="nomPassw" Foreground="White" Content="Clave : " HorizontalAlignment="Left" Margin="66,98,0,0" VerticalAlignment="Top" FontFamily="Kristen ITC" FontWeight="Bold" FontSize="20" />
 		<PasswordBox x:Name="passwordBox" Foreground="White" HorizontalAlignment="Left" Margin="256,99,0,0" VerticalAlignment="Top" Width="231" FontSize="20"/>
@@ -56,9 +56,10 @@
 			<ComboBoxItem Content="Activo" HorizontalAlignment="Left" Width="92"/>
 			<ComboBoxItem Content="Desactivado" HorizontalAlignment="Left" Width="92"/>
 		</ComboBox>
-		<Button x:Name="btnGuardar" Content="Guardar" HorizontalAlignment="Left" Margin="555,102,0,0" VerticalAlignment="Top" Width="121"/>
-		<Button x:Name="btnmodificar" Content="Modificar" HorizontalAlignment="Left" Margin="751,98,0,0" VerticalAlignment="Top" Width="121"/>
-		<DataGrid x:Name="dataGrid" HorizontalAlignment="Left" Margin="166,276,0,0" VerticalAlignment="Top" Height="299" Width="706"/>
+		<Button x:Name="btnsave" Content="Guardar" HorizontalAlignment="Left" Margin="596,58,0,0" VerticalAlignment="Top" Width="121"/>
+        <Button x:Name="btndelete" Content="Eliminar" HorizontalAlignment="Left" Margin="751,57,0,0" VerticalAlignment="Top" Width="121"/>
+        <Button x:Name="btnupdate" Content="Modificar" HorizontalAlignment="Left" Margin="751,124,0,0" VerticalAlignment="Top" Width="121"/>
+		<DataGrid x:Name="dataGrid" HorizontalAlignment="Left" Margin="66,320,0,0" VerticalAlignment="Top" Height="299" Width="806"/>
 
 	</Grid>
 </Page>

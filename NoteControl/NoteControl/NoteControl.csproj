@@ -80,7 +80,15 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
+    <Page Include="Source\MVVM\View\Menu\Ventanas\MantEspecialidades.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="Source\MVVM\View\Menu\Ventanas\MantPerfiles.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Source\MVVM\View\Menu\Ventanas\MantProfe.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -118,8 +126,14 @@
     <Compile Include="Source\MVVM\View\Menu\Ventanas\MantCurso.xaml.cs">
       <DependentUpon>MantCurso.xaml</DependentUpon>
     </Compile>
+    <Compile Include="Source\MVVM\View\Menu\Ventanas\MantEspecialidades.xaml.cs">
+      <DependentUpon>MantEspecialidades.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Source\MVVM\View\Menu\Ventanas\MantPerfiles.xaml.cs">
       <DependentUpon>MantPerfiles.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Source\MVVM\View\Menu\Ventanas\MantProfe.xaml.cs">
+      <DependentUpon>MantProfe.xaml</DependentUpon>
     </Compile>
     <Compile Include="Source\MVVM\View\Menu\Ventanas\MantUsuario.xaml.cs">
       <DependentUpon>MantUsuario.xaml</DependentUpon>

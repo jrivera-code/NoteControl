@@ -47,7 +47,17 @@ namespace NoteControl
             Main.Content = new MantUsuario();
         }
 
-		private void btnSalir(object sender, RoutedEventArgs e)
+        private void btnMenuItemEspe(object sender, RoutedEventArgs e)
+        {
+            Main.Content = new MantEspecialidades();
+        }
+        private void btnMenuItemProfe(object sender, RoutedEventArgs e)
+        {
+            Main.Content = new MantProfe();
+        }
+
+
+        private void btnSalir(object sender, RoutedEventArgs e)
 		{
 
 			if (MessageBox.Show("Seguro desea salir", "--.Salir.--", MessageBoxButton.YesNo) == MessageBoxResult.Yes)
@@ -62,5 +72,7 @@ namespace NoteControl
 
 			
 		}
-	}
+
+       
+    }
 }
