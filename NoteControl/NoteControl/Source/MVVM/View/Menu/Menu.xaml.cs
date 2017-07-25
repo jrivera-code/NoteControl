@@ -14,7 +14,7 @@ using System.Windows.Navigation;
 using NoteControl.Source.DataAccess;
 using System.Windows;
 using NoteControl.Source.MVVM.Model;
-
+using NoteControl.Source.MVVM.ViewModel;
 
 namespace NoteControl
 {
@@ -24,16 +24,13 @@ namespace NoteControl
     public partial class Menu : Window
     {
 
-    
+        MenuViewModel menuViewModel = new MenuViewModel(); 
         public Menu(Usuario usuario) //recibe todo los datos del usuario logeado
         {
+           
             InitializeComponent();
-            
-            MenuItem menuItem = new MenuItem() {Header = "_Mantenedores" };
-            menuItem.Items.Add("jij");
-            menuItem.Items.Add("jij");
-            menuItem.Items.Add("jij");
-            _Menu.Items.Add(menuItem);
+            // listarPrivilegiosDelPerfil(usuario.Perfiles);
+            base.DataContext = menuViewModel;
             //imagen de fondo para el menu
             this.Background = new ImageBrush(new BitmapImage(new Uri(@"pack://application:,,,/NoteControl;component/Source/MVVM/View/Img/pizarron.png")));
         }
@@ -79,6 +76,9 @@ namespace NoteControl
 			
 		}
 
-       
+        private void _Menu_PreviewExecuted(object sender, ExecutedRoutedEventArgs e)
+        {
+
+        }
     }
 }

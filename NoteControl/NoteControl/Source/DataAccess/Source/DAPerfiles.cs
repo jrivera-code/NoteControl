@@ -23,7 +23,21 @@ namespace NoteControl.Source.DataAccess.Source
             List<Perfil> lista = _db.Perfiles.ToList();
             return lista;
         }
-
+        public List<Privilegio> listarPrivilegiosDelPerfil(Perfil perfilUsuario)
+        {
+            List<Privilegio> list = new List<Privilegio>();
+            var query = from privilegios in _db.Privilegios
+                                     join perfilprivilegio in _db.PerfilesPrivilegios on privilegios.PrivilegioId
+                                     equals perfilprivilegio.PerfilPrivilegiosId
+                                     join perfiles in _db.Perfiles on perfilprivilegio.PerfilPrivilegiosId
+                                     equals perfiles.PerfilId
+                                     where perfiles.PerfilId == perfilUsuario.PerfilId
+                                     select privilegios;
+            foreach (Privilegio privi in query) {
+                list.Add(privi);
+            }
+            return list;
+        }
         public void Dispose()
         {
             _db.Dispose();

@@ -22,7 +22,14 @@ namespace NoteControl.Source.DataAccess.Source
                            where (user.Nombre == userName
                            && user.Clave == password)
                            select user;
-            usuarioEncontrado = usuario.First();
+            if (usuario.Count() != 0) {
+                usuarioEncontrado = usuario.First();
+                return true;
+            }
+            else{
+                return false;
+            }
+          
             return (usuario.Count() != 0) ? true : false;
         }
 

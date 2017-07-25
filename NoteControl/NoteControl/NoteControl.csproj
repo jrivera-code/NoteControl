@@ -119,12 +119,15 @@
     <Compile Include="Source\DataAccess\Source\DAPerfilPrivilegio.cs" />
     <Compile Include="Source\DataAccess\Source\DAPrivilegios.cs" />
     <Compile Include="Source\DataAccess\Source\DAUsuarios.cs" />
+    <Compile Include="Source\MVVM\Model\ControlsModel\MenulModel.cs" />
     <Compile Include="Source\MVVM\Model\Perfil.cs" />
     <Compile Include="Source\MVVM\Model\PerfilPrivilegio.cs" />
     <Compile Include="Source\MVVM\Model\Privilegio.cs" />
     <Compile Include="Source\MVVM\Model\Usuario.cs" />
     <Compile Include="Source\MVVM\ViewModel\Commands\CommandBinding.cs" />
+    <Compile Include="Source\MVVM\ViewModel\Commands\RelayCommand.cs" />
     <Compile Include="Source\MVVM\ViewModel\MantPerfilesViewModel.cs" />
+    <Compile Include="Source\MVVM\ViewModel\MenuViewModel.cs" />
     <Compile Include="Source\MVVM\View\Menu\Ventanas\MantCurso.xaml.cs">
       <DependentUpon>MantCurso.xaml</DependentUpon>
     </Compile>
@@ -174,7 +177,9 @@
     <AppDesigner Include="Properties\" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="App.config" />
+    <None Include="App.config">
+      <SubType>Designer</SubType>
+    </None>
   </ItemGroup>
   <ItemGroup>
     <Resource Include="Source\MVVM\View\Img\pizarron.png" />

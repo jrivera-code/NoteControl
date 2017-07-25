@@ -9,6 +9,7 @@ namespace NoteControl.Source.DataAccess.Source
    public class DAUsuarios : IDisposable
     {
         private readonly NoteControlContext _db = new NoteControlContext();
+        
         public void Dispose()
         {
             _db.Dispose();
