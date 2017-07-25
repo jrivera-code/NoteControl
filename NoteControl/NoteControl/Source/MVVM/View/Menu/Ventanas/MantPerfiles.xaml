@@ -46,20 +46,20 @@
         </ResourceDictionary>
     </Page.Resources>
 
-    <Grid Background="Transparent" Height="702" VerticalAlignment="Bottom" Margin="0,-2,0,0">
+    <Grid Background="Transparent" Height="702" VerticalAlignment="Bottom" Margin="0,0,0,-3">
 
 
 
         <Grid.RowDefinitions>
-            <RowDefinition Height="101*"/>
-            <RowDefinition Height="206*"/>
-            <RowDefinition Height="395*"/>
+            <RowDefinition Height="158*"/>
+            <RowDefinition Height="285*"/>
+            <RowDefinition Height="259*"/>
         </Grid.RowDefinitions>
-        <Label x:Name="NomPerfil" Grid.Row="0" Foreground="White" FontFamily="Kristen ITC" FontSize="20" Content="Nombre de Perfil"  Margin="370,39,646,12"  />
-        <TextBox x:Name="txtPerfil" Text="{Binding TextBoxPerfil}" Foreground="White" FontFamily="Kristen ITC" Grid.Row="0" TextWrapping="Wrap" FontSize="20" Margin="560,19,409,30" />
+        <Label x:Name="NomPerfil" Grid.Row="0" Foreground="White" FontFamily="Kristen ITC" FontSize="20" Content="Nombre de Perfil"  Margin="341,70,675,45"  />
+        <TextBox x:Name="txtPerfil" Text="{Binding TextBoxPerfil}" Foreground="White" FontFamily="Kristen ITC" Grid.Row="0" TextWrapping="Wrap" FontSize="20" Margin="560,70,409,57" RenderTransformOrigin="0.472,-0.419" />
 
 
-        <Label x:Name="NomPrivi" Content="Funcionalidades" Foreground="White" FontFamily="Kristen ITC" HorizontalAlignment="Left" Margin="494,14,0,0" VerticalAlignment="Top" RenderTransformOrigin="0.5,0.5" FontSize="20" Grid.Row="1" Height="41" Width="189">
+        <Label x:Name="NomPrivi" Content="Funcionalidades" Foreground="White" FontFamily="Kristen ITC" HorizontalAlignment="Left" Margin="494,6,0,0" VerticalAlignment="Top" RenderTransformOrigin="0.5,0.5" FontSize="20" Height="41" Width="189" Grid.Row="1">
             <Label.RenderTransform>
                 <TransformGroup>
                     <ScaleTransform/>
@@ -69,16 +69,16 @@
                 </TransformGroup>
             </Label.RenderTransform>
         </Label>
-        <CheckBox x:Name="cbPerfiles" Tag="1" Foreground="White" FontFamily="Kristen ITC"  IsChecked="{Binding Path=IsSelectedOne, Mode=TwoWay}" Content="Perfiles" HorizontalAlignment="Left" Margin="143,70,0,0" VerticalAlignment="Top" Grid.Row="1" Height="29" Width="97" />
-        <CheckBox x:Name="cbUsuarios" Tag="2" Foreground="White" FontFamily="Kristen ITC" IsChecked="{Binding Path=IsSelectedTwo, Mode=TwoWay}" Content="Usuarios" HorizontalAlignment="Left" Margin="143,90,0,0" VerticalAlignment="Top" Grid.Row="1" Height="29" Width="108" />
-        <CheckBox x:Name="cbCursos" Tag="3" Foreground="White" FontFamily="Kristen ITC" IsChecked="{Binding Path=IsSelectedThree, Mode=TwoWay}" Content="Cursos" HorizontalAlignment="Left" Margin="143,110,0,0" VerticalAlignment="Top" Grid.Row="1" Height="29" Width="91"  />
-        <CheckBox x:Name="cbProfesores" Tag="4" Foreground="White" FontFamily="Kristen ITC" IsChecked="{Binding Path=IsSelectedFour, Mode=TwoWay}" Content="Profesores" HorizontalAlignment="Left" Margin="143,132,0,0" VerticalAlignment="Top" Grid.Row="1" Height="29" Width="129"/>
-        <CheckBox x:Name="cbEspecialidades" Foreground="White" FontFamily="Kristen ITC" Tag="5" IsChecked="{Binding Path=IsSelectedFive, Mode=TwoWay}" Content="Especialidades" HorizontalAlignment="Left" Margin="143,154,0,0" VerticalAlignment="Top" Grid.Row="1" Height="29" Width="165"  />
-        <CheckBox x:Name="cbIngNotAsig" Foreground="White" FontFamily="Kristen ITC" Tag="6" IsChecked="{Binding Path=IsSelectedSix, Mode=TwoWay}" Content="Ingreso de notas por asignatura" HorizontalAlignment="Left" Margin="420,70,0,0" VerticalAlignment="Top" Grid.Row="1" Height="29" Width="330"/>
-        <CheckBox x:Name="cbIngNotAlum" Foreground="White" FontFamily="Kristen ITC" Tag="7" IsChecked="{Binding Path=IsSelectedSeven, Mode=TwoWay}" Content="Ingreso de notas por alumno" HorizontalAlignment="Left" Margin="420,90,0,0" VerticalAlignment="Top" Grid.Row="1" Height="29" Width="299"/>
-        <CheckBox x:Name="cbConsCur" Foreground="White" FontFamily="Kristen ITC" Tag="8" IsChecked="{Binding Path=IsSelectedEigth, Mode=TwoWay}" Content="Consulta de curso" HorizontalAlignment="Left" Margin="792,69,0,0" VerticalAlignment="Top" Grid.Row="1" Height="29" Width="202" />
-        <CheckBox x:Name="cbConsProfCur" Foreground="White" FontFamily="Kristen ITC" Tag="9" IsChecked="{Binding Path=IsSelectedNine, Mode=TwoWay}" Content="Consulta de profesores por curso" HorizontalAlignment="Left" Margin="792,89,0,0" VerticalAlignment="Top" Grid.Row="1" Height="29" Width="352"  />
-        <CheckBox x:Name="cbInfParNot" Foreground="White" FontFamily="Kristen ITC" Tag="10" IsChecked="{Binding Path=IsSelectedTen, Mode=TwoWay}" Content="Informe parcial de notas" HorizontalAlignment="Left" Margin="792,117,0,0" VerticalAlignment="Top" Grid.Row="1" Height="29" Width="262" />
-        <Button x:Name="btnGuardar" Content="Guardar"  HorizontalAlignment="Left" Margin="483,154,0,0" VerticalAlignment="Top"  Width="156" Height="34" Command="{Binding ButtonClick}" Grid.Row="1"/>
+        <CheckBox x:Name="cbPerfiles" Tag="1" Foreground="White" FontFamily="Kristen ITC"  IsChecked="{Binding Path=IsSelectedOne, Mode=TwoWay}" Content="Perfiles" HorizontalAlignment="Left" Margin="113,112,0,0" VerticalAlignment="Top" Grid.Row="1" Height="29" Width="97" />
+        <CheckBox x:Name="cbUsuarios" Tag="2" Foreground="White" FontFamily="Kristen ITC" IsChecked="{Binding Path=IsSelectedTwo, Mode=TwoWay}" Content="Usuarios" HorizontalAlignment="Left" Margin="113,142,0,0" VerticalAlignment="Top" Grid.Row="1" Height="29" Width="108" />
+        <CheckBox x:Name="cbCursos" Tag="3" Foreground="White" FontFamily="Kristen ITC" IsChecked="{Binding Path=IsSelectedThree, Mode=TwoWay}" Content="Cursos" HorizontalAlignment="Left" Margin="113,172,0,0" VerticalAlignment="Top" Grid.Row="1" Height="29" Width="91"  />
+        <CheckBox x:Name="cbProfesores" Tag="4" Foreground="White" FontFamily="Kristen ITC" IsChecked="{Binding Path=IsSelectedFour, Mode=TwoWay}" Content="Profesores" HorizontalAlignment="Left" Margin="113,202,0,0" VerticalAlignment="Top" Grid.Row="1" Height="29" Width="129"/>
+        <CheckBox x:Name="cbEspecialidades" Foreground="White" FontFamily="Kristen ITC" Tag="5" IsChecked="{Binding Path=IsSelectedFive, Mode=TwoWay}" Content="Especialidades" HorizontalAlignment="Left" Margin="113,232,0,0" VerticalAlignment="Top" Grid.Row="1" Height="29" Width="165"  />
+        <CheckBox x:Name="cbIngNotAsig" Foreground="White" FontFamily="Kristen ITC" Tag="6" IsChecked="{Binding Path=IsSelectedSix, Mode=TwoWay}" Content="Ingreso de notas por asignatura" HorizontalAlignment="Left" Margin="390,114,0,0" VerticalAlignment="Top" Grid.Row="1" Height="29" Width="330"/>
+        <CheckBox x:Name="cbIngNotAlum" Foreground="White" FontFamily="Kristen ITC" Tag="7" IsChecked="{Binding Path=IsSelectedSeven, Mode=TwoWay}" Content="Ingreso de notas por alumno" HorizontalAlignment="Left" Margin="390,143,0,0" VerticalAlignment="Top" Grid.Row="1" Height="29" Width="299"/>
+        <CheckBox x:Name="cbConsCur" Foreground="White" FontFamily="Kristen ITC" Tag="8" IsChecked="{Binding Path=IsSelectedEigth, Mode=TwoWay}" Content="Consulta de curso" HorizontalAlignment="Left" Margin="762,114,0,0" VerticalAlignment="Top" Grid.Row="1" Height="29" Width="202" />
+        <CheckBox x:Name="cbConsProfCur" Foreground="White" FontFamily="Kristen ITC" Tag="9" IsChecked="{Binding Path=IsSelectedNine, Mode=TwoWay}" Content="Consulta de profesores por curso" HorizontalAlignment="Left" Margin="762,143,0,0" VerticalAlignment="Top" Grid.Row="1" Height="29" Width="352"  />
+        <CheckBox x:Name="cbInfParNot" Foreground="White" FontFamily="Kristen ITC" Tag="10" IsChecked="{Binding Path=IsSelectedTen, Mode=TwoWay}" Content="Informe parcial de notas" HorizontalAlignment="Left" Margin="762,173,0,0" VerticalAlignment="Top" Grid.Row="1" Height="29" Width="262" />
+        <Button x:Name="btnGuardar" Content="Guardar"  HorizontalAlignment="Left" Margin="510,5,0,0" VerticalAlignment="Top"  Width="156" Height="34" Command="{Binding ButtonClick}" Grid.Row="2"/>
     </Grid>
 </Page>

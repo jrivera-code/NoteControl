@@ -16,6 +16,7 @@ using System.Configuration;
 using System.Data.SqlClient;
 using NoteControl.Source.DataAccess;
 using NoteControl.Source.MVVM.Model;
+using NoteControl.Source.BusinessLogic;
 
 namespace NoteControl
 {
@@ -23,6 +24,7 @@ namespace NoteControl
     public partial class MainWindow : Window
     {
         NoteControlContext db = new NoteControlContext();
+        BLLogin blLogin = new BLLogin();
         public MainWindow()
         {
             //crea la base de datos si no existe
@@ -50,18 +52,11 @@ namespace NoteControl
         /// </summary>
         private void btnAceptar(object sender, RoutedEventArgs e)
         {
-            //trae el usuario que cumpla con la condicion
-            var usuarios = from user in db.Usuarios
-                                       where (user.Nombre == txtUsuario.Text
-                                       && user.Clave == txtPass.Password)
-                                       select user;
-        
-            if (usuarios.Count() != 0)
+            //pregunta su el usuario existe
+            if (blLogin.userExist(txtUsuario.Text,txtPass.Password))
             {
-                Usuario usuarioEncontrado = usuarios.First();
-
-                Menu menu = new Menu(usuarioEncontrado);
-               
+                //pasa el usuario encontrado al contructor del menu
+                Menu menu = new Menu(blLogin.getUser());
                 menu.Show();
                 this.Close();
             }

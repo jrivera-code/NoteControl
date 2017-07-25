@@ -108,11 +108,13 @@
       <DependentUpon>App.xaml</DependentUpon>
       <SubType>Code</SubType>
     </Compile>
+    <Compile Include="Source\BusinessLogic\BLLogin.cs" />
     <Compile Include="Source\BusinessLogic\BLPerfiles.cs" />
     <Compile Include="Source\BusinessLogic\BLPerfilPrivilegio.cs" />
     <Compile Include="Source\BusinessLogic\BLPrivilegios.cs" />
     <Compile Include="Source\BusinessLogic\BLUsuarios.cs" />
     <Compile Include="Source\DataAccess\NoteControlContext.cs" />
+    <Compile Include="Source\DataAccess\Source\DALogin.cs" />
     <Compile Include="Source\DataAccess\Source\DAPerfiles.cs" />
     <Compile Include="Source\DataAccess\Source\DAPerfilPrivilegio.cs" />
     <Compile Include="Source\DataAccess\Source\DAPrivilegios.cs" />
@@ -174,9 +176,8 @@
   <ItemGroup>
     <None Include="App.config" />
   </ItemGroup>
-  <ItemGroup />
   <ItemGroup>
-    <Resource Include="Source\MVVM\View\Img\fondo.jpg" />
+    <Resource Include="Source\MVVM\View\Img\pizarron.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

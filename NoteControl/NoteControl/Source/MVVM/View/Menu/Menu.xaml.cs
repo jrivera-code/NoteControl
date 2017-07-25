@@ -28,8 +28,14 @@ namespace NoteControl
         public Menu(Usuario usuario) //recibe todo los datos del usuario logeado
         {
             InitializeComponent();
+            
+            MenuItem menuItem = new MenuItem() {Header = "_Mantenedores" };
+            menuItem.Items.Add("jij");
+            menuItem.Items.Add("jij");
+            menuItem.Items.Add("jij");
+            _Menu.Items.Add(menuItem);
             //imagen de fondo para el menu
-            this.Background = new ImageBrush(new BitmapImage(new Uri(@"pack://application:,,,/NoteControl;component/Source/MVVM/View/Img/fondo.jpg")));
+            this.Background = new ImageBrush(new BitmapImage(new Uri(@"pack://application:,,,/NoteControl;component/Source/MVVM/View/Img/pizarron.png")));
         }
 
         private void btnMenuItemPerfiles(object sender, RoutedEventArgs e)
