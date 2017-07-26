@@ -76,6 +76,33 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
+    <Compile Include="Source\MVVM\View\Menu\Ventanas\ConAlumXCurso.xaml.cs">
+      <DependentUpon>ConAlumXCurso.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Source\MVVM\View\Menu\Ventanas\ConProfXCurso.xaml.cs">
+      <DependentUpon>ConProfXCurso.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Source\MVVM\View\Menu\Ventanas\InformeParcial.xaml.cs">
+      <DependentUpon>InformeParcial.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Source\MVVM\View\Menu\Ventanas\RegXEstudiante.xaml.cs">
+      <DependentUpon>RegXEstudiante.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Source\MVVM\View\Menu\Ventanas\RegXMateria.xaml.cs">
+      <DependentUpon>RegXMateria.xaml</DependentUpon>
+    </Compile>
+    <Page Include="Source\MVVM\View\Menu\Ventanas\ConAlumXCurso.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Source\MVVM\View\Menu\Ventanas\ConProfXCurso.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Source\MVVM\View\Menu\Ventanas\InformeParcial.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="Source\MVVM\View\Menu\Ventanas\MantCurso.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
@@ -150,6 +177,14 @@
       <DependentUpon>Login.xaml</DependentUpon>
       <SubType>Code</SubType>
     </Compile>
+    <Page Include="Source\MVVM\View\Menu\Ventanas\RegXEstudiante.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Source\MVVM\View\Menu\Ventanas\RegXMateria.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Properties\AssemblyInfo.cs">

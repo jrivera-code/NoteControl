@@ -59,8 +59,29 @@ namespace NoteControl
             Main.Content = new MantProfe();
         }
 
+		private void btnMenuItemNotasXEst(object sender, RoutedEventArgs e)
+		{
+			Main.Content = new RegXEstudiante();
+		}
+		private void btnMenuItemNotasXMat(object sender, RoutedEventArgs e)
+		{
+			Main.Content = new RegXMateria();
+		}
 
-        private void btnSalir(object sender, RoutedEventArgs e)
+		private void btnCAlumXCurso(object sender, RoutedEventArgs e)
+		{
+			Main.Content = new ConAlumXCurso();
+		}
+		private void btnCProfXCurso(object sender, RoutedEventArgs e)
+		{
+			Main.Content = new ConProfXCurso();
+		}
+		private void btnInforme(object sender, RoutedEventArgs e)
+		{
+			Main.Content = new InformeParcial();
+		}
+
+		private void btnSalir(object sender, RoutedEventArgs e)
 		{
 
 			if (MessageBox.Show("Seguro desea salir", "--.Salir.--", MessageBoxButton.YesNo) == MessageBoxResult.Yes)
@@ -72,11 +93,12 @@ namespace NoteControl
 			//Vuelve al sistema
 			}
 
+			//btnMenuItemNotasXMat
 
-			
+
 		}
 
-        private void _Menu_PreviewExecuted(object sender, ExecutedRoutedEventArgs e)
+		private void _Menu_PreviewExecuted(object sender, ExecutedRoutedEventArgs e)
         {
 
         }
