@@ -12,6 +12,8 @@ using NoteControl.Source.MVVM.Model;
 using NoteControl.Source.BusinessLogic;
 using System.Windows;
 using System.Windows.Input;
+using System.Windows.Media;
+using System.Windows.Media.Imaging;
 
 namespace NoteControl.Source.MVVM.ViewModel
 {
@@ -44,10 +46,20 @@ namespace NoteControl.Source.MVVM.ViewModel
             Menus = new List<MenuItem>();
             //pasa el perfil del usuario y devuelve la lista de privilegios
             List<Privilegio> listPrivilegios = blPerfiles.listarPrivilegiosDelPerfil(usuario.Perfiles);
+            int countIcon = 0;
             foreach (MenuItem menuitem in crearMenu(listPrivilegios))
             {
-                if (menuitem.Items.Count != 0)
+                string url = "pack://application:,,,/NoteControl;component/Source/MVVM/View/Img/Icons/";
+                string[] iconName = { "mant_icon", "add_note", "search", "report" };
+                if (menuitem.Items.Count != 0) {
+
+                    menuitem.Icon = new Image
+                    {
+                        Source = new BitmapImage(new Uri(url+ iconName[countIcon] +".png"))
+                    };
                     Menus.Add(menuitem);
+                }
+                countIcon++;
             }
             ClickMenuItem = new Command(clickMenuItem, () => true);
         }

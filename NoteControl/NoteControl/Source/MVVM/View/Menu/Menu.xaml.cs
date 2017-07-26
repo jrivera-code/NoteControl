@@ -32,53 +32,6 @@ namespace NoteControl
             this.Background = new ImageBrush(new BitmapImage(new Uri(@"pack://application:,,,/NoteControl;component/Source/MVVM/View/Img/pizarron.png")));
             DataContext = menuViewModel;
         }
-
-        private void btnMenuItemPerfiles(object sender, RoutedEventArgs e)
-        {
-            Main.Content = new MantPerfiles();
-          
-        }
-        private void btnMenuItemCursos(object sender, RoutedEventArgs e)
-        {
-			Main.Content = new MantCurso();
-
-		}
-		private void btnMenuItemUsuarios(object sender, RoutedEventArgs e)
-        {
-            Main.Content = new MantUsuario();
-        }
-
-        private void btnMenuItemEspe(object sender, RoutedEventArgs e)
-        {
-            Main.Content = new MantEspecialidades();
-        }
-        private void btnMenuItemProfe(object sender, RoutedEventArgs e)
-        {
-            Main.Content = new MantProfe();
-        }
-
-		private void btnMenuItemNotasXEst(object sender, RoutedEventArgs e)
-		{
-			Main.Content = new RegXEstudiante();
-		}
-		private void btnMenuItemNotasXMat(object sender, RoutedEventArgs e)
-		{
-			Main.Content = new RegXMateria();
-		}
-
-		private void btnCAlumXCurso(object sender, RoutedEventArgs e)
-		{
-			Main.Content = new ConAlumXCurso();
-		}
-		private void btnCProfXCurso(object sender, RoutedEventArgs e)
-		{
-			Main.Content = new ConProfXCurso();
-		}
-		private void btnInforme(object sender, RoutedEventArgs e)
-		{
-			Main.Content = new InformeParcial();
-		}
-
 		private void btnSalir(object sender, RoutedEventArgs e)
 		{
 
@@ -95,10 +48,6 @@ namespace NoteControl
 
 
 		}
-
-		private void _Menu_PreviewExecuted(object sender, ExecutedRoutedEventArgs e)
-        {
-
-        }
+        
     }
 }
