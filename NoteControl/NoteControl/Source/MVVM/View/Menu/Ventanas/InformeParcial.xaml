@@ -43,8 +43,8 @@
     <Grid>
         <ComboBox x:Name="CCurso" HorizontalAlignment="Left" Margin="91,81,0,0" VerticalAlignment="Top" Width="243" Height="55"/>
         <ComboBox x:Name="CAlumno" HorizontalAlignment="Left" Margin="391,81,0,0" VerticalAlignment="Top" Width="243" Height="55"/>
-        <Label x:Name="NomA" Content="Nombre Alumno" Foreground="White" FontFamily="Kristen ITC" HorizontalAlignment="Left" Margin="191,210,0,0" VerticalAlignment="Top"/>
-        <TextBox x:Name="txtNomAlum" Foreground="White" FontFamily="Kristen ITC" HorizontalAlignment="Left" Height="45" Margin="391,191,0,0" TextWrapping="Wrap"  VerticalAlignment="Top" Width="220" FontSize="20" />
+        <Label x:Name="NomA" Content="Nombre Alumno" Foreground="White"  HorizontalAlignment="Left" Margin="191,210,0,0" VerticalAlignment="Top"/>
+        <TextBox x:Name="txtNomAlum" Foreground="White"  HorizontalAlignment="Left" Height="45" Margin="391,191,0,0" TextWrapping="Wrap"  VerticalAlignment="Top" Width="220" FontSize="20" />
         <Button x:Name="Descargar" Content="-- Descargar Informe --" HorizontalAlignment="Left" Margin="726,171,0,0" VerticalAlignment="Top" Width="305" Height="68"/>
 
     </Grid>

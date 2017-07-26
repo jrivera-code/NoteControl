@@ -42,8 +42,8 @@
 
 
     <Grid>
-        <ComboBox x:Name="CombCursos" Foreground="White" FontFamily="Kristen ITC" HorizontalAlignment="Left" Margin="508,21,0,0" VerticalAlignment="Top" Width="270" Height="52"/>
-        <Label x:Name="LCurso" Content="Curso" Foreground="White" FontFamily="Kristen ITC" HorizontalAlignment="Left" Margin="427,47,0,0" VerticalAlignment="Top"/>
+        <ComboBox x:Name="CombCursos" Foreground="White"  HorizontalAlignment="Left" Margin="508,21,0,0" VerticalAlignment="Top" Width="270" Height="52"/>
+        <Label x:Name="LCurso" Content="Curso" Foreground="White"  HorizontalAlignment="Left" Margin="427,47,0,0" VerticalAlignment="Top"/>
         <Button x:Name="Genera" Content="Ver Alumnos" HorizontalAlignment="Left" Margin="508,116,0,0" VerticalAlignment="Top" Width="270" Height="53"/>
         <DataGrid x:Name="dgAlumXCr" HorizontalAlignment="Left" Margin="373,232,0,0" VerticalAlignment="Top" Height="344" Width="498"/>
 

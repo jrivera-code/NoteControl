@@ -43,15 +43,15 @@
     </Page.Resources>
 
     <Grid Background="Transparent" HorizontalAlignment="Left" Width="1190">
-        <Label x:Name="NomUsuario" Content="Nombre Usuario" Foreground="White" FontFamily="Kristen ITC" HorizontalAlignment="Left" Margin="211,53,0,0" VerticalAlignment="Top"  FontWeight="Bold" FontSize="20"  />
+        <Label x:Name="NomUsuario" Content="Nombre Usuario" Foreground="White"  HorizontalAlignment="Left" Margin="211,53,0,0" VerticalAlignment="Top"  FontWeight="Bold" FontSize="20"  />
 
         <TextBox x:Name="txtusuario" Foreground="White" HorizontalAlignment="Left" Height="46" Margin="401,44,0,0" TextWrapping="Wrap"  VerticalAlignment="Top" Width="231" FontSize="20" />
 
-        <Label x:Name="nomPassw" Foreground="White" Content="Clave : " HorizontalAlignment="Left" Margin="211,98,0,0" VerticalAlignment="Top" FontFamily="Kristen ITC" FontWeight="Bold" FontSize="20" />
+        <Label x:Name="nomPassw" Foreground="White" Content="Clave : " HorizontalAlignment="Left" Margin="211,98,0,0" VerticalAlignment="Top"  FontWeight="Bold" FontSize="20" />
         <PasswordBox x:Name="passwordBox" Foreground="White" HorizontalAlignment="Left" Margin="401,99,0,0" VerticalAlignment="Top" Width="231" FontSize="20"/>
-        <Label x:Name="nomPer" Foreground="White" Content="Perfil : " HorizontalAlignment="Left" Margin="211,145,0,0" VerticalAlignment="Top" RenderTransformOrigin="0.458,3.128" FontFamily="Kristen ITC" FontWeight="Bold" FontSize="20" />
+        <Label x:Name="nomPer" Foreground="White" Content="Perfil : " HorizontalAlignment="Left" Margin="211,145,0,0" VerticalAlignment="Top" RenderTransformOrigin="0.458,3.128"  FontWeight="Bold" FontSize="20" />
         <ComboBox x:Name="comboBox" Foreground="White" HorizontalAlignment="Left" Margin="401,145,0,0" VerticalAlignment="Top" Width="231" SelectionChanged="comboBox_SelectionChanged" FontSize="20"/>
-        <Label x:Name="nomEstado" Foreground="White" Content="Estado : " HorizontalAlignment="Left" Margin="211,197,0,0" VerticalAlignment="Top" RenderTransformOrigin="0.458,3.128" FontFamily="Kristen ITC" FontWeight="Bold" FontSize="20" />
+        <Label x:Name="nomEstado" Foreground="White" Content="Estado : " HorizontalAlignment="Left" Margin="211,197,0,0" VerticalAlignment="Top" RenderTransformOrigin="0.458,3.128"  FontWeight="Bold" FontSize="20" />
         <ComboBox x:Name="comboBox_Copy" Foreground="White" HorizontalAlignment="Left" Margin="401,206,0,0" VerticalAlignment="Top" Width="116" FontSize="20">
             <ComboBoxItem Content="Activo" HorizontalAlignment="Left" Width="92"/>
             <ComboBoxItem Content="Desactivado" HorizontalAlignment="Left" Width="92"/>

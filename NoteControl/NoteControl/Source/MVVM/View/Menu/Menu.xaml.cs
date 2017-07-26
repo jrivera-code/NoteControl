@@ -29,7 +29,7 @@ namespace NoteControl
             menuViewModel = new MenuViewModel(usuario);
             InitializeComponent();
             //imagen de fondo para el menu
-            this.Background = new ImageBrush(new BitmapImage(new Uri(@"pack://application:,,,/NoteControl;component/Source/MVVM/View/Img/pizarron.png")));
+            this.Background = new ImageBrush(new BitmapImage(new Uri(@"pack://application:,,,/NoteControl;component/Source/MVVM/View/Img/background.png")));
             DataContext = menuViewModel;
         }
 		private void btnSalir(object sender, RoutedEventArgs e)

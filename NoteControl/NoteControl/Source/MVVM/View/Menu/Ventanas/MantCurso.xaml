@@ -44,9 +44,9 @@
 
 
     <Grid>
-        <Label x:Name="codCurso" Content="Codigo Curso" Foreground="White" FontFamily="Kristen ITC" HorizontalAlignment="Left" Margin="275,127,0,0" VerticalAlignment="Top" FontWeight="Bold"/>
-        <Label x:Name="NombC" Content="Curso" Foreground="White" FontFamily="Kristen ITC" HorizontalAlignment="Left" Margin="275,183,0,0" VerticalAlignment="Top" FontWeight="Bold"/>
-        <Label x:Name="Descr" Content="Descripcion" Foreground="White" FontFamily="Kristen ITC" HorizontalAlignment="Left" Margin="275,233,0,0" VerticalAlignment="Top" FontWeight="Bold"/>
+        <Label x:Name="codCurso" Content="Codigo Curso" Foreground="White"  HorizontalAlignment="Left" Margin="275,127,0,0" VerticalAlignment="Top" FontWeight="Bold"/>
+        <Label x:Name="NombC" Content="Curso" Foreground="White"  HorizontalAlignment="Left" Margin="275,183,0,0" VerticalAlignment="Top" FontWeight="Bold"/>
+        <Label x:Name="Descr" Content="Descripcion" Foreground="White"  HorizontalAlignment="Left" Margin="275,233,0,0" VerticalAlignment="Top" FontWeight="Bold"/>
         <Button x:Name="btnGuardar" Content="Guardar" HorizontalAlignment="Left" Margin="690,132,0,0" VerticalAlignment="Top" Width="94"/>
         <Button x:Name="btnEliminar" Content="Eliminar" HorizontalAlignment="Left" Margin="813,132,0,0" VerticalAlignment="Top" Width="102"/>
         <TextBox x:Name="txtCcurso" Foreground="White" HorizontalAlignment="Left" Height="48" Margin="398,99,0,0" TextWrapping="Wrap"  VerticalAlignment="Top" Width="162" FontSize="20" />

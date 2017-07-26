@@ -45,23 +45,23 @@
 
         <ComboBox x:Name="Est" HorizontalAlignment="Left" Margin="159,46,0,0" VerticalAlignment="Top" Width="315" Height="40"/>
         <TextBox x:Name="txtProfe" Foreground="White" HorizontalAlignment="Left" Height="45" Margin="159,91,0,0" TextWrapping="Wrap"  VerticalAlignment="Top" Width="220" FontSize="20" />
-        <Label x:Name="NombE" Content="Nombre" Foreground="White" FontFamily="Kristen ITC" HorizontalAlignment="Left" Margin="84,169,0,0" VerticalAlignment="Top" FontWeight="Bold"/>
+        <Label x:Name="NombE" Content="Nombre" Foreground="White"  HorizontalAlignment="Left" Margin="84,169,0,0" VerticalAlignment="Top" FontWeight="Bold"/>
         <TextBox x:Name="TxNom" Foreground="White" HorizontalAlignment="Left" Height="45" Margin="159,141,0,0" TextWrapping="Wrap"  VerticalAlignment="Top" Width="229" FontSize="20" />
-        <Label x:Name="Rut" Content="R U T" Foreground="White" FontFamily="Kristen ITC" HorizontalAlignment="Left" Margin="84,119,0,0" VerticalAlignment="Top" FontWeight="Bold"/>
-        <Label x:Name="TxEstu" Content="Estudiante" Foreground="White" FontFamily="Kristen ITC" HorizontalAlignment="Left" Margin="77,60,0,0" VerticalAlignment="Top" FontWeight="Bold"/>
+        <Label x:Name="Rut" Content="R U T" Foreground="White"  HorizontalAlignment="Left" Margin="84,119,0,0" VerticalAlignment="Top" FontWeight="Bold"/>
+        <Label x:Name="TxEstu" Content="Estudiante" Foreground="White"  HorizontalAlignment="Left" Margin="77,60,0,0" VerticalAlignment="Top" FontWeight="Bold"/>
         <DataGrid x:Name="dgRegXest" HorizontalAlignment="Left" Margin="82,263,0,0" VerticalAlignment="Top" Height="275" Width="495"/>
 
 
         <Rectangle Fill="Transparent"  HorizontalAlignment="Left" Height="226" Margin="698,73,0,0" Stroke="White" VerticalAlignment="Top" Width="423"/>
-        <TextBox x:Name="txtN1" Foreground="White" FontFamily="Kristen ITC"  HorizontalAlignment="Left" Height="27" Margin="719,85,0,0" TextWrapping="Wrap"  VerticalAlignment="Top" Width="49" FontSize="20" />
-        <TextBox x:Name="txtn2" Foreground="White" FontFamily="Kristen ITC" HorizontalAlignment="Left" Height="27" Margin="879,85,0,0" TextWrapping="Wrap"  VerticalAlignment="Top" Width="49" FontSize="20" />
-        <TextBox x:Name="txtn3" Foreground="White" FontFamily="Kristen ITC" HorizontalAlignment="Left" Height="27" Margin="798,85,0,0" TextWrapping="Wrap"  VerticalAlignment="Top" Width="49" FontSize="20" />
-        <TextBox x:Name="txtProm" Foreground="White" FontFamily="Kristen ITC" HorizontalAlignment="Left" Height="27" Margin="1024,84,0,0" TextWrapping="Wrap"  VerticalAlignment="Top" Width="67" FontSize="20" />
-        <Label x:Name="n1" Foreground="White" FontFamily="Kristen ITC" Content="Nota 1" HorizontalAlignment="Left" Margin="719,42,0,0" VerticalAlignment="Top"/>
-        <Label x:Name="n2" Foreground="White" FontFamily="Kristen ITC" Content="Nota 2" HorizontalAlignment="Left" Margin="798,42,0,0" VerticalAlignment="Top"/>
-        <Label x:Name="n3" Foreground="White" FontFamily="Kristen ITC" Content="Nota 3" HorizontalAlignment="Left" Margin="879,42,0,0" VerticalAlignment="Top"/>
-        <Label x:Name="prom" Foreground="White" FontFamily="Kristen ITC" IsEnabled="False" Content="Promedio" HorizontalAlignment="Left" Margin="1025,42,0,0" VerticalAlignment="Top"/>
-        <Label x:Name="NomAsig" Foreground="White" FontFamily="Kristen ITC" Content="Asignatura" HorizontalAlignment="Left" Margin="870,142,0,0" VerticalAlignment="Top"/>
+        <TextBox x:Name="txtN1" Foreground="White"   HorizontalAlignment="Left" Height="27" Margin="719,85,0,0" TextWrapping="Wrap"  VerticalAlignment="Top" Width="49" FontSize="20" />
+        <TextBox x:Name="txtn2" Foreground="White"  HorizontalAlignment="Left" Height="27" Margin="879,85,0,0" TextWrapping="Wrap"  VerticalAlignment="Top" Width="49" FontSize="20" />
+        <TextBox x:Name="txtn3" Foreground="White"  HorizontalAlignment="Left" Height="27" Margin="798,85,0,0" TextWrapping="Wrap"  VerticalAlignment="Top" Width="49" FontSize="20" />
+        <TextBox x:Name="txtProm" Foreground="White"  HorizontalAlignment="Left" Height="27" Margin="1024,84,0,0" TextWrapping="Wrap"  VerticalAlignment="Top" Width="67" FontSize="20" />
+        <Label x:Name="n1" Foreground="White"  Content="Nota 1" HorizontalAlignment="Left" Margin="719,42,0,0" VerticalAlignment="Top"/>
+        <Label x:Name="n2" Foreground="White"  Content="Nota 2" HorizontalAlignment="Left" Margin="798,42,0,0" VerticalAlignment="Top"/>
+        <Label x:Name="n3" Foreground="White"  Content="Nota 3" HorizontalAlignment="Left" Margin="879,42,0,0" VerticalAlignment="Top"/>
+        <Label x:Name="prom" Foreground="White"  IsEnabled="False" Content="Promedio" HorizontalAlignment="Left" Margin="1025,42,0,0" VerticalAlignment="Top"/>
+        <Label x:Name="NomAsig" Foreground="White"  Content="Asignatura" HorizontalAlignment="Left" Margin="870,142,0,0" VerticalAlignment="Top"/>
 
         <Button x:Name="btnGuardarN" Content="Guardar" HorizontalAlignment="Left" Margin="719,231,0,0" VerticalAlignment="Top" Width="129"/>
         <Button x:Name="btnUpdateN" Content="Modificar" HorizontalAlignment="Left" Margin="890,231,0,0" VerticalAlignment="Top" Width="171"/>

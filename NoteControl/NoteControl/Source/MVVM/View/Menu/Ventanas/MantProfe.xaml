@@ -44,9 +44,9 @@
 
     <Grid>
         <Grid Margin="10,10,10,0">
-            <Label x:Name="RutProf" Content="Rut Profesor : " Foreground="White" FontFamily="Kristen ITC" HorizontalAlignment="Left" Margin="217,53,0,0" VerticalAlignment="Top" FontWeight="Bold"/>
-            <Label x:Name="NombP" Content="Nombre" Foreground="White" FontFamily="Kristen ITC" HorizontalAlignment="Left" Margin="217,108,0,0" VerticalAlignment="Top" FontWeight="Bold"/>
-            <Label x:Name="EspeP" Content="Especialidad" Foreground="White" FontFamily="Kristen ITC" HorizontalAlignment="Left" Margin="217,163,0,0" VerticalAlignment="Top" FontWeight="Bold" RenderTransformOrigin="3.086,0.577"/>
+            <Label x:Name="RutProf" Content="Rut Profesor : " Foreground="White"  HorizontalAlignment="Left" Margin="217,53,0,0" VerticalAlignment="Top" FontWeight="Bold"/>
+            <Label x:Name="NombP" Content="Nombre" Foreground="White"  HorizontalAlignment="Left" Margin="217,108,0,0" VerticalAlignment="Top" FontWeight="Bold"/>
+            <Label x:Name="EspeP" Content="Especialidad" Foreground="White"  HorizontalAlignment="Left" Margin="217,163,0,0" VerticalAlignment="Top" FontWeight="Bold" RenderTransformOrigin="3.086,0.577"/>
             <Button x:Name="btnGuardar" Content="Guardar" HorizontalAlignment="Left" Margin="836,74,0,0" VerticalAlignment="Top" Width="94"/>
             <Button x:Name="btnEliminar" Content="Eliminar" HorizontalAlignment="Left" Margin="976,74,0,0" VerticalAlignment="Top" Width="102" RenderTransformOrigin="0.495,0.938"/>
             <TextBox x:Name="txtRutP" Foreground="White" HorizontalAlignment="Left" Height="48" Margin="374,27,0,0" TextWrapping="Wrap"  VerticalAlignment="Top" Width="226" FontSize="20" />

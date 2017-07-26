@@ -45,8 +45,8 @@ namespace NoteControl
                 db.Usuarios.Add(new Usuario() { Nombre = "jmolina", Clave = "1234", Estado = 1, Perfiles = perfil });
                 db.SaveChanges();
             }
-
             InitializeComponent();
+            image.Source = new BitmapImage(new Uri("pack://application:,,,/NoteControl;component/Source/MVVM/View/Img/notas.png"));
         }
 
 

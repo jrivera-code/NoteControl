@@ -215,9 +215,6 @@
     </None>
   </ItemGroup>
   <ItemGroup>
-    <Resource Include="Source\MVVM\View\Img\pizarron.png" />
-  </ItemGroup>
-  <ItemGroup>
     <Resource Include="Source\MVVM\View\Img\Icons\mant_icon.png" />
   </ItemGroup>
   <ItemGroup>
@@ -228,6 +225,12 @@
   </ItemGroup>
   <ItemGroup>
     <Resource Include="Source\MVVM\View\Img\Icons\report.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Source\MVVM\View\Img\background.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Source\MVVM\View\Img\notas.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

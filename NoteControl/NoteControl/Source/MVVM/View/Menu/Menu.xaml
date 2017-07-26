@@ -3,13 +3,11 @@
         WindowStartupLocation="CenterScreen" 
         TextElement.FontWeight="SemiBold"
         TextElement.FontSize="12"
-         xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
         FontFamily="pack://application:,,,/MaterialDesignThemes.Wpf;component/Resources/Roboto/#Roboto"
         xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
-        xmlns:local="clr-namespace:NoteControl"
         mc:Ignorable="d" 
         Height="700.000" Width="1200.000" WindowStyle="None" Background="Transparent">
     <Window.Resources>
@@ -26,7 +24,7 @@
         </Grid.RowDefinitions>
 
 
-        <Menu  x:Name="_Menu"  HorizontalAlignment="Stretch" VerticalAlignment="Stretch" Grid.Row="0" Background="#FFFFE795" ItemsSource="{Binding Menus}">
+        <Menu  x:Name="_Menu"  HorizontalAlignment="Stretch" VerticalAlignment="Stretch" Grid.Row="0"  ItemsSource="{Binding Menus}">
             
         </Menu>
         <Frame x:Name="Main" Content="{Binding Path=FrameContent, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"  Margin="0,10,0,0" NavigationUIVisibility="Hidden"  Grid.Row="1" />

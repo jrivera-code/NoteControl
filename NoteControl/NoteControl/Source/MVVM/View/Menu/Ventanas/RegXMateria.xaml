@@ -43,20 +43,20 @@
     <Grid>
         <ComboBox x:Name="Est" HorizontalAlignment="Left" Margin="139,37,0,0" VerticalAlignment="Top" Width="315" Height="40"/>
         <TextBox x:Name="txtProfe" Foreground="White" HorizontalAlignment="Left" Height="45" Margin="139,82,0,0" TextWrapping="Wrap"  VerticalAlignment="Top" Width="220" FontSize="20" />
-        <Label x:Name="NombP" Content="Nombre" Foreground="White" FontFamily="Kristen ITC" HorizontalAlignment="Left" Margin="64,160,0,0" VerticalAlignment="Top" FontWeight="Bold"/>
+        <Label x:Name="NombP" Content="Nombre" Foreground="White"  HorizontalAlignment="Left" Margin="64,160,0,0" VerticalAlignment="Top" FontWeight="Bold"/>
         <TextBox x:Name="TxNomP" Foreground="White" HorizontalAlignment="Left" Height="45" Margin="139,132,0,0" TextWrapping="Wrap"  VerticalAlignment="Top" Width="229" FontSize="20" />
-        <Label x:Name="RutP" Content="R U T" Foreground="White" FontFamily="Kristen ITC" HorizontalAlignment="Left" Margin="64,110,0,0" VerticalAlignment="Top" FontWeight="Bold"/>
-        <Label x:Name="txtProf" Content="Profesor" Foreground="White" FontFamily="Kristen ITC" HorizontalAlignment="Left" Margin="57,51,0,0" VerticalAlignment="Top" FontWeight="Bold"/>
+        <Label x:Name="RutP" Content="R U T" Foreground="White"  HorizontalAlignment="Left" Margin="64,110,0,0" VerticalAlignment="Top" FontWeight="Bold"/>
+        <Label x:Name="txtProf" Content="Profesor" Foreground="White"  HorizontalAlignment="Left" Margin="57,51,0,0" VerticalAlignment="Top" FontWeight="Bold"/>
         <DataGrid x:Name="dgRegXMat" HorizontalAlignment="Left" Margin="49,246,0,0" VerticalAlignment="Top" Height="275" Width="420"/>
 
 
         <TextBox x:Name="txtCurso" Foreground="White" HorizontalAlignment="Left" Height="45" Margin="718,64,0,0" TextWrapping="Wrap"  VerticalAlignment="Top" Width="220" FontSize="20" />
-        <Label x:Name="txtMat" Content="Asignatura" Foreground="White" FontFamily="Kristen ITC" HorizontalAlignment="Left" Margin="623,142,0,0" VerticalAlignment="Top" FontWeight="Bold"/>
+        <Label x:Name="txtMat" Content="Asignatura" Foreground="White"  HorizontalAlignment="Left" Margin="623,142,0,0" VerticalAlignment="Top" FontWeight="Bold"/>
         <TextBox x:Name="TxNomP_Copy" Foreground="White" HorizontalAlignment="Left" Height="45" Margin="718,123,0,0" TextWrapping="Wrap"  VerticalAlignment="Top" Width="220" FontSize="20" />
-        <Label x:Name="Curso" Content="Curso" Foreground="White" FontFamily="Kristen ITC" HorizontalAlignment="Left" Margin="643,92,0,0" VerticalAlignment="Top" FontWeight="Bold"/>
-        <Label x:Name="txtProf_Copy" Content="Profesor" Foreground="White" FontFamily="Kristen ITC" HorizontalAlignment="Left" Margin="636,33,0,0" VerticalAlignment="Top" FontWeight="Bold"/>
+        <Label x:Name="Curso" Content="Curso" Foreground="White"  HorizontalAlignment="Left" Margin="643,92,0,0" VerticalAlignment="Top" FontWeight="Bold"/>
+        <Label x:Name="txtProf_Copy" Content="Profesor" Foreground="White"  HorizontalAlignment="Left" Margin="636,33,0,0" VerticalAlignment="Top" FontWeight="Bold"/>
         <TextBox x:Name="txtNProf" Foreground="White" HorizontalAlignment="Left" Height="45" Margin="718,10,0,0" TextWrapping="Wrap"  VerticalAlignment="Top" Width="220" FontSize="20" />
-        <Label x:Name="txtCAsig" Content="Codigo Asignatura" Foreground="White" FontFamily="Kristen ITC" HorizontalAlignment="Left" Margin="623,192,0,0" VerticalAlignment="Top" FontWeight="Bold"/>
+        <Label x:Name="txtCAsig" Content="Codigo Asignatura" Foreground="White"  HorizontalAlignment="Left" Margin="623,192,0,0" VerticalAlignment="Top" FontWeight="Bold"/>
         <TextBox x:Name="txtAsig" Foreground="White" HorizontalAlignment="Left" Height="45" Margin="753,173,0,0" TextWrapping="Wrap"  VerticalAlignment="Top" Width="185" FontSize="20" />
         <DataGrid x:Name="dgRegXMat_Copy" HorizontalAlignment="Left" Margin="610,246,0,0" VerticalAlignment="Top" Height="275" Width="545"/>
         <Button x:Name="GuardarN" Content="Guardar" HorizontalAlignment="Left" Margin="998,64,0,0" VerticalAlignment="Top" Width="157" Height="45"/>
