@@ -3,6 +3,7 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
              xmlns:local="clr-namespace:NoteControl"
              StartupUri="Source/MVVM/View/Login/Login.xaml">
+    <!--  StartupUri="Source/MVVM/View/Menu/Pages/MantUsuario.xaml"-->
     <Application.Resources>
         <ResourceDictionary>
             <ResourceDictionary.MergedDictionaries>

@@ -13,6 +13,7 @@ namespace NoteControl.Source.MVVM.ViewModel.Commands
         public Action methodToExecute = null;
         public Func<bool> methodToDetectCanExecute = null;
         public DispatcherTimer canExecuteChangeEventTimer = null;
+        public object parameters = null;
 
         //recibe como parametros el metodo que ejecutará el comando y un boolean si 
         //puede o ejecutarlo
@@ -39,6 +40,8 @@ namespace NoteControl.Source.MVVM.ViewModel.Commands
         //metodo ejecutar
         public void Execute(object parameter)
         {
+            //guarda los controles que se envian por el CommandParameter desde la vista
+            this.parameters = parameter;
             this.methodToExecute();
         }
        public event EventHandler CanExecuteChanged;

@@ -6,7 +6,7 @@
       xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
       xmlns:local="clr-namespace:NoteControl"
       mc:Ignorable="d" 
-      
+      Background="Black"
       Title="MantUsuario" Height="700.000" Width="1200.000">
 
     <Page.Resources>
@@ -45,21 +45,21 @@
     <Grid Background="Transparent" HorizontalAlignment="Left" Width="1190">
         <Label x:Name="NomUsuario" Content="Nombre Usuario" Foreground="White"  HorizontalAlignment="Left" Margin="211,53,0,0" VerticalAlignment="Top"  FontWeight="Bold" FontSize="20"  />
 
-        <TextBox x:Name="txtusuario" Foreground="White" HorizontalAlignment="Left" Height="46" Margin="401,44,0,0" TextWrapping="Wrap"  VerticalAlignment="Top" Width="231" FontSize="20" />
+        <TextBox x:Name="txtusuario" Text="{Binding TextBoxUsuario, UpdateSourceTrigger=PropertyChanged, Mode=TwoWay}" Foreground="White" HorizontalAlignment="Left" Height="46" Margin="401,44,0,0" TextWrapping="Wrap"  VerticalAlignment="Top" Width="231" FontSize="20" />
 
         <Label x:Name="nomPassw" Foreground="White" Content="Clave : " HorizontalAlignment="Left" Margin="211,98,0,0" VerticalAlignment="Top"  FontWeight="Bold" FontSize="20" />
-        <PasswordBox x:Name="passwordBox" Foreground="White" HorizontalAlignment="Left" Margin="401,99,0,0" VerticalAlignment="Top" Width="231" FontSize="20"/>
+        <PasswordBox x:Name="txtPassword" Foreground="White" HorizontalAlignment="Left" Margin="401,99,0,0" VerticalAlignment="Top" Width="231" FontSize="20"/>
         <Label x:Name="nomPer" Foreground="White" Content="Perfil : " HorizontalAlignment="Left" Margin="211,145,0,0" VerticalAlignment="Top" RenderTransformOrigin="0.458,3.128"  FontWeight="Bold" FontSize="20" />
-        <ComboBox x:Name="comboBox" Foreground="White" HorizontalAlignment="Left" Margin="401,145,0,0" VerticalAlignment="Top" Width="231" SelectionChanged="comboBox_SelectionChanged" FontSize="20"/>
-        <Label x:Name="nomEstado" Foreground="White" Content="Estado : " HorizontalAlignment="Left" Margin="211,197,0,0" VerticalAlignment="Top" RenderTransformOrigin="0.458,3.128"  FontWeight="Bold" FontSize="20" />
-        <ComboBox x:Name="comboBox_Copy" Foreground="White" HorizontalAlignment="Left" Margin="401,206,0,0" VerticalAlignment="Top" Width="116" FontSize="20">
-            <ComboBoxItem Content="Activo" HorizontalAlignment="Left" Width="92"/>
-            <ComboBoxItem Content="Desactivado" HorizontalAlignment="Left" Width="92"/>
+        <ComboBox x:Name="cbPerfil" ItemsSource="{Binding ComboBoxPerfilItems}" Foreground="White" HorizontalAlignment="Left" Margin="401,145,0,0" VerticalAlignment="Top" Width="231"  FontSize="20">
+            
         </ComboBox>
-        <Button x:Name="btnsave" Content="Guardar" HorizontalAlignment="Left" Margin="741,58,0,0" VerticalAlignment="Top" Width="121"/>
-        <Button x:Name="btndelete" Content="Eliminar" HorizontalAlignment="Left" Margin="896,57,0,0" VerticalAlignment="Top" Width="121"/>
-        <Button x:Name="btnupdate" Content="Modificar" HorizontalAlignment="Left" Margin="896,124,0,0" VerticalAlignment="Top" Width="121"/>
+        <Label x:Name="nomEstado" Foreground="White" Content="Estado : " HorizontalAlignment="Left" Margin="211,197,0,0" VerticalAlignment="Top" RenderTransformOrigin="0.458,3.128"  FontWeight="Bold" FontSize="20" />
+        <ComboBox x:Name="cbEstado" ItemsSource="{Binding ComboBoxEstadoItems}"  Foreground="White" HorizontalAlignment="Left" Margin="401,206,0,0" VerticalAlignment="Top" Width="116" FontSize="20">
+            
+        </ComboBox>
+        <Button x:Name="btnSave" Command="{Binding ButtonSaveClick, Mode =TwoWay}"  CommandParameter="{Binding ElementName=txtPassword}" Content="Guardar" HorizontalAlignment="Left" Margin="741,58,0,0" VerticalAlignment="Top" Width="121"/>
+        <Button x:Name="btnDelete" Command="{Binding ButtonDeleteClick, Mode =TwoWay}" Content="Eliminar" HorizontalAlignment="Left" Margin="896,57,0,0" VerticalAlignment="Top" Width="121"/>
+        <Button x:Name="btnUpdate" Command="{Binding ButtonUpdateClick, Mode =TwoWay}" Content="Modificar" HorizontalAlignment="Left" Margin="896,124,0,0" VerticalAlignment="Top" Width="121"/>
         <DataGrid x:Name="dataGrid" HorizontalAlignment="Left" Margin="208,351,0,0" VerticalAlignment="Top" Height="217" Width="806"/>
-
     </Grid>
 </Page>
