@@ -6,7 +6,7 @@
       xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
       xmlns:local="clr-namespace:NoteControl"
       mc:Ignorable="d" 
-      d:DesignHeight="500" d:DesignWidth="800"
+      Height="700.000" Width="1200.000"
       Title="MantProfe">
 
     <Page.Resources>
@@ -44,16 +44,16 @@
 
     <Grid>
         <Grid Margin="10,10,10,0">
-            <Label x:Name="RutProf" Content="Rut Profesor : " Foreground="White" FontFamily="Kristen ITC" HorizontalAlignment="Left" Margin="38,28,0,0" VerticalAlignment="Top" FontWeight="Bold"/>
-            <Label x:Name="NombP" Content="Nombre" Foreground="White" FontFamily="Kristen ITC" HorizontalAlignment="Left" Margin="38,84,0,0" VerticalAlignment="Top" FontWeight="Bold"/>
-            <Label x:Name="EspeP" Content="Especialidad" Foreground="White" FontFamily="Kristen ITC" HorizontalAlignment="Left" Margin="38,134,0,0" VerticalAlignment="Top" FontWeight="Bold"/>
-            <Button x:Name="btnGuardar" Content="Guardar" HorizontalAlignment="Left" Margin="453,33,0,0" VerticalAlignment="Top" Width="94"/>
-            <Button x:Name="btnEliminar" Content="Eliminar" HorizontalAlignment="Left" Margin="576,33,0,0" VerticalAlignment="Top" Width="102"/>
-            <TextBox x:Name="txtRutP" Foreground="White" HorizontalAlignment="Left" Height="48" Margin="161,0,0,0" TextWrapping="Wrap"  VerticalAlignment="Top" Width="198" FontSize="20" />
-            <TextBox x:Name="txtProfe" Foreground="White" HorizontalAlignment="Left" Height="45" Margin="161,65,0,0" TextWrapping="Wrap"  VerticalAlignment="Top" Width="267" FontSize="20" />
-            <DataGrid x:Name="dgProfe" HorizontalAlignment="Left" Margin="10,265,0,0" VerticalAlignment="Top" Height="215" Width="748"/>
-            <Button x:Name="btnupdate" Content="Modificar" HorizontalAlignment="Left" Margin="576,101,0,0" VerticalAlignment="Top" Width="102"/>
-            <ComboBox x:Name="CbEspe" HorizontalAlignment="Left" Margin="161,115,0,0" VerticalAlignment="Top" Width="267" Height="47"/>
+            <Label x:Name="RutProf" Content="Rut Profesor : " Foreground="White" FontFamily="Kristen ITC" HorizontalAlignment="Left" Margin="217,53,0,0" VerticalAlignment="Top" FontWeight="Bold"/>
+            <Label x:Name="NombP" Content="Nombre" Foreground="White" FontFamily="Kristen ITC" HorizontalAlignment="Left" Margin="217,108,0,0" VerticalAlignment="Top" FontWeight="Bold"/>
+            <Label x:Name="EspeP" Content="Especialidad" Foreground="White" FontFamily="Kristen ITC" HorizontalAlignment="Left" Margin="217,163,0,0" VerticalAlignment="Top" FontWeight="Bold" RenderTransformOrigin="3.086,0.577"/>
+            <Button x:Name="btnGuardar" Content="Guardar" HorizontalAlignment="Left" Margin="836,74,0,0" VerticalAlignment="Top" Width="94"/>
+            <Button x:Name="btnEliminar" Content="Eliminar" HorizontalAlignment="Left" Margin="976,74,0,0" VerticalAlignment="Top" Width="102" RenderTransformOrigin="0.495,0.938"/>
+            <TextBox x:Name="txtRutP" Foreground="White" HorizontalAlignment="Left" Height="48" Margin="374,27,0,0" TextWrapping="Wrap"  VerticalAlignment="Top" Width="226" FontSize="20" />
+            <TextBox x:Name="txtProfe" Foreground="White" HorizontalAlignment="Left" Height="47" Margin="376,85,0,0" TextWrapping="Wrap"  VerticalAlignment="Top" Width="224" FontSize="20" />
+            <DataGrid x:Name="dgProfe" HorizontalAlignment="Left" Margin="224,362,0,0" VerticalAlignment="Top" Height="215" Width="748"/>
+            <Button x:Name="btnupdate" Content="Modificar" HorizontalAlignment="Left" Margin="976,143,0,0" VerticalAlignment="Top" Width="102"/>
+            <ComboBox x:Name="CbEspe" HorizontalAlignment="Left" Margin="376,136,0,0" VerticalAlignment="Top" Width="224" Height="47"/>
 
         </Grid>
 

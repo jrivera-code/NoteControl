@@ -10,50 +10,82 @@ using System.Windows.Controls;
 using System.Collections.Specialized;
 using NoteControl.Source.MVVM.Model;
 using NoteControl.Source.BusinessLogic;
-
+using System.Windows;
+using System.Windows.Input;
 
 namespace NoteControl.Source.MVVM.ViewModel
 {
-        public class MenuViewModel : INotifyPropertyChanged
-          {
+    public class MenuViewModel : INotifyPropertyChanged
+    {
+        private Page _frameContent;
+        public Page FrameContent
+        {
+            get
+            {
+                return _frameContent;
+            }
+            set
+            {
+                if (Equals(FrameContent, value))
+                {
+                    return;
+                }
+
+                this._frameContent = value;
+                NotifyPropertyChanged("FrameContent");
+            }
+        }
+        public Command ClickMenuItem { get; set; }
         public List<MenuItem> Menus { get; }
         BLPerfiles blPerfiles = new BLPerfiles();
 
-            public MenuViewModel(Usuario usuario)
-             {
+        public MenuViewModel(Usuario usuario)
+        {
             Menus = new List<MenuItem>();
             //pasa el perfil del usuario y devuelve la lista de privilegios
             List<Privilegio> listPrivilegios = blPerfiles.listarPrivilegiosDelPerfil(usuario.Perfiles);
-            foreach (MenuItem menuitem in crearMenu(listPrivilegios)) {
-                if(menuitem.Items.Count != 0)
-                Menus.Add(menuitem);
+            foreach (MenuItem menuitem in crearMenu(listPrivilegios))
+            {
+                if (menuitem.Items.Count != 0)
+                    Menus.Add(menuitem);
             }
-      }
-        private List<MenuItem> crearMenu(List<Privilegio> privilegiosList) {
+            ClickMenuItem = new Command(clickMenuItem, () => true);
+        }
+
+        private void clickMenuItem()
+        {
+            System.Windows.Forms.MessageBox.Show("sdasd");
+        }
+
+            private List<MenuItem> crearMenu(List<Privilegio> privilegiosList)
+        {
             return crearHeaderItems(crearSubItems(privilegiosList));
         }
-        private List<MenuItem> crearHeaderItems(List<MenuItem> items) {
-            MenuItem listMantenedores = new MenuItem() {Header = "Mantenedores" };
+        private List<MenuItem> crearHeaderItems(List<MenuItem> items)
+        {
+            MenuItem listMantenedores = new MenuItem() { Header = "Mantenedores" };
             MenuItem listNotas = new MenuItem() { Header = "Ingreso de Notas" };
             MenuItem listConsultas = new MenuItem() { Header = "Consultas" };
             MenuItem listInformes = new MenuItem() { Header = "Informes" };
             var mantenedores = from p in items
-                    where int.Parse(p.Tag.ToString()) < 6 
-                    select p;
+                               where int.Parse(p.Tag.ToString()) < 6
+                               select p;
             var notas = from p in items
                         where int.Parse(p.Tag.ToString()) > 5 && int.Parse(p.Tag.ToString()) < 8
                         select p;
             var consultas = from p in items
-                        where int.Parse(p.Tag.ToString()) > 7 && int.Parse(p.Tag.ToString()) < 10
-                        select p;
+                            where int.Parse(p.Tag.ToString()) > 7 && int.Parse(p.Tag.ToString()) < 10
+                            select p;
             var informes = from p in items
-                        where int.Parse(p.Tag.ToString()) > 9 
-                        select p;
-            if (mantenedores != null) {
-                foreach(MenuItem m in mantenedores)
-                listMantenedores.Items.Add(m);
+                           where int.Parse(p.Tag.ToString()) > 9
+                           select p;
+            if (mantenedores != null)
+            {
+                foreach (MenuItem m in mantenedores)
+                    listMantenedores.Items.Add(m);
             }
-            if (notas != null) {
+            if (notas != null)
+            {
                 foreach (MenuItem m in notas)
                     listNotas.Items.Add(m);
             }
@@ -69,46 +101,106 @@ namespace NoteControl.Source.MVVM.ViewModel
             }
             return new List<MenuItem> { listMantenedores, listNotas, listConsultas, listInformes };
         }
-        private List<MenuItem> crearSubItems(List<Privilegio> list){
+        private List<MenuItem> crearSubItems(List<Privilegio> list)
+        {
             List<MenuItem> menuItems = new List<MenuItem>();
-            foreach (Privilegio p in list) {
-                switch (p.PrivilegioId) {
+            foreach (Privilegio p in list)
+            {
+                MenuItem item;
+                switch (p.PrivilegioId)
+                {
+                 
                     case 1:
-                        menuItems.Add(new MenuItem() {Header = p.Nombre ,Tag = p.PrivilegioId });
+                        item = new MenuItem() { Header = p.Nombre, Tag = p.PrivilegioId };
+                        item.Click += clickMenuItem;
+                        menuItems.Add(item);
                         break;
                     case 2:
-                        menuItems.Add(new MenuItem() { Header = p.Nombre, Tag = p.PrivilegioId });
+                        item = new MenuItem() { Header = p.Nombre, Tag = p.PrivilegioId };
+                        item.Click += clickMenuItem;
+                        menuItems.Add(item);
                         break;
                     case 3:
-                        menuItems.Add(new MenuItem() { Header = p.Nombre, Tag = p.PrivilegioId });
+                        item = new MenuItem() { Header = p.Nombre, Tag = p.PrivilegioId };
+                        item.Click += clickMenuItem;
+                        menuItems.Add(item);
                         break;
                     case 4:
-                        menuItems.Add(new MenuItem() { Header = p.Nombre, Tag = p.PrivilegioId });
+                        item = new MenuItem() { Header = p.Nombre, Tag = p.PrivilegioId };
+                        item.Click += clickMenuItem;
+                        menuItems.Add(item);
                         break;
                     case 5:
-                        menuItems.Add(new MenuItem() { Header = p.Nombre, Tag = p.PrivilegioId });
+                        item = new MenuItem() { Header = p.Nombre, Tag = p.PrivilegioId };
+                        item.Click += clickMenuItem;
+                        menuItems.Add(item);
                         break;
                     case 6:
-                        menuItems.Add(new MenuItem() { Header = p.Nombre, Tag = p.PrivilegioId });
+                        item = new MenuItem() { Header = p.Nombre, Tag = p.PrivilegioId };
+                        item.Click += clickMenuItem;
+                        menuItems.Add(item);
                         break;
                     case 7:
-                        menuItems.Add(new MenuItem() { Header = p.Nombre, Tag = p.PrivilegioId });
+                        item = new MenuItem() { Header = p.Nombre, Tag = p.PrivilegioId };
+                        item.Click += clickMenuItem;
+                        menuItems.Add(item);
                         break;
                     case 8:
-                        menuItems.Add(new MenuItem() { Header = p.Nombre, Tag = p.PrivilegioId });
+                        item = new MenuItem() { Header = p.Nombre, Tag = p.PrivilegioId };
+                        item.Click += clickMenuItem;
+                        menuItems.Add(item);
                         break;
                     case 9:
-                        menuItems.Add(new MenuItem() { Header = p.Nombre, Tag = p.PrivilegioId });
+                        item = new MenuItem() { Header = p.Nombre, Tag = p.PrivilegioId };
+                        item.Click += clickMenuItem;
+                        menuItems.Add(item);
                         break;
                     case 10:
-                        menuItems.Add(new MenuItem() { Header = p.Nombre, Tag = p.PrivilegioId });
+                        item = new MenuItem() { Header = p.Nombre, Tag = p.PrivilegioId };
+                        item.Click += clickMenuItem;
+                        menuItems.Add(item);
                         break;
-
                 }
             }
             return menuItems;
         }
-        
+        private void clickMenuItem(object sender, RoutedEventArgs e)
+        {
+            MenuItem item = sender as MenuItem;
+            int id = int.Parse(item.Tag.ToString());
+            switch (id) {
+                case 1:
+                    FrameContent = new MantPerfiles();
+                    break;
+                case 2:
+                    FrameContent = new MantUsuario();
+                    break;
+                case 3:
+                    FrameContent = new MantCurso();
+                    break;
+                case 4:
+                    FrameContent = new MantProfe();
+                    break;
+                case 5:
+                    FrameContent = new MantEspecialidades();
+                    break;
+                case 6:
+                    FrameContent = new RegXMateria();
+                    break;
+                case 7:
+                    FrameContent = new RegXEstudiante();
+                    break;
+                case 8:
+                    FrameContent = new ConAlumXCurso();
+                    break;
+                case 9:
+                    FrameContent = new ConProfXCurso();
+                    break;
+                case 10:
+                    FrameContent = new InformeParcial();
+                    break;
+            }
+        }
         public event PropertyChangedEventHandler PropertyChanged;
         private void NotifyPropertyChanged(string propertyName)
         {

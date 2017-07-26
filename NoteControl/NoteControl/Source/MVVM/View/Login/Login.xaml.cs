@@ -34,11 +34,14 @@ namespace NoteControl
                 "Ingresar Notas por Estudiante","Consulta de Alumnos por Cursos","Consulta de Profesores por Cursos",
                 "Generacion de Informes"};
                 db.Database.Create();
-                for (int i =0;i<privilegios.Length;i++) {
-                 db.Privilegios.Add(new Privilegio() { Nombre = privilegios[i] });
-                }
-                Perfil perfil = new Perfil() { Nombre = "Administrador" };
+                 Perfil perfil = new Perfil() { Nombre = "Administrador" };
                 db.Perfiles.Add(perfil);
+                for (int i =0;i<privilegios.Length;i++) {
+                 Privilegio privilegio = new Privilegio() { Nombre = privilegios[i] };
+                    db.Privilegios.Add(privilegio);
+                    db.SaveChanges();
+                    db.PerfilesPrivilegios.Add(new PerfilPrivilegio() { PrivilegioId = i + 1, PerfilId = 1 });
+                }
                 db.Usuarios.Add(new Usuario() { Nombre = "jmolina", Clave = "1234", Estado = 1, Perfiles = perfil });
                 db.SaveChanges();
             }

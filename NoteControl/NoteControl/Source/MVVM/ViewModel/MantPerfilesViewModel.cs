@@ -18,7 +18,6 @@ namespace NoteControl.Source.MVVM.ViewModel
         public event PropertyChangedEventHandler PropertyChanged;
         BLPerfiles blPerfiles = null;
         public Command ButtonClick { get; set; }
-        public Command ActiveButton { get; set; }
         public bool IsSelectedOne { get; set; }
         public bool IsSelectedTwo { get; set; }
         public bool IsSelectedThree { get; set; }

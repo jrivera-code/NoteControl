@@ -6,7 +6,7 @@
       xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
       xmlns:local="clr-namespace:NoteControl"
       mc:Ignorable="d"
-      Title="MantEspecialidades" Height="422" Width="1203.5">
+      Title="MantEspecialidades" Height="700.000" Width="1200.000">
 
     <Page.Resources>
         <ResourceDictionary>
@@ -43,14 +43,14 @@
 
     <Grid>
         <Grid Margin="0,0,0,10">
-            <Label x:Name="codEsp" Content="Codigo Especialidad" Foreground="White" FontFamily="Kristen ITC" HorizontalAlignment="Left" Margin="38,39,0,0" VerticalAlignment="Top" FontWeight="Bold"/>
-            <Label x:Name="NombE" Content="Especialidad" Foreground="White" FontFamily="Kristen ITC" HorizontalAlignment="Left" Margin="65,98,0,0" VerticalAlignment="Top" FontWeight="Bold"/>
-            <Button x:Name="btnGuardar" Content="Guardar" HorizontalAlignment="Left" Margin="453,33,0,0" VerticalAlignment="Top" Width="94"/>
-            <Button x:Name="btnEliminar" Content="Eliminar" HorizontalAlignment="Left" Margin="576,33,0,0" VerticalAlignment="Top" Width="102"/>
-            <TextBox x:Name="txtCEspe" Foreground="White" HorizontalAlignment="Left" Height="55" Margin="209,10,0,0" TextWrapping="Wrap"  VerticalAlignment="Top" Width="170" FontSize="20" />
-            <TextBox x:Name="txtEspe" Foreground="White" HorizontalAlignment="Left" Height="45" Margin="209,70,0,0" TextWrapping="Wrap"  VerticalAlignment="Top" Width="170" FontSize="20" />
-            <DataGrid x:Name="dgEspecialidad" HorizontalAlignment="Left" Margin="38,161,0,0" VerticalAlignment="Top" Height="160" Width="640"/>
-            <Button x:Name="btnupdate" Content="Modificar" HorizontalAlignment="Left" Margin="576,101,0,0" VerticalAlignment="Top" Width="102"/>
+            <Label x:Name="codEsp" Content="Codigo Especialidad" Foreground="White" FontFamily="Kristen ITC" HorizontalAlignment="Left" Margin="293,96,0,0" VerticalAlignment="Top" FontWeight="Bold"/>
+            <Label x:Name="NombE" Content="Especialidad" Foreground="White" FontFamily="Kristen ITC" HorizontalAlignment="Left" Margin="317,155,0,0" VerticalAlignment="Top" FontWeight="Bold"/>
+            <Button x:Name="btnGuardar" Content="Guardar" HorizontalAlignment="Left" Margin="780,90,0,0" VerticalAlignment="Top" Width="94"/>
+            <Button x:Name="btnEliminar" Content="Eliminar" HorizontalAlignment="Left" Margin="903,90,0,0" VerticalAlignment="Top" Width="102"/>
+            <TextBox x:Name="txtCEspe" Foreground="White" HorizontalAlignment="Left" Height="55" Margin="464,67,0,0" TextWrapping="Wrap"  VerticalAlignment="Top" Width="170" FontSize="20" />
+            <TextBox x:Name="txtEspe" Foreground="White" HorizontalAlignment="Left" Height="45" Margin="467,142,0,0" TextWrapping="Wrap"  VerticalAlignment="Top" Width="170" FontSize="20" />
+            <DataGrid x:Name="dgEspecialidad" HorizontalAlignment="Left" Margin="284,323,0,0" VerticalAlignment="Top" Height="160" Width="640"/>
+            <Button x:Name="btnupdate" Content="Modificar" HorizontalAlignment="Left" Margin="903,158,0,0" VerticalAlignment="Top" Width="102"/>
 
         </Grid>
 
