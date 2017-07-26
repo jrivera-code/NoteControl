@@ -197,16 +197,16 @@ namespace NoteControl.Source.MVVM.ViewModel
                     FrameContent = new MantEspecialidades();
                     break;
                 case 6:
-                    FrameContent = new RegXMateria();
+                    FrameContent = new IngNotasAsig();
                     break;
                 case 7:
-                    FrameContent = new RegXEstudiante();
+                    FrameContent = new IngNotasAlum();
                     break;
                 case 8:
-                    FrameContent = new ConAlumXCurso();
+                    FrameContent = new ConsAlumCurso();
                     break;
                 case 9:
-                    FrameContent = new ConProfXCurso();
+                    FrameContent = new ConsProfeCurso();
                     break;
                 case 10:
                     FrameContent = new InformeParcial();

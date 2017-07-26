@@ -19,9 +19,9 @@ namespace NoteControl
 	/// <summary>
 	/// Lógica de interacción para ConProfXCurso.xaml
 	/// </summary>
-	public partial class ConProfXCurso : Page
+	public partial class ConsProfeCurso : Page
 	{
-		public ConProfXCurso()
+		public ConsProfeCurso()
 		{
 			InitializeComponent();
 		}

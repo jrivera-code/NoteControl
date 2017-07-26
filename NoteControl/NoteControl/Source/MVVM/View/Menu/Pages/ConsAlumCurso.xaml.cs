@@ -17,11 +17,11 @@ using NoteControl;
 namespace NoteControl
 {
 	/// <summary>
-	/// Lógica de interacción para RegXMateria.xaml
+	/// Lógica de interacción para ConAlumXCurso.xaml
 	/// </summary>
-	public partial class RegXMateria : Page
+	public partial class ConsAlumCurso : Page
 	{
-		public RegXMateria()
+		public ConsAlumCurso()
 		{
 			InitializeComponent();
 		}

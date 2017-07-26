@@ -76,50 +76,50 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
-    <Compile Include="Source\MVVM\View\Menu\Ventanas\ConAlumXCurso.xaml.cs">
-      <DependentUpon>ConAlumXCurso.xaml</DependentUpon>
+    <Compile Include="Source\MVVM\View\Menu\Pages\ConsAlumCurso.xaml.cs">
+      <DependentUpon>ConsAlumCurso.xaml</DependentUpon>
     </Compile>
-    <Compile Include="Source\MVVM\View\Menu\Ventanas\ConProfXCurso.xaml.cs">
-      <DependentUpon>ConProfXCurso.xaml</DependentUpon>
+    <Compile Include="Source\MVVM\View\Menu\Pages\ConsProfeCurso.xaml.cs">
+      <DependentUpon>ConsProfeCurso.xaml</DependentUpon>
     </Compile>
-    <Compile Include="Source\MVVM\View\Menu\Ventanas\InformeParcial.xaml.cs">
+    <Compile Include="Source\MVVM\View\Menu\Pages\InformeParcial.xaml.cs">
       <DependentUpon>InformeParcial.xaml</DependentUpon>
     </Compile>
-    <Compile Include="Source\MVVM\View\Menu\Ventanas\RegXEstudiante.xaml.cs">
-      <DependentUpon>RegXEstudiante.xaml</DependentUpon>
+    <Compile Include="Source\MVVM\View\Menu\Pages\IngNotasAlum.xaml.cs">
+      <DependentUpon>IngNotasAlum.xaml</DependentUpon>
     </Compile>
-    <Compile Include="Source\MVVM\View\Menu\Ventanas\RegXMateria.xaml.cs">
-      <DependentUpon>RegXMateria.xaml</DependentUpon>
+    <Compile Include="Source\MVVM\View\Menu\Pages\IngNotasAsig.xaml.cs">
+      <DependentUpon>IngNotasAsig.xaml</DependentUpon>
     </Compile>
-    <Page Include="Source\MVVM\View\Menu\Ventanas\ConAlumXCurso.xaml">
+    <Page Include="Source\MVVM\View\Menu\Pages\ConsAlumCurso.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="Source\MVVM\View\Menu\Ventanas\ConProfXCurso.xaml">
+    <Page Include="Source\MVVM\View\Menu\Pages\ConsProfeCurso.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="Source\MVVM\View\Menu\Ventanas\InformeParcial.xaml">
+    <Page Include="Source\MVVM\View\Menu\Pages\InformeParcial.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="Source\MVVM\View\Menu\Ventanas\MantCurso.xaml">
+    <Page Include="Source\MVVM\View\Menu\Pages\MantCurso.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="Source\MVVM\View\Menu\Ventanas\MantEspecialidades.xaml">
+    <Page Include="Source\MVVM\View\Menu\Pages\MantEspecialidades.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="Source\MVVM\View\Menu\Ventanas\MantPerfiles.xaml">
+    <Page Include="Source\MVVM\View\Menu\Pages\MantPerfiles.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="Source\MVVM\View\Menu\Ventanas\MantProfe.xaml">
+    <Page Include="Source\MVVM\View\Menu\Pages\MantProfe.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="Source\MVVM\View\Menu\Ventanas\MantUsuario.xaml">
+    <Page Include="Source\MVVM\View\Menu\Pages\MantUsuario.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -153,19 +153,19 @@
     <Compile Include="Source\MVVM\ViewModel\Commands\Command.cs" />
     <Compile Include="Source\MVVM\ViewModel\MantPerfilesViewModel.cs" />
     <Compile Include="Source\MVVM\ViewModel\MenuViewModel.cs" />
-    <Compile Include="Source\MVVM\View\Menu\Ventanas\MantCurso.xaml.cs">
+    <Compile Include="Source\MVVM\View\Menu\Pages\MantCurso.xaml.cs">
       <DependentUpon>MantCurso.xaml</DependentUpon>
     </Compile>
-    <Compile Include="Source\MVVM\View\Menu\Ventanas\MantEspecialidades.xaml.cs">
+    <Compile Include="Source\MVVM\View\Menu\Pages\MantEspecialidades.xaml.cs">
       <DependentUpon>MantEspecialidades.xaml</DependentUpon>
     </Compile>
-    <Compile Include="Source\MVVM\View\Menu\Ventanas\MantPerfiles.xaml.cs">
+    <Compile Include="Source\MVVM\View\Menu\Pages\MantPerfiles.xaml.cs">
       <DependentUpon>MantPerfiles.xaml</DependentUpon>
     </Compile>
-    <Compile Include="Source\MVVM\View\Menu\Ventanas\MantProfe.xaml.cs">
+    <Compile Include="Source\MVVM\View\Menu\Pages\MantProfe.xaml.cs">
       <DependentUpon>MantProfe.xaml</DependentUpon>
     </Compile>
-    <Compile Include="Source\MVVM\View\Menu\Ventanas\MantUsuario.xaml.cs">
+    <Compile Include="Source\MVVM\View\Menu\Pages\MantUsuario.xaml.cs">
       <DependentUpon>MantUsuario.xaml</DependentUpon>
     </Compile>
     <Compile Include="Source\MVVM\View\Menu\Menu.xaml.cs">
@@ -175,11 +175,11 @@
       <DependentUpon>Login.xaml</DependentUpon>
       <SubType>Code</SubType>
     </Compile>
-    <Page Include="Source\MVVM\View\Menu\Ventanas\RegXEstudiante.xaml">
+    <Page Include="Source\MVVM\View\Menu\Pages\IngNotasAsig.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="Source\MVVM\View\Menu\Ventanas\RegXMateria.xaml">
+    <Page Include="Source\MVVM\View\Menu\Pages\IngNotasAlum.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

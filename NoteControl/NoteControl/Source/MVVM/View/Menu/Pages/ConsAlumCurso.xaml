@@ -1,11 +1,11 @@
-﻿<Page x:Class="NoteControl.ConProfXCurso"
+﻿<Page x:Class="NoteControl.ConsAlumCurso"
       xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
       xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
       xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
       xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
       xmlns:local="clr-namespace:NoteControl"
       mc:Ignorable="d"
-      Title="ConProfXCurso" Height="700.000" Width="1200.000">
+      Title="ConAlumXCurso" Height="700.000" Width="1200.000">
 
     <Page.Resources>
         <ResourceDictionary>
@@ -42,9 +42,10 @@
 
 
     <Grid>
-        <ComboBox x:Name="CombCursos" Foreground="White"  HorizontalAlignment="Left" Margin="499,21,0,0" VerticalAlignment="Top" Width="270" Height="52"/>
-        <Label x:Name="LCurso" Content="Curso" Foreground="White"  HorizontalAlignment="Left" Margin="418,47,0,0" VerticalAlignment="Top"/>
-        <Button x:Name="GeneraP" Content="Ver Profesores" HorizontalAlignment="Left" Margin="499,116,0,0" VerticalAlignment="Top" Width="270" Height="53"/>
-        <DataGrid x:Name="dgProfXcr" HorizontalAlignment="Left" Margin="352,232,0,0" VerticalAlignment="Top" Height="390" Width="498"/>
+        <ComboBox x:Name="CombCursos" Foreground="White" FontFamily="Kristen ITC" HorizontalAlignment="Left" Margin="508,21,0,0" VerticalAlignment="Top" Width="270" Height="52"/>
+        <Label x:Name="LCurso" Content="Curso" Foreground="White" FontFamily="Kristen ITC" HorizontalAlignment="Left" Margin="427,47,0,0" VerticalAlignment="Top"/>
+        <Button x:Name="Genera" Content="Ver Alumnos" HorizontalAlignment="Left" Margin="508,116,0,0" VerticalAlignment="Top" Width="270" Height="53"/>
+        <DataGrid x:Name="dgAlumXCr" HorizontalAlignment="Left" Margin="373,232,0,0" VerticalAlignment="Top" Height="344" Width="498"/>
+
     </Grid>
 </Page>
