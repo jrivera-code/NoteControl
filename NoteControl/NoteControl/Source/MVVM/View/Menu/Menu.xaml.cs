@@ -23,16 +23,14 @@ namespace NoteControl
     /// </summary>
     public partial class Menu : Window
     {
-
-        MenuViewModel menuViewModel = new MenuViewModel(); 
+        MenuViewModel menuViewModel;
         public Menu(Usuario usuario) //recibe todo los datos del usuario logeado
         {
-           
+            menuViewModel = new MenuViewModel(usuario);
             InitializeComponent();
-            // listarPrivilegiosDelPerfil(usuario.Perfiles);
-            base.DataContext = menuViewModel;
             //imagen de fondo para el menu
             this.Background = new ImageBrush(new BitmapImage(new Uri(@"pack://application:,,,/NoteControl;component/Source/MVVM/View/Img/pizarron.png")));
+            DataContext = menuViewModel;
         }
 
         private void btnMenuItemPerfiles(object sender, RoutedEventArgs e)

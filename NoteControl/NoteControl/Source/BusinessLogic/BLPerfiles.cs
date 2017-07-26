@@ -24,7 +24,18 @@ namespace NoteControl.Source.BusinessLogic
             }
           
         }
-
+        //metodo para listar todos los perfil
+        public List<Privilegio> listarPrivilegiosDelPerfil(Perfil perfil)
+        {
+            try
+            {
+                return _da.listarPrivilegiosDelPerfil(perfil);
+            }
+            catch (Exception ex)
+            {
+                throw;
+            }
+        }
         //metodo para listar todos los perfil
         public List<Perfil> listarPerfiles()
         {

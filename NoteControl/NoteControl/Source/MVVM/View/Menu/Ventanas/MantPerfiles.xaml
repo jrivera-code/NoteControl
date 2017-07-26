@@ -56,7 +56,7 @@
             <RowDefinition Height="259*"/>
         </Grid.RowDefinitions>
         <Label x:Name="NomPerfil" Grid.Row="0" Foreground="White" FontFamily="Kristen ITC" FontSize="20" Content="Nombre de Perfil"  Margin="341,70,675,45"  />
-        <TextBox x:Name="txtPerfil" Text="{Binding TextBoxPerfil}" Foreground="White" FontFamily="Kristen ITC" Grid.Row="0" TextWrapping="Wrap" FontSize="20" Margin="560,70,409,57" RenderTransformOrigin="0.472,-0.419" />
+        <TextBox x:Name="txtPerfil" Text="{Binding TextBoxPerfil, UpdateSourceTrigger=PropertyChanged, Mode=TwoWay}"  Foreground="White" FontFamily="Kristen ITC" Grid.Row="0" TextWrapping="Wrap" FontSize="20" Margin="560,70,409,57" RenderTransformOrigin="0.472,-0.419" />
 
 
         <Label x:Name="NomPrivi" Content="Funcionalidades" Foreground="White" FontFamily="Kristen ITC" HorizontalAlignment="Left" Margin="494,6,0,0" VerticalAlignment="Top" RenderTransformOrigin="0.5,0.5" FontSize="20" Height="41" Width="189" Grid.Row="1">
@@ -79,6 +79,6 @@
         <CheckBox x:Name="cbConsCur" Foreground="White" FontFamily="Kristen ITC" Tag="8" IsChecked="{Binding Path=IsSelectedEigth, Mode=TwoWay}" Content="Consulta de curso" HorizontalAlignment="Left" Margin="762,114,0,0" VerticalAlignment="Top" Grid.Row="1" Height="29" Width="202" />
         <CheckBox x:Name="cbConsProfCur" Foreground="White" FontFamily="Kristen ITC" Tag="9" IsChecked="{Binding Path=IsSelectedNine, Mode=TwoWay}" Content="Consulta de profesores por curso" HorizontalAlignment="Left" Margin="762,143,0,0" VerticalAlignment="Top" Grid.Row="1" Height="29" Width="352"  />
         <CheckBox x:Name="cbInfParNot" Foreground="White" FontFamily="Kristen ITC" Tag="10" IsChecked="{Binding Path=IsSelectedTen, Mode=TwoWay}" Content="Informe parcial de notas" HorizontalAlignment="Left" Margin="762,173,0,0" VerticalAlignment="Top" Grid.Row="1" Height="29" Width="262" />
-        <Button x:Name="btnGuardar" Content="Guardar"  HorizontalAlignment="Left" Margin="510,5,0,0" VerticalAlignment="Top"  Width="156" Height="34" Command="{Binding ButtonClick}" Grid.Row="2"/>
+        <Button x:Name="btnGuardar" Content="Guardar"  HorizontalAlignment="Left" Margin="510,5,0,0" VerticalAlignment="Top"  Width="156" Height="34" Command="{Binding ButtonClick, Mode =TwoWay}" Grid.Row="2"/>
     </Grid>
 </Page>

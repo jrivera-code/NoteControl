@@ -119,13 +119,11 @@
     <Compile Include="Source\DataAccess\Source\DAPerfilPrivilegio.cs" />
     <Compile Include="Source\DataAccess\Source\DAPrivilegios.cs" />
     <Compile Include="Source\DataAccess\Source\DAUsuarios.cs" />
-    <Compile Include="Source\MVVM\Model\ControlsModel\MenulModel.cs" />
     <Compile Include="Source\MVVM\Model\Perfil.cs" />
     <Compile Include="Source\MVVM\Model\PerfilPrivilegio.cs" />
     <Compile Include="Source\MVVM\Model\Privilegio.cs" />
     <Compile Include="Source\MVVM\Model\Usuario.cs" />
-    <Compile Include="Source\MVVM\ViewModel\Commands\CommandBinding.cs" />
-    <Compile Include="Source\MVVM\ViewModel\Commands\RelayCommand.cs" />
+    <Compile Include="Source\MVVM\ViewModel\Commands\Command.cs" />
     <Compile Include="Source\MVVM\ViewModel\MantPerfilesViewModel.cs" />
     <Compile Include="Source\MVVM\ViewModel\MenuViewModel.cs" />
     <Compile Include="Source\MVVM\View\Menu\Ventanas\MantCurso.xaml.cs">

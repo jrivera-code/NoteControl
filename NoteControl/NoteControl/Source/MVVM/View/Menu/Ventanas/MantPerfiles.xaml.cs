@@ -30,6 +30,7 @@ namespace NoteControl
           
             InitializeComponent();
             base.DataContext = mantPerfilesViewModel;
+          
         }
 
         

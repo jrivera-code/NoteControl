@@ -8,6 +8,7 @@ using System.ComponentModel;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Windows.Controls;
 using System.Windows.Forms;
 
 namespace NoteControl.Source.MVVM.ViewModel 
@@ -15,8 +16,9 @@ namespace NoteControl.Source.MVVM.ViewModel
     public class MantPerfilesViewModel : INotifyPropertyChanged, IDisposable
     {
         public event PropertyChangedEventHandler PropertyChanged;
-
-        public CommandBinding ButtonClick { get; set; }
+        BLPerfiles blPerfiles = null;
+        public Command ButtonClick { get; set; }
+        public Command ActiveButton { get; set; }
         public bool IsSelectedOne { get; set; }
         public bool IsSelectedTwo { get; set; }
         public bool IsSelectedThree { get; set; }
@@ -27,25 +29,60 @@ namespace NoteControl.Source.MVVM.ViewModel
         public bool IsSelectedEigth { get; set; }
         public bool IsSelectedNine { get; set; }
         public bool IsSelectedTen { get; set; }
-   
-        public string TextBoxPerfil { get; set; } 
+        public string _textBoxPerfil;
+        public string TextBoxPerfil {
+            get {
+                return _textBoxPerfil;
+            }
+            set {
+                _textBoxPerfil = value;
+                NotifyPropertyChanged("TextBoxPerfil");
+                //consulta si el nombre de perfil ya existe
+                if (!perfilExist(_textBoxPerfil))
+                {
+                    changeEnableButton();
+                }
+                else {
+                    ButtonClick.methodToDetectCanExecute = () => false;
+                    MessageBox.Show("Este perfil ya existe");
+                }
+               
+            }
+        }
         public MantPerfilesViewModel()
         {
-           
-            //llama el command binding class para
-            //registrar el evento click de boton 
-            ButtonClick = new CommandBinding(GuardarPerfilMasPrivilegios);
-            //Enable the button click event
-            ButtonClick.IsEnabled = true;
-           
+            blPerfiles = new BLPerfiles();
+            //primer parametro el metodo que ejecutara y el segundo si se habilita o no el control
+            ButtonClick = new Command(GuardarPerfilMasPrivilegios, () => false);
+     
         }
-       
+
+        private bool perfilExist(string text)
+        {
+            foreach (Perfil perfil in blPerfiles.listarPerfiles()) {
+                if (perfil.Nombre == text) {
+                    return true;
+                }
+            }
+            return false;
+        }
+        private void changeEnableButton()
+        {
+            if (_textBoxPerfil.Length > 0)
+            {
+                ButtonClick.methodToDetectCanExecute = () => true;
+            }
+            else
+            {
+                ButtonClick.methodToDetectCanExecute = () => false;
+            }
+        }
+
         private void GuardarPerfilMasPrivilegios()
         {
 
             if (TextBoxPerfil != "" && TextBoxPerfil != null)
             {
-                BLPerfiles blPerfiles = new BLPerfiles();
                 Perfil perfil = new Perfil() { Nombre = TextBoxPerfil };
                 blPerfiles.crearPerfil(perfil);
 
@@ -78,9 +115,8 @@ namespace NoteControl.Source.MVVM.ViewModel
             
         }
 
-        protected void NotifyPropertyChanged(string propertyName)
+        private void NotifyPropertyChanged(string propertyName)
         {
-         
             PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(propertyName));
         }
 

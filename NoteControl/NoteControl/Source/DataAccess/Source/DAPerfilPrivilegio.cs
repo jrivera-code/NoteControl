@@ -20,7 +20,7 @@ namespace NoteControl.Source.DataAccess.Source
             _db.PerfilesPrivilegios.Add(perfilprivilegio);
             _db.SaveChanges();
         }
-
+   
         public void Dispose()
         {
             _db.Dispose();

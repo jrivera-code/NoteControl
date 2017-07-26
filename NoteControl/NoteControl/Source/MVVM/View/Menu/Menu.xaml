@@ -24,21 +24,14 @@
             <RowDefinition Height="50"></RowDefinition>
             <RowDefinition></RowDefinition>
         </Grid.RowDefinitions>
-        
-     <!--   
-      <Menu ItemsSource="{Binding Menus}">
-            <Menu.ItemContainerStyle>
-                <Style TargetType="{x:Type MenuItem}" >
-                    <Setter Property="Command" Value="{Binding MenuCommand}"/>
-                    <Setter Property="Header" Value="{Binding MenuLabel}"/>
-                    <Setter Property="ItemsSource" Value="{Binding SucMenus}"/>
-                </Style>
-                
-            </Menu.ItemContainerStyle>
-           
+
+
+        <Menu  x:Name="_Menu"  HorizontalAlignment="Stretch" VerticalAlignment="Stretch" Grid.Row="0" Background="#FFFFE795" ItemsSource="{Binding Menus}">
+          
         </Menu>
--->
+    <!--
         <Menu x:Name="_Menu"  HorizontalAlignment="Stretch" VerticalAlignment="Stretch" Grid.Row="0" Background="#FFFFE795" >
+            
             <MenuItem Header="_Mantenedores">
                 <MenuItem x:Name="MenuItemPerfiles" Header="Perfiles" HorizontalAlignment="Left" Width="160" Click="btnMenuItemPerfiles" RenderTransformOrigin="0.9,0.364" Height="22"/>
                 <MenuItem x:Name="MenuItemUsuarios" Header="Usuarios" HorizontalAlignment="Left" Width="160" Click="btnMenuItemUsuarios" RenderTransformOrigin="0.9,0.364" Height="22"/>
@@ -51,7 +44,7 @@
                 <MenuItem x:Name="MenuItemIngNotasAlum" Header="Ingreso de Notas por Alumno" HorizontalAlignment="Left" Width="250" Click="btnMenuItemCursos" RenderTransformOrigin="0.9,0.364" Height="22"/>
                 <MenuItem x:Name="MenuItemIngNotasAsig" Header="Ingreso de Notas por Asignatura" HorizontalAlignment="Left" Width="270" Click="btnMenuItemEspe" RenderTransformOrigin="0.9,0.364" Height="22"/>
             </MenuItem>
-        </Menu>
+        </Menu> -->
         <Frame x:Name="Main" Margin="0,10,0,0" NavigationUIVisibility="Hidden"  Grid.Row="1" />
     </Grid>
 

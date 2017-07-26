@@ -28,8 +28,8 @@ namespace NoteControl.Source.DataAccess.Source
             List<Privilegio> list = new List<Privilegio>();
             var query = from privilegios in _db.Privilegios
                                      join perfilprivilegio in _db.PerfilesPrivilegios on privilegios.PrivilegioId
-                                     equals perfilprivilegio.PerfilPrivilegiosId
-                                     join perfiles in _db.Perfiles on perfilprivilegio.PerfilPrivilegiosId
+                                     equals perfilprivilegio.PrivilegioId
+                                     join perfiles in _db.Perfiles on perfilprivilegio.PerfilId
                                      equals perfiles.PerfilId
                                      where perfiles.PerfilId == perfilUsuario.PerfilId
                                      select privilegios;
