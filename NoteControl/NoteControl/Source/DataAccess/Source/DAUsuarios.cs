@@ -11,7 +11,13 @@ namespace NoteControl.Source.DataAccess.Source
     {
         private readonly NoteControlContext _db = new NoteControlContext();
 
-
+        //metodo para agregar un nuevo usuario
+        public void crearUsuario(Usuario user,string perfil)
+        {
+            user.Perfiles = _db.Perfiles.Where(p => p.Nombre == perfil).First();
+            _db.Usuarios.Add(user);
+            _db.SaveChanges();
+        }
         //metodo para listar todos los usuarios
         public List<Usuario> listarUsuarios()
         {
