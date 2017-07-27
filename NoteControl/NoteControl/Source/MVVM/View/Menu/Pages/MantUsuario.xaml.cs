@@ -28,6 +28,6 @@ namespace NoteControl
             this.DataContext = mantUsuariosViewModel;
         }
 
-       
+        
     }
 }

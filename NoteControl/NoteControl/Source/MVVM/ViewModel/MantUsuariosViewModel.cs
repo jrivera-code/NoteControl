@@ -82,6 +82,50 @@ namespace NoteControl.Source.MVVM.ViewModel
                 }
             }
         }
+       public class RowModel {
+            string _nombreUsuario;
+            string _estado; 
+            string _perfil;
+            public string NombreUsuario {
+                get {
+                    return _nombreUsuario;
+                } set {
+                    _nombreUsuario = value;
+                }
+            }
+            public string Estado
+            {
+                get
+                {
+                    return _estado;
+                }
+                set
+                {
+                    _estado = value;
+                }
+            }
+            public string Perfil
+            {
+                get
+                {
+                    return _perfil;
+                }
+                set
+                {
+                    _perfil = value;
+                }
+            }
+        }
+        private List<RowModel> _dataGridColumnUsuarios = new List<RowModel>();
+        public List<RowModel> DataGridColumnUsuarios {
+            get
+            {
+                return _dataGridColumnUsuarios;
+            } set {
+                _dataGridColumnUsuarios = value;
+                NotifyPropertyChanged("DataGridColumnUsuarios");
+            }
+        }
 
         public MantUsuariosViewModel() {
             //constructor
@@ -94,6 +138,19 @@ namespace NoteControl.Source.MVVM.ViewModel
             ButtonSaveClick = new Command(saveClick,() => false);
             ButtonDeleteClick = new Command(deleteClick, () => false);
             ButtonUpdateClick = new Command(updateClick, () => false);
+            //carga data grid con los datos de todos los usuarios
+            cargarDataGrid();
+        }
+
+        private void cargarDataGrid()
+        {
+            foreach (Usuario u in blUsuarios.listarUsuarios()) {
+                DataGridColumnUsuarios.Add(new RowModel() {
+                    NombreUsuario = u.Nombre,
+                    Estado = u.Estado.ToString(),
+                    Perfil = u.Perfiles.Nombre
+             });
+            }
         }
 
         private void cargarDatoUsuario() {
@@ -176,6 +233,7 @@ namespace NoteControl.Source.MVVM.ViewModel
                 Estado = estado
         };
             blUsuarios.crearUsuario(user, _selectedComboBoxPerfilItems.Content.ToString());
+      
         }
 
         private string getPassword() {
