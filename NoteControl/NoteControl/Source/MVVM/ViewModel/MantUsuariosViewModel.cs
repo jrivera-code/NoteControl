@@ -20,7 +20,7 @@ namespace NoteControl.Source.MVVM.ViewModel
         public Command ButtonSaveClick { get; set; }
         public Command ButtonDeleteClick { get; set; }
         public Command ButtonUpdateClick { get; set; }
-        private Usuario usuarioEncontrado;
+        private Usuario usuarioEncontrado = null;
         private List<ComboBoxItem> _comboBoxPerfilItems = new List<ComboBoxItem>();
         public List<ComboBoxItem> ComboBoxPerfilItems
         {
@@ -69,6 +69,7 @@ namespace NoteControl.Source.MVVM.ViewModel
                     ButtonUpdateClick.methodToDetectCanExecute = () => false;
                     SelectedEstadoItem = null;
                     SelectedComboBoxPerfilItems = null;
+                    usuarioEncontrado = null;
                 }
                 else
                 {
@@ -78,9 +79,7 @@ namespace NoteControl.Source.MVVM.ViewModel
                     ButtonUpdateClick.methodToDetectCanExecute = () => true;
                     //carga los datos del usuario en el formulario
                     cargarDatoUsuario();
-
                 }
-
             }
         }
 
@@ -152,12 +151,20 @@ namespace NoteControl.Source.MVVM.ViewModel
         }
         private void updateClick()
         {
-            throw new NotImplementedException();
+           int estado = SelectedEstadoItem.Content.ToString() == "Activo" ? 1 : 0;
+            string perfil = _selectedComboBoxPerfilItems.Content.ToString();
+            Usuario user = new Usuario() {
+                Nombre = _textBoxUsuario,
+                Clave = getPassword(),
+                Estado = estado,
+            };
+            blUsuarios.modificarUser(user,_textBoxUsuario, perfil);
         }
 
         private void deleteClick()
         {
-            throw new NotImplementedException();
+            blUsuarios.eliminarUser(_textBoxUsuario);
+            TextBoxUsuario = "";
         }
 
         private void saveClick()
@@ -172,8 +179,15 @@ namespace NoteControl.Source.MVVM.ViewModel
         }
 
         private string getPassword() {
-            var passwordBox = ButtonSaveClick.parameters as PasswordBox;
-            return passwordBox.Password;
+            PasswordBox passwordBox = new PasswordBox();
+            string pass = "";
+            if(usuarioEncontrado == null){
+                pass = (ButtonSaveClick.parameters as PasswordBox).Password;
+            }
+            else {
+                pass = (ButtonUpdateClick.parameters as PasswordBox).Password;
+            }
+            return pass;
         }
 
         private void NotifyPropertyChanged(string propertyName)

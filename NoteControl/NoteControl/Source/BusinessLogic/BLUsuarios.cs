@@ -38,5 +38,31 @@ namespace NoteControl.Source.BusinessLogic
                 throw;
             }
         }
+
+        public void eliminarUser(string nombre)
+        {
+            try
+            {
+                _da.eliminarUsuario(nombre);
+                MessageBox.Show("Usuario Eliminado Exitosamente");
+            }
+            catch (Exception ex)
+            {
+                throw;
+            }
+        }
+
+        public void modificarUser(Usuario updatedUser, string nombre,string perfil)
+        {
+            try
+            {
+                _da.modificarUser(updatedUser, nombre, perfil);
+                MessageBox.Show("Datos de "+nombre+" modificados exitosamente");
+            }
+            catch (Exception ex)
+            {
+                throw;
+            }
+        }
     }
 }

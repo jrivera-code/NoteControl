@@ -1,9 +1,11 @@
 ﻿using NoteControl.Source.MVVM.Model;
 using System;
 using System.Collections.Generic;
+using System.Data.Entity;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Windows.Forms;
 
 namespace NoteControl.Source.DataAccess.Source
 {
@@ -27,6 +29,33 @@ namespace NoteControl.Source.DataAccess.Source
         public void Dispose()
         {
             _db.Dispose();
+        }
+
+        public void eliminarUsuario(string nombre)
+        {
+            Usuario user = _db.Usuarios.Where(p => p.Nombre == nombre).First();
+            _db.Usuarios.Remove(user);
+            _db.SaveChanges();
+        }
+
+        public void modificarUser(Usuario updatedUser, string nombre,string perf)
+        {
+            MessageBox.Show(perf);
+            var perfil = _db.Perfiles.FirstOrDefault(p => p.Nombre == perf);
+            var usuario = _db.Usuarios.FirstOrDefault(a => a.Nombre == nombre);
+           
+            if (usuario != null)
+            {
+                updatedUser.Perfiles = perfil;
+                _db.Usuarios.Remove(usuario);
+                _db.Usuarios.Add(updatedUser);
+            }
+            else 
+            {
+                _db.Usuarios.Add(updatedUser);
+            }
+            _db.SaveChanges();
+           
         }
     }
 }
