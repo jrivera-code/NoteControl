@@ -31,5 +31,25 @@ namespace NoteControl.Source.DataAccess.Source
         {
             throw new NotImplementedException();
         }
+
+        public void eliminarEspecialidad(string textBoxCode)
+        {
+            Especialidad especialidad = (from es in _db.Especialidades
+                       where es.EspecialidadCode == textBoxCode
+                       select es).FirstOrDefault();
+            _db.Especialidades.Remove(especialidad);
+            _db.SaveChanges();
+        }
+
+        public void modificarEspecialidad(Especialidad especialidad, string textBoxCode)
+        {
+            Especialidad especial = (from es in _db.Especialidades
+                       where es.EspecialidadCode == textBoxCode
+                                     select es).FirstOrDefault();
+            especial.Nombre = especialidad.Nombre;
+           
+            _db.Entry(especial).State = System.Data.Entity.EntityState.Modified;
+            _db.SaveChanges();
+        }
     }
 }

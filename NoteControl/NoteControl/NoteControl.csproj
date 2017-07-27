@@ -93,6 +93,8 @@
     <Compile Include="Source\MVVM\Model\Profesor.cs" />
     <Compile Include="Source\MVVM\ViewModel\ConsAlumCursoViewModel.cs" />
     <Compile Include="Source\MVVM\ViewModel\ConsProfeCursoViewModel.cs" />
+    <Compile Include="Source\MVVM\ViewModel\DataGridRowModel\EspecialidadRowModel.cs" />
+    <Compile Include="Source\MVVM\ViewModel\DataGridRowModel\ProfeRowModel.cs" />
     <Compile Include="Source\MVVM\ViewModel\DataGridRowModel\CursoRowModel.cs" />
     <Compile Include="Source\MVVM\ViewModel\DataGridRowModel\UsuarioRowModel.cs" />
     <Compile Include="Source\MVVM\ViewModel\InformeParcialViewModel.cs" />

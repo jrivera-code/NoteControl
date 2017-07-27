@@ -38,5 +38,30 @@ namespace NoteControl.Source.BusinessLogic
                 throw;
             }
         }
+
+        public void eliminarProfesor(string textBoxRut)
+        {
+            try
+            {
+                _da.eliminarProfesor(textBoxRut);
+            }
+            catch (Exception ex)
+            {
+                throw;
+            }
+        }
+
+        public void modificarProfesor(Profesor profesor, string textBoxRut)
+        {
+            try
+            {
+                _da.modificarProfesor(profesor, textBoxRut);
+                MessageBox.Show("El profesor fue eliminado");
+            }
+            catch (Exception ex)
+            {
+                throw;
+            }
+        }
     }
 }

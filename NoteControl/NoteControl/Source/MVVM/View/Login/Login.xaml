@@ -88,16 +88,26 @@
                 </Grid>
 
             </Border>
-            <Image x:Name="image"  HorizontalAlignment="Left" Height="63" Margin="434,90,0,0" Grid.RowSpan="2" VerticalAlignment="Top" Width="71" RenderTransformOrigin="0.398,0.708">
+            <Image x:Name="image"  HorizontalAlignment="Left" Height="63" Margin="422,74,0,0" Grid.RowSpan="2" VerticalAlignment="Top" Width="71" RenderTransformOrigin="0.398,0.708">
                 <Image.RenderTransform>
                     <TransformGroup>
                         <ScaleTransform/>
                         <SkewTransform AngleY="-1.127"/>
-                        <RotateTransform Angle="4.892"/>
+                        <RotateTransform Angle="17.868"/>
                         <TranslateTransform X="-9.649" Y="1.986"/>
                     </TransformGroup>
                 </Image.RenderTransform>
             </Image>
+            <Label x:Name="label" Content="NOTE CONTROL" FontSize="20" HorizontalAlignment="Left" Margin="198,51,0,0" Grid.Row="1" VerticalAlignment="Top" RenderTransformOrigin="0.5,0.5" Height="41" Width="161">
+                <Label.RenderTransform>
+                    <TransformGroup>
+                        <ScaleTransform/>
+                        <SkewTransform AngleY="-12.916"/>
+                        <RotateTransform Angle="13.512"/>
+                        <TranslateTransform X="-4.457" Y="18.033"/>
+                    </TransformGroup>
+                </Label.RenderTransform>
+            </Label>
         </Grid>
 
         <Border.Background>

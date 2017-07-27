@@ -31,5 +31,25 @@ namespace NoteControl.Source.DataAccess.Source
         {
             throw new NotImplementedException();
         }
+
+        public void eliminarProfesor(string textBoxRut)
+        {
+            Profesor prof = (from p in _db.Profesores
+                       where p.Rut.ToString() == textBoxRut
+                       select p).FirstOrDefault();
+            _db.Profesores.Remove(prof);
+            _db.SaveChanges();
+        }
+
+        public void modificarProfesor(Profesor profesor, string textBoxRut)
+        {
+            Profesor prof = (from p in _db.Profesores
+                       where p.Rut == int.Parse(textBoxRut)
+                       select p).FirstOrDefault();
+            prof.Nombre = profesor.Nombre;
+            prof.Apellido = profesor.Apellido;
+            _db.Entry(prof).State = System.Data.Entity.EntityState.Modified;
+            _db.SaveChanges();
+        }
     }
 }

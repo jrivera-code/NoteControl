@@ -38,5 +38,31 @@ namespace NoteControl.Source.BusinessLogic
                 throw;
             }
         }
+
+        public void eliminarEspecialidad(string textBoxCode)
+        {
+            try
+            {
+                _da.eliminarEspecialidad(textBoxCode);
+                MessageBox.Show("La especialidad ha sido eliminada");
+            }
+            catch (Exception ex)
+            {
+                throw;
+            }
+        }
+
+        public void modificarEspecialidad(Especialidad especialidad, string textBoxCode)
+        {
+            try
+            {
+                _da.modificarEspecialidad(especialidad, textBoxCode);
+                MessageBox.Show("La especialidad ha sido modificada");
+            }
+            catch (Exception ex)
+            {
+                throw;
+            }
+        }
     }
 }

@@ -13,6 +13,7 @@ using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
 using NoteControl;
+using NoteControl.Source.MVVM.ViewModel;
 
 namespace NoteControl
 { 
@@ -21,9 +22,11 @@ namespace NoteControl
     /// </summary>
     public partial class MantProfe : Page
     {
+        MantProfesoresViewModel mantProfesoresViewModel = new MantProfesoresViewModel();
         public MantProfe()
         {
             InitializeComponent();
+            this.DataContext = mantProfesoresViewModel;
         }
     }
 }

@@ -37,7 +37,7 @@
             <Style TargetType="{x:Type Slider}" BasedOn="{StaticResource MaterialDesignSlider}">
                 <Setter Property="Margin" Value="0 8 0 8" />
             </Style>
-
+            
         </ResourceDictionary>
     </Page.Resources>
 
@@ -49,10 +49,11 @@
         <Label x:Name="nomPassw" Foreground="White" Content="Clave : " HorizontalAlignment="Left" Margin="211,98,0,0" VerticalAlignment="Top"  FontWeight="Bold" FontSize="20" />
         <PasswordBox x:Name="txtPassword" Foreground="White" HorizontalAlignment="Left" Margin="401,99,0,0" VerticalAlignment="Top" Width="231" FontSize="20"/>
         <Label x:Name="nomPer" Foreground="White" Content="Perfil : " HorizontalAlignment="Left" Margin="211,145,0,0" VerticalAlignment="Top" RenderTransformOrigin="0.458,3.128"  FontWeight="Bold" FontSize="20" />
-        <ComboBox x:Name="cbPerfil"  Foreground="White" HorizontalAlignment="Left" Margin="401,145,0,0" VerticalAlignment="Top" Width="231"  FontSize="20"
+        <ComboBox x:Name="cbPerfil"  Foreground="Black" HorizontalAlignment="Left" Margin="401,145,0,0" VerticalAlignment="Top" Width="231"  FontSize="20"
         ItemsSource="{Binding ComboBoxPerfilItems,Mode=TwoWay}"
-        SelectedItem="{Binding SelectedComboBoxPerfilItems,Mode=TwoWay}"
-       />
+        SelectedItem="{Binding SelectedComboBoxPerfilItems,Mode=TwoWay}" >
+            
+        </ComboBox>
         <Label x:Name="nomEstado" Foreground="White" Content="Estado : " HorizontalAlignment="Left" Margin="211,197,0,0" VerticalAlignment="Top" RenderTransformOrigin="0.458,3.128"  FontWeight="Bold" FontSize="20" />
         <ComboBox x:Name="cbEstado" ItemsSource="{Binding ComboBoxEstadoItems,Mode=TwoWay}"
                   SelectedItem="{Binding SelectedEstadoItem,Mode=TwoWay}"
