@@ -26,6 +26,12 @@
             <Style TargetType="{x:Type ComboBox}" BasedOn="{StaticResource MaterialDesignComboBox}">
                 <Setter Property="HorizontalAlignment" Value="Stretch" />
                 <Setter Property="Margin" Value="0 8 0 8" />
+                <Style.Triggers>
+                    <Trigger Property="IsDropDownOpen" Value="True">
+                        <Setter Property="Background" Value="White" />
+                        <Setter Property="Foreground" Value="Black" />
+                    </Trigger>
+                </Style.Triggers>
             </Style>
             <Style TargetType="{x:Type Viewbox}">
                 <Setter Property="Width" Value="18" />
@@ -42,7 +48,7 @@
 
 
     <Grid>
-        <ComboBox x:Name="CombCursos" Foreground="White"  HorizontalAlignment="Left" Margin="499,21,0,0" VerticalAlignment="Top" Width="270" Height="52"/>
+        <ComboBox x:Name="CombCursos" HorizontalAlignment="Left" Margin="499,21,0,0" VerticalAlignment="Top" Width="270" Height="52"/>
         <Label x:Name="LCurso" Content="Curso" Foreground="White"  HorizontalAlignment="Left" Margin="418,47,0,0" VerticalAlignment="Top"/>
         <Button x:Name="GeneraP" Content="Ver Profesores" HorizontalAlignment="Left" Margin="499,116,0,0" VerticalAlignment="Top" Width="270" Height="53"/>
         <DataGrid x:Name="dgProfXcr" HorizontalAlignment="Left" Margin="352,232,0,0" VerticalAlignment="Top" Height="390" Width="498"/>

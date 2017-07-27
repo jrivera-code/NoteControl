@@ -40,9 +40,25 @@ namespace NoteControl.Source.MVVM.ViewModel
         public Command ClickMenuItem { get; set; }
         public List<MenuItem> Menus { get; }
         BLPerfiles blPerfiles = new BLPerfiles();
+        private string _usuarioLogeado { get; set; }
+        public string UsuarioLogeado
+        {
+            get
+            {
+                return _usuarioLogeado;
+            }
+            set
+            {
+                _usuarioLogeado = value;
+                NotifyPropertyChanged("UsuarioLogeado");
+            }
+        }
+
 
         public MenuViewModel(Usuario usuario)
         {
+           
+            UsuarioLogeado = usuario.Nombre;
             Menus = new List<MenuItem>();
             //pasa el perfil del usuario y devuelve la lista de privilegios
             List<Privilegio> listPrivilegios = blPerfiles.listarPrivilegiosDelPerfil(usuario.Perfiles);
@@ -51,11 +67,12 @@ namespace NoteControl.Source.MVVM.ViewModel
             {
                 string url = "pack://application:,,,/NoteControl;component/Source/MVVM/View/Img/Icons/";
                 string[] iconName = { "mant_icon", "add_note", "search", "report" };
-                if (menuitem.Items.Count != 0) {
+                if (menuitem.Items.Count != 0)
+                {
 
                     menuitem.Icon = new Image
                     {
-                        Source = new BitmapImage(new Uri(url+ iconName[countIcon] +".png"))
+                        Source = new BitmapImage(new Uri(url + iconName[countIcon] + ".png"))
                     };
                     Menus.Add(menuitem);
                 }
@@ -69,7 +86,7 @@ namespace NoteControl.Source.MVVM.ViewModel
             System.Windows.Forms.MessageBox.Show("sdasd");
         }
 
-            private List<MenuItem> crearMenu(List<Privilegio> privilegiosList)
+        private List<MenuItem> crearMenu(List<Privilegio> privilegiosList)
         {
             return crearHeaderItems(crearSubItems(privilegiosList));
         }
@@ -121,7 +138,7 @@ namespace NoteControl.Source.MVVM.ViewModel
                 MenuItem item;
                 switch (p.PrivilegioId)
                 {
-                 
+
                     case 1:
                         item = new MenuItem() { Header = p.Nombre, Tag = p.PrivilegioId };
                         item.Click += clickMenuItem;
@@ -180,7 +197,8 @@ namespace NoteControl.Source.MVVM.ViewModel
         {
             MenuItem item = sender as MenuItem;
             int id = int.Parse(item.Tag.ToString());
-            switch (id) {
+            switch (id)
+            {
                 case 1:
                     FrameContent = new MantPerfiles();
                     break;

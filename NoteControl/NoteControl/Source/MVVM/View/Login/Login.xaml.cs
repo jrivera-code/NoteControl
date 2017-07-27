@@ -42,7 +42,18 @@ namespace NoteControl
                             "Lenguaje y Comunicación",
                             "Matemática",
                             "Música" };
+                string[] nombres = { "Matias", "Felipe", "Camilo", "Ricardo", "Emilio", "Cesar", "Francisco", "Pablo" };
+                string[] apellidos = { "Rivera", "Cardenas", "Jaramillo", "Fernandez", "Sanchez", "Vidal", "Dias", "Bravo" };
                 db.Database.Create();
+                
+                    Curso curso = new Curso() { CursoCode = "A10", Nombre = "Primero Basico", Descripcion = "Conocimiento de sí mismo e ingreso al mundo de la lectura y escritura" };
+                db.Cursos.Add(curso);
+                for (int i = 0; i < nombres.Length; i++)
+                {
+                    Alumno alum = new Alumno() {Rut = 1813035+i , Nombre = nombres[i],Apellido = apellidos[i],Curso= curso };
+                    db.Alumnos.Add(alum);
+                    db.SaveChanges();
+                }
                 Perfil perfil = new Perfil() { Nombre = "Administrador" };
                 db.Perfiles.Add(perfil);
                 for (int i = 0; i < privilegios.Length; i++)
@@ -74,10 +85,18 @@ namespace NoteControl
             //pregunta su el usuario existe
             if (blLogin.userExist(txtUsuario.Text, txtPass.Password))
             {
+                Usuario user = blLogin.getUser();
                 //pasa el usuario encontrado al contructor del menu
-                Menu menu = new Menu(blLogin.getUser());
-                menu.Show();
-                this.Close();
+                switch (user.Estado) {
+                    case 0:
+                        MessageBox.Show("Su cuenta de usuario esta suspendida");
+                        break;
+                    case 1:
+                        Menu menu = new Menu(blLogin.getUser());
+                        menu.Show();
+                        this.Close();
+                        break;
+                }
             }
             else
             {

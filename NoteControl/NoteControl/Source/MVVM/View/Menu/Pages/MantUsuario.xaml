@@ -27,6 +27,13 @@
             <Style TargetType="{x:Type ComboBox}" BasedOn="{StaticResource MaterialDesignComboBox}">
                 <Setter Property="HorizontalAlignment" Value="Stretch" />
                 <Setter Property="Margin" Value="0 8 0 8" />
+                
+                <Style.Triggers>
+                    <Trigger Property="IsDropDownOpen" Value="True">
+                        <Setter Property="Background" Value="White" />
+                        <Setter Property="Foreground" Value="Black" />
+                    </Trigger>
+                </Style.Triggers>
             </Style>
             <Style TargetType="{x:Type Viewbox}">
                 <Setter Property="Width" Value="18" />
@@ -37,7 +44,6 @@
             <Style TargetType="{x:Type Slider}" BasedOn="{StaticResource MaterialDesignSlider}">
                 <Setter Property="Margin" Value="0 8 0 8" />
             </Style>
-            
         </ResourceDictionary>
     </Page.Resources>
 
@@ -49,7 +55,7 @@
         <Label x:Name="nomPassw" Foreground="White" Content="Clave : " HorizontalAlignment="Left" Margin="211,98,0,0" VerticalAlignment="Top"  FontSize="20" />
         <PasswordBox x:Name="txtPassword" Foreground="White" HorizontalAlignment="Left" Margin="401,99,0,0" VerticalAlignment="Top" Width="231" FontSize="20"/>
         <Label x:Name="nomPer" Foreground="White" Content="Perfil : " HorizontalAlignment="Left" Margin="211,145,0,0" VerticalAlignment="Top" RenderTransformOrigin="0.458,3.128"   FontSize="20" />
-        <ComboBox x:Name="cbPerfil"  Foreground="Black" HorizontalAlignment="Left" Margin="401,145,0,0" VerticalAlignment="Top" Width="231"  FontSize="20"
+        <ComboBox x:Name="cbPerfil"  HorizontalAlignment="Left" Margin="401,145,0,0" VerticalAlignment="Top" Width="231"  FontSize="20"
         ItemsSource="{Binding ComboBoxPerfilItems,Mode=TwoWay}"
         SelectedItem="{Binding SelectedComboBoxPerfilItems,Mode=TwoWay}" >
             
@@ -57,7 +63,7 @@
         <Label x:Name="nomEstado" Foreground="White" Content="Estado : " HorizontalAlignment="Left" Margin="211,197,0,0" VerticalAlignment="Top" RenderTransformOrigin="0.458,3.128" FontSize="20" />
         <ComboBox x:Name="cbEstado" ItemsSource="{Binding ComboBoxEstadoItems,Mode=TwoWay}"
                   SelectedItem="{Binding SelectedEstadoItem,Mode=TwoWay}"
-                  Foreground="White" HorizontalAlignment="Left" Margin="401,195,0,0" VerticalAlignment="Top" Width="162" FontSize="20">
+                  HorizontalAlignment="Left" Margin="401,195,0,0" VerticalAlignment="Top" Width="162" FontSize="20">
         </ComboBox>
         <Button x:Name="btnSave" Command="{Binding ButtonSaveClick, Mode =TwoWay}"  CommandParameter="{Binding ElementName=txtPassword}" Content="Guardar" HorizontalAlignment="Left" Margin="741,58,0,0" VerticalAlignment="Top" Width="121"/>
         <Button x:Name="btnDelete" Command="{Binding ButtonDeleteClick, Mode =TwoWay}" Content="Eliminar" HorizontalAlignment="Left" Margin="896,57,0,0" VerticalAlignment="Top" Width="121"/>
