@@ -13,6 +13,7 @@ using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
 using NoteControl;
+using NoteControl.Source.MVVM.ViewModel;
 
 namespace NoteControl
 {
@@ -21,9 +22,12 @@ namespace NoteControl
 	/// </summary>
 	public partial class ConsAlumCurso : Page
 	{
-		public ConsAlumCurso()
+        ConsAlumCursoViewModel consAlumCursoViewModel = new ConsAlumCursoViewModel();
+        public ConsAlumCurso()
 		{
 			InitializeComponent();
-		}
+            this.DataContext = consAlumCursoViewModel;
+
+        }
 	}
 }

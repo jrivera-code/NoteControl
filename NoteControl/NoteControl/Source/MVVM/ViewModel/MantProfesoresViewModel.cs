@@ -107,11 +107,15 @@ namespace NoteControl.Source.MVVM.ViewModel
                 Apellido = _textBoxApellido
             };
             blProfesores.modificarProfesor(profesor, _textBoxRut);
+            cargarDataGrid();
+            NotifyPropertyChanged("DataGridColumnProfe");
         }
 
         private void deleteClick()
         {
             blProfesores.eliminarProfesor(_textBoxRut);
+            cargarDataGrid();
+            NotifyPropertyChanged("DataGridColumnProfe");
             TextBoxRut = "";
             TextBoxApellido = "";
             TextBoxNombreProfe = "";
@@ -127,7 +131,8 @@ namespace NoteControl.Source.MVVM.ViewModel
                 Apellido = _textBoxApellido
             };
             blProfesores.crearProfesor(profe);
-
+            cargarDataGrid();
+            NotifyPropertyChanged("DataGridColumnProfe");
         }
         private bool profeExist(string text)
         {
@@ -148,6 +153,7 @@ namespace NoteControl.Source.MVVM.ViewModel
         }
         private void cargarDataGrid()
         {
+            DataGridColumnProfe.Clear();
             foreach (Profesor p in blProfesores.listarProfesores())
             {
                 DataGridColumnProfe.Add(new ProfeRowModel()

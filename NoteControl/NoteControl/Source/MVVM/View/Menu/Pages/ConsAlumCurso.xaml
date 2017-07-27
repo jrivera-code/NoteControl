@@ -42,10 +42,18 @@
 
 
     <Grid>
-        <ComboBox x:Name="CombCursos" Foreground="White" FontFamily="Kristen ITC" HorizontalAlignment="Left" Margin="508,21,0,0" VerticalAlignment="Top" Width="270" Height="52"/>
-        <Label x:Name="LCurso" Content="Curso" Foreground="White" FontFamily="Kristen ITC" HorizontalAlignment="Left" Margin="427,47,0,0" VerticalAlignment="Top"/>
-        <Button x:Name="Genera" Content="Ver Alumnos" HorizontalAlignment="Left" Margin="508,116,0,0" VerticalAlignment="Top" Width="270" Height="53"/>
-        <DataGrid x:Name="dgAlumXCr" HorizontalAlignment="Left" Margin="373,232,0,0" VerticalAlignment="Top" Height="344" Width="498"/>
-
+        <ComboBox x:Name="cbEstado" ItemsSource="{Binding ComboBoxCursosItems,Mode=TwoWay}"
+                  SelectedItem="{Binding SelectedComboBoxCursosItems,Mode=TwoWay}"
+                  Foreground="White" HorizontalAlignment="Left" Margin="508,35,0,0" VerticalAlignment="Top" Width="270" FontSize="20">
+        </ComboBox>
+        <Label x:Name="LCurso" Content="Curso" Foreground="White" HorizontalAlignment="Left" Margin="427,37,0,0" VerticalAlignment="Top" FontSize="20"/>
+        <Button x:Name="Genera" Command="{Binding ButtonConsClick, Mode =TwoWay,IsAsync=True}" Content="Ver Alumnos" HorizontalAlignment="Left" Margin="508,116,0,0" VerticalAlignment="Top" Width="270" Height="53"/>
+        <DataGrid Name="dgAlumList" ItemsSource="{Binding DataGridColumnAlumnos,IsAsync=True,Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" AutoGenerateColumns="False" Margin="380,288,302,88">
+            <DataGrid.Columns>
+                <DataGridTextColumn Header="Rut" Binding="{Binding Rut}" />
+                <DataGridTextColumn Header="Nombre" Binding="{Binding Nombre}"/>
+                <DataGridTextColumn Header="Apellido" Binding="{Binding Apellido}"/>
+            </DataGrid.Columns>
+        </DataGrid>
     </Grid>
 </Page>

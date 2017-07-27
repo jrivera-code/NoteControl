@@ -40,7 +40,7 @@ namespace NoteControl.Source.DataAccess.Source
 
         public void modificarUser(Usuario updatedUser, string nombre, string perf)
         {
-            MessageBox.Show(perf);
+            
             var perfil = _db.Perfiles.FirstOrDefault(p => p.Nombre == perf);
             var usuario = _db.Usuarios.FirstOrDefault(a => a.Nombre == nombre);
             if (updatedUser.Clave == "" || updatedUser.Clave == null)

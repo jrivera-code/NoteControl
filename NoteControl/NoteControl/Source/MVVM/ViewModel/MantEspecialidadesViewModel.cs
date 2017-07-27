@@ -93,11 +93,15 @@ namespace NoteControl.Source.MVVM.ViewModel
                 Nombre =  _textBoxNombre
             };
             blEspecialidades.modificarEspecialidad(especialidad, _textBoxCode);
+            cargarDataGrid();
+            NotifyPropertyChanged("DataGridColumnEspecialidad");
         }
 
         private void deleteClick()
         {
             blEspecialidades.eliminarEspecialidad(_textBoxCode);
+            cargarDataGrid();
+            NotifyPropertyChanged("DataGridColumnEspecialidad");
             TextBoxCode = "";
             TextBoxNombre = "";
         }
@@ -111,6 +115,8 @@ namespace NoteControl.Source.MVVM.ViewModel
                 Nombre = _textBoxNombre
             };
             blEspecialidades.crearEspecialidad(especialidad);
+            cargarDataGrid();
+            NotifyPropertyChanged("DataGridColumnEspecialidad");
 
         }
         private bool especialidadExist(string text)
@@ -131,6 +137,7 @@ namespace NoteControl.Source.MVVM.ViewModel
         }
         private void cargarDataGrid()
         {
+            DataGridColumnEspecialidad.Clear();
             foreach (Especialidad e in blEspecialidades.listarEspecialidades())
             {
                 DataGridColumnEspecialidad.Add(new EspecialidadRowModel()

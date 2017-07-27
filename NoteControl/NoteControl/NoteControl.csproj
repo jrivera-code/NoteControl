@@ -76,10 +76,12 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
+    <Compile Include="Source\BusinessLogic\BLAlumnos.cs" />
     <Compile Include="Source\BusinessLogic\BLProfesores.cs" />
     <Compile Include="Source\BusinessLogic\BLEspecialidades.cs" />
     <Compile Include="Source\BusinessLogic\BLCursos.cs" />
     <Compile Include="Source\BusinessLogic\BLAsignaturas.cs" />
+    <Compile Include="Source\DataAccess\Source\DAAlumnos.cs" />
     <Compile Include="Source\DataAccess\Source\DAProfesores.cs" />
     <Compile Include="Source\DataAccess\Source\DAEspecialidades.cs" />
     <Compile Include="Source\DataAccess\Source\DACursos .cs" />
@@ -96,6 +98,7 @@
     <Compile Include="Source\MVVM\Model\Profesor.cs" />
     <Compile Include="Source\MVVM\ViewModel\ConsAlumCursoViewModel.cs" />
     <Compile Include="Source\MVVM\ViewModel\ConsProfeCursoViewModel.cs" />
+    <Compile Include="Source\MVVM\ViewModel\DataGridRowModel\AlumnoRowModel.cs" />
     <Compile Include="Source\MVVM\ViewModel\DataGridRowModel\EspecialidadRowModel.cs" />
     <Compile Include="Source\MVVM\ViewModel\DataGridRowModel\ProfeRowModel.cs" />
     <Compile Include="Source\MVVM\ViewModel\DataGridRowModel\CursoRowModel.cs" />
@@ -117,11 +120,11 @@
     <Compile Include="Source\MVVM\View\Menu\Pages\InformeParcial.xaml.cs">
       <DependentUpon>InformeParcial.xaml</DependentUpon>
     </Compile>
-    <Compile Include="Source\MVVM\View\Menu\Pages\IngNotasAlum.xaml.cs">
-      <DependentUpon>IngNotasAlum.xaml</DependentUpon>
-    </Compile>
     <Compile Include="Source\MVVM\View\Menu\Pages\IngNotasAsig.xaml.cs">
       <DependentUpon>IngNotasAsig.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Source\MVVM\View\Menu\Pages\IngNotasAlum.xaml.cs">
+      <DependentUpon>IngNotasAlum.xaml</DependentUpon>
     </Compile>
     <Page Include="Source\MVVM\View\Menu\Pages\ConsAlumCurso.xaml">
       <SubType>Designer</SubType>
@@ -207,11 +210,11 @@
       <DependentUpon>Login.xaml</DependentUpon>
       <SubType>Code</SubType>
     </Compile>
-    <Page Include="Source\MVVM\View\Menu\Pages\IngNotasAsig.xaml">
+    <Page Include="Source\MVVM\View\Menu\Pages\IngNotasAlum.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="Source\MVVM\View\Menu\Pages\IngNotasAlum.xaml">
+    <Page Include="Source\MVVM\View\Menu\Pages\IngNotasAsig.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

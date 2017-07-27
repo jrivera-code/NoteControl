@@ -8,9 +8,6 @@ namespace NoteControl.Source.MVVM.ViewModel.Utils
 {
     public static class StaticMethods
     {
-        public static string toUpper(string text) {
-            return text.ToUpper();
-        }
 
     }
 }

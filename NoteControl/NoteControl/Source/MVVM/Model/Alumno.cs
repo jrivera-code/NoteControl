@@ -13,6 +13,10 @@ namespace NoteControl.Source.MVVM.Model
         [Key][DatabaseGenerated(DatabaseGeneratedOption.None)]
         public int Rut { get; set; }  
         public string Nombre { get; set; }
+        public string Apellido { get; set; }
+        public string CursoCode { get; set; }
+        public virtual Curso Curso { get; set; }
         public virtual List<AlumnoNotaAsignatura> AlumnoNotaAsignaturas { get; set; }
+
     }
 }

@@ -107,11 +107,15 @@ namespace NoteControl.Source.MVVM.ViewModel
                 Descripcion = _textBoxDescription
             };
             blCursos.modificarCurso(curso, _textBoxCodeCurso);
+            cargarDataGrid();
+            NotifyPropertyChanged("DataGridColumnCursos");
         }
 
         private void deleteClick()
         {
             blCursos.eliminarCurso(_textBoxCodeCurso);
+            cargarDataGrid();
+            NotifyPropertyChanged("DataGridColumnCursos");
             TextBoxCodeCurso = "";
         }
 
@@ -125,7 +129,8 @@ namespace NoteControl.Source.MVVM.ViewModel
                 Descripcion = _textBoxDescription
             };
             blCursos.crearCurso(curso);
-
+            cargarDataGrid();
+            NotifyPropertyChanged("DataGridColumnCursos");
         }
         private bool cursoExist(string text)
         {
@@ -146,6 +151,7 @@ namespace NoteControl.Source.MVVM.ViewModel
         }
         private void cargarDataGrid()
         {
+            DataGridColumnCursos.Clear();
             foreach (Curso c in blCursos.listarCursos())
             {
                 DataGridColumnCursos.Add(new CursoRowModel()

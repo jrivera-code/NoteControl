@@ -1,12 +1,87 @@
-﻿using System;
+﻿using NoteControl.Source.BusinessLogic;
+using NoteControl.Source.MVVM.Model;
+using NoteControl.Source.MVVM.ViewModel.Commands;
+using NoteControl.Source.MVVM.ViewModel.DataGridRowModel;
+using System;
 using System.Collections.Generic;
+using System.ComponentModel;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Windows.Controls;
 
 namespace NoteControl.Source.MVVM.ViewModel
 {
-    class ConsAlumCursoViewModel
+    public class ConsAlumCursoViewModel : INotifyPropertyChanged
     {
+        private BLAlumnos blAlumnos = new BLAlumnos();
+        private BLCursos blCursos = new BLCursos();
+        public Command ButtonConsClick { get; set; }
+        private List<ComboBoxItem> _comboBoxCursosItems = new List<ComboBoxItem>();
+        public List<ComboBoxItem> ComboBoxCursosItems
+        {
+            get { return _comboBoxCursosItems; }
+            set { _comboBoxCursosItems = value; NotifyPropertyChanged("ComboBoxCursosItems"); }
+        }
+        private ComboBoxItem _selectedComboBoxCursosItems = new ComboBoxItem();
+        public ComboBoxItem SelectedComboBoxCursosItems
+        {
+            get { return _selectedComboBoxCursosItems; }
+            set
+            {
+                if (_selectedComboBoxCursosItems == value) return;
+
+                _selectedComboBoxCursosItems = value;
+                ButtonConsClick.methodToDetectCanExecute = () => true;
+                NotifyPropertyChanged("SelectedComboBoxCursosItems");
+            }
+        }
+        private List<AlumnoRowModel> _dataGridColumnAlumnos = new List<AlumnoRowModel>();
+        public List<AlumnoRowModel> DataGridColumnAlumnos
+        {
+            get
+            {
+                return _dataGridColumnAlumnos;
+            }
+            set
+            {
+                _dataGridColumnAlumnos = value;
+                NotifyPropertyChanged("DataGridColumnAlumnos");
+            }
+        }
+        public ConsAlumCursoViewModel()
+        {
+            ButtonConsClick = new Command(cargarDataGrid, () => false);
+            cargarComboBox();
+        }
+        private void cargarDataGrid()
+        {
+            DataGridColumnAlumnos.Clear();
+            string code = _selectedComboBoxCursosItems.Tag.ToString();
+            List<Alumno> list = blAlumnos.listarAlumnosPorCurso(code);
+            foreach (Alumno a in list)
+            {
+
+                DataGridColumnAlumnos.Add(new AlumnoRowModel()
+                {
+                    Rut = a.Rut.ToString(),
+                    Nombre = a.Nombre,
+                    Apellido = a.Apellido
+                });
+            }
+            NotifyPropertyChanged("DataGridColumnAlumnos");
+        }
+        private void cargarComboBox()
+        {
+            foreach (Curso c in blCursos.listarCursos())
+            {
+                ComboBoxCursosItems.Add(new ComboBoxItem() { Content = c.Nombre , Tag = c.CursoCode });
+            }
+        }
+        public event PropertyChangedEventHandler PropertyChanged;
+        private void NotifyPropertyChanged(string propertyName)
+        {
+            PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(propertyName));
+        }
     }
 }

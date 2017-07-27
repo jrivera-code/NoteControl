@@ -113,6 +113,7 @@ namespace NoteControl.Source.MVVM.ViewModel
 
         private void cargarDataGrid()
         {
+            DataGridColumnUsuarios.Clear();
             foreach (Usuario u in blUsuarios.listarUsuarios()) {
                 string estado = u.Estado == 1 ? "Activo" : "Desactivado";
                 DataGridColumnUsuarios.Add(new UsuarioRowModel() {
@@ -122,7 +123,7 @@ namespace NoteControl.Source.MVVM.ViewModel
              });
             }
         }
-
+    
         private void cargarDatoUsuario() {
             foreach (ComboBoxItem item in ComboBoxPerfilItems)
             {
@@ -186,11 +187,15 @@ namespace NoteControl.Source.MVVM.ViewModel
                 Estado = estado,
             };
             blUsuarios.modificarUser(user,_textBoxUsuario, perfil);
+            cargarDataGrid();
+            NotifyPropertyChanged("DataGridColumnUsuarios");
         }
 
         private void deleteClick()
         {
             blUsuarios.eliminarUser(_textBoxUsuario);
+            cargarDataGrid();
+            NotifyPropertyChanged("DataGridColumnUsuarios");
             TextBoxUsuario = "";
         }
 
@@ -203,7 +208,8 @@ namespace NoteControl.Source.MVVM.ViewModel
                 Estado = estado
         };
             blUsuarios.crearUsuario(user, _selectedComboBoxPerfilItems.Content.ToString());
-      
+            cargarDataGrid();
+            NotifyPropertyChanged("DataGridColumnUsuarios");
         }
 
         private string getPassword() {

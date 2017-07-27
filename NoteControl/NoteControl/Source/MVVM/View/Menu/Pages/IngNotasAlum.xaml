@@ -5,7 +5,7 @@
       xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
       xmlns:local="clr-namespace:NoteControl"
       mc:Ignorable="d"
-      Title="RegXMateria" Height="700.000" Width="1200.000">
+      Title="RegXEstudiante" Height="700.000" Width="1200.000">
 
     <Page.Resources>
         <ResourceDictionary>
@@ -40,28 +40,36 @@
         </ResourceDictionary>
     </Page.Resources>
 
+
     <Grid>
-        <ComboBox x:Name="Est" HorizontalAlignment="Left" Margin="139,37,0,0" VerticalAlignment="Top" Width="315" Height="40"/>
-        <TextBox x:Name="txtProfe" Foreground="White" HorizontalAlignment="Left" Height="45" Margin="139,82,0,0" TextWrapping="Wrap"  VerticalAlignment="Top" Width="220" FontSize="20" />
-        <Label x:Name="NombP" Content="Nombre" Foreground="White"  HorizontalAlignment="Left" Margin="64,160,0,0" VerticalAlignment="Top" FontWeight="Bold"/>
-        <TextBox x:Name="TxNomP" Foreground="White" HorizontalAlignment="Left" Height="45" Margin="139,132,0,0" TextWrapping="Wrap"  VerticalAlignment="Top" Width="229" FontSize="20" />
-        <Label x:Name="RutP" Content="R U T" Foreground="White"  HorizontalAlignment="Left" Margin="64,110,0,0" VerticalAlignment="Top" FontWeight="Bold"/>
-        <Label x:Name="txtProf" Content="Profesor" Foreground="White"  HorizontalAlignment="Left" Margin="57,51,0,0" VerticalAlignment="Top" FontWeight="Bold"/>
-        <DataGrid x:Name="dgRegXMat" HorizontalAlignment="Left" Margin="49,246,0,0" VerticalAlignment="Top" Height="275" Width="420"/>
 
+        <ComboBox x:Name="Est" HorizontalAlignment="Left" Margin="159,46,0,0" VerticalAlignment="Top" Width="315" Height="40"/>
+        <TextBox x:Name="txtProfe" Foreground="White" HorizontalAlignment="Left" Height="45" Margin="159,91,0,0" TextWrapping="Wrap"  VerticalAlignment="Top" Width="220" FontSize="20" />
+        <Label x:Name="NombE" Content="Nombre" Foreground="White"  HorizontalAlignment="Left" Margin="84,169,0,0" VerticalAlignment="Top" FontWeight="Bold"/>
+        <TextBox x:Name="TxNom" Foreground="White" HorizontalAlignment="Left" Height="45" Margin="159,141,0,0" TextWrapping="Wrap"  VerticalAlignment="Top" Width="229" FontSize="20" />
+        <Label x:Name="Rut" Content="R U T" Foreground="White"  HorizontalAlignment="Left" Margin="84,119,0,0" VerticalAlignment="Top" FontWeight="Bold"/>
+        <Label x:Name="TxEstu" Content="Estudiante" Foreground="White"  HorizontalAlignment="Left" Margin="77,60,0,0" VerticalAlignment="Top" FontWeight="Bold"/>
+        <Rectangle Fill="Transparent"  HorizontalAlignment="Left" Height="226" Margin="698,73,0,0" VerticalAlignment="Top" Width="423"/>
+        <TextBox x:Name="txtN1" Foreground="White"   HorizontalAlignment="Left" Height="27" Margin="719,85,0,0" TextWrapping="Wrap"  VerticalAlignment="Top" Width="49" FontSize="20" />
+        <TextBox x:Name="txtn2" Foreground="White"  HorizontalAlignment="Left" Height="27" Margin="879,85,0,0" TextWrapping="Wrap"  VerticalAlignment="Top" Width="49" FontSize="20" />
+        <TextBox x:Name="txtn3" Foreground="White"  HorizontalAlignment="Left" Height="27" Margin="798,85,0,0" TextWrapping="Wrap"  VerticalAlignment="Top" Width="49" FontSize="20" />
+        <TextBox x:Name="txtProm" Foreground="White"  HorizontalAlignment="Left" Height="27" Margin="1024,84,0,0" TextWrapping="Wrap"  VerticalAlignment="Top" Width="67" FontSize="20" />
+        <Label x:Name="n1" Foreground="White"  Content="Nota 1" HorizontalAlignment="Left" Margin="719,42,0,0" VerticalAlignment="Top"/>
+        <Label x:Name="n2" Foreground="White"  Content="Nota 2" HorizontalAlignment="Left" Margin="798,42,0,0" VerticalAlignment="Top"/>
+        <Label x:Name="n3" Foreground="White"  Content="Nota 3" HorizontalAlignment="Left" Margin="879,42,0,0" VerticalAlignment="Top"/>
+        <Label x:Name="prom" Foreground="White"  IsEnabled="False" Content="Promedio" HorizontalAlignment="Left" Margin="1025,42,0,0" VerticalAlignment="Top"/>
+        <Label x:Name="NomAsig" Foreground="White"  Content="Asignatura" HorizontalAlignment="Left" Margin="870,142,0,0" VerticalAlignment="Top"/>
 
-        <TextBox x:Name="txtCurso" Foreground="White" HorizontalAlignment="Left" Height="45" Margin="718,64,0,0" TextWrapping="Wrap"  VerticalAlignment="Top" Width="220" FontSize="20" />
-        <Label x:Name="txtMat" Content="Asignatura" Foreground="White"  HorizontalAlignment="Left" Margin="623,142,0,0" VerticalAlignment="Top" FontWeight="Bold"/>
-        <TextBox x:Name="TxNomP_Copy" Foreground="White" HorizontalAlignment="Left" Height="45" Margin="718,123,0,0" TextWrapping="Wrap"  VerticalAlignment="Top" Width="220" FontSize="20" />
-        <Label x:Name="Curso" Content="Curso" Foreground="White"  HorizontalAlignment="Left" Margin="643,92,0,0" VerticalAlignment="Top" FontWeight="Bold"/>
-        <Label x:Name="txtProf_Copy" Content="Profesor" Foreground="White"  HorizontalAlignment="Left" Margin="636,33,0,0" VerticalAlignment="Top" FontWeight="Bold"/>
-        <TextBox x:Name="txtNProf" Foreground="White" HorizontalAlignment="Left" Height="45" Margin="718,10,0,0" TextWrapping="Wrap"  VerticalAlignment="Top" Width="220" FontSize="20" />
-        <Label x:Name="txtCAsig" Content="Codigo Asignatura" Foreground="White"  HorizontalAlignment="Left" Margin="623,192,0,0" VerticalAlignment="Top" FontWeight="Bold"/>
-        <TextBox x:Name="txtAsig" Foreground="White" HorizontalAlignment="Left" Height="45" Margin="753,173,0,0" TextWrapping="Wrap"  VerticalAlignment="Top" Width="185" FontSize="20" />
-        <DataGrid x:Name="dgRegXMat_Copy" HorizontalAlignment="Left" Margin="610,246,0,0" VerticalAlignment="Top" Height="275" Width="545"/>
-        <Button x:Name="GuardarN" Content="Guardar" HorizontalAlignment="Left" Margin="998,64,0,0" VerticalAlignment="Top" Width="157" Height="45"/>
-        <Button x:Name="UpdateN" Content="Modificar" HorizontalAlignment="Left" Margin="994,132,0,0" VerticalAlignment="Top" Width="161" Height="45" RenderTransformOrigin="-0.613,1.803"/>
+        <Button x:Name="btnGuardarN" Content="Guardar" HorizontalAlignment="Left" Margin="770,231,0,0" VerticalAlignment="Top" Width="129"/>
+        <Button x:Name="btnUpdateN" Content="Modificar" HorizontalAlignment="Left" Margin="941,231,0,0" VerticalAlignment="Top" Width="117"/>
+        <DataGrid Name="dgCursos" ItemsSource="{Binding DataGridColumnCursos,Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" AutoGenerateColumns="False" Margin="77,288,726,88">
+            <DataGrid.Columns>
+                <DataGridTextColumn Header="Codigo de Curso" Binding="{Binding CursoCode}" />
+                <DataGridTextColumn Header="Nombre del Curso" Binding="{Binding Nombre}"/>
+                <DataGridTextColumn Header="Descripción" Binding="{Binding Description}"/>
+            </DataGrid.Columns>
 
+        </DataGrid>
 
     </Grid>
 </Page>
