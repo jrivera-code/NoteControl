@@ -2,6 +2,7 @@
 using NoteControl.Source.MVVM.Model;
 using NoteControl.Source.MVVM.ViewModel.Commands;
 using NoteControl.Source.MVVM.ViewModel.DataGridRowModel;
+using NoteControl.Source.MVVM.ViewModel.Utils;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -60,7 +61,7 @@ namespace NoteControl.Source.MVVM.ViewModel
             }
             set
             {
-                _textBoxUsuario = value;
+                _textBoxUsuario = value.ToUpper();
                 NotifyPropertyChanged("TextBoxUsuario");
                 //consulta si el nombre de perfil ya existe
                 if (!userExist(_textBoxUsuario))

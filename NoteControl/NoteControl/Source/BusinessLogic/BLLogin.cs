@@ -15,7 +15,7 @@ namespace NoteControl.Source.BusinessLogic
         {
             try
             {
-               return _da.userExist(userName, password);
+               return _da.userExist(userName.ToUpper(), password);
               
             }
             catch (Exception ex)

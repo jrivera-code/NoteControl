@@ -84,12 +84,15 @@
     <Compile Include="Source\DataAccess\Source\DAEspecialidades.cs" />
     <Compile Include="Source\DataAccess\Source\DACursos .cs" />
     <Compile Include="Source\DataAccess\Source\DAAsignaturas.cs" />
+    <Compile Include="Source\MVVM\Model\Alumno.cs" />
+    <Compile Include="Source\MVVM\Model\AlumnoNotaAsignatura.cs" />
     <Compile Include="Source\MVVM\Model\Asignatura.cs" />
     <Compile Include="Source\MVVM\Model\AsignaturaProfesor.cs" />
     <Compile Include="Source\MVVM\Model\Curso.cs" />
     <Compile Include="Source\MVVM\Model\CursoAsignatura.cs" />
     <Compile Include="Source\MVVM\Model\Especialidad.cs" />
     <Compile Include="Source\MVVM\Model\EspecialidadProfesor.cs" />
+    <Compile Include="Source\MVVM\Model\Nota.cs" />
     <Compile Include="Source\MVVM\Model\Profesor.cs" />
     <Compile Include="Source\MVVM\ViewModel\ConsAlumCursoViewModel.cs" />
     <Compile Include="Source\MVVM\ViewModel\ConsProfeCursoViewModel.cs" />
@@ -104,6 +107,7 @@
     <Compile Include="Source\MVVM\ViewModel\MantEspecialidadesViewModel.cs" />
     <Compile Include="Source\MVVM\ViewModel\MantProfesoresViewModel.cs" />
     <Compile Include="Source\MVVM\ViewModel\MantUsuariosViewModel.cs" />
+    <Compile Include="Source\MVVM\ViewModel\Utils\StaticMethods.cs" />
     <Compile Include="Source\MVVM\View\Menu\Pages\ConsAlumCurso.xaml.cs">
       <DependentUpon>ConsAlumCurso.xaml</DependentUpon>
     </Compile>

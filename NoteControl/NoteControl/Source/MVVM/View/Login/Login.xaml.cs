@@ -20,7 +20,7 @@ using NoteControl.Source.BusinessLogic;
 
 namespace NoteControl
 {
-    
+
     public partial class MainWindow : Window
     {
         NoteControlContext db = new NoteControlContext();
@@ -28,21 +28,37 @@ namespace NoteControl
         public MainWindow()
         {
             //crea la base de datos si no existe
-            if (!db.Database.Exists()) {
+            if (!db.Database.Exists())
+            {
                 string[] privilegios = { "Mantenedor de Perfiles", "Mantenedor de Usuarios","Mantenedor de Cursos",
                 "Mantenedor de Profesores","Mantenedor de Especialidades","Ingresar Notas por Asignatura",
                 "Ingresar Notas por Estudiante","Consulta de Alumnos por Cursos","Consulta de Profesores por Cursos",
                 "Generacion de Informes"};
+                string[] asignaturas = {"Artes Visuales",
+                            "Ciencias Naturales",
+                            "Educación Física y Salud",
+                            "Historia", "Geografía y Ciencias Sociales",
+                            "Inglés",
+                            "Lenguaje y Comunicación",
+                            "Matemática",
+                            "Música" };
                 db.Database.Create();
-                 Perfil perfil = new Perfil() { Nombre = "Administrador" };
+                Perfil perfil = new Perfil() { Nombre = "Administrador" };
                 db.Perfiles.Add(perfil);
-                for (int i =0;i<privilegios.Length;i++) {
-                 Privilegio privilegio = new Privilegio() { Nombre = privilegios[i] };
+                for (int i = 0; i < privilegios.Length; i++)
+                {
+                    Privilegio privilegio = new Privilegio() { Nombre = privilegios[i] };
                     db.Privilegios.Add(privilegio);
                     db.SaveChanges();
                     db.PerfilesPrivilegios.Add(new PerfilPrivilegio() { PrivilegioId = i + 1, PerfilId = 1 });
                 }
-                db.Usuarios.Add(new Usuario() { Nombre = "jmolina", Clave = "1234", Estado = 1, Perfiles = perfil });
+                for (int i = 0; i < asignaturas.Length; i++)
+                {
+                    Asignatura asig = new Asignatura() { AsignaturaCode = i.ToString(), Nombre = asignaturas[i] };
+                    db.Asignaturas.Add(asig);
+                    db.SaveChanges();
+                }
+                db.Usuarios.Add(new Usuario() { Nombre = "JMOLINA", Clave = "1234", Estado = 1, Perfiles = perfil });
                 db.SaveChanges();
             }
             InitializeComponent();
@@ -56,19 +72,20 @@ namespace NoteControl
         private void btnAceptar(object sender, RoutedEventArgs e)
         {
             //pregunta su el usuario existe
-            if (blLogin.userExist(txtUsuario.Text,txtPass.Password))
+            if (blLogin.userExist(txtUsuario.Text, txtPass.Password))
             {
                 //pasa el usuario encontrado al contructor del menu
                 Menu menu = new Menu(blLogin.getUser());
                 menu.Show();
                 this.Close();
             }
-            else {
+            else
+            {
                 MessageBox.Show("El usuario o la password son incorrectas");
-              
+
             }
 
-           
+
         }
 
         private void btnsalir(object sender, RoutedEventArgs e)
@@ -80,10 +97,10 @@ namespace NoteControl
         private void txtPass_TextChanged(object sender, TextChangedEventArgs e)
         {
             // Set to no text.
-           // txtPass.Text = "";
+            // txtPass.Text = "";
             // The password character is an asterisk.
             //txtPass.PasswordChar = '*';
-           
+
         }
     }
 }

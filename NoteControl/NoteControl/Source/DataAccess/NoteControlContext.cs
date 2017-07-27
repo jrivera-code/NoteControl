@@ -28,5 +28,8 @@ namespace NoteControl.Source.DataAccess
         public DbSet<EspecialidadProfesor> EspecialidadProfesores { get; set; }
         public DbSet<Curso> Cursos { get; set; }
         public DbSet<CursoAsignatura> CursoAsignaturas { get; set; }
+        public DbSet<Nota> Notas { get; set; }
+        public DbSet<Alumno> Alumnos { get; set; }
+        public DbSet<AlumnoNotaAsignatura> AlumnoNotaAsignaturas { get; set; }
     }
 }
