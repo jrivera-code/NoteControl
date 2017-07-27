@@ -1,6 +1,7 @@
 ﻿using NoteControl.Source.BusinessLogic;
 using NoteControl.Source.MVVM.Model;
 using NoteControl.Source.MVVM.ViewModel.Commands;
+using NoteControl.Source.MVVM.ViewModel.DataGridRowModel;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -82,42 +83,9 @@ namespace NoteControl.Source.MVVM.ViewModel
                 }
             }
         }
-       public class RowModel {
-            string _nombreUsuario;
-            string _estado; 
-            string _perfil;
-            public string NombreUsuario {
-                get {
-                    return _nombreUsuario;
-                } set {
-                    _nombreUsuario = value;
-                }
-            }
-            public string Estado
-            {
-                get
-                {
-                    return _estado;
-                }
-                set
-                {
-                    _estado = value;
-                }
-            }
-            public string Perfil
-            {
-                get
-                {
-                    return _perfil;
-                }
-                set
-                {
-                    _perfil = value;
-                }
-            }
-        }
-        private List<RowModel> _dataGridColumnUsuarios = new List<RowModel>();
-        public List<RowModel> DataGridColumnUsuarios {
+     
+        private List<UsuarioRowModel> _dataGridColumnUsuarios = new List<UsuarioRowModel>();
+        public List<UsuarioRowModel> DataGridColumnUsuarios {
             get
             {
                 return _dataGridColumnUsuarios;
@@ -145,9 +113,10 @@ namespace NoteControl.Source.MVVM.ViewModel
         private void cargarDataGrid()
         {
             foreach (Usuario u in blUsuarios.listarUsuarios()) {
-                DataGridColumnUsuarios.Add(new RowModel() {
+                string estado = u.Estado == 1 ? "Activo" : "Desactivado";
+                DataGridColumnUsuarios.Add(new UsuarioRowModel() {
                     NombreUsuario = u.Nombre,
-                    Estado = u.Estado.ToString(),
+                    Estado = estado,
                     Perfil = u.Perfiles.Nombre
              });
             }

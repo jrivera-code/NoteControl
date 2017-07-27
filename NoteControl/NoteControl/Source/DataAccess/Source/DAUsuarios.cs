@@ -9,12 +9,12 @@ using System.Windows.Forms;
 
 namespace NoteControl.Source.DataAccess.Source
 {
-   public class DAUsuarios : IDisposable
+    public class DAUsuarios : IDisposable
     {
         private readonly NoteControlContext _db = new NoteControlContext();
 
         //metodo para agregar un nuevo usuario
-        public void crearUsuario(Usuario user,string perfil)
+        public void crearUsuario(Usuario user, string perfil)
         {
             user.Perfiles = _db.Perfiles.Where(p => p.Nombre == perfil).First();
             _db.Usuarios.Add(user);
@@ -38,24 +38,27 @@ namespace NoteControl.Source.DataAccess.Source
             _db.SaveChanges();
         }
 
-        public void modificarUser(Usuario updatedUser, string nombre,string perf)
+        public void modificarUser(Usuario updatedUser, string nombre, string perf)
         {
             MessageBox.Show(perf);
             var perfil = _db.Perfiles.FirstOrDefault(p => p.Nombre == perf);
             var usuario = _db.Usuarios.FirstOrDefault(a => a.Nombre == nombre);
-           
-            if (usuario != null)
+            if (updatedUser.Clave == "" || updatedUser.Clave == null)
             {
-                updatedUser.Perfiles = perfil;
-                _db.Usuarios.Remove(usuario);
-                _db.Usuarios.Add(updatedUser);
+                usuario.Nombre = updatedUser.Nombre;
+                usuario.Estado = updatedUser.Estado;
+                usuario.Perfiles = perfil;
             }
-            else 
+            else
             {
-                _db.Usuarios.Add(updatedUser);
+                usuario.Nombre = updatedUser.Nombre;
+                usuario.Clave = updatedUser.Clave;
+                usuario.Estado = updatedUser.Estado;
+                usuario.Perfiles = perfil;
             }
+            _db.Entry(usuario).State = System.Data.Entity.EntityState.Modified;
             _db.SaveChanges();
-           
+
         }
     }
 }

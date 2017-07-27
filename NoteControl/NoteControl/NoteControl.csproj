@@ -76,8 +76,25 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
+    <Compile Include="Source\BusinessLogic\BLProfesores.cs" />
+    <Compile Include="Source\BusinessLogic\BLEspecialidades.cs" />
+    <Compile Include="Source\BusinessLogic\BLCursos.cs" />
+    <Compile Include="Source\BusinessLogic\BLAsignaturas.cs" />
+    <Compile Include="Source\DataAccess\Source\DAProfesores.cs" />
+    <Compile Include="Source\DataAccess\Source\DAEspecialidades.cs" />
+    <Compile Include="Source\DataAccess\Source\DACursos .cs" />
+    <Compile Include="Source\DataAccess\Source\DAAsignaturas.cs" />
+    <Compile Include="Source\MVVM\Model\Asignatura.cs" />
+    <Compile Include="Source\MVVM\Model\AsignaturaProfesor.cs" />
+    <Compile Include="Source\MVVM\Model\Curso.cs" />
+    <Compile Include="Source\MVVM\Model\CursoAsignatura.cs" />
+    <Compile Include="Source\MVVM\Model\Especialidad.cs" />
+    <Compile Include="Source\MVVM\Model\EspecialidadProfesor.cs" />
+    <Compile Include="Source\MVVM\Model\Profesor.cs" />
     <Compile Include="Source\MVVM\ViewModel\ConsAlumCursoViewModel.cs" />
     <Compile Include="Source\MVVM\ViewModel\ConsProfeCursoViewModel.cs" />
+    <Compile Include="Source\MVVM\ViewModel\DataGridRowModel\CursoRowModel.cs" />
+    <Compile Include="Source\MVVM\ViewModel\DataGridRowModel\UsuarioRowModel.cs" />
     <Compile Include="Source\MVVM\ViewModel\InformeParcialViewModel.cs" />
     <Compile Include="Source\MVVM\ViewModel\IngNotasAlumViewModel.cs" />
     <Compile Include="Source\MVVM\ViewModel\IngNotasAsigViewModel.cs" />
