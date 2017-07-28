@@ -2,5 +2,5 @@
 Sistema de evaluaciones 
 
 Usuario por defecto jmolina
-<img src="main.png"></img>
+<img src="NoteControl/NoteControl/main.png"></img>
 Password por defecto 1234
