@@ -1,6 +1,7 @@
 ﻿using NoteControl.Source.MVVM.Model;
 using System;
 using System.Collections.Generic;
+using System.Data.Entity;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -48,7 +49,7 @@ namespace NoteControl.Source.DataAccess.Source
             Curso c = (from cur in _db.Cursos
                        where cur.CursoCode == textBoxCodeCurso
                        select cur).FirstOrDefault();
-            _db.Cursos.Remove(c);
+            _db.Cursos.Remove(c).Alumnos.Clear();
             _db.SaveChanges();
         }
     }

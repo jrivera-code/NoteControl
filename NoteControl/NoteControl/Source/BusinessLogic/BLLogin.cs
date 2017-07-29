@@ -24,6 +24,30 @@ namespace NoteControl.Source.BusinessLogic
             }
 
         }
+        public void CreateDataBase() {
+            try
+            {
+                _da.CreateDataBase();
+
+            }
+            catch (Exception ex)
+            {
+                throw;
+            }
+
+        }
+
+        public bool DataBaseExist()
+        {
+            try
+            {
+                return _da.DataBaseExist();
+            }
+            catch (Exception ex)
+            {
+                throw;
+            }
+        }
 
         /// <summary>
         /// Requiere aver pasado por userExist

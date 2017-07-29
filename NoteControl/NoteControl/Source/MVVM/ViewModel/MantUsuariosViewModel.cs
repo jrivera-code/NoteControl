@@ -25,14 +25,10 @@ namespace NoteControl.Source.MVVM.ViewModel
         private Usuario usuarioEncontrado = null;
         private List<ComboBoxItem> _comboBoxPerfilItems = new List<ComboBoxItem>();
         public List<ComboBoxItem> ComboBoxPerfilItems
-        {
-            get { return _comboBoxPerfilItems; }
-            set { _comboBoxPerfilItems = value; NotifyPropertyChanged("ComboBoxPerfilItems"); }
-        }
+        {get { return _comboBoxPerfilItems; }
+            set {_comboBoxPerfilItems = value; NotifyPropertyChanged("ComboBoxPerfilItems"); }}
         private ComboBoxItem _selectedComboBoxPerfilItems = new ComboBoxItem();
-        public ComboBoxItem SelectedComboBoxPerfilItems
-        {
-            get { return _selectedComboBoxPerfilItems; }
+        public ComboBoxItem SelectedComboBoxPerfilItems{ get { return _selectedComboBoxPerfilItems; }
             set {
                 if (_selectedComboBoxPerfilItems == value) return;
 
@@ -52,6 +48,35 @@ namespace NoteControl.Source.MVVM.ViewModel
             get { return _selectedEstadoItem; }
             set { _selectedEstadoItem = value; NotifyPropertyChanged("SelectedEstadoItem"); }
         }
+        private bool _buttonDeleteEnable;
+        public bool ButtonDeleteEnable
+        {
+            get { return _buttonDeleteEnable; }
+            set {
+                _buttonDeleteEnable = value;
+                NotifyPropertyChanged("ButtonDeleteEnable"); }
+        }
+        private bool _buttonUpdateEnable;
+        public bool ButtonUpdateEnable
+        {
+            get { return _buttonUpdateEnable; }
+            set
+            {
+                _buttonUpdateEnable = value;
+                NotifyPropertyChanged("ButtonUpdateEnable");
+            }
+        }
+        private bool _buttonSaveEnable;
+        public bool ButtonSaveEnable
+        {
+            get { return _buttonSaveEnable; }
+            set
+            {
+                _buttonSaveEnable = value;
+                NotifyPropertyChanged("ButtonSaveEnable");
+            }
+        }
+
         public string _textBoxUsuario;
         public string TextBoxUsuario
         {
@@ -66,19 +91,22 @@ namespace NoteControl.Source.MVVM.ViewModel
                 //consulta si el nombre de perfil ya existe
                 if (!userExist(_textBoxUsuario))
                 {
-                    changeEnableButton();
-                    ButtonDeleteClick.methodToDetectCanExecute = () => false;
-                    ButtonUpdateClick.methodToDetectCanExecute = () => false;
+                    ButtonDeleteEnable = false;
+                    ButtonUpdateEnable = false;
+                    if (_textBoxUsuario.Length > 0)
+                        ButtonSaveEnable = true;
+                    else {
+                        ButtonSaveEnable = false;
+                    } 
                     SelectedEstadoItem = null;
                     SelectedComboBoxPerfilItems = null;
                     usuarioEncontrado = null;
                 }
                 else
                 {
-                    //si ya existe desabilita el boton save y activa el update y delete
-                    ButtonSaveClick.methodToDetectCanExecute = () => false;
-                    ButtonDeleteClick.methodToDetectCanExecute = () => true;
-                    ButtonUpdateClick.methodToDetectCanExecute = () => true;
+                    ButtonDeleteEnable = true;
+                    ButtonUpdateEnable = true;
+                    ButtonSaveEnable = false;
                     //carga los datos del usuario en el formulario
                     cargarDatoUsuario();
                 }
@@ -103,10 +131,10 @@ namespace NoteControl.Source.MVVM.ViewModel
             //carga de combobox estado
             ComboBoxEstadoItems.Add(new ComboBoxItem() { Content = "Activo" });
             ComboBoxEstadoItems.Add(new ComboBoxItem() { Content = "Desactivado" });
-            //inicializa los buttons como disabled
-            ButtonSaveClick = new Command(saveClick,() => false);
-            ButtonDeleteClick = new Command(deleteClick, () => false);
-            ButtonUpdateClick = new Command(updateClick, () => false);
+            //inicializa los command para los buttons
+            ButtonSaveClick = new Command(saveClick,() => true);
+            ButtonDeleteClick = new Command(deleteClick, () => true);
+            ButtonUpdateClick = new Command(updateClick, () => true);
             //carga data grid con los datos de todos los usuarios
             cargarDataGrid();
         }
@@ -166,17 +194,7 @@ namespace NoteControl.Source.MVVM.ViewModel
             }
             return false;
         }
-        private void changeEnableButton()
-        {
-            if (_textBoxUsuario.Length > 0)
-            {
-                ButtonSaveClick.methodToDetectCanExecute = () => true;
-            }
-            else
-            {
-                ButtonSaveClick.methodToDetectCanExecute = () => false;
-            }
-        }
+    
         private void updateClick()
         {
            int estado = SelectedEstadoItem.Content.ToString() == "Activo" ? 1 : 0;

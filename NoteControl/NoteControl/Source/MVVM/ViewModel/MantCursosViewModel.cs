@@ -20,6 +20,27 @@ namespace NoteControl.Source.MVVM.ViewModel
         public Command ButtonSaveClick { get; set; }
         public Command ButtonDeleteClick { get; set; }
         public Command ButtonUpdateClick { get; set; }
+
+        private bool _buttonSaveEnable;
+        public bool ButtonSaveEnable
+        {
+            get { return _buttonSaveEnable; }
+            set { _buttonSaveEnable = value; NotifyPropertyChanged("ButtonSaveEnable"); }
+        }
+        private bool _buttonDeleteEnable;
+        public bool ButtonDeleteEnable
+        {
+            get { return _buttonDeleteEnable; }
+            set { _buttonDeleteEnable = value; NotifyPropertyChanged("ButtonDeleteEnable"); }
+        }
+        private bool _buttonUpdateEnable;
+
+        public bool ButtonUpdateEnable
+        {
+            get { return _buttonUpdateEnable; }
+            set { _buttonUpdateEnable = value; NotifyPropertyChanged("ButtonUpdateEnable"); }
+        }
+
         private string _textBoxCodeCurso;
         public string TextBoxCodeCurso
         {
@@ -29,24 +50,28 @@ namespace NoteControl.Source.MVVM.ViewModel
             }
             set
             {
-                _textBoxCodeCurso = value;
+                _textBoxCodeCurso = value.ToUpper();
                 NotifyPropertyChanged("TextBoxCodeCurso");
                 //consulta si el curso ya existe
                 if (!cursoExist(_textBoxCodeCurso))
                 {
-                    changeEnableButton();
-                    ButtonDeleteClick.methodToDetectCanExecute = () => false;
-                    ButtonUpdateClick.methodToDetectCanExecute = () => false;
+                    if (_textBoxCodeCurso.Length > 0)
+                        ButtonSaveEnable = true;
+                    else ButtonSaveEnable = false;
+                    ButtonDeleteEnable = false;
+                    ButtonUpdateEnable = false;
                     cursoEncontrado = null;
+                    TextBoxNombreCurso = "";
+                    TextBoxDescription = "";
                 }
                 else
                 {
                     //si ya existe desabilita el boton save y activa el update y delete
-                    ButtonSaveClick.methodToDetectCanExecute = () => false;
-                    ButtonDeleteClick.methodToDetectCanExecute = () => true;
-                    ButtonUpdateClick.methodToDetectCanExecute = () => true;
+                    ButtonSaveEnable = false;
+                    ButtonDeleteEnable = true;
+                    ButtonUpdateEnable = true;
                     //carga los datos del usuario en el formulario
-                    cargarDatoUsuario();
+                    cargarDatoCurso();
                 }
             }
         }
@@ -94,9 +119,9 @@ namespace NoteControl.Source.MVVM.ViewModel
             //constructor
             cargarDataGrid();
             //inicializa los buttons como disabled
-            ButtonSaveClick = new Command(saveClick, () => false);
-            ButtonDeleteClick = new Command(deleteClick, () => false);
-            ButtonUpdateClick = new Command(updateClick, () => false);
+            ButtonSaveClick = new Command(saveClick, () => true);
+            ButtonDeleteClick = new Command(deleteClick, () => true);
+            ButtonUpdateClick = new Command(updateClick, () => true);
         }
 
         private void updateClick()
@@ -144,7 +169,7 @@ namespace NoteControl.Source.MVVM.ViewModel
             }
             return false;
         }
-        private void cargarDatoUsuario()
+        private void cargarDatoCurso()
         {
             TextBoxNombreCurso = cursoEncontrado.Nombre;
             TextBoxDescription = cursoEncontrado.Descripcion;
@@ -160,17 +185,6 @@ namespace NoteControl.Source.MVVM.ViewModel
                     Nombre = c.Nombre,
                     Description = c.Descripcion
                 });
-            }
-        }
-        private void changeEnableButton()
-        {
-            if (_textBoxCodeCurso.Length > 0)
-            {
-                ButtonSaveClick.methodToDetectCanExecute = () => true;
-            }
-            else
-            {
-                ButtonSaveClick.methodToDetectCanExecute = () => false;
             }
         }
         private void NotifyPropertyChanged(string propertyName)

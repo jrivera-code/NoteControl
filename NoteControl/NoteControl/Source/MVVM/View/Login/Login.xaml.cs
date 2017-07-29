@@ -23,54 +23,14 @@ namespace NoteControl
 
     public partial class MainWindow : Window
     {
-        NoteControlContext db = new NoteControlContext();
+     
         BLLogin blLogin = new BLLogin();
         public MainWindow()
         {
             //crea la base de datos si no existe
-            if (!db.Database.Exists())
+            if (!blLogin.DataBaseExist())
             {
-                string[] privilegios = { "Mantenedor de Perfiles", "Mantenedor de Usuarios","Mantenedor de Cursos",
-                "Mantenedor de Profesores","Mantenedor de Especialidades","Ingresar Notas por Asignatura",
-                "Ingresar Notas por Estudiante","Consulta de Alumnos por Cursos","Consulta de Profesores por Cursos",
-                "Generacion de Informes"};
-                string[] asignaturas = {"Artes Visuales",
-                            "Ciencias Naturales",
-                            "Educación Física y Salud",
-                            "Historia", "Geografía y Ciencias Sociales",
-                            "Inglés",
-                            "Lenguaje y Comunicación",
-                            "Matemática",
-                            "Música" };
-                string[] nombres = { "Matias", "Felipe", "Camilo", "Ricardo", "Emilio", "Cesar", "Francisco", "Pablo" };
-                string[] apellidos = { "Rivera", "Cardenas", "Jaramillo", "Fernandez", "Sanchez", "Vidal", "Dias", "Bravo" };
-                db.Database.Create();
-                
-                    Curso curso = new Curso() { CursoCode = "A10", Nombre = "Primero Basico", Descripcion = "Conocimiento de sí mismo e ingreso al mundo de la lectura y escritura" };
-                db.Cursos.Add(curso);
-                for (int i = 0; i < nombres.Length; i++)
-                {
-                    Alumno alum = new Alumno() {Rut = 1813035+i , Nombre = nombres[i],Apellido = apellidos[i],Curso= curso };
-                    db.Alumnos.Add(alum);
-                    db.SaveChanges();
-                }
-                Perfil perfil = new Perfil() { Nombre = "Administrador" };
-                db.Perfiles.Add(perfil);
-                for (int i = 0; i < privilegios.Length; i++)
-                {
-                    Privilegio privilegio = new Privilegio() { Nombre = privilegios[i] };
-                    db.Privilegios.Add(privilegio);
-                    db.SaveChanges();
-                    db.PerfilesPrivilegios.Add(new PerfilPrivilegio() { PrivilegioId = i + 1, PerfilId = 1 });
-                }
-                for (int i = 0; i < asignaturas.Length; i++)
-                {
-                    Asignatura asig = new Asignatura() { AsignaturaCode = i.ToString(), Nombre = asignaturas[i] };
-                    db.Asignaturas.Add(asig);
-                    db.SaveChanges();
-                }
-                db.Usuarios.Add(new Usuario() { Nombre = "JMOLINA", Clave = "1234", Estado = 1, Perfiles = perfil });
-                db.SaveChanges();
+                blLogin.CreateDataBase();
             }
             InitializeComponent();
             image.Source = new BitmapImage(new Uri("pack://application:,,,/NoteControl;component/Source/MVVM/View/Img/notas.png"));
@@ -111,15 +71,6 @@ namespace NoteControl
         {
             MessageBox.Show("Gracias!");
             Close();
-        }
-
-        private void txtPass_TextChanged(object sender, TextChangedEventArgs e)
-        {
-            // Set to no text.
-            // txtPass.Text = "";
-            // The password character is an asterisk.
-            //txtPass.PasswordChar = '*';
-
         }
     }
 }
