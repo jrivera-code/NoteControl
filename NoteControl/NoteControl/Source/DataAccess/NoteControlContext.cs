@@ -22,12 +22,11 @@ namespace NoteControl.Source.DataAccess
         public DbSet<Privilegio> Privilegios { get; set; }
         public DbSet<PerfilPrivilegio> PerfilesPrivilegios { get; set; }
         public DbSet<Asignatura> Asignaturas { get; set; }
-        public DbSet<AsignaturaProfesor> AsignaturaProfesor { get; set; }
         public DbSet<Especialidad> Especialidades { get; set; }
         public DbSet<Profesor> Profesores { get; set; }
         public DbSet<EspecialidadProfesor> EspecialidadProfesores { get; set; }
         public DbSet<Curso> Cursos { get; set; }
-        public DbSet<CursoAsignatura> CursoAsignaturas { get; set; }
+        public DbSet<CursoProfeAsignatura> CursoAsignaturas { get; set; }
         public DbSet<Nota> Notas { get; set; }
         public DbSet<Alumno> Alumnos { get; set; }
         public DbSet<AlumnoNotaAsignatura> AlumnoNotaAsignaturas { get; set; }

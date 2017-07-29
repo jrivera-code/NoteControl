@@ -90,9 +90,8 @@
     <Compile Include="Source\MVVM\Model\Alumno.cs" />
     <Compile Include="Source\MVVM\Model\AlumnoNotaAsignatura.cs" />
     <Compile Include="Source\MVVM\Model\Asignatura.cs" />
-    <Compile Include="Source\MVVM\Model\AsignaturaProfesor.cs" />
     <Compile Include="Source\MVVM\Model\Curso.cs" />
-    <Compile Include="Source\MVVM\Model\CursoAsignatura.cs" />
+    <Compile Include="Source\MVVM\Model\CursoProfeAsignatura.cs" />
     <Compile Include="Source\MVVM\Model\Especialidad.cs" />
     <Compile Include="Source\MVVM\Model\EspecialidadProfesor.cs" />
     <Compile Include="Source\MVVM\Model\Nota.cs" />

@@ -7,13 +7,15 @@ using System.Threading.Tasks;
 
 namespace NoteControl.Source.MVVM.Model
 {
-    public class AsignaturaProfesor
+    public class CursoProfeAsignatura
     {
         [Key]
-        public int AsignaturaProfesorId { get; set; }
+        public int CursoProfeAsignaturaId { get; set; }
         public string AsignaturaCode { get; set; }
+        public string CursoCode { get; set; }
         public int Rut { get; set; }
         public virtual Asignatura Asignaturas { get; set; }
+        public virtual Curso Cursos { get; set; }
         public virtual Profesor Profesores { get; set; }
     }
 }

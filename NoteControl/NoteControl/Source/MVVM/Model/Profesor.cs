@@ -15,6 +15,6 @@ namespace NoteControl.Source.MVVM.Model
         public int Rut { get; set; }
         public string Nombre { get; set; }
         public string Apellido { get; set; }
-        public virtual List<AsignaturaProfesor> AsignaturaProfesores { get; set; }
+        public virtual List<CursoProfeAsignatura> CursoProfeAsignaturas { get; set; }
     }
 }
