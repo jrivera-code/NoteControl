@@ -12,7 +12,7 @@ namespace NoteControl.Source.BusinessLogic
    public class BLPerfilPrivilegio
     {
         DAPerfilPrivilegio _da = new DAPerfilPrivilegio();
-        public void crearRelacionPerfilPrivilegio(Perfil perfil, int indexPrivilegio)
+        public void CrearRelacionPerfilPrivilegio(Perfil perfil, int indexPrivilegio)
         {
             try
             {
@@ -20,9 +20,9 @@ namespace NoteControl.Source.BusinessLogic
                 _da.crearRelacionPerfilPrivilegio(perfil, indexPrivilegio);
               
             }
-            catch (Exception ex)
+            catch 
             {
-                MessageBox.Show(ex.Message);
+                throw;
             }
 
         }

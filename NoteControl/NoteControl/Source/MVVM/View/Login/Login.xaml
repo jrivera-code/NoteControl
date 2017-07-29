@@ -82,8 +82,8 @@
                             <ColumnDefinition Width="224*"/>
                         </Grid.ColumnDefinitions>
 
-                        <Button Background="#dddddd" Padding="5" Margin="15,0" Click="btnAceptar" VerticalAlignment="Top">Aceptar</Button>
-                        <Button Background="#dddddd"  Padding="5" Margin="10,0,22,1" Click="btnsalir" Grid.Column="1" Grid.ColumnSpan="2" >Salir</Button>
+                        <Button Background="#dddddd" Padding="5" Margin="15,0" Click="BtnAceptar" VerticalAlignment="Top">Aceptar</Button>
+                        <Button Background="#dddddd"  Padding="5" Margin="10,0,22,1" Click="BtnSalir" Grid.Column="1" Grid.ColumnSpan="2" >Salir</Button>
                     </Grid>
                 </Grid>
 

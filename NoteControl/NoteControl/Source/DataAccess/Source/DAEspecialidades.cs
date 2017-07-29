@@ -13,14 +13,14 @@ namespace NoteControl.Source.DataAccess.Source
 
 
         //metodo para agregar una especialidad
-        public void crearEspecialidad(Especialidad especialidad)
+        public void CrearEspecialidad(Especialidad especialidad)
         {
             _db.Especialidades.Add(especialidad);
             _db.SaveChanges();
         }
 
         //metodo para listar todos las especialidades
-        public List<Especialidad> listarEspecialidades()
+        public List<Especialidad> ListarEspecialidades()
         {
             List<Especialidad> lista = _db.Especialidades.ToList();
             return lista;
@@ -32,7 +32,7 @@ namespace NoteControl.Source.DataAccess.Source
             throw new NotImplementedException();
         }
 
-        public void eliminarEspecialidad(string textBoxCode)
+        public void EliminarEspecialidad(string textBoxCode)
         {
             Especialidad especialidad = (from es in _db.Especialidades
                        where es.EspecialidadCode == textBoxCode
@@ -41,7 +41,7 @@ namespace NoteControl.Source.DataAccess.Source
             _db.SaveChanges();
         }
 
-        public void modificarEspecialidad(Especialidad especialidad, string textBoxCode)
+        public void ModificarEspecialidad(Especialidad especialidad, string textBoxCode)
         {
             Especialidad especial = (from es in _db.Especialidades
                        where es.EspecialidadCode == textBoxCode

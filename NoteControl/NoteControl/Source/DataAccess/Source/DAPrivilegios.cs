@@ -10,7 +10,7 @@ namespace NoteControl.Source.DataAccess.Source
     public class DAPrivilegios : IDisposable
     {
         private readonly NoteControlContext _db = new NoteControlContext();
-        public List<Privilegio> listarPrivilegios()
+        public List<Privilegio> ListarPrivilegios()
         {
             List<Privilegio> lista = _db.Privilegios.ToList();
             return lista;

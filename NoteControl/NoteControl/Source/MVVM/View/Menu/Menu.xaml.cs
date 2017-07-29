@@ -32,22 +32,5 @@ namespace NoteControl
             this.Background = new ImageBrush(new BitmapImage(new Uri(@"pack://application:,,,/NoteControl;component/Source/MVVM/View/Img/background.png")));
             DataContext = menuViewModel;
         }
-		private void btnSalir(object sender, RoutedEventArgs e)
-		{
-
-			if (MessageBox.Show("Seguro desea salir", "--.Salir.--", MessageBoxButton.YesNo) == MessageBoxResult.Yes)
-			{
-				this.Close();
-			}
-			else
-			{
-			//Vuelve al sistema
-			}
-
-			//btnMenuItemNotasXMat
-
-
-		}
-        
     }
 }

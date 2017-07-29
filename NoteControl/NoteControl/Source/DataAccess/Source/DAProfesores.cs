@@ -13,14 +13,14 @@ namespace NoteControl.Source.DataAccess.Source
 
 
         //metodo para agregar un profesor
-        public void crearProfesor(Profesor profe)
+        public void CrearProfesor(Profesor profe)
         {
             _db.Profesores.Add(profe);
             _db.SaveChanges();
         }
 
         //metodo para listar todos los profesores
-        public List<Profesor> listarProfesores()
+        public List<Profesor> ListarProfesores()
         {
             List<Profesor> lista = _db.Profesores.ToList();
             return lista;
@@ -32,7 +32,7 @@ namespace NoteControl.Source.DataAccess.Source
             throw new NotImplementedException();
         }
 
-        public void eliminarProfesor(string textBoxRut)
+        public void EliminarProfesor(string textBoxRut)
         {
             Profesor prof = (from p in _db.Profesores
                        where p.Rut.ToString() == textBoxRut
@@ -41,7 +41,7 @@ namespace NoteControl.Source.DataAccess.Source
             _db.SaveChanges();
         }
 
-        public void modificarProfesor(Profesor profesor, string textBoxRut)
+        public void ModificarProfesor(Profesor profesor, string textBoxRut)
         {
             Profesor prof = (from p in _db.Profesores
                        where p.Rut == int.Parse(textBoxRut)

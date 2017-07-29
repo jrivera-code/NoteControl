@@ -30,6 +30,9 @@ namespace NoteControl.Source.DataAccess.InitialData
         public string[] ProfesoresApellido = { "Martinez", "Urrutia","Rivas",
                 "Sangueza","Lopez","Espeniza",
                 "Peters","Pereira"};
+        public string[] Especialidades = { "Juan", "Carlos","Eduardo",
+                "Francisco","Joseph","Claudia",
+                "Carla","Emilio"};
         public Data()
         {
 

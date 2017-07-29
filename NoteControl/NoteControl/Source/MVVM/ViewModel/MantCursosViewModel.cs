@@ -15,8 +15,8 @@ namespace NoteControl.Source.MVVM.ViewModel
     public class MantCursosViewModel : INotifyPropertyChanged
     {
         public event PropertyChangedEventHandler PropertyChanged;
-        public BLCursos blCursos = new BLCursos();
-        private Curso cursoEncontrado = null;
+        public BLCursos _blCursos = new BLCursos();
+        private Curso _cursoEncontrado = null;
         public Command ButtonSaveClick { get; set; }
         public Command ButtonDeleteClick { get; set; }
         public Command ButtonUpdateClick { get; set; }
@@ -53,14 +53,14 @@ namespace NoteControl.Source.MVVM.ViewModel
                 _textBoxCodeCurso = value.ToUpper();
                 NotifyPropertyChanged("TextBoxCodeCurso");
                 //consulta si el curso ya existe
-                if (!cursoExist(_textBoxCodeCurso))
+                if (!CursoExist(_textBoxCodeCurso))
                 {
                     if (_textBoxCodeCurso.Length > 0)
                         ButtonSaveEnable = true;
                     else ButtonSaveEnable = false;
                     ButtonDeleteEnable = false;
                     ButtonUpdateEnable = false;
-                    cursoEncontrado = null;
+                    _cursoEncontrado = null;
                     TextBoxNombreCurso = "";
                     TextBoxDescription = "";
                 }
@@ -71,7 +71,7 @@ namespace NoteControl.Source.MVVM.ViewModel
                     ButtonDeleteEnable = true;
                     ButtonUpdateEnable = true;
                     //carga los datos del usuario en el formulario
-                    cargarDatoCurso();
+                    CargarDatoCurso();
                 }
             }
         }
@@ -117,34 +117,34 @@ namespace NoteControl.Source.MVVM.ViewModel
         public MantCursosViewModel()
         {
             //constructor
-            cargarDataGrid();
+            CargarDataGrid();
             //inicializa los buttons como disabled
-            ButtonSaveClick = new Command(saveClick, () => true);
-            ButtonDeleteClick = new Command(deleteClick, () => true);
-            ButtonUpdateClick = new Command(updateClick, () => true);
+            ButtonSaveClick = new Command(SaveClick, () => true);
+            ButtonDeleteClick = new Command(DeleteClick, () => true);
+            ButtonUpdateClick = new Command(UpdateClick, () => true);
         }
 
-        private void updateClick()
+        private void UpdateClick()
         {
             Curso curso = new Curso()
             {
                 Nombre = _textBoxNombreCurso,
                 Descripcion = _textBoxDescription
             };
-            blCursos.modificarCurso(curso, _textBoxCodeCurso);
-            cargarDataGrid();
+            _blCursos.modificarCurso(curso, _textBoxCodeCurso);
+            CargarDataGrid();
             NotifyPropertyChanged("DataGridColumnCursos");
         }
 
-        private void deleteClick()
+        private void DeleteClick()
         {
-            blCursos.eliminarCurso(_textBoxCodeCurso);
-            cargarDataGrid();
+            _blCursos.eliminarCurso(_textBoxCodeCurso);
+            CargarDataGrid();
             NotifyPropertyChanged("DataGridColumnCursos");
             TextBoxCodeCurso = "";
         }
 
-        private void saveClick()
+        private void SaveClick()
         {
            
             Curso curso = new Curso()
@@ -153,31 +153,31 @@ namespace NoteControl.Source.MVVM.ViewModel
                 Nombre = _textBoxNombreCurso,
                 Descripcion = _textBoxDescription
             };
-            blCursos.crearCurso(curso);
-            cargarDataGrid();
+            _blCursos.crearCurso(curso);
+            CargarDataGrid();
             NotifyPropertyChanged("DataGridColumnCursos");
         }
-        private bool cursoExist(string text)
+        private bool CursoExist(string text)
         {
-            foreach (Curso cur in blCursos.listarCursos())
+            foreach (Curso cur in _blCursos.listarCursos())
             {
                 if (cur.CursoCode == text)
                 {
-                    cursoEncontrado = cur;
+                    _cursoEncontrado = cur;
                     return true;
                 }
             }
             return false;
         }
-        private void cargarDatoCurso()
+        private void CargarDatoCurso()
         {
-            TextBoxNombreCurso = cursoEncontrado.Nombre;
-            TextBoxDescription = cursoEncontrado.Descripcion;
+            TextBoxNombreCurso = _cursoEncontrado.Nombre;
+            TextBoxDescription = _cursoEncontrado.Descripcion;
         }
-        private void cargarDataGrid()
+        private void CargarDataGrid()
         {
             DataGridColumnCursos.Clear();
-            foreach (Curso c in blCursos.listarCursos())
+            foreach (Curso c in _blCursos.listarCursos())
             {
                 DataGridColumnCursos.Add(new CursoRowModel()
                 {

@@ -12,39 +12,39 @@ namespace NoteControl.Source.BusinessLogic
     public class BLAlumnos {
         DAAlumnos _da = new DAAlumnos();
         //metodo para agregar un alumno
-        public void crearAlumno(Alumno alum)
+        public void CrearAlumno(Alumno alum)
         {
             try
             {
-                _da.crearAlumno(alum);
+                _da.CrearAlumno(alum);
                 MessageBox.Show("Alumno Creado Exitosamente!");
             }
-            catch (Exception ex)
+            catch 
             {
                 throw;
             }
 
         }
         //metodo para listar todos los alumnos
-        public List<Alumno> listarAlumnos()
+        public List<Alumno> ListarAlumnos()
         {
             try
             {
-                return _da.listarAlumnos();
+                return _da.ListarAlumnos();
             }
-            catch (Exception ex)
+            catch
             {
                 throw;
             }
         }
         //metodo para listar todos los alumnos por curso
-        public List<Alumno> listarAlumnosPorCurso(string cursoCode)
+        public List<Alumno> ListarAlumnosPorCurso(string cursoCode)
         {
             try
             {
-                return _da.listarAlumnosPorCursos(cursoCode);
+                return _da.ListarAlumnosPorCursos(cursoCode);
             }
-            catch (Exception ex)
+            catch
             {
                 throw;
             }

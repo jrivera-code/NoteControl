@@ -15,8 +15,8 @@ namespace NoteControl.Source.MVVM.ViewModel
     public class MantProfesoresViewModel : INotifyPropertyChanged
     {
         public event PropertyChangedEventHandler PropertyChanged;
-        public BLProfesores blProfesores = new BLProfesores();
-        private Profesor profesorEncontrado = null;
+        public BLProfesores _blProfesores = new BLProfesores();
+        private Profesor _profesorEncontrado = null;
         public Command ButtonSaveClick { get; set; }
         public Command ButtonDeleteClick { get; set; }
         public Command ButtonUpdateClick { get; set; }
@@ -32,12 +32,12 @@ namespace NoteControl.Source.MVVM.ViewModel
                 _textBoxRut = value;
                 NotifyPropertyChanged("TextBoxRut");
                 //consulta si el profesor ya existe
-                if (!profeExist(_textBoxRut))
+                if (!ProfeExist(_textBoxRut))
                 {
-                    changeEnableButton();
+                    ChangeEnableButton();
                     ButtonDeleteClick.methodToDetectCanExecute = () => false;
                     ButtonUpdateClick.methodToDetectCanExecute = () => false;
-                    profesorEncontrado = null;
+                    _profesorEncontrado = null;
                 }
                 else
                 {
@@ -46,7 +46,7 @@ namespace NoteControl.Source.MVVM.ViewModel
                     ButtonDeleteClick.methodToDetectCanExecute = () => true;
                     ButtonUpdateClick.methodToDetectCanExecute = () => true;
                     //carga los datos del usuario en el formulario
-                    cargarDatoProfesor();
+                    CargarDatoProfesor();
                 }
             }
         }
@@ -92,36 +92,36 @@ namespace NoteControl.Source.MVVM.ViewModel
         public MantProfesoresViewModel()
         {
             //constructor
-            cargarDataGrid();
+            CargarDataGrid();
             //inicializa los buttons como disabled
-            ButtonSaveClick = new Command(saveClick, () => false);
-            ButtonDeleteClick = new Command(deleteClick, () => false);
-            ButtonUpdateClick = new Command(updateClick, () => false);
+            ButtonSaveClick = new Command(SaveClick, () => false);
+            ButtonDeleteClick = new Command(DeleteClick, () => false);
+            ButtonUpdateClick = new Command(UpdateClick, () => false);
         }
 
-        private void updateClick()
+        private void UpdateClick()
         {
             Profesor profesor = new Profesor()
             {
                 Nombre = _textBoxNombreProfe,
                 Apellido = _textBoxApellido
             };
-            blProfesores.modificarProfesor(profesor, _textBoxRut);
-            cargarDataGrid();
+            _blProfesores.ModificarProfesor(profesor, _textBoxRut);
+            CargarDataGrid();
             NotifyPropertyChanged("DataGridColumnProfe");
         }
 
-        private void deleteClick()
+        private void DeleteClick()
         {
-            blProfesores.eliminarProfesor(_textBoxRut);
-            cargarDataGrid();
+            _blProfesores.EliminarProfesor(_textBoxRut);
+            CargarDataGrid();
             NotifyPropertyChanged("DataGridColumnProfe");
             TextBoxRut = "";
             TextBoxApellido = "";
             TextBoxNombreProfe = "";
         }
 
-        private void saveClick()
+        private void SaveClick()
         {
 
             Profesor profe = new Profesor()
@@ -130,31 +130,31 @@ namespace NoteControl.Source.MVVM.ViewModel
                 Nombre = _textBoxNombreProfe,
                 Apellido = _textBoxApellido
             };
-            blProfesores.crearProfesor(profe);
-            cargarDataGrid();
+            _blProfesores.CrearProfesor(profe);
+            CargarDataGrid();
             NotifyPropertyChanged("DataGridColumnProfe");
         }
-        private bool profeExist(string text)
+        private bool ProfeExist(string text)
         {
-            foreach (Profesor p in blProfesores.listarProfesores())
+            foreach (Profesor p in _blProfesores.ListarProfesores())
             {
                 if (p.Rut.ToString() == text)
                 {
-                    profesorEncontrado = p;
+                    _profesorEncontrado = p;
                     return true;
                 }
             }
             return false;
         }
-        private void cargarDatoProfesor()
+        private void CargarDatoProfesor()
         {
-            TextBoxNombreProfe = profesorEncontrado.Nombre;
-            TextBoxApellido = profesorEncontrado.Apellido;
+            TextBoxNombreProfe = _profesorEncontrado.Nombre;
+            TextBoxApellido = _profesorEncontrado.Apellido;
         }
-        private void cargarDataGrid()
+        private void CargarDataGrid()
         {
             DataGridColumnProfe.Clear();
-            foreach (Profesor p in blProfesores.listarProfesores())
+            foreach (Profesor p in _blProfesores.ListarProfesores())
             {
                 DataGridColumnProfe.Add(new ProfeRowModel()
                 {
@@ -164,7 +164,7 @@ namespace NoteControl.Source.MVVM.ViewModel
                 });
             }
         }
-        private void changeEnableButton()
+        private void ChangeEnableButton()
         {
             if (_textBoxRut.Length > 0)
             {

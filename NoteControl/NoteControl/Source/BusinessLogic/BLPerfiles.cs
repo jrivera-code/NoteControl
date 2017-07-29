@@ -14,36 +14,36 @@ namespace NoteControl.Source.BusinessLogic
     {
         DAPerfiles _da = new DAPerfiles();
         //metodo para agregar un nuevo perfil
-        public void crearPerfil(Perfil perfil)
+        public void CrearPerfil(Perfil perfil)
         {
             try {
-                _da.crearPerfil(perfil);
+                _da.CrearPerfil(perfil);
                 MessageBox.Show("Perfil Creado Exitosamente!");
-            } catch (Exception ex) {
+            } catch  {
                 throw;
             }
           
         }
         //metodo para listar todos los perfil
-        public List<Privilegio> listarPrivilegiosDelPerfil(Perfil perfil)
+        public List<Privilegio> ListarPrivilegiosDelPerfil(Perfil perfil)
         {
             try
             {
-                return _da.listarPrivilegiosDelPerfil(perfil);
+                return _da.ListarPrivilegiosDelPerfil(perfil);
             }
-            catch (Exception ex)
+            catch 
             {
                 throw;
             }
         }
         //metodo para listar todos los perfil
-        public List<Perfil> listarPerfiles()
+        public List<Perfil> ListarPerfiles()
         {
             try
             {
-               return _da.listarPerfiles();
+               return _da.ListarPerfiles();
             }
-            catch (Exception ex)
+            catch 
             {
                 throw;
             }

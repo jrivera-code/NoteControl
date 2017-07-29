@@ -11,14 +11,14 @@ namespace NoteControl.Source.BusinessLogic
    public class BLLogin
     {
         DALogin _da = new DALogin();
-        public bool userExist(string userName, string password)
+        public bool UserExist(string userName, string password)
         {
             try
             {
-               return _da.userExist(userName.ToUpper(), password);
+               return _da.UserExist(userName.ToUpper(), password);
               
             }
-            catch (Exception ex)
+            catch 
             {
                 throw;
             }
@@ -30,7 +30,7 @@ namespace NoteControl.Source.BusinessLogic
                 _da.CreateDataBase();
 
             }
-            catch (Exception ex)
+            catch 
             {
                 throw;
             }
@@ -43,7 +43,7 @@ namespace NoteControl.Source.BusinessLogic
             {
                 return _da.DataBaseExist();
             }
-            catch (Exception ex)
+            catch 
             {
                 throw;
             }
@@ -52,13 +52,13 @@ namespace NoteControl.Source.BusinessLogic
         /// <summary>
         /// Requiere aver pasado por userExist
         /// </summary>
-        public Usuario getUser()
+        public Usuario GetUser()
         {
             try
             {
-                return _da.getUser();
+                return _da.GetUser();
             }
-            catch (Exception ex)
+            catch
             {
                 throw;
             }

@@ -14,8 +14,8 @@ namespace NoteControl.Source.MVVM.ViewModel
 {
     public class ConsAlumCursoViewModel : INotifyPropertyChanged
     {
-        private BLAlumnos blAlumnos = new BLAlumnos();
-        private BLCursos blCursos = new BLCursos();
+        private BLAlumnos _blAlumnos = new BLAlumnos();
+        private BLCursos _blCursos = new BLCursos();
         public Command ButtonConsClick { get; set; }
         private List<ComboBoxItem> _comboBoxCursosItems = new List<ComboBoxItem>();
         public List<ComboBoxItem> ComboBoxCursosItems
@@ -51,14 +51,14 @@ namespace NoteControl.Source.MVVM.ViewModel
         }
         public ConsAlumCursoViewModel()
         {
-            ButtonConsClick = new Command(cargarDataGrid, () => false);
-            cargarComboBox();
+            ButtonConsClick = new Command(CargarDataGrid, () => false);
+            CargarComboBox();
         }
-        private void cargarDataGrid()
+        private void CargarDataGrid()
         {
             DataGridColumnAlumnos.Clear();
             string code = _selectedComboBoxCursosItems.Tag.ToString();
-            List<Alumno> list = blAlumnos.listarAlumnosPorCurso(code);
+            List<Alumno> list = _blAlumnos.ListarAlumnosPorCurso(code);
             foreach (Alumno a in list)
             {
 
@@ -71,9 +71,9 @@ namespace NoteControl.Source.MVVM.ViewModel
             }
             NotifyPropertyChanged("DataGridColumnAlumnos");
         }
-        private void cargarComboBox()
+        private void CargarComboBox()
         {
-            foreach (Curso c in blCursos.listarCursos())
+            foreach (Curso c in _blCursos.listarCursos())
             {
                 ComboBoxCursosItems.Add(new ComboBoxItem() { Content = c.Nombre , Tag = c.CursoCode });
             }

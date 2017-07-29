@@ -16,7 +16,7 @@ namespace NoteControl.Source.MVVM.ViewModel
     public class MantPerfilesViewModel : INotifyPropertyChanged, IDisposable
     {
         public event PropertyChangedEventHandler PropertyChanged;
-        BLPerfiles blPerfiles = null;
+        BLPerfiles _blPerfiles = null;
         public Command ButtonClick { get; set; }
         public bool IsSelectedOne { get; set; }
         public bool IsSelectedTwo { get; set; }
@@ -37,9 +37,9 @@ namespace NoteControl.Source.MVVM.ViewModel
                 _textBoxPerfil = value;
                 NotifyPropertyChanged("TextBoxPerfil");
                 //consulta si el nombre de perfil ya existe
-                if (!perfilExist(_textBoxPerfil))
+                if (!PerfilExist(_textBoxPerfil))
                 {
-                    changeEnableButton();
+                    ChangeEnableButton();
                 }
                 else {
                     ButtonClick.methodToDetectCanExecute = () => false;
@@ -50,22 +50,22 @@ namespace NoteControl.Source.MVVM.ViewModel
         }
         public MantPerfilesViewModel()
         {
-            blPerfiles = new BLPerfiles();
+            _blPerfiles = new BLPerfiles();
             //primer parametro el metodo que ejecutara y el segundo si se habilita o no el control
             ButtonClick = new Command(GuardarPerfilMasPrivilegios, () => false);
      
         }
 
-        private bool perfilExist(string text)
+        private bool PerfilExist(string text)
         {
-            foreach (Perfil perfil in blPerfiles.listarPerfiles()) {
+            foreach (Perfil perfil in _blPerfiles.ListarPerfiles()) {
                 if (perfil.Nombre == text) {
                     return true;
                 }
             }
             return false;
         }
-        private void changeEnableButton()
+        private void ChangeEnableButton()
         {
             if (_textBoxPerfil.Length > 0)
             {
@@ -83,26 +83,28 @@ namespace NoteControl.Source.MVVM.ViewModel
             if (TextBoxPerfil != "" && TextBoxPerfil != null)
             {
                 Perfil perfil = new Perfil() { Nombre = TextBoxPerfil };
-                blPerfiles.crearPerfil(perfil);
+                _blPerfiles.CrearPerfil(perfil);
 
-                List<bool> CheckBoxsIsSelected = new List<bool>();
-                CheckBoxsIsSelected.Add(IsSelectedOne);
-                CheckBoxsIsSelected.Add(IsSelectedTwo);
-                CheckBoxsIsSelected.Add(IsSelectedThree);
-                CheckBoxsIsSelected.Add(IsSelectedFour);
-                CheckBoxsIsSelected.Add(IsSelectedFive);
-                CheckBoxsIsSelected.Add(IsSelectedSix);
-                CheckBoxsIsSelected.Add(IsSelectedSeven);
-                CheckBoxsIsSelected.Add(IsSelectedEigth);
-                CheckBoxsIsSelected.Add(IsSelectedNine);
-                CheckBoxsIsSelected.Add(IsSelectedTen);
+                List<bool> CheckBoxsIsSelected = new List<bool>
+                {
+                    IsSelectedOne,
+                    IsSelectedTwo,
+                    IsSelectedThree,
+                    IsSelectedFour,
+                    IsSelectedFive,
+                    IsSelectedSix,
+                    IsSelectedSeven,
+                    IsSelectedEigth,
+                    IsSelectedNine,
+                    IsSelectedTen
+                };
                 int flagId = 1;
                 foreach (bool ischecked in CheckBoxsIsSelected)
                 {
                     if (ischecked)
                     {
                         BLPerfilPrivilegio blPerfilPrivilegio = new BLPerfilPrivilegio();
-                        blPerfilPrivilegio.crearRelacionPerfilPrivilegio(perfil, flagId /*Indice Privilegio*/);
+                        blPerfilPrivilegio.CrearRelacionPerfilPrivilegio(perfil, flagId /*Indice Privilegio*/);
                     }
                     flagId++;
                 }

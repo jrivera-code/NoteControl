@@ -12,18 +12,18 @@ namespace NoteControl.Source.DataAccess.Source
         private readonly NoteControlContext _db = new NoteControlContext();
 
         //metodo para agregar un nuevo perfil
-        public void crearPerfil(Perfil perfil) {
+        public void CrearPerfil(Perfil perfil) {
             _db.Perfiles.Add(perfil);
             _db.SaveChanges();
         }
 
         //metodo para listar todos los perfil
-        public List<Perfil> listarPerfiles()
+        public List<Perfil> ListarPerfiles()
         {
             List<Perfil> lista = _db.Perfiles.ToList();
             return lista;
         }
-        public List<Privilegio> listarPrivilegiosDelPerfil(Perfil perfilUsuario)
+        public List<Privilegio> ListarPrivilegiosDelPerfil(Perfil perfilUsuario)
         {
             List<Privilegio> list = new List<Privilegio>();
             var query = from privilegios in _db.Privilegios

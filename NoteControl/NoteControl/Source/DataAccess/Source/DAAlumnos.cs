@@ -13,20 +13,20 @@ namespace NoteControl.Source.DataAccess.Source
 
 
         //metodo para agregar un alumno
-        public void crearAlumno(Alumno alumno)
+        public void CrearAlumno(Alumno alumno)
         {
             _db.Alumnos.Add(alumno);
             _db.SaveChanges();
         }
 
         //metodo para listar todos los alumnos
-        public List<Alumno> listarAlumnos()
+        public List<Alumno> ListarAlumnos()
         {
             List<Alumno> lista = _db.Alumnos.ToList();
             return lista;
         }
 
-        public List<Alumno> listarAlumnosPorCursos(string codeCurso)
+        public List<Alumno> ListarAlumnosPorCursos(string codeCurso)
         {
             List<Alumno> list = new List<Alumno>();
             var query = from alumnos in _db.Alumnos

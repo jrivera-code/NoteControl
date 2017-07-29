@@ -15,8 +15,8 @@ namespace NoteControl.Source.MVVM.ViewModel
     public class MantEspecialidadesViewModel : INotifyPropertyChanged
     {
         public event PropertyChangedEventHandler PropertyChanged;
-        public BLEspecialidades blEspecialidades = new BLEspecialidades();
-        private Especialidad especialidadEncontrado = null;
+        public BLEspecialidades _blEspecialidades = new BLEspecialidades();
+        private Especialidad _especialidadEncontrado = null;
         public Command ButtonSaveClick { get; set; }
         public Command ButtonDeleteClick { get; set; }
         public Command ButtonUpdateClick { get; set; }
@@ -32,12 +32,12 @@ namespace NoteControl.Source.MVVM.ViewModel
                 _textBoxCode = value;
                 NotifyPropertyChanged("TextBoxCode");
                 //consulta si el especialidad ya existe
-                if (!especialidadExist(_textBoxCode))
+                if (!EspecialidadExist(_textBoxCode))
                 {
-                    changeEnableButton();
+                    ChangeEnableButton();
                     ButtonDeleteClick.methodToDetectCanExecute = () => false;
                     ButtonUpdateClick.methodToDetectCanExecute = () => false;
-                    especialidadEncontrado = null;
+                    _especialidadEncontrado = null;
                 }
                 else
                 {
@@ -46,7 +46,7 @@ namespace NoteControl.Source.MVVM.ViewModel
                     ButtonDeleteClick.methodToDetectCanExecute = () => true;
                     ButtonUpdateClick.methodToDetectCanExecute = () => true;
                     //carga los datos de la especialidad en el formulario
-                    cargarDatoEspecialidad();
+                    CargarDatoEspecialidad();
                 }
             }
         }
@@ -79,34 +79,34 @@ namespace NoteControl.Source.MVVM.ViewModel
         public MantEspecialidadesViewModel()
         {
             //constructor
-            cargarDataGrid();
+            CargarDataGrid();
             //inicializa los buttons como disabled
-            ButtonSaveClick = new Command(saveClick, () => false);
-            ButtonDeleteClick = new Command(deleteClick, () => false);
-            ButtonUpdateClick = new Command(updateClick, () => false);
+            ButtonSaveClick = new Command(SaveClick, () => false);
+            ButtonDeleteClick = new Command(DeleteClick, () => false);
+            ButtonUpdateClick = new Command(UpdateClick, () => false);
         }
 
-        private void updateClick()
+        private void UpdateClick()
         {
             Especialidad especialidad = new Especialidad()
             {
                 Nombre =  _textBoxNombre
             };
-            blEspecialidades.modificarEspecialidad(especialidad, _textBoxCode);
-            cargarDataGrid();
+            _blEspecialidades.ModificarEspecialidad(especialidad, _textBoxCode);
+            CargarDataGrid();
             NotifyPropertyChanged("DataGridColumnEspecialidad");
         }
 
-        private void deleteClick()
+        private void DeleteClick()
         {
-            blEspecialidades.eliminarEspecialidad(_textBoxCode);
-            cargarDataGrid();
+            _blEspecialidades.EliminarEspecialidad(_textBoxCode);
+            CargarDataGrid();
             NotifyPropertyChanged("DataGridColumnEspecialidad");
             TextBoxCode = "";
             TextBoxNombre = "";
         }
 
-        private void saveClick()
+        private void SaveClick()
         {
 
             Especialidad especialidad = new Especialidad()
@@ -114,31 +114,31 @@ namespace NoteControl.Source.MVVM.ViewModel
                 EspecialidadCode = _textBoxCode,
                 Nombre = _textBoxNombre
             };
-            blEspecialidades.crearEspecialidad(especialidad);
-            cargarDataGrid();
+            _blEspecialidades.CrearEspecialidad(especialidad);
+            CargarDataGrid();
             NotifyPropertyChanged("DataGridColumnEspecialidad");
 
         }
-        private bool especialidadExist(string text)
+        private bool EspecialidadExist(string text)
         {
-            foreach (Especialidad e in blEspecialidades.listarEspecialidades())
+            foreach (Especialidad e in _blEspecialidades.ListarEspecialidades())
             {
                 if (e.EspecialidadCode == text)
                 {
-                    especialidadEncontrado = e;
+                    _especialidadEncontrado = e;
                     return true;
                 }
             }
             return false;
         }
-        private void cargarDatoEspecialidad()
+        private void CargarDatoEspecialidad()
         {
-            TextBoxNombre = especialidadEncontrado.Nombre;
+            TextBoxNombre = _especialidadEncontrado.Nombre;
         }
-        private void cargarDataGrid()
+        private void CargarDataGrid()
         {
             DataGridColumnEspecialidad.Clear();
-            foreach (Especialidad e in blEspecialidades.listarEspecialidades())
+            foreach (Especialidad e in _blEspecialidades.ListarEspecialidades())
             {
                 DataGridColumnEspecialidad.Add(new EspecialidadRowModel()
                 {
@@ -147,7 +147,7 @@ namespace NoteControl.Source.MVVM.ViewModel
                 });
             }
         }
-        private void changeEnableButton()
+        private void ChangeEnableButton()
         {
             if (_textBoxCode.Length > 0)
             {

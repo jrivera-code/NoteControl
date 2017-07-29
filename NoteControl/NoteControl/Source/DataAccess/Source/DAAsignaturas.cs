@@ -13,14 +13,14 @@ namespace NoteControl.Source.DataAccess.Source
 
 
         //metodo para agregar una asignatura
-        public void crearAsignatura(Asignatura asignatura)
+        public void CrearAsignatura(Asignatura asignatura)
         {
             _db.Asignaturas.Add(asignatura);
             _db.SaveChanges();
         }
 
         //metodo para listar todos las asignaturas
-        public List<Asignatura> listarAsignaturas()
+        public List<Asignatura> ListarAsignaturas()
         {
             List<Asignatura> lista = _db.Asignaturas.ToList();
             return lista;

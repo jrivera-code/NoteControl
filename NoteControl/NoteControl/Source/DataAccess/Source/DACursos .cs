@@ -14,14 +14,14 @@ namespace NoteControl.Source.DataAccess.Source
 
 
         //metodo para agregar un curso
-        public void crearCurso(Curso curso)
+        public void CrearCurso(Curso curso)
         {
             _db.Cursos.Add(curso);
             _db.SaveChanges();
         }
 
         //metodo para listar todos las Cursos
-        public List<Curso> listarCursos()
+        public List<Curso> ListarCursos()
         {
             List<Curso> lista = _db.Cursos.ToList();
             return lista;
@@ -33,7 +33,7 @@ namespace NoteControl.Source.DataAccess.Source
             throw new NotImplementedException();
         }
 
-        public void modificarCurso(Curso curso, string textBoxCodeCurso)
+        public void ModificarCurso(Curso curso, string textBoxCodeCurso)
         {
             Curso c = (from cur in _db.Cursos
                     where cur.CursoCode == textBoxCodeCurso
@@ -44,7 +44,7 @@ namespace NoteControl.Source.DataAccess.Source
             _db.SaveChanges();
         }
 
-        public void eliminarCurso(string textBoxCodeCurso)
+        public void EliminarCurso(string textBoxCodeCurso)
         {
             Curso c = (from cur in _db.Cursos
                        where cur.CursoCode == textBoxCodeCurso

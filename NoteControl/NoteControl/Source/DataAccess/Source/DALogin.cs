@@ -11,20 +11,19 @@ namespace NoteControl.Source.DataAccess.Source
     public class DALogin : IDisposable
     {
         private readonly NoteControlContext _db = new NoteControlContext();
-        private Usuario usuarioEncontrado;
+        private Usuario _usuarioEncontrado;
         
-        public Usuario getUser()
+        public Usuario GetUser()
         {
-           
-            return this.usuarioEncontrado;
+            return this._usuarioEncontrado;
         }
-        public bool userExist(string userName, string password) {
+        public bool UserExist(string userName, string password) {
            var usuario = from user in _db.Usuarios
                            where (user.Nombre == userName
                            && user.Clave == password)
                            select user;
             if (usuario.Count() != 0) {
-                usuarioEncontrado = usuario.First();
+                _usuarioEncontrado = usuario.First();
                 return true;
             }
             else{

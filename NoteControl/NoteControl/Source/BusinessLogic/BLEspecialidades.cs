@@ -13,53 +13,53 @@ namespace NoteControl.Source.BusinessLogic
     {
         DAEspecialidades _da = new DAEspecialidades();
         //metodo para agregar una especialidad
-        public void crearEspecialidad(Especialidad especialidad)
+        public void CrearEspecialidad(Especialidad especialidad)
         {
             try
             {
-                _da.crearEspecialidad(especialidad);
+                _da.CrearEspecialidad(especialidad);
                 MessageBox.Show("Especialidad Creada Exitosamente!");
             }
-            catch (Exception ex)
+            catch 
             {
                 throw;
             }
 
         }
         //metodo para listar todos las especialidades
-        public List<Especialidad> listarEspecialidades()
+        public List<Especialidad> ListarEspecialidades()
         {
             try
             {
-                return _da.listarEspecialidades();
+                return _da.ListarEspecialidades();
             }
-            catch (Exception ex)
+            catch 
             {
                 throw;
             }
         }
 
-        public void eliminarEspecialidad(string textBoxCode)
+        public void EliminarEspecialidad(string textBoxCode)
         {
             try
             {
-                _da.eliminarEspecialidad(textBoxCode);
+                _da.EliminarEspecialidad(textBoxCode);
                 MessageBox.Show("La especialidad ha sido eliminada");
             }
-            catch (Exception ex)
+            catch 
             {
                 throw;
             }
         }
 
-        public void modificarEspecialidad(Especialidad especialidad, string textBoxCode)
+        public void ModificarEspecialidad(Especialidad especialidad, string textBoxCode)
         {
             try
             {
-                _da.modificarEspecialidad(especialidad, textBoxCode);
+                _da.ModificarEspecialidad(especialidad, textBoxCode);
                 MessageBox.Show("La especialidad ha sido modificada");
             }
-            catch (Exception ex)
+            catch 
             {
                 throw;
             }

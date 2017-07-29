@@ -37,9 +37,9 @@ namespace NoteControl.Source.MVVM.ViewModel
                 NotifyPropertyChanged("FrameContent");
             }
         }
-        public Command ClickMenuItem { get; set; }
+       
         public List<MenuItem> Menus { get; }
-        BLPerfiles blPerfiles = new BLPerfiles();
+        private BLPerfiles _blPerfiles = new BLPerfiles();
         private string _usuarioLogeado { get; set; }
         public string UsuarioLogeado
         {
@@ -61,9 +61,9 @@ namespace NoteControl.Source.MVVM.ViewModel
             UsuarioLogeado = usuario.Nombre;
             Menus = new List<MenuItem>();
             //pasa el perfil del usuario y devuelve la lista de privilegios
-            List<Privilegio> listPrivilegios = blPerfiles.listarPrivilegiosDelPerfil(usuario.Perfiles);
+            List<Privilegio> listPrivilegios = _blPerfiles.ListarPrivilegiosDelPerfil(usuario.Perfiles);
             int countIcon = 0;
-            foreach (MenuItem menuitem in crearMenu(listPrivilegios))
+            foreach (MenuItem menuitem in CrearMenu(listPrivilegios))
             {
                 string url = "pack://application:,,,/NoteControl;component/Source/MVVM/View/Img/Icons/";
                 string[] iconName = { "mant_icon", "add_note", "search", "report" };
@@ -78,19 +78,13 @@ namespace NoteControl.Source.MVVM.ViewModel
                 }
                 countIcon++;
             }
-            ClickMenuItem = new Command(clickMenuItem, () => true);
         }
-
-        private void clickMenuItem()
+        
+        private List<MenuItem> CrearMenu(List<Privilegio> privilegiosList)
         {
-            System.Windows.Forms.MessageBox.Show("sdasd");
+            return CrearHeaderItems(CrearSubItems(privilegiosList));
         }
-
-        private List<MenuItem> crearMenu(List<Privilegio> privilegiosList)
-        {
-            return crearHeaderItems(crearSubItems(privilegiosList));
-        }
-        private List<MenuItem> crearHeaderItems(List<MenuItem> items)
+        private List<MenuItem> CrearHeaderItems(List<MenuItem> items)
         {
             MenuItem listMantenedores = new MenuItem() { Header = "Mantenedores" };
             MenuItem listNotas = new MenuItem() { Header = "Ingreso de Notas" };
@@ -130,7 +124,7 @@ namespace NoteControl.Source.MVVM.ViewModel
             }
             return new List<MenuItem> { listMantenedores, listNotas, listConsultas, listInformes };
         }
-        private List<MenuItem> crearSubItems(List<Privilegio> list)
+        private List<MenuItem> CrearSubItems(List<Privilegio> list)
         {
             List<MenuItem> menuItems = new List<MenuItem>();
             foreach (Privilegio p in list)
@@ -141,59 +135,59 @@ namespace NoteControl.Source.MVVM.ViewModel
 
                     case 1:
                         item = new MenuItem() { Header = p.Nombre, Tag = p.PrivilegioId };
-                        item.Click += clickMenuItem;
+                        item.Click += ClickMenuItem;
                         menuItems.Add(item);
                         break;
                     case 2:
                         item = new MenuItem() { Header = p.Nombre, Tag = p.PrivilegioId };
-                        item.Click += clickMenuItem;
+                        item.Click += ClickMenuItem;
                         menuItems.Add(item);
                         break;
                     case 3:
                         item = new MenuItem() { Header = p.Nombre, Tag = p.PrivilegioId };
-                        item.Click += clickMenuItem;
+                        item.Click += ClickMenuItem;
                         menuItems.Add(item);
                         break;
                     case 4:
                         item = new MenuItem() { Header = p.Nombre, Tag = p.PrivilegioId };
-                        item.Click += clickMenuItem;
+                        item.Click += ClickMenuItem;
                         menuItems.Add(item);
                         break;
                     case 5:
                         item = new MenuItem() { Header = p.Nombre, Tag = p.PrivilegioId };
-                        item.Click += clickMenuItem;
+                        item.Click += ClickMenuItem;
                         menuItems.Add(item);
                         break;
                     case 6:
                         item = new MenuItem() { Header = p.Nombre, Tag = p.PrivilegioId };
-                        item.Click += clickMenuItem;
+                        item.Click += ClickMenuItem;
                         menuItems.Add(item);
                         break;
                     case 7:
                         item = new MenuItem() { Header = p.Nombre, Tag = p.PrivilegioId };
-                        item.Click += clickMenuItem;
+                        item.Click += ClickMenuItem;
                         menuItems.Add(item);
                         break;
                     case 8:
                         item = new MenuItem() { Header = p.Nombre, Tag = p.PrivilegioId };
-                        item.Click += clickMenuItem;
+                        item.Click += ClickMenuItem;
                         menuItems.Add(item);
                         break;
                     case 9:
                         item = new MenuItem() { Header = p.Nombre, Tag = p.PrivilegioId };
-                        item.Click += clickMenuItem;
+                        item.Click += ClickMenuItem;
                         menuItems.Add(item);
                         break;
                     case 10:
                         item = new MenuItem() { Header = p.Nombre, Tag = p.PrivilegioId };
-                        item.Click += clickMenuItem;
+                        item.Click += ClickMenuItem;
                         menuItems.Add(item);
                         break;
                 }
             }
             return menuItems;
         }
-        private void clickMenuItem(object sender, RoutedEventArgs e)
+        private void ClickMenuItem(object sender, RoutedEventArgs e)
         {
             MenuItem item = sender as MenuItem;
             int id = int.Parse(item.Tag.ToString());

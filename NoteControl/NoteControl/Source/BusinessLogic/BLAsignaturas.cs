@@ -13,27 +13,27 @@ namespace NoteControl.Source.BusinessLogic
     {
         DAAsignaturas _da = new DAAsignaturas();
         //metodo para agregar una asignatura
-        public void crearAsignatura(Asignatura asig)
+        public void CrearAsignatura(Asignatura asig)
         {
             try
             {
-                _da.crearAsignatura(asig);
+                _da.CrearAsignatura(asig);
                 MessageBox.Show("Asignatura Creada Exitosamente!");
             }
-            catch (Exception ex)
+            catch 
             {
                 throw;
             }
 
         }
         //metodo para listar todos las asignaturas
-        public List<Asignatura> listarAsignaturas()
+        public List<Asignatura> ListarAsignaturas()
         {
             try
             {
-                return _da.listarAsignaturas();
+                return _da.ListarAsignaturas();
             }
-            catch (Exception ex)
+            catch
             {
                 throw;
             }

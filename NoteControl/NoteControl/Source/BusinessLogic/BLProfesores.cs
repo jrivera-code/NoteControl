@@ -13,52 +13,52 @@ namespace NoteControl.Source.BusinessLogic
     {
         DAProfesores _da = new DAProfesores();
         //metodo para agregar un profesor
-        public void crearProfesor(Profesor profe)
+        public void CrearProfesor(Profesor profe)
         {
             try
             {
-                _da.crearProfesor(profe);
+                _da.CrearProfesor(profe);
                 MessageBox.Show("Profesor Creado Exitosamente!");
             }
-            catch (Exception ex)
+            catch 
             {
                 throw;
             }
 
         }
         //metodo para listar todos los profesores
-        public List<Profesor> listarProfesores()
+        public List<Profesor> ListarProfesores()
         {
             try
             {
-                return _da.listarProfesores();
+                return _da.ListarProfesores();
             }
-            catch (Exception ex)
+            catch 
             {
                 throw;
             }
         }
 
-        public void eliminarProfesor(string textBoxRut)
+        public void EliminarProfesor(string textBoxRut)
         {
             try
             {
-                _da.eliminarProfesor(textBoxRut);
+                _da.EliminarProfesor(textBoxRut);
             }
-            catch (Exception ex)
+            catch 
             {
                 throw;
             }
         }
 
-        public void modificarProfesor(Profesor profesor, string textBoxRut)
+        public void ModificarProfesor(Profesor profesor, string textBoxRut)
         {
             try
             {
-                _da.modificarProfesor(profesor, textBoxRut);
+                _da.ModificarProfesor(profesor, textBoxRut);
                 MessageBox.Show("El profesor fue eliminado");
             }
-            catch (Exception ex)
+            catch 
             {
                 throw;
             }

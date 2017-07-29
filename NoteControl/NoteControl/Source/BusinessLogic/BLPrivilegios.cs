@@ -12,13 +12,13 @@ namespace NoteControl.Source.BusinessLogic
     {
         DAPrivilegios _da = new DAPrivilegios();
         //metodo para listar todos los privilegios
-        public List<Privilegio> listarPrivilegios()
+        public List<Privilegio> ListarPrivilegios()
         {
             try
             {
-                return _da.listarPrivilegios();
+                return _da.ListarPrivilegios();
             }
-            catch (Exception ex)
+            catch
             {
                 throw;
             }

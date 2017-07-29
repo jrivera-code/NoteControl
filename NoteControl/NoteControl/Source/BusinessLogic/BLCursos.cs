@@ -17,10 +17,10 @@ namespace NoteControl.Source.BusinessLogic
         {
             try
             {
-                _da.crearCurso(curso);
+                _da.CrearCurso(curso);
                 MessageBox.Show("Curso Creado Exitosamente!");
             }
-            catch (Exception ex)
+            catch
             {
                 throw;
             }
@@ -31,9 +31,9 @@ namespace NoteControl.Source.BusinessLogic
         {
             try
             {
-                return _da.listarCursos();
+                return _da.ListarCursos();
             }
-            catch (Exception ex)
+            catch 
             {
                 throw;
             }
@@ -43,10 +43,10 @@ namespace NoteControl.Source.BusinessLogic
         {
             try
             {
-                _da.modificarCurso(curso, textBoxCodeCurso);
+                _da.ModificarCurso(curso, textBoxCodeCurso);
                 MessageBox.Show("Curso "+textBoxCodeCurso+" modificado con exito");
             }
-            catch (Exception ex)
+            catch
             {
                 throw;
             }
@@ -57,10 +57,10 @@ namespace NoteControl.Source.BusinessLogic
         {
             try
             {
-                _da.eliminarCurso(textBoxCodeCurso);
+                _da.EliminarCurso(textBoxCodeCurso);
                 MessageBox.Show("Curso " + textBoxCodeCurso + "fue eliminado");
             }
-            catch (Exception ex)
+            catch 
             {
                 throw;
             }

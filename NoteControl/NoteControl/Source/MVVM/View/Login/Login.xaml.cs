@@ -24,13 +24,13 @@ namespace NoteControl
     public partial class MainWindow : Window
     {
      
-        BLLogin blLogin = new BLLogin();
+        private BLLogin _blLogin = new BLLogin();
         public MainWindow()
         {
             //crea la base de datos si no existe
-            if (!blLogin.DataBaseExist())
+            if (!_blLogin.DataBaseExist())
             {
-                blLogin.CreateDataBase();
+                _blLogin.CreateDataBase();
             }
             InitializeComponent();
             image.Source = new BitmapImage(new Uri("pack://application:,,,/NoteControl;component/Source/MVVM/View/Img/notas.png"));
@@ -40,19 +40,19 @@ namespace NoteControl
         /// <summary>
         /// Boton aceptar, ingreso a sistema
         /// </summary>
-        private void btnAceptar(object sender, RoutedEventArgs e)
+        private void BtnAceptar(object sender, RoutedEventArgs e)
         {
             //pregunta su el usuario existe
-            if (blLogin.userExist(txtUsuario.Text, txtPass.Password))
+            if (_blLogin.UserExist(txtUsuario.Text, txtPass.Password))
             {
-                Usuario user = blLogin.getUser();
+                Usuario user = _blLogin.GetUser();
                 //pasa el usuario encontrado al contructor del menu
                 switch (user.Estado) {
                     case 0:
                         MessageBox.Show("Su cuenta de usuario esta suspendida");
                         break;
                     case 1:
-                        Menu menu = new Menu(blLogin.getUser());
+                        Menu menu = new Menu(_blLogin.GetUser());
                         menu.Show();
                         this.Close();
                         break;
@@ -67,7 +67,7 @@ namespace NoteControl
 
         }
 
-        private void btnsalir(object sender, RoutedEventArgs e)
+        private void BtnSalir(object sender, RoutedEventArgs e)
         {
             MessageBox.Show("Gracias!");
             Close();

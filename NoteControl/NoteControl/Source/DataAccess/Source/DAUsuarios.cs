@@ -14,14 +14,14 @@ namespace NoteControl.Source.DataAccess.Source
         private readonly NoteControlContext _db = new NoteControlContext();
 
         //metodo para agregar un nuevo usuario
-        public void crearUsuario(Usuario user, string perfil)
+        public void CrearUsuario(Usuario user, string perfil)
         {
             user.Perfiles = _db.Perfiles.Where(p => p.Nombre == perfil).First();
             _db.Usuarios.Add(user);
             _db.SaveChanges();
         }
         //metodo para listar todos los usuarios
-        public List<Usuario> listarUsuarios()
+        public List<Usuario> ListarUsuarios()
         {
             List<Usuario> lista = _db.Usuarios.ToList();
             return lista;
@@ -31,14 +31,14 @@ namespace NoteControl.Source.DataAccess.Source
             _db.Dispose();
         }
 
-        public void eliminarUsuario(string nombre)
+        public void EliminarUsuario(string nombre)
         {
             Usuario user = _db.Usuarios.Where(p => p.Nombre == nombre).First();
             _db.Usuarios.Remove(user);
             _db.SaveChanges();
         }
 
-        public void modificarUser(Usuario updatedUser, string nombre, string perf)
+        public void ModificarUser(Usuario updatedUser, string nombre, string perf)
         {
             
             var perfil = _db.Perfiles.FirstOrDefault(p => p.Nombre == perf);
