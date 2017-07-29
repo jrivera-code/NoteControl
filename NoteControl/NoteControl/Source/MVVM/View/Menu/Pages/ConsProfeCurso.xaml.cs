@@ -13,17 +13,24 @@ using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
 using NoteControl;
+using NoteControl.Source.MVVM.ViewModel;
 
 namespace NoteControl
 {
-	/// <summary>
-	/// Lógica de interacción para ConProfXCurso.xaml
-	/// </summary>
+    /// <summary>
+    /// Lógica de interacción para ConProfXCurso.xaml
+    /// </summary>
+    /// 
+  
 	public partial class ConsProfeCurso : Page
 	{
-		public ConsProfeCurso()
-		{
-			InitializeComponent();
-		}
+        private ConsProfeCursoViewModel _consProfeCursoViewModel = new ConsProfeCursoViewModel();
+        public ConsProfeCurso()
+		{;
+        
+            InitializeComponent();
+            this.DataContext = _consProfeCursoViewModel;
+
+        }
 	}
 }

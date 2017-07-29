@@ -73,7 +73,7 @@ namespace NoteControl.Source.MVVM.ViewModel
         }
         private void CargarComboBox()
         {
-            foreach (Curso c in _blCursos.listarCursos())
+            foreach (Curso c in _blCursos.ListarCursos())
             {
                 ComboBoxCursosItems.Add(new ComboBoxItem() { Content = c.Nombre , Tag = c.CursoCode });
             }

@@ -3,18 +3,21 @@
       xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
       xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
       xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+      xmlns:vm="clr-namespace:NoteControl.Source.MVVM.ViewModel"
       xmlns:local="clr-namespace:NoteControl"
       mc:Ignorable="d"
       Title="ConProfXCurso" Height="700.000" Width="1200.000">
 
     <Page.Resources>
         <ResourceDictionary>
+           
             <ResourceDictionary.MergedDictionaries>
                 <!-- note you only need bring in these extra resource dictionaries when using non-default styles, so only bring them into your controls where the default style is not what you want -->
                 <ResourceDictionary Source="pack://application:,,,/MaterialDesignThemes.Wpf;component/Themes/MaterialDesignTheme.ComboBox.xaml" />
                 <ResourceDictionary Source="pack://application:,,,/MaterialDesignThemes.Wpf;component/Themes/MaterialDesignTheme.Slider.xaml" />
                 <ResourceDictionary Source="pack://application:,,,/MaterialDesignThemes.Wpf;component/Themes/MaterialDesignTheme.TextBox.xaml" />
                 <ResourceDictionary Source = "pack://application:,,,/MaterialDesignThemes.Wpf;component/Themes/MaterialDesignTheme.DataGrid.xaml" />
+          
             </ResourceDictionary.MergedDictionaries>
             <Style TargetType="{x:Type TextBox}" BasedOn="{StaticResource MaterialDesignTextBox}">
                 <Setter Property="Margin" Value="0 8 0 8" />
@@ -48,9 +51,20 @@
 
 
     <Grid>
-        <ComboBox x:Name="CombCursos" HorizontalAlignment="Left" Margin="499,21,0,0" VerticalAlignment="Top" Width="270" Height="52"/>
+        <ComboBox x:Name="cbEstado" ItemsSource="{Binding ComboBoxCursosItems,Mode=TwoWay}"
+                  SelectedItem="{Binding SelectedComboBoxCursosItems,Mode=TwoWay}"
+                  Foreground="Black" HorizontalAlignment="Left" Margin="508,35,0,0" VerticalAlignment="Top" Width="270" FontSize="20">
+        </ComboBox>
+
         <Label x:Name="LCurso" Content="Curso" Foreground="White"  HorizontalAlignment="Left" Margin="418,47,0,0" VerticalAlignment="Top"/>
-        <Button x:Name="GeneraP" Content="Ver Profesores" HorizontalAlignment="Left" Margin="499,116,0,0" VerticalAlignment="Top" Width="270" Height="53"/>
-        <DataGrid x:Name="dgProfXcr" HorizontalAlignment="Left" Margin="352,232,0,0" VerticalAlignment="Top" Height="390" Width="498"/>
+        <Button x:Name="Genera" Command="{Binding ButtonConsClick, Mode =TwoWay,IsAsync=True}" Content="Ver Profesores" HorizontalAlignment="Left" Margin="508,116,0,0" VerticalAlignment="Top" Width="270" Height="53"/>
+        <DataGrid IsReadOnly="True"  Name="dgAlumList" ItemsSource="{Binding DataGridColumnProfesores,IsAsync=True,Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" AutoGenerateColumns="False" Margin="146,288,111,88">
+            <DataGrid.Columns>
+                <DataGridTextColumn Header="Rut" Binding="{Binding Rut}" />
+                <DataGridTextColumn Header="Nombre" Binding="{Binding Nombre}"/>
+                <DataGridTextColumn Header="Apellido" Binding="{Binding Apellido}"/>
+                <DataGridTextColumn Header="Asignaturas a Cargo" Binding="{Binding AsignaturasItems}"/>
+            </DataGrid.Columns>
+        </DataGrid>
     </Grid>
 </Page>

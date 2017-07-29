@@ -1,17 +1,21 @@
-﻿using System;
+﻿using NoteControl.Source.MVVM.Model;
+using System;
 using System.Collections.Generic;
+using System.ComponentModel;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Windows.Controls;
 
 namespace NoteControl.Source.MVVM.ViewModel.DataGridRowModel
 {
-    public class ProfeRowModel
+    public class ProfeRowModel : INotifyPropertyChanged
     {
-        string _rut;
-        string _nombre;
-        string _apellido;
-        public string Rut
+        private int _rut;
+        private string _nombre;
+        private string _apellido;
+        private string _asignaturas;
+        public int Rut
         {
             get
             {
@@ -43,6 +47,19 @@ namespace NoteControl.Source.MVVM.ViewModel.DataGridRowModel
             {
                 _apellido = value;
             }
+        }
+        public string AsignaturasItems
+        {
+            get => _asignaturas;
+            set {
+                _asignaturas = value;
+                NotifyPropertyChanged("AsignaturasItems");
+                    }
+        }
+        public event PropertyChangedEventHandler PropertyChanged;
+        private void NotifyPropertyChanged(string propertyName)
+        {
+            PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(propertyName));
         }
     }
 }

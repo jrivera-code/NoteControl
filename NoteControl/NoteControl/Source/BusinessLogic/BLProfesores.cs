@@ -51,6 +51,18 @@ namespace NoteControl.Source.BusinessLogic
             }
         }
 
+        public List<Profesor> ListarProfesoresPorCurso(string curso)
+        {
+            try
+            {
+               return _da.ListarProfesoresPorCurso(curso);
+            }
+            catch {
+                throw;
+            }
+            
+        }
+
         public void ModificarProfesor(Profesor profesor, string textBoxRut)
         {
             try

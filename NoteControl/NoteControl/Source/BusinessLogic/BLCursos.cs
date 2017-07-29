@@ -13,7 +13,7 @@ namespace NoteControl.Source.BusinessLogic
     {
         DACursos _da = new DACursos();
         //metodo para agregar un curso
-        public void crearCurso(Curso curso)
+        public void CrearCurso(Curso curso)
         {
             try
             {
@@ -27,7 +27,7 @@ namespace NoteControl.Source.BusinessLogic
 
         }
         //metodo para listar todos los cursos
-        public List<Curso> listarCursos()
+        public List<Curso> ListarCursos()
         {
             try
             {
@@ -39,7 +39,7 @@ namespace NoteControl.Source.BusinessLogic
             }
         }
 
-        public void modificarCurso(Curso curso, string textBoxCodeCurso)
+        public void ModificarCurso(Curso curso, string textBoxCodeCurso)
         {
             try
             {
@@ -53,7 +53,7 @@ namespace NoteControl.Source.BusinessLogic
           
         }
 
-        public void eliminarCurso(string textBoxCodeCurso)
+        public void EliminarCurso(string textBoxCodeCurso)
         {
             try
             {

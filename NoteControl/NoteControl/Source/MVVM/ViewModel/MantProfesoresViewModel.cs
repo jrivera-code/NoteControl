@@ -158,7 +158,7 @@ namespace NoteControl.Source.MVVM.ViewModel
             {
                 DataGridColumnProfe.Add(new ProfeRowModel()
                 {
-                    Rut = p.Rut.ToString(),
+                    Rut = p.Rut,
                     Nombre = p.Nombre,
                     Apellido = p.Apellido
                 });
