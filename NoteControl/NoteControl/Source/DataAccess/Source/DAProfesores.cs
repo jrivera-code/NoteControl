@@ -68,7 +68,7 @@ namespace NoteControl.Source.DataAccess.Source
             foreach (Profesor p in li) {
                 //hace que no se repitan los profesores
                 if (pre != p.Rut) {
-                    list.Add(p);
+                list.Add(p);
                 }
                 pre = p.Rut;
             }

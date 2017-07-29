@@ -59,6 +59,7 @@ namespace NoteControl.Source.MVVM.ViewModel
                     string asignaturas = "";
                     foreach (CursoProfeAsignatura asig in p.CursoProfeAsignaturas)
                     {
+                    if(asig.CursoCode == code)
                     asignaturas += asig.Asignaturas.Nombre+", ";
                     }
                     asignaturas = asignaturas.Trim().TrimEnd(',');
