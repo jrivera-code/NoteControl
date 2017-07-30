@@ -2,6 +2,7 @@
 using NoteControl.Source.MVVM.Model;
 using NoteControl.Source.MVVM.ViewModel.Commands;
 using NoteControl.Source.MVVM.ViewModel.DataGridRowModel;
+using NoteControl.Source.MVVM.ViewModel.Utils;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -29,24 +30,28 @@ namespace NoteControl.Source.MVVM.ViewModel
             }
             set
             {
-                _textBoxRut = value;
+                //returna null si lo que se teclea no es un numero
+                _textBoxRut = StaticMethods.NumberValidationTextBox(value);
                 NotifyPropertyChanged("TextBoxRut");
-                //consulta si el profesor ya existe
-                if (!ProfeExist(_textBoxRut))
+                if (_textBoxRut != null)
                 {
-                    ChangeEnableButton();
-                    ButtonDeleteClick.methodToDetectCanExecute = () => false;
-                    ButtonUpdateClick.methodToDetectCanExecute = () => false;
-                    _profesorEncontrado = null;
-                }
-                else
-                {
-                    //si ya existe desabilita el boton save y activa el update y delete
-                    ButtonSaveClick.methodToDetectCanExecute = () => false;
-                    ButtonDeleteClick.methodToDetectCanExecute = () => true;
-                    ButtonUpdateClick.methodToDetectCanExecute = () => true;
-                    //carga los datos del usuario en el formulario
-                    CargarDatoProfesor();
+                    //consulta si el profesor ya existe
+                    if (!ProfeExist(_textBoxRut)    )
+                    {
+                        ChangeEnableButton();
+                        ButtonDeleteClick.methodToDetectCanExecute = () => false;
+                        ButtonUpdateClick.methodToDetectCanExecute = () => false;
+                        _profesorEncontrado = null;
+                    }
+                    else
+                    {
+                        //si ya existe desabilita el boton save y activa el update y delete
+                        ButtonSaveClick.methodToDetectCanExecute = () => false;
+                        ButtonDeleteClick.methodToDetectCanExecute = () => true;
+                        ButtonUpdateClick.methodToDetectCanExecute = () => true;
+                        //carga los datos del usuario en el formulario
+                        CargarDatoProfesor();
+                    }
                 }
             }
         }

@@ -77,7 +77,7 @@ namespace NoteControl.Source.MVVM.ViewModel
         private ComboBoxItem _selectedComboBoxPerfilItems = new ComboBoxItem();
         public ComboBoxItem SelectedComboBoxPerfilItems{ get { return _selectedComboBoxPerfilItems; }
             set {
-                if (_selectedComboBoxPerfilItems == value) return;
+                if (_selectedComboBoxPerfilItems == null) return;
 
                 if (value.Content.ToString() == "Profesor") {
                     IsSelectedIng = true; IsSelectedMant = false;
@@ -159,7 +159,6 @@ namespace NoteControl.Source.MVVM.ViewModel
                         ButtonSaveEnable = false;
                     } 
                     SelectedEstadoItem = null;
-                    SelectedComboBoxPerfilItems = null;
                     _usuarioEncontrado = null;
                 }
                 else

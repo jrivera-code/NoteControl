@@ -2,6 +2,7 @@
 using NoteControl.Source.MVVM.Model;
 using NoteControl.Source.MVVM.ViewModel.Commands;
 using NoteControl.Source.MVVM.ViewModel.DataGridRowModel;
+using NoteControl.Source.MVVM.ViewModel.Utils;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -9,6 +10,8 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Controls;
+using System.Windows.Forms;
+using System.Windows.Input;
 
 namespace NoteControl.Source.MVVM.ViewModel
 {
@@ -65,6 +68,7 @@ namespace NoteControl.Source.MVVM.ViewModel
                     _cursoEncontrado = null;
                     TextBoxNombreCurso = "";
                     TextBoxDescription = "";
+                    SelectedComboBoxProfesorJefe = null;
                 }
                 else
                 {
@@ -88,6 +92,19 @@ namespace NoteControl.Source.MVVM.ViewModel
             {
                 _textBoxNombreCurso = value;
                 NotifyPropertyChanged("TextBoxNombreCurso");
+            }
+        }
+        private string _textBoxAnio;
+        public string TextBoxAnio
+        {
+            get
+            {
+                return _textBoxAnio;
+            }
+            set
+            {
+                _textBoxAnio = StaticMethods.NumberValidationTextBox(value);
+                NotifyPropertyChanged("TextBoxAnio");
             }
         }
         private string _textBoxDescription;
@@ -139,15 +156,17 @@ namespace NoteControl.Source.MVVM.ViewModel
             ButtonDeleteClick = new Command(DeleteClick, () => true);
             ButtonUpdateClick = new Command(UpdateClick, () => true);
         }
-
+        
         private void UpdateClick()
         {
+            int newProfe = int.Parse(_selectedComboBoxProfesorJefe.Tag.ToString());
             Curso curso = new Curso()
             {
                 Nombre = _textBoxNombreCurso,
-                Descripcion = _textBoxDescription
+                Descripcion = _textBoxDescription,
+                Anio = int.Parse(_textBoxAnio)
             };
-            _blCursos.ModificarCurso(curso, _textBoxCodeCurso);
+            _blCursos.ModificarCurso(curso, _textBoxCodeCurso,newProfe);
             CargarDataGrid();
             NotifyPropertyChanged("DataGridColumnCursos");
         }
@@ -167,20 +186,27 @@ namespace NoteControl.Source.MVVM.ViewModel
             CargarDataGrid();
             NotifyPropertyChanged("DataGridColumnCursos");
             TextBoxCodeCurso = "";
+            SelectedComboBoxProfesorJefe = null;
         }
 
         private void SaveClick()
         {
-            int profesorJefe = int.Parse(_selectedComboBoxProfesorJefe.Tag.ToString());
-           
-            Curso curso = new Curso()
+            if (_selectedComboBoxProfesorJefe.Tag != null)
             {
-                CursoCode = _textBoxCodeCurso,
-                Nombre = _textBoxNombreCurso,
-                Descripcion = _textBoxDescription
-            };
-            _blCursos.CrearCurso(curso, profesorJefe);
-            CargarDataGrid();
+                int profesorJefe = int.Parse(_selectedComboBoxProfesorJefe.Tag.ToString());
+                Curso curso = new Curso()
+                {
+                    CursoCode = _textBoxCodeCurso,
+                    Nombre = _textBoxNombreCurso,
+                    Descripcion = _textBoxDescription
+                };
+                _blCursos.CrearCurso(curso, profesorJefe);
+                CargarDataGrid();
+            }
+            else {
+                MessageBox.Show("No puede guardar sin antes esfecificar un profesro jefe para el curso");
+            }
+           
             NotifyPropertyChanged("DataGridColumnCursos");
         }
         private bool CursoExist(string text)
@@ -199,6 +225,16 @@ namespace NoteControl.Source.MVVM.ViewModel
         {
             TextBoxNombreCurso = _cursoEncontrado.Nombre;
             TextBoxDescription = _cursoEncontrado.Descripcion;
+            TextBoxAnio = _cursoEncontrado.Anio.ToString();
+            if (_cursoEncontrado.Profesor != null)
+            {
+                SelectedComboBoxProfesorJefe = ComboBoxProfesorJefe.Where(p => p.Tag.ToString()
+                            == _cursoEncontrado.Profesor.Rut.ToString()).FirstOrDefault();
+            }
+            else {
+                MessageBox.Show("A este curso no se le ha asignado un profesor jefe");
+            }
+            
         }
         private void CargarDataGrid()
         {

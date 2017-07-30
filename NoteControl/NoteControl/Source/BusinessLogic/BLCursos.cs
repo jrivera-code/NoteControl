@@ -39,11 +39,11 @@ namespace NoteControl.Source.BusinessLogic
             }
         }
 
-        public void ModificarCurso(Curso curso, string textBoxCodeCurso)
+        public void ModificarCurso(Curso curso, string textBoxCodeCurso,int newProfe)
         {
             try
             {
-                _da.ModificarCurso(curso, textBoxCodeCurso);
+                _da.ModificarCurso(curso, textBoxCodeCurso, newProfe);
                 MessageBox.Show("Curso "+textBoxCodeCurso+" modificado con exito");
             }
             catch

@@ -19,7 +19,8 @@
             </ResourceDictionary.MergedDictionaries>
             <Style TargetType="{x:Type TextBox}" BasedOn="{StaticResource MaterialDesignTextBox}">
                 <Setter Property="Margin" Value="0 8 0 8" />
-                <Setter Property="FontSize" Value="15" />
+                <Setter Property="Foreground" Value="Black"></Setter>
+                <Setter Property="FontWeight" Value="Bold"></Setter>
             </Style>
             <Style TargetType="{x:Type PasswordBox}" BasedOn="{StaticResource MaterialDesignPasswordBox}">
                 <Setter Property="Margin" Value="0 8 0 8" />
@@ -27,7 +28,8 @@
             <Style TargetType="{x:Type ComboBox}" BasedOn="{StaticResource MaterialDesignComboBox}">
                 <Setter Property="HorizontalAlignment" Value="Stretch" />
                 <Setter Property="Margin" Value="0 8 0 8" />
-
+                <Setter Property="Foreground" Value="Black" />
+                <Setter Property="FontWeight" Value="Bold" />
                 <Style.Triggers>
                     <Trigger Property="IsDropDownOpen" Value="True">
                         <Setter Property="Background" Value="White" />
@@ -41,8 +43,9 @@
                 <Setter Property="Margin" Value="0 0 8 0" />
                 <Setter Property="VerticalAlignment" Value="Center" />
             </Style>
-            <Style TargetType="{x:Type Slider}" BasedOn="{StaticResource MaterialDesignSlider}">
-                <Setter Property="Margin" Value="0 8 0 8" />
+            <Style TargetType="{x:Type Label}" >
+                <Setter Property="FontWeight" Value="Bold" />
+                <Setter Property="Foreground" Value="White" />
             </Style>
 
         </ResourceDictionary>
@@ -51,12 +54,12 @@
 
 
     <Grid>
-        <Label x:Name="codCurso" Content="Codigo Curso" Foreground="White"  HorizontalAlignment="Left" Margin="103,35,0,0" VerticalAlignment="Top" FontWeight="Bold"/>
-        <Label x:Name="NombC" Content="Curso" Foreground="White"  HorizontalAlignment="Left" Margin="103,91,0,0" VerticalAlignment="Top" FontWeight="Bold"/>
-        <Label x:Name="Descr" Content="Descripcion" Foreground="White"  HorizontalAlignment="Left" Margin="103,211,0,0" VerticalAlignment="Top" FontWeight="Bold"/>
-        <TextBox x:Name="txtCodeCurso" Text="{Binding TextBoxCodeCurso, UpdateSourceTrigger=PropertyChanged, Mode=TwoWay}" Foreground="White" HorizontalAlignment="Left" Height="48" Margin="226,7,0,0" TextWrapping="Wrap"  VerticalAlignment="Top" Width="162" FontSize="20" />
-        <TextBox x:Name="txtNombreCurso" Text="{Binding TextBoxNombreCurso, UpdateSourceTrigger=PropertyChanged, Mode=TwoWay}" Foreground="White" HorizontalAlignment="Left" Height="45" Margin="226,72,0,0" TextWrapping="Wrap"  VerticalAlignment="Top" Width="162" FontSize="20" />
-        <TextBox x:Name="txtDescrip" Text="{Binding TextBoxDescription, UpdateSourceTrigger=PropertyChanged, Mode=TwoWay}" Foreground="White" HorizontalAlignment="Left" Height="45" Margin="226,192,0,0" TextWrapping="Wrap"  VerticalAlignment="Top" Width="288" FontSize="20" />
+        <Label x:Name="codCurso" Content="Codigo Curso" HorizontalAlignment="Left" Margin="103,35,0,0" VerticalAlignment="Top" />
+        <Label x:Name="NombC" Content="Curso" HorizontalAlignment="Left" Margin="103,78,0,0" VerticalAlignment="Top" />
+        <Label x:Name="Descr" Content="Descripcion" HorizontalAlignment="Left" Margin="103,175,0,0" VerticalAlignment="Top" />
+        <TextBox x:Name="txtCodeCurso" Text="{Binding TextBoxCodeCurso, UpdateSourceTrigger=PropertyChanged, Mode=TwoWay}"  HorizontalAlignment="Left" Height="48" Margin="226,7,0,0" TextWrapping="Wrap"  VerticalAlignment="Top" Width="162"  />
+        <TextBox x:Name="txtNombreCurso" Text="{Binding TextBoxNombreCurso, UpdateSourceTrigger=PropertyChanged, Mode=TwoWay}"  HorizontalAlignment="Left" Height="45" Margin="226,59,0,0" TextWrapping="Wrap"  VerticalAlignment="Top" Width="162" />
+        <TextBox x:Name="txtDescrip" Text="{Binding TextBoxDescription, UpdateSourceTrigger=PropertyChanged, Mode=TwoWay}" HorizontalAlignment="Left" Height="45" Margin="226,156,0,0" TextWrapping="Wrap"  VerticalAlignment="Top" Width="288" />
         <Button x:Name="BtnSave" IsEnabled="{Binding ButtonSaveEnable,Mode=OneWay}" Command="{Binding ButtonSaveClick, Mode =TwoWay}"  CommandParameter="{Binding ElementName=txtPassword}" Content="Guardar" HorizontalAlignment="Left" Margin="644,135,0,0" VerticalAlignment="Top" Width="121"/>
         <Button x:Name="BtnDelete" IsEnabled="{Binding ButtonDeleteEnable,Mode=OneWay}" Command="{Binding ButtonDeleteClick, Mode =TwoWay}" Content="Eliminar" HorizontalAlignment="Left" Margin="963,135,0,0" VerticalAlignment="Top" Width="121"/>
         <Button x:Name="BtnUpdate" IsEnabled="{Binding ButtonUpdateEnable,Mode=OneWay}" Command="{Binding ButtonUpdateClick, Mode =TwoWay}" CommandParameter="{Binding ElementName=txtPassword}" Content="Modificar" HorizontalAlignment="Left" Margin="802,135,0,0" VerticalAlignment="Top" Width="121"/>
@@ -68,9 +71,11 @@
             </DataGrid.Columns>
 
         </DataGrid>
-        <Label x:Name="nomPer" Foreground="White" FontWeight="Bold" Content="Profesor Jefe : " HorizontalAlignment="Left" Margin="103,147,0,0" VerticalAlignment="Top" RenderTransformOrigin="0.458,3.128"   />
-        <ComboBox x:Name="cbProfesorJefe"  HorizontalAlignment="Left" Margin="226,147,0,0" VerticalAlignment="Top" Width="162" 
+        <Label x:Name="nomPer" Content="Profesor Jefe : " HorizontalAlignment="Left" Margin="103,125,0,0" VerticalAlignment="Top" RenderTransformOrigin="0.458,3.128"   />
+        <ComboBox x:Name="cbProfesorJefe"  HorizontalAlignment="Left" Margin="226,125,0,0" VerticalAlignment="Top" Width="162" 
             ItemsSource="{Binding ComboBoxProfesorJefe, Mode=TwoWay}"
             SelectedItem="{Binding SelectedComboBoxProfesorJefe, Mode=TwoWay}" />
+        <Label x:Name="NombC_Copy" Content="Año"   HorizontalAlignment="Left" Margin="104,225,0,0" VerticalAlignment="Top"/>
+        <TextBox x:Name="anio" Text="{Binding TextBoxAnio, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" HorizontalAlignment="Left" Height="45" Margin="225,205,0,0" VerticalAlignment="Top" Width="162"  />
     </Grid>
 </Page>

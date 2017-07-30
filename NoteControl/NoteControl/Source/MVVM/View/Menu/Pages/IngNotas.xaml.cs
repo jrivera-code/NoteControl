@@ -21,7 +21,7 @@ namespace NoteControl
 	/// </summary>
 	public partial class IngNotas : Page
 	{
-        IngNotasAsigViewModel ingNotasAsigViewModel = new IngNotasAsigViewModel();
+        IngNotasViewModel ingNotasAsigViewModel = new IngNotasViewModel();
 		public IngNotas()
 		{
 			InitializeComponent();

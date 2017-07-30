@@ -23,7 +23,6 @@
             <Style TargetType="{x:Type ComboBox}" BasedOn="{StaticResource MaterialDesignComboBox}">
                 <Setter Property="HorizontalAlignment" Value="Stretch" />
                 <Setter Property="Margin" Value="0 8 0 8" />
-                <Setter Property="FontSize" Value="20" />
                 <Style.Triggers>
                     <Trigger Property="IsDropDownOpen" Value="True">
                         <Setter Property="Background" Value="White" />
@@ -52,10 +51,15 @@
             <ColumnDefinition ></ColumnDefinition>
             <ColumnDefinition></ColumnDefinition>
         </Grid.ColumnDefinitions>
-        <ComboBox x:Name="CBMain" ItemsSource="{Binding ComboBoxProfesores,Mode=TwoWay}"
-        SelectedItem="{Binding SelectedComboBoxProfesores,Mode=TwoWay}" 
-                  Grid.Row="1" Grid.Column="1"></ComboBox>
-        <Button Command="{Binding ButtonBuscarAsig, Mode =TwoWay,IsAsync=True}" Grid.Row="2" Grid.Column="1" Content="Buscar Asignaturas"></Button>
+        <Label Grid.Row="1" Grid.Column="0" Content="Mis Cursos" HorizontalAlignment="Left" VerticalAlignment="Center" Margin="60,18,0,18" Width="71" Foreground="White" FontWeight="Bold"></Label>
+        <Label Grid.Row="1" Grid.Column="1" Content="Asignaturas" HorizontalAlignment="Left" VerticalAlignment="Center" Margin="53,18,0,18" Width="78" Foreground="White" FontWeight="Bold"></Label>
+        <ComboBox HorizontalAlignment="Right" x:Name="CBMainCurso" Grid.Row="1" Grid.Column="0" ItemsSource="{Binding ComboBoxCurso,Mode=TwoWay}" Margin="0,17" Width="260"></ComboBox>
+        <ComboBox x:Name="CBMainAsignatura" ItemsSource="{Binding ComboBoxProfesores,Mode=TwoWay}"
+        SelectedItem="{Binding SelectedComboBoxAsignaturas,Mode=TwoWay}"
+                  IsEnabled="{Binding IsEnableComboBoxAsignaturas}"
+                  Grid.Row="1" Grid.Column="1" HorizontalAlignment="Right" Margin="0,17" Width="260" ></ComboBox>
+        <Button Command="{Binding ButtonBuscarAsig, Mode =TwoWay,IsAsync=True}"
+              IsEnabled="{Binding IsEnableButtonBuscarAsig}"  Grid.Row="1" Grid.Column="2" Content="Buscar Alumnos" Width="150" Margin="80,15,170,15"></Button>
         <DataGrid Name="DataGrid" Grid.Row="5"  Grid.Column="0"  Grid.ColumnSpan="3" ItemsSource="{Binding DataGridAsigCursoProfe,Mode=TwoWay,IsAsync=True, UpdateSourceTrigger=PropertyChanged}" AutoGenerateColumns="False" Margin="50" >
             <DataGrid.Columns>
                 <DataGridTextColumn Header="Codigo de Curso" Binding="{Binding CodeCurso}" />

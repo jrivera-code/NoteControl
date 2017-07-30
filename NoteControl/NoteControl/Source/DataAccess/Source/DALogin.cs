@@ -34,7 +34,26 @@ namespace NoteControl.Source.DataAccess.Source
         public void CreateDataBase()
         {
             Data initialData = new Data();
-            Curso curso = new Curso() { CursoCode = "A10", Nombre = "Primero Basico", Descripcion = "Conocimiento de sí mismo e ingreso al mundo de la lectura y escritura" };
+            for (int i = 0; i < initialData.ProfesoresNombre.Length; i++)
+            {
+                Profesor profe = new Profesor()
+                {
+                    Rut = initialData.RutProfesor[i],
+                    Nombre = initialData.ProfesoresNombre[i],
+                    Apellido =
+                    initialData.ProfesoresApellido[i]
+                };
+                _db.Profesores.Add(profe);
+                _db.SaveChanges();
+            }
+            Curso curso = new Curso()
+            {
+                CursoCode = "A10",
+                Nombre = "Primero Basico",
+                Descripcion = "Conocimiento de sí mismo e ingreso al mundo de la lectura y escritura",
+                Profesor = _db.Profesores.First(),
+                Anio = 2017
+            };
             _db.Cursos.Add(curso);
             for (int i = 0; i < initialData.NombresAlum.Length; i++)
             {
@@ -57,13 +76,7 @@ namespace NoteControl.Source.DataAccess.Source
                     _db.PerfilesPrivilegios.Add(new PerfilPrivilegio() { PrivilegioId = i, PerfilId = 2 });
                 }
             }
-            for (int i = 0; i < initialData.ProfesoresNombre.Length; i++)
-            {
-                Profesor profe = new Profesor() { Rut = initialData.RutProfesor[i], Nombre = initialData.ProfesoresNombre[i],Apellido =
-                    initialData.ProfesoresApellido[i]};
-                _db.Profesores.Add(profe);
-                _db.SaveChanges();
-            }
+           
             for (int i = 0; i < initialData.asignaturas.Length; i++)
             {
                 Asignatura asig = new Asignatura() { AsignaturaCode = i.ToString(), Nombre = initialData.asignaturas[i] };

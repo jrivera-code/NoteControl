@@ -52,7 +52,7 @@
                   SelectedItem="{Binding SelectedComboBoxCursosItems,Mode=TwoWay}"
                   Foreground="Black" HorizontalAlignment="Left" Margin="508,35,0,0" VerticalAlignment="Top" Width="270" FontSize="20">
         </ComboBox>
-        <Label x:Name="LCurso" Content="Curso" Foreground="White" HorizontalAlignment="Left" Margin="427,37,0,0" VerticalAlignment="Top" FontSize="20"/>
+        <Label x:Name="LCurso" Content="Curso"  HorizontalAlignment="Left" Margin="427,37,0,0" VerticalAlignment="Top" FontSize="20"/>
         <Button x:Name="Genera" Command="{Binding ButtonConsClick, Mode =TwoWay,IsAsync=True}" Content="Ver Alumnos" HorizontalAlignment="Left" Margin="508,116,0,0" VerticalAlignment="Top" Width="270" Height="53"/>
         <DataGrid Name="dgAlumList" ItemsSource="{Binding DataGridColumnAlumnos,IsAsync=True,Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" AutoGenerateColumns="False" Margin="380,288,302,88">
             <DataGrid.Columns>

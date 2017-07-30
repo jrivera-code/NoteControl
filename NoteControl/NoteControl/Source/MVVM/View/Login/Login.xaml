@@ -59,8 +59,8 @@
                     </Grid.ColumnDefinitions>
 
 
-                    <TextBox Name="txtUsuario" Grid.Row="1"  materialDesign:HintAssist.Hint="Usuario" Margin="85,25,87,0" Grid.ColumnSpan="4"/>
-                    <PasswordBox Name="txtPass" Grid.Row="2" materialDesign:HintAssist.Hint="Password"  Margin="85,10,87,20"   Grid.ColumnSpan="4" />
+                    <TextBox AcceptsReturn="True" Text="jmolina" Name="txtUsuario" Grid.Row="1"  materialDesign:HintAssist.Hint="Usuario" Margin="85,25,87,0" Grid.ColumnSpan="4"/>
+                    <PasswordBox Name="txtPass" Password="1234" Grid.Row="2" materialDesign:HintAssist.Hint="Password"  Margin="85,10,87,20"   Grid.ColumnSpan="4" />
 
                     <Grid Grid.Row="3" Grid.ColumnSpan="4" Margin="15,0,15,15">
                         <Grid.ColumnDefinitions>

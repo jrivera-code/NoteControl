@@ -13,17 +13,18 @@ using System.Windows.Forms;
 
 namespace NoteControl.Source.MVVM.ViewModel 
 {
-   public class IngNotasAsigViewModel : INotifyPropertyChanged
+   public class IngNotasViewModel : INotifyPropertyChanged
     {
         private BLProfesores _blProfesores = new BLProfesores();
         private BLAsignaturas _blAsignaturas = new BLAsignaturas();
+        private BLCursos _blCursos = new BLCursos();
         public Command ButtonBuscarAsig { get; set; }
-        private List<ComboBoxItem> _comboBoxProfesores = new List<ComboBoxItem>();
-        public List<ComboBoxItem> ComboBoxProfesores
+        private List<ComboBoxItem> _comboBoxCurso = new List<ComboBoxItem>();
+        public List<ComboBoxItem> ComboBoxCurso
         {
-            get => _comboBoxProfesores; 
-            set { _comboBoxProfesores = value;
-                NotifyPropertyChanged("ComboBoxProfesores");
+            get => _comboBoxCurso; 
+            set { _comboBoxCurso = value;
+                NotifyPropertyChanged("ComboBoxCurso");
             }
         }
         private ComboBoxItem _selectedComboBoxProfesores;
@@ -44,16 +45,16 @@ namespace NoteControl.Source.MVVM.ViewModel
                 NotifyPropertyChanged("DataGridAsigCursoProfe");
             }
         }
-        public IngNotasAsigViewModel()
+        public IngNotasViewModel()
         {
-            CargarComboBox();
+            CargarComboBoxCurso();
             ButtonBuscarAsig = new Command( CargarDataGrid , () => true);
         }
 
-        private void CargarComboBox()
+        private void CargarComboBoxCurso()
         {
-            foreach (Profesor p in _blProfesores.ListarProfesores()) {
-             ComboBoxProfesores.Add(new ComboBoxItem() { Content = p.Nombre+" "+p.Apellido, Tag = p.Rut , ToolTip = "Rut: "+p.Rut });
+            foreach (Curso c in _blCursos.ListarCursos()) {
+             ComboBoxCurso.Add(new ComboBoxItem() { Content = c.Nombre, Tag = c.CursoCode , ToolTip = c.CursoCode });
             }
         }
             private void CargarDataGrid()

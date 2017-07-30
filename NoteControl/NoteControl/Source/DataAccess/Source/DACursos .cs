@@ -35,13 +35,16 @@ namespace NoteControl.Source.DataAccess.Source
             throw new NotImplementedException();
         }
 
-        public void ModificarCurso(Curso curso, string textBoxCodeCurso)
+        public void ModificarCurso(Curso curso, string textBoxCodeCurso,int newProfe)
         {
+           Profesor p = _db.Profesores.Where(pr => pr.Rut == newProfe).FirstOrDefault();
+
             Curso c = (from cur in _db.Cursos
                     where cur.CursoCode == textBoxCodeCurso
                     select cur).FirstOrDefault();
             c.Nombre = curso.Nombre;
             c.Descripcion = curso.Descripcion;
+            c.Profesor = p;
              _db.Entry(c).State = System.Data.Entity.EntityState.Modified;
             _db.SaveChanges();
         }
@@ -51,7 +54,7 @@ namespace NoteControl.Source.DataAccess.Source
             Curso c = (from cur in _db.Cursos
                        where cur.CursoCode == textBoxCodeCurso
                        select cur).FirstOrDefault();
-            _db.Cursos.Remove(c).Alumnos.Clear();
+            _db.Cursos.Remove(c);
             _db.SaveChanges();
         }
     }

@@ -20,7 +20,8 @@
             </ResourceDictionary.MergedDictionaries>
             <Style TargetType="{x:Type TextBox}" BasedOn="{StaticResource MaterialDesignTextBox}">
                 <Setter Property="Margin" Value="0 8 0 8" />
-                <Setter Property="FontSize" Value="15" />
+                <Setter Property="Foreground" Value="Black" />
+                <Setter Property="FontWeight" Value="Bold" />
             </Style>
             <Style TargetType="{x:Type PasswordBox}" BasedOn="{StaticResource MaterialDesignPasswordBox}">
                 <Setter Property="Margin" Value="0 8 0 8" />
@@ -28,7 +29,8 @@
             <Style TargetType="{x:Type ComboBox}" BasedOn="{StaticResource MaterialDesignComboBox}">
                 <Setter Property="HorizontalAlignment" Value="Stretch" />
                 <Setter Property="Margin" Value="0 8 0 8" />
-
+                <Setter Property="Foreground" Value="Black" />
+                <Setter Property="FontWeight" Value="Bold" />
                 <Style.Triggers>
                     <Trigger Property="IsDropDownOpen" Value="True">
                         <Setter Property="Background" Value="White" />
@@ -51,17 +53,17 @@
 
     <Grid>
         <Grid Margin="10,10,10,0">
-            <Label x:Name="RutProf" Content="Rut Profesor : " Foreground="White"  HorizontalAlignment="Left" Margin="217,53,0,0" VerticalAlignment="Top" FontWeight="Bold"/>
-            <Label x:Name="NombP" Content="Nombre" Foreground="White"  HorizontalAlignment="Left" Margin="217,108,0,0" VerticalAlignment="Top" FontWeight="Bold"/>
-            <Label x:Name="EspeP" Content="Especialidad" Foreground="White"  HorizontalAlignment="Left" Margin="217,219,0,0" VerticalAlignment="Top" FontWeight="Bold" RenderTransformOrigin="3.086,0.577"/>
-            <TextBox x:Name="txtRut" Text="{Binding TextBoxRut, UpdateSourceTrigger=PropertyChanged, Mode=TwoWay}" Foreground="White" HorizontalAlignment="Left" Height="48" Margin="374,27,0,0" TextWrapping="Wrap"  VerticalAlignment="Top" Width="226" FontSize="20" />
-            <TextBox x:Name="txtNombre" Text="{Binding TextBoxNombreProfe, UpdateSourceTrigger=PropertyChanged, Mode=TwoWay}" Foreground="White" HorizontalAlignment="Left" Height="47" Margin="376,85,0,0" TextWrapping="Wrap"  VerticalAlignment="Top" Width="224" FontSize="20" />
-            <ComboBox x:Name="CbEspe" HorizontalAlignment="Left" Margin="376,200,0,0" VerticalAlignment="Top" Width="224" Height="47"/>
-            <Label x:Name="NombP_Copy" Content="Apellido" Foreground="White"  HorizontalAlignment="Left" Margin="217,159,0,0" VerticalAlignment="Top" FontWeight="Bold"/>
-            <TextBox x:Name="txtApellido" Text="{Binding TextBoxApellido, UpdateSourceTrigger=PropertyChanged, Mode=TwoWay}" Foreground="White" HorizontalAlignment="Left" Height="47" Margin="376,136,0,0" TextWrapping="Wrap"  VerticalAlignment="Top" Width="224" FontSize="20" />
-            <Button x:Name="btnSave" Command="{Binding ButtonSaveClick, Mode =TwoWay}"  CommandParameter="{Binding ElementName=txtPassword}" Content="Guardar" HorizontalAlignment="Left" Margin="741,58,0,0" VerticalAlignment="Top" Width="121"/>
-            <Button x:Name="btnDelete" Command="{Binding ButtonDeleteClick, Mode =TwoWay}" Content="Eliminar" HorizontalAlignment="Left" Margin="896,57,0,0" VerticalAlignment="Top" Width="121"/>
-            <Button x:Name="btnUpdate" Command="{Binding ButtonUpdateClick, Mode =TwoWay}" CommandParameter="{Binding ElementName=txtPassword}" Content="Modificar" HorizontalAlignment="Left" Margin="896,124,0,0" VerticalAlignment="Top" Width="121"/>
+            <Label x:Name="RutProf" Content="Rut Profesor : " Foreground="White"  HorizontalAlignment="Left" Margin="103,53,0,0" VerticalAlignment="Top" FontWeight="Bold"/>
+            <Label x:Name="NombP" Content="Nombre" Foreground="White"  HorizontalAlignment="Left" Margin="103,108,0,0" VerticalAlignment="Top" FontWeight="Bold"/>
+            <Label x:Name="EspeP" Content="Especialidad" Foreground="White"  HorizontalAlignment="Left" Margin="103,219,0,0" VerticalAlignment="Top" FontWeight="Bold" RenderTransformOrigin="3.086,0.577"/>
+            <TextBox x:Name="txtRut" Text="{Binding TextBoxRut, UpdateSourceTrigger=PropertyChanged, Mode=TwoWay}" HorizontalAlignment="Left" Height="48" Margin="260,27,0,0" TextWrapping="Wrap"  VerticalAlignment="Top" Width="226"  />
+            <TextBox x:Name="txtNombre" Text="{Binding TextBoxNombreProfe, UpdateSourceTrigger=PropertyChanged, Mode=TwoWay}" HorizontalAlignment="Left" Height="47" Margin="262,85,0,0" TextWrapping="Wrap"  VerticalAlignment="Top" Width="224"  />
+            <ComboBox x:Name="CbEspe" HorizontalAlignment="Left" Margin="262,207,0,0" VerticalAlignment="Top" Width="224" Height="38"/>
+            <Label x:Name="NombP_Copy" Content="Apellido" Foreground="White"  HorizontalAlignment="Left" Margin="103,159,0,0" VerticalAlignment="Top" FontWeight="Bold"/>
+            <TextBox x:Name="txtApellido" Text="{Binding TextBoxApellido, UpdateSourceTrigger=PropertyChanged, Mode=TwoWay}"  HorizontalAlignment="Left" Height="47" Margin="262,136,0,0" TextWrapping="Wrap"  VerticalAlignment="Top" Width="224"  />
+            <Button x:Name="btnSave" Command="{Binding ButtonSaveClick, Mode =TwoWay}"  CommandParameter="{Binding ElementName=txtPassword}" Content="Guardar" HorizontalAlignment="Left" Margin="647,216,0,0" VerticalAlignment="Top" Width="121"/>
+            <Button x:Name="btnDelete" Command="{Binding ButtonDeleteClick, Mode =TwoWay}" Content="Eliminar" HorizontalAlignment="Left" Margin="960,216,0,0" VerticalAlignment="Top" Width="121"/>
+            <Button x:Name="btnUpdate" Command="{Binding ButtonUpdateClick, Mode =TwoWay}" CommandParameter="{Binding ElementName=txtPassword}" Content="Modificar" HorizontalAlignment="Left" Margin="806,216,0,0" VerticalAlignment="Top" Width="121"/>
             <DataGrid Name="dgProfe" ItemsSource="{Binding DataGridColumnProfe,IsAsync=True,Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" AutoGenerateColumns="False" Margin="96,288,76,88">
                 <DataGrid.Columns>
                     <DataGridTextColumn Header="Rut" Binding="{Binding Rut}" />
