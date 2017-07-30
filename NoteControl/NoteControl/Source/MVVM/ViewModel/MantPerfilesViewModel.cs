@@ -95,8 +95,7 @@ namespace NoteControl.Source.MVVM.ViewModel
                     IsSelectedSix,
                     IsSelectedSeven,
                     IsSelectedEigth,
-                    IsSelectedNine,
-                    IsSelectedTen
+                    IsSelectedNine
                 };
                 int flagId = 1;
                 foreach (bool ischecked in CheckBoxsIsSelected)

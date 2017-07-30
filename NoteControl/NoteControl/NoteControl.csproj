@@ -95,6 +95,7 @@
     <Compile Include="Source\MVVM\Model\Especialidad.cs" />
     <Compile Include="Source\MVVM\Model\EspecialidadProfesor.cs" />
     <Compile Include="Source\MVVM\Model\Nota.cs" />
+    <Compile Include="Source\MVVM\Model\PrivilegioExtra.cs" />
     <Compile Include="Source\MVVM\Model\Profesor.cs" />
     <Compile Include="Source\MVVM\ViewModel\ConsAlumCursoViewModel.cs" />
     <Compile Include="Source\MVVM\ViewModel\ConsProfeCursoViewModel.cs" />
@@ -105,7 +106,6 @@
     <Compile Include="Source\MVVM\ViewModel\DataGridRowModel\CursoRowModel.cs" />
     <Compile Include="Source\MVVM\ViewModel\DataGridRowModel\UsuarioRowModel.cs" />
     <Compile Include="Source\MVVM\ViewModel\InformeParcialViewModel.cs" />
-    <Compile Include="Source\MVVM\ViewModel\IngNotasAlumViewModel.cs" />
     <Compile Include="Source\MVVM\ViewModel\IngNotasAsigViewModel.cs" />
     <Compile Include="Source\MVVM\ViewModel\MantCursosViewModel.cs" />
     <Compile Include="Source\MVVM\ViewModel\MantEspecialidadesViewModel.cs" />
@@ -121,11 +121,8 @@
     <Compile Include="Source\MVVM\View\Menu\Pages\InformeParcial.xaml.cs">
       <DependentUpon>InformeParcial.xaml</DependentUpon>
     </Compile>
-    <Compile Include="Source\MVVM\View\Menu\Pages\IngNotasAsig.xaml.cs">
-      <DependentUpon>IngNotasAsig.xaml</DependentUpon>
-    </Compile>
-    <Compile Include="Source\MVVM\View\Menu\Pages\IngNotasAlum.xaml.cs">
-      <DependentUpon>IngNotasAlum.xaml</DependentUpon>
+    <Compile Include="Source\MVVM\View\Menu\Pages\IngNotas.xaml.cs">
+      <DependentUpon>IngNotas.xaml</DependentUpon>
     </Compile>
     <Page Include="Source\MVVM\View\Menu\Pages\ConsAlumCurso.xaml">
       <SubType>Designer</SubType>
@@ -211,11 +208,7 @@
       <DependentUpon>Login.xaml</DependentUpon>
       <SubType>Code</SubType>
     </Compile>
-    <Page Include="Source\MVVM\View\Menu\Pages\IngNotasAlum.xaml">
-      <SubType>Designer</SubType>
-      <Generator>MSBuild:Compile</Generator>
-    </Page>
-    <Page Include="Source\MVVM\View\Menu\Pages\IngNotasAsig.xaml">
+    <Page Include="Source\MVVM\View\Menu\Pages\IngNotas.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

@@ -42,14 +42,20 @@ namespace NoteControl.Source.DataAccess.Source
                 _db.Alumnos.Add(alum);
                 _db.SaveChanges();
             }
-            Perfil perfil = new Perfil() { Nombre = "Administrador" };
-            _db.Perfiles.Add(perfil);
+            Perfil perfiladmin = new Perfil() { Nombre = "Administrador" };
+            _db.Perfiles.Add(perfiladmin);
+            Perfil perfilprofe = new Perfil() { Nombre = "Profesor" };
+            _db.Perfiles.Add(perfilprofe);
             for (int i = 0; i < initialData.privilegios.Length; i++)
             {
                 Privilegio privilegio = new Privilegio() { Nombre = initialData.privilegios[i] };
                 _db.Privilegios.Add(privilegio);
                 _db.SaveChanges();
                 _db.PerfilesPrivilegios.Add(new PerfilPrivilegio() { PrivilegioId = i + 1, PerfilId = 1 });
+                if (i == 6)
+                { //add privilegio profesor
+                    _db.PerfilesPrivilegios.Add(new PerfilPrivilegio() { PrivilegioId = i, PerfilId = 2 });
+                }
             }
             for (int i = 0; i < initialData.ProfesoresNombre.Length; i++)
             {
@@ -64,7 +70,7 @@ namespace NoteControl.Source.DataAccess.Source
                 _db.Asignaturas.Add(asig);
                 _db.SaveChanges();
             }
-            _db.Usuarios.Add(new Usuario() { Nombre = "JMOLINA", Clave = "1234", Estado = 1, Perfiles = perfil });
+            _db.Usuarios.Add(new Usuario() {Rut = 181404858, Nombre = "JMOLINA", Clave = "1234", Estado = 1, Perfiles = perfiladmin });
             _db.SaveChanges();
         }
 

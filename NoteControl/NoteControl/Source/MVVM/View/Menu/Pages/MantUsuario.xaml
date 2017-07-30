@@ -27,7 +27,7 @@
             <Style TargetType="{x:Type ComboBox}" BasedOn="{StaticResource MaterialDesignComboBox}">
                 <Setter Property="HorizontalAlignment" Value="Stretch" />
                 <Setter Property="Margin" Value="0 8 0 8" />
-                
+
                 <Style.Triggers>
                     <Trigger Property="IsDropDownOpen" Value="True">
                         <Setter Property="Background" Value="White" />
@@ -48,26 +48,26 @@
     </Page.Resources>
 
     <Grid Background="Transparent" HorizontalAlignment="Left" Width="1190">
-        <Label x:Name="NomUsuario" Content="Nombre Usuario" Foreground="White"  HorizontalAlignment="Left" Margin="211,53,0,0" VerticalAlignment="Top" FontSize="20"  />
+        <Label x:Name="NomUsuario" Content="Nombre Usuario" Foreground="White"  HorizontalAlignment="Left" Margin="115,53,0,0" VerticalAlignment="Top" FontSize="20"  />
 
-        <TextBox x:Name="txtusuario" Text="{Binding TextBoxUsuario, UpdateSourceTrigger=PropertyChanged, Mode=TwoWay}" Foreground="White" HorizontalAlignment="Left" Height="46" Margin="401,44,0,0" TextWrapping="Wrap"  VerticalAlignment="Top" Width="231" FontSize="20" />
+        <TextBox x:Name="txtusuario" Text="{Binding TextBoxUsuario, UpdateSourceTrigger=PropertyChanged, Mode=TwoWay}" Foreground="White" HorizontalAlignment="Left" Height="46" Margin="305,44,0,0" TextWrapping="Wrap"  VerticalAlignment="Top" Width="231" FontSize="20" />
 
-        <Label x:Name="nomPassw" Foreground="White" Content="Clave : " HorizontalAlignment="Left" Margin="211,98,0,0" VerticalAlignment="Top"  FontSize="20" />
-        <PasswordBox x:Name="txtPassword" Foreground="White" HorizontalAlignment="Left" Margin="401,99,0,0" VerticalAlignment="Top" Width="231" FontSize="20"/>
-        <Label x:Name="nomPer" Foreground="White" Content="Perfil : " HorizontalAlignment="Left" Margin="211,145,0,0" VerticalAlignment="Top" RenderTransformOrigin="0.458,3.128"   FontSize="20" />
-        <ComboBox x:Name="cbPerfil"  HorizontalAlignment="Left" Margin="401,145,0,0" VerticalAlignment="Top" Width="231"  FontSize="20"
+        <Label x:Name="nomPassw" Foreground="White" Content="Clave : " HorizontalAlignment="Left" Margin="115,98,0,0" VerticalAlignment="Top"  FontSize="20" />
+        <PasswordBox x:Name="txtPassword" Foreground="White" HorizontalAlignment="Left" Margin="305,99,0,0" VerticalAlignment="Top" Width="231" FontSize="20"/>
+        <Label x:Name="nomPer" Foreground="White" Content="Perfil : " HorizontalAlignment="Left" Margin="115,145,0,0" VerticalAlignment="Top" RenderTransformOrigin="0.458,3.128"   FontSize="20" />
+        <ComboBox x:Name="cbPerfil"  HorizontalAlignment="Left" Margin="305,145,0,0" VerticalAlignment="Top" Width="231"  FontSize="20"
         ItemsSource="{Binding ComboBoxPerfilItems,Mode=TwoWay}"
         SelectedItem="{Binding SelectedComboBoxPerfilItems,Mode=TwoWay}" >
-            
+
         </ComboBox>
-        <Label x:Name="nomEstado" Foreground="White" Content="Estado : " HorizontalAlignment="Left" Margin="211,197,0,0" VerticalAlignment="Top" RenderTransformOrigin="0.458,3.128" FontSize="20" />
+        <Label x:Name="nomEstado" Foreground="White" Content="Estado : " HorizontalAlignment="Left" Margin="115,197,0,0" VerticalAlignment="Top" RenderTransformOrigin="0.458,3.128" FontSize="20" />
         <ComboBox x:Name="cbEstado" ItemsSource="{Binding ComboBoxEstadoItems,Mode=TwoWay}"
                   SelectedItem="{Binding SelectedEstadoItem,Mode=TwoWay}"
-                  HorizontalAlignment="Left" Margin="401,195,0,0" VerticalAlignment="Top" Width="162" FontSize="20">
+                  HorizontalAlignment="Left" Margin="305,195,0,0" VerticalAlignment="Top" Width="232" FontSize="20">
         </ComboBox>
-        <Button IsEnabled="{Binding ButtonSaveEnable,Mode=OneWay}" x:Name="btnSave" Command="{Binding ButtonSaveClick, Mode =TwoWay}"  CommandParameter="{Binding ElementName=txtPassword}" Content="Guardar" HorizontalAlignment="Left" Margin="741,58,0,0" VerticalAlignment="Top" Width="121"/>
-        <Button IsEnabled="{Binding ButtonDeleteEnable,Mode=OneWay}" x:Name="btnDelete" Command="{Binding ButtonDeleteClick, Mode =TwoWay}" Content="Eliminar" HorizontalAlignment="Left" Margin="896,57,0,0" VerticalAlignment="Top" Width="121"/>
-        <Button IsEnabled="{Binding ButtonUpdateEnable,Mode=OneWay}" x:Name="btnUpdate" Command="{Binding ButtonUpdateClick, Mode =TwoWay}" CommandParameter="{Binding ElementName=txtPassword}" Content="Modificar" HorizontalAlignment="Left" Margin="896,124,0,0" VerticalAlignment="Top" Width="121"/>
+        <Button IsEnabled="{Binding ButtonSaveEnable,Mode=OneWay}" x:Name="btnSave" Command="{Binding ButtonSaveClick, Mode =TwoWay}"  CommandParameter="{Binding ElementName=txtPassword}" Content="Guardar" HorizontalAlignment="Left" Margin="619,221,0,0" VerticalAlignment="Top" Width="121"/>
+        <Button IsEnabled="{Binding ButtonDeleteEnable,Mode=OneWay}" x:Name="btnDelete" Command="{Binding ButtonDeleteClick, Mode =TwoWay}" Content="Eliminar" HorizontalAlignment="Left" Margin="914,221,0,0" VerticalAlignment="Top" Width="121"/>
+        <Button IsEnabled="{Binding ButtonUpdateEnable,Mode=OneWay}" x:Name="btnUpdate" Command="{Binding ButtonUpdateClick, Mode =TwoWay}" CommandParameter="{Binding ElementName=txtPassword}" Content="Modificar" HorizontalAlignment="Left" Margin="768,221,0,0" VerticalAlignment="Top" Width="121"/>
         <DataGrid Name="dgUsuarios" ItemsSource="{Binding DataGridColumnUsuarios,Mode=TwoWay,IsAsync=True, UpdateSourceTrigger=PropertyChanged}" AutoGenerateColumns="False" Margin="96,288,76,88">
             <DataGrid.Columns>
                 <DataGridTextColumn Header="Nombre de Usuario" Binding="{Binding NombreUsuario,Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" />
@@ -75,6 +75,10 @@
                 <DataGridTextColumn Header="Perfil" Binding="{Binding Perfil,Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"/>
             </DataGrid.Columns>
         </DataGrid>
-       
+        <CheckBox x:Name="cbMantenedores" IsEnabled="{Binding IsEnabledMant,Mode=TwoWay}" Tag="1" Foreground="White" IsChecked="{Binding IsSelectedMant, Mode=TwoWay}" Content="Mantenedores" HorizontalAlignment="Left" Margin="619,66,0,0" VerticalAlignment="Top" Height="28" Width="105" />
+        <CheckBox x:Name="cbIngresoNotas" Tag="2" IsEnabled="{Binding IsEnabledIng,Mode=TwoWay}" Foreground="White" IsChecked="{Binding IsSelectedIng, Mode=TwoWay}" Content="Ingreso de Notas" HorizontalAlignment="Left" Margin="752,65,0,0" VerticalAlignment="Top" Height="30" Width="108" RenderTransformOrigin="0.315,0.083" />
+        <CheckBox x:Name="cbConsultas" Tag="3" IsEnabled="{Binding IsEnabledCon,Mode=TwoWay}" Foreground="White" IsChecked="{Binding IsSelectedCon, Mode=TwoWay}" Content="Consultas" HorizontalAlignment="Left" Margin="884,65,0,0" VerticalAlignment="Top" Height="30" Width="90"  />
+        <CheckBox x:Name="cbReportes" Tag="4" IsEnabled="{Binding IsEnabledRep,Mode=TwoWay}" Foreground="White" IsChecked="{Binding IsSelectedRep, Mode=TwoWay}" Content="Reportes" HorizontalAlignment="Left" Margin="999,66,0,0" VerticalAlignment="Top" Height="29" Width="130"/>
+        <Label x:Name="label" Foreground="White" Content="Funcionalidas Extras" HorizontalAlignment="Left" Margin="785,28,0,0" VerticalAlignment="Top"/>
     </Grid>
 </Page>

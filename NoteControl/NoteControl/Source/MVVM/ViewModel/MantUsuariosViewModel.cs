@@ -22,6 +22,53 @@ namespace NoteControl.Source.MVVM.ViewModel
         public Command ButtonSaveClick { get; set; }
         public Command ButtonDeleteClick { get; set; }
         public Command ButtonUpdateClick { get; set; }
+        private bool _isEnabledMant;
+        public bool IsEnabledMant { get=>_isEnabledMant;
+            set { _isEnabledMant = value; NotifyPropertyChanged("IsEnabledMant"); }}
+
+        private bool _isEnabledIng;
+        public bool IsEnabledIng
+        {
+            get => _isEnabledIng;
+            set { _isEnabledIng = value; NotifyPropertyChanged("IsEnabledIng"); }
+        }
+        private bool _isEnabledCon;
+        public bool IsEnabledCon
+        {
+            get => _isEnabledCon;
+            set { _isEnabledCon = value; NotifyPropertyChanged("IsEnabledCon"); }
+        }
+        private bool _isEnabledRep;
+        public bool IsEnabledRep
+        {
+            get => _isEnabledRep;
+            set { _isEnabledRep = value; NotifyPropertyChanged("IsEnabledRep"); }
+        }
+        private bool _isSelectedMant;
+        public bool IsSelectedMant
+        {
+            get => _isSelectedMant;
+            set { _isSelectedMant = value; NotifyPropertyChanged("IsSelectedMant"); }
+        }
+
+        private bool _isSelectedIng;
+        public bool IsSelectedIng
+        {
+            get => _isSelectedIng;
+            set { _isSelectedIng = value; NotifyPropertyChanged("IsSelectedIng"); }
+        }
+        private bool _isSelectedCon;
+        public bool IsSelectedCon
+        {
+            get => _isSelectedCon;
+            set { _isSelectedCon = value; NotifyPropertyChanged("IsSelectedCon"); }
+        }
+        private bool _isSelectedRep;
+        public bool IsSelectedRep
+        {
+            get => _isSelectedRep;
+            set { _isSelectedRep = value; NotifyPropertyChanged("IsSelectedRep"); }
+        }
         private Usuario _usuarioEncontrado = null;
         private List<ComboBoxItem> _comboBoxPerfilItems = new List<ComboBoxItem>();
         public List<ComboBoxItem> ComboBoxPerfilItems
@@ -31,6 +78,19 @@ namespace NoteControl.Source.MVVM.ViewModel
         public ComboBoxItem SelectedComboBoxPerfilItems{ get { return _selectedComboBoxPerfilItems; }
             set {
                 if (_selectedComboBoxPerfilItems == value) return;
+
+                if (value.Content.ToString() == "Profesor") {
+                    IsSelectedIng = true; IsSelectedMant = false;
+                    IsSelectedCon = false; IsSelectedRep = false; IsEnabledIng = false;
+                    IsEnabledMant = true; IsEnabledCon = true; IsEnabledRep = true;
+                }
+                else if (value.Content.ToString() == "Administrador")
+                {
+                    IsSelectedIng = true;IsSelectedMant = true;
+                    IsSelectedCon = true; IsSelectedRep = true; IsEnabledIng = false;
+                    IsEnabledMant = false; IsEnabledCon = false; IsEnabledRep = false;
+                }
+
 
                 _selectedComboBoxPerfilItems = value;
                 NotifyPropertyChanged("SelectedComboBoxPerfilItems");
@@ -219,6 +279,8 @@ namespace NoteControl.Source.MVVM.ViewModel
 
         private void SaveClick()
         {
+            //si es igual a profesor debe referenciar el rut del usuario al profesor
+           // if(_selectedComboBoxPerfilItems.Content.ToString() == "Profesor")
             int estado = SelectedEstadoItem.Content.ToString() == "Activo" ? 1 : 0;
             Usuario user = new Usuario() {
                 Nombre = _textBoxUsuario,
@@ -241,6 +303,7 @@ namespace NoteControl.Source.MVVM.ViewModel
             }
             return pass;
         }
+
 
         private void NotifyPropertyChanged(string propertyName)
         {

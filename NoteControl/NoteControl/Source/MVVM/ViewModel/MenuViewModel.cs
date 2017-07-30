@@ -94,13 +94,13 @@ namespace NoteControl.Source.MVVM.ViewModel
                                where int.Parse(p.Tag.ToString()) < 6
                                select p;
             var notas = from p in items
-                        where int.Parse(p.Tag.ToString()) > 5 && int.Parse(p.Tag.ToString()) < 8
+                        where int.Parse(p.Tag.ToString()) > 5 && int.Parse(p.Tag.ToString()) < 7
                         select p;
             var consultas = from p in items
-                            where int.Parse(p.Tag.ToString()) > 7 && int.Parse(p.Tag.ToString()) < 10
+                            where int.Parse(p.Tag.ToString()) > 6 && int.Parse(p.Tag.ToString()) < 9
                             select p;
             var informes = from p in items
-                           where int.Parse(p.Tag.ToString()) > 9
+                           where int.Parse(p.Tag.ToString()) > 8
                            select p;
             if (mantenedores != null)
             {
@@ -209,18 +209,15 @@ namespace NoteControl.Source.MVVM.ViewModel
                     FrameContent = new MantEspecialidades();
                     break;
                 case 6:
-                    FrameContent = new IngNotasAsig();
+                    FrameContent = new IngNotas();
                     break;
                 case 7:
-                    FrameContent = new IngNotasAlum();
-                    break;
-                case 8:
                     FrameContent = new ConsAlumCurso();
                     break;
-                case 9:
+                case 8:
                     FrameContent = new ConsProfeCurso();
                     break;
-                case 10:
+                case 9:
                     FrameContent = new InformeParcial();
                     break;
             }

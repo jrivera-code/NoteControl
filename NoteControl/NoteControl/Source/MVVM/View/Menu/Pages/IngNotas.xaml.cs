@@ -19,10 +19,10 @@ namespace NoteControl
 {
 	/// <summary>
 	/// </summary>
-	public partial class IngNotasAsig : Page
+	public partial class IngNotas : Page
 	{
         IngNotasAsigViewModel ingNotasAsigViewModel = new IngNotasAsigViewModel();
-		public IngNotasAsig()
+		public IngNotas()
 		{
 			InitializeComponent();
             this.DataContext = ingNotasAsigViewModel;

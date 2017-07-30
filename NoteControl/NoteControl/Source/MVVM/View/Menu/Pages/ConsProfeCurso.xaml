@@ -64,6 +64,7 @@
                 <DataGridTextColumn Header="Nombre" Binding="{Binding Nombre}"/>
                 <DataGridTextColumn Header="Apellido" Binding="{Binding Apellido}"/>
                 <DataGridTextColumn Header="Asignaturas a Cargo" Binding="{Binding AsignaturasItems}"/>
+                    
             </DataGrid.Columns>
         </DataGrid>
     </Grid>
