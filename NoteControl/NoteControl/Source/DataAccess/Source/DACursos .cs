@@ -14,8 +14,10 @@ namespace NoteControl.Source.DataAccess.Source
 
 
         //metodo para agregar un curso
-        public void CrearCurso(Curso curso)
+        public void CrearCurso(Curso curso,int profesorJefe)
         {
+           Profesor prof = _db.Profesores.Where(p => p.Rut == profesorJefe).FirstOrDefault();
+            curso.Profesor = prof;
             _db.Cursos.Add(curso);
             _db.SaveChanges();
         }

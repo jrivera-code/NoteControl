@@ -13,11 +13,11 @@ namespace NoteControl.Source.BusinessLogic
     {
         DACursos _da = new DACursos();
         //metodo para agregar un curso
-        public void CrearCurso(Curso curso)
+        public void CrearCurso(Curso curso, int profesorJefe)
         {
             try
             {
-                _da.CrearCurso(curso);
+                _da.CrearCurso(curso, profesorJefe);
                 MessageBox.Show("Curso Creado Exitosamente!");
             }
             catch

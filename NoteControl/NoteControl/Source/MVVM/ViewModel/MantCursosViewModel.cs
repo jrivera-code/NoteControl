@@ -171,6 +171,7 @@ namespace NoteControl.Source.MVVM.ViewModel
 
         private void SaveClick()
         {
+            int profesorJefe = int.Parse(_selectedComboBoxProfesorJefe.Tag.ToString());
            
             Curso curso = new Curso()
             {
@@ -178,7 +179,7 @@ namespace NoteControl.Source.MVVM.ViewModel
                 Nombre = _textBoxNombreCurso,
                 Descripcion = _textBoxDescription
             };
-            _blCursos.CrearCurso(curso);
+            _blCursos.CrearCurso(curso, profesorJefe);
             CargarDataGrid();
             NotifyPropertyChanged("DataGridColumnCursos");
         }
