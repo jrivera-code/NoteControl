@@ -15,6 +15,7 @@ namespace NoteControl.Source.MVVM.Model
         public string CursoCode { get; set; }
         public string Nombre { get; set; }
         public string Descripcion { get; set; }
+        public virtual Profesor Profesor { get; set; }
         public virtual List<CursoProfeAsignatura> CursoAsignaturas { get; set; }
         public virtual List<Alumno> Alumnos { get; set; }
     }

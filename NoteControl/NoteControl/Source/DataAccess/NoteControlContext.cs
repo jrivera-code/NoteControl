@@ -20,6 +20,7 @@ namespace NoteControl.Source.DataAccess
         public DbSet<Usuario> Usuarios { get; set; }
         public DbSet<Perfil> Perfiles { get; set; }
         public DbSet<Privilegio> Privilegios { get; set; }
+        public DbSet<PrivilegioExtra> PrivilegioExtras { get; set; }
         public DbSet<PerfilPrivilegio> PerfilesPrivilegios { get; set; }
         public DbSet<Asignatura> Asignaturas { get; set; }
         public DbSet<Especialidad> Especialidades { get; set; }
