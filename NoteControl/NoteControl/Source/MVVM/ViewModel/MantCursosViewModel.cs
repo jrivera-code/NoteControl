@@ -8,6 +8,7 @@ using System.ComponentModel;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Windows.Controls;
 
 namespace NoteControl.Source.MVVM.ViewModel
 {
@@ -15,7 +16,8 @@ namespace NoteControl.Source.MVVM.ViewModel
     public class MantCursosViewModel : INotifyPropertyChanged
     {
         public event PropertyChangedEventHandler PropertyChanged;
-        public BLCursos _blCursos = new BLCursos();
+        private BLCursos _blCursos = new BLCursos();
+        private BLProfesores _blProfesores = new BLProfesores();
         private Curso _cursoEncontrado = null;
         public Command ButtonSaveClick { get; set; }
         public Command ButtonDeleteClick { get; set; }
@@ -114,10 +116,24 @@ namespace NoteControl.Source.MVVM.ViewModel
                 NotifyPropertyChanged("DataGridColumnCursos");
             }
         }
+        private List<ComboBoxItem> _comboBoxProfesorJefe = new List<ComboBoxItem>();
+        public List<ComboBoxItem> ComboBoxProfesorJefe
+        {
+            get => _comboBoxProfesorJefe; 
+            set { _comboBoxProfesorJefe = value; NotifyPropertyChanged("ComboBoxProfesorJefe"); }
+        }
+        private ComboBoxItem _selectedComboBoxProfesorJefe = new ComboBoxItem();
+        public ComboBoxItem SelectedComboBoxProfesorJefe
+        {
+            get => _selectedComboBoxProfesorJefe;
+            set { _selectedComboBoxProfesorJefe = value; NotifyPropertyChanged("SelectedComboBoxProfesorJefe"); }   
+        }
+
         public MantCursosViewModel()
         {
             //constructor
             CargarDataGrid();
+            CargarComboBoxProfeJefe();
             //inicializa los buttons como disabled
             ButtonSaveClick = new Command(SaveClick, () => true);
             ButtonDeleteClick = new Command(DeleteClick, () => true);
@@ -134,6 +150,15 @@ namespace NoteControl.Source.MVVM.ViewModel
             _blCursos.ModificarCurso(curso, _textBoxCodeCurso);
             CargarDataGrid();
             NotifyPropertyChanged("DataGridColumnCursos");
+        }
+        private void CargarComboBoxProfeJefe() {
+            _blProfesores.ListarProfesores().ForEach(e=> {
+                ComboBoxProfesorJefe.Add(new ComboBoxItem() {
+                    Content = e.Nombre+" "+e.Apellido,
+                    Tag = e.Rut,
+                    ToolTip = "Rut: "+e.Rut
+                });
+            });
         }
 
         private void DeleteClick()

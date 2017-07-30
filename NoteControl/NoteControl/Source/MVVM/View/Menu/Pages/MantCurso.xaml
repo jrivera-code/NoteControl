@@ -27,6 +27,13 @@
             <Style TargetType="{x:Type ComboBox}" BasedOn="{StaticResource MaterialDesignComboBox}">
                 <Setter Property="HorizontalAlignment" Value="Stretch" />
                 <Setter Property="Margin" Value="0 8 0 8" />
+
+                <Style.Triggers>
+                    <Trigger Property="IsDropDownOpen" Value="True">
+                        <Setter Property="Background" Value="White" />
+                        <Setter Property="Foreground" Value="Black" />
+                    </Trigger>
+                </Style.Triggers>
             </Style>
             <Style TargetType="{x:Type Viewbox}">
                 <Setter Property="Width" Value="18" />
@@ -44,15 +51,15 @@
 
 
     <Grid>
-        <Label x:Name="codCurso" Content="Codigo Curso" Foreground="White"  HorizontalAlignment="Left" Margin="275,55,0,0" VerticalAlignment="Top" FontWeight="Bold"/>
-        <Label x:Name="NombC" Content="Curso" Foreground="White"  HorizontalAlignment="Left" Margin="275,111,0,0" VerticalAlignment="Top" FontWeight="Bold"/>
-        <Label x:Name="Descr" Content="Descripcion" Foreground="White"  HorizontalAlignment="Left" Margin="275,161,0,0" VerticalAlignment="Top" FontWeight="Bold"/>
-        <TextBox x:Name="txtCodeCurso" Text="{Binding TextBoxCodeCurso, UpdateSourceTrigger=PropertyChanged, Mode=TwoWay}" Foreground="White" HorizontalAlignment="Left" Height="48" Margin="398,27,0,0" TextWrapping="Wrap"  VerticalAlignment="Top" Width="162" FontSize="20" />
-        <TextBox x:Name="txtNombreCurso" Text="{Binding TextBoxNombreCurso, UpdateSourceTrigger=PropertyChanged, Mode=TwoWay}" Foreground="White" HorizontalAlignment="Left" Height="45" Margin="398,92,0,0" TextWrapping="Wrap"  VerticalAlignment="Top" Width="162" FontSize="20" />
-        <TextBox x:Name="txtDescrip" Text="{Binding TextBoxDescription, UpdateSourceTrigger=PropertyChanged, Mode=TwoWay}" Foreground="White" HorizontalAlignment="Left" Height="45" Margin="398,142,0,0" TextWrapping="Wrap"  VerticalAlignment="Top" Width="288" FontSize="20" />
-        <Button x:Name="BtnSave" IsEnabled="{Binding ButtonSaveEnable,Mode=OneWay}" Command="{Binding ButtonSaveClick, Mode =TwoWay}"  CommandParameter="{Binding ElementName=txtPassword}" Content="Guardar" HorizontalAlignment="Left" Margin="741,58,0,0" VerticalAlignment="Top" Width="121"/>
-        <Button x:Name="BtnDelete" IsEnabled="{Binding ButtonDeleteEnable,Mode=OneWay}" Command="{Binding ButtonDeleteClick, Mode =TwoWay}" Content="Eliminar" HorizontalAlignment="Left" Margin="896,57,0,0" VerticalAlignment="Top" Width="121"/>
-        <Button x:Name="BtnUpdate" IsEnabled="{Binding ButtonUpdateEnable,Mode=OneWay}" Command="{Binding ButtonUpdateClick, Mode =TwoWay}" CommandParameter="{Binding ElementName=txtPassword}" Content="Modificar" HorizontalAlignment="Left" Margin="896,124,0,0" VerticalAlignment="Top" Width="121"/>
+        <Label x:Name="codCurso" Content="Codigo Curso" Foreground="White"  HorizontalAlignment="Left" Margin="103,35,0,0" VerticalAlignment="Top" FontWeight="Bold"/>
+        <Label x:Name="NombC" Content="Curso" Foreground="White"  HorizontalAlignment="Left" Margin="103,91,0,0" VerticalAlignment="Top" FontWeight="Bold"/>
+        <Label x:Name="Descr" Content="Descripcion" Foreground="White"  HorizontalAlignment="Left" Margin="103,211,0,0" VerticalAlignment="Top" FontWeight="Bold"/>
+        <TextBox x:Name="txtCodeCurso" Text="{Binding TextBoxCodeCurso, UpdateSourceTrigger=PropertyChanged, Mode=TwoWay}" Foreground="White" HorizontalAlignment="Left" Height="48" Margin="226,7,0,0" TextWrapping="Wrap"  VerticalAlignment="Top" Width="162" FontSize="20" />
+        <TextBox x:Name="txtNombreCurso" Text="{Binding TextBoxNombreCurso, UpdateSourceTrigger=PropertyChanged, Mode=TwoWay}" Foreground="White" HorizontalAlignment="Left" Height="45" Margin="226,72,0,0" TextWrapping="Wrap"  VerticalAlignment="Top" Width="162" FontSize="20" />
+        <TextBox x:Name="txtDescrip" Text="{Binding TextBoxDescription, UpdateSourceTrigger=PropertyChanged, Mode=TwoWay}" Foreground="White" HorizontalAlignment="Left" Height="45" Margin="226,192,0,0" TextWrapping="Wrap"  VerticalAlignment="Top" Width="288" FontSize="20" />
+        <Button x:Name="BtnSave" IsEnabled="{Binding ButtonSaveEnable,Mode=OneWay}" Command="{Binding ButtonSaveClick, Mode =TwoWay}"  CommandParameter="{Binding ElementName=txtPassword}" Content="Guardar" HorizontalAlignment="Left" Margin="644,135,0,0" VerticalAlignment="Top" Width="121"/>
+        <Button x:Name="BtnDelete" IsEnabled="{Binding ButtonDeleteEnable,Mode=OneWay}" Command="{Binding ButtonDeleteClick, Mode =TwoWay}" Content="Eliminar" HorizontalAlignment="Left" Margin="963,135,0,0" VerticalAlignment="Top" Width="121"/>
+        <Button x:Name="BtnUpdate" IsEnabled="{Binding ButtonUpdateEnable,Mode=OneWay}" Command="{Binding ButtonUpdateClick, Mode =TwoWay}" CommandParameter="{Binding ElementName=txtPassword}" Content="Modificar" HorizontalAlignment="Left" Margin="802,135,0,0" VerticalAlignment="Top" Width="121"/>
         <DataGrid Name="DgCursos" ItemsSource="{Binding DataGridColumnCursos,Mode=TwoWay,IsAsync=True, UpdateSourceTrigger=PropertyChanged}" AutoGenerateColumns="False" Margin="96,288,76,88">
             <DataGrid.Columns>
                 <DataGridTextColumn Header="Codigo de Curso" Binding="{Binding CursoCode}" />
@@ -61,5 +68,9 @@
             </DataGrid.Columns>
 
         </DataGrid>
+        <Label x:Name="nomPer" Foreground="White" FontWeight="Bold" Content="Profesor Jefe : " HorizontalAlignment="Left" Margin="103,147,0,0" VerticalAlignment="Top" RenderTransformOrigin="0.458,3.128"   />
+        <ComboBox x:Name="cbProfesorJefe"  HorizontalAlignment="Left" Margin="226,147,0,0" VerticalAlignment="Top" Width="162" 
+            ItemsSource="{Binding ComboBoxProfesorJefe, Mode=TwoWay}"
+            SelectedItem="{Binding SelectedComboBoxProfesorJefe, Mode=TwoWay}" />
     </Grid>
 </Page>
