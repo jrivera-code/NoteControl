@@ -38,17 +38,22 @@ namespace NoteControl.Source.MVVM.ViewModel
                     //consulta si el profesor ya existe
                     if (!ProfeExist(_textBoxRut)    )
                     {
-                        ChangeEnableButton();
-                        ButtonDeleteClick.methodToDetectCanExecute = () => false;
-                        ButtonUpdateClick.methodToDetectCanExecute = () => false;
+                        ButtonDeleteEnabled = false;
+                        ButtonUpdateEnabled = false;
+                        if (_textBoxRut.Length > 0)
+                            ButtonSaveEnabled = true;
+                        else
+                        {
+                            ButtonSaveEnabled = false;
+                        }
                         _profesorEncontrado = null;
                     }
                     else
                     {
                         //si ya existe desabilita el boton save y activa el update y delete
-                        ButtonSaveClick.methodToDetectCanExecute = () => false;
-                        ButtonDeleteClick.methodToDetectCanExecute = () => true;
-                        ButtonUpdateClick.methodToDetectCanExecute = () => true;
+                        ButtonDeleteEnabled = true;
+                        ButtonUpdateEnabled = true;
+                        ButtonSaveEnabled = false;
                         //carga los datos del usuario en el formulario
                         CargarDatoProfesor();
                     }
@@ -94,14 +99,35 @@ namespace NoteControl.Source.MVVM.ViewModel
                 NotifyPropertyChanged("DataGridColumnProfe");
             }
         }
+        private bool _buttonSaveEnabled;
+
+        public bool ButtonSaveEnabled
+        {
+            get { return _buttonSaveEnabled; }
+            set { _buttonSaveEnabled = value; NotifyPropertyChanged("ButtonSaveEnabled"); }
+        }
+        private bool _buttonDeleteEnabled;
+        public bool ButtonDeleteEnabled
+        {
+            get { return _buttonDeleteEnabled; }
+            set { _buttonDeleteEnabled = value; NotifyPropertyChanged("ButtonDeleteEnabled"); }
+        }
+        private bool _buttonUpdateEnabled;
+
+        public bool ButtonUpdateEnabled
+        {
+            get { return _buttonUpdateEnabled; }
+            set { _buttonUpdateEnabled = value; NotifyPropertyChanged("ButtonUpdateEnabled"); }
+        }
         public MantProfesoresViewModel()
         {
             //constructor
             CargarDataGrid();
             //inicializa los buttons como disabled
-            ButtonSaveClick = new Command(SaveClick, () => false);
-            ButtonDeleteClick = new Command(DeleteClick, () => false);
-            ButtonUpdateClick = new Command(UpdateClick, () => false);
+            ButtonSaveClick = new Command(SaveClick, () => true);
+            ButtonDeleteClick = new Command(DeleteClick, () => true);
+            ButtonUpdateClick = new Command(UpdateClick, () => true);
+            
         }
 
         private void UpdateClick()

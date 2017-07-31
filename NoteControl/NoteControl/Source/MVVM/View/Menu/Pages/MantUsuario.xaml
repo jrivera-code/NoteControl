@@ -4,18 +4,25 @@
 	  TextElement.Foreground="{DynamicResource MaterialDesignBody}"
       xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
       xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+      xmlns:local="clr-namespace:NoteControl"
+      xmlns:Converters="clr-namespace:NoteControl.Source.MVVM.ViewModel.Converters"
       xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
       mc:Ignorable="d" 
       Title="MantUsuario" Height="700.000" Width="1200.000">
-
+  
     <Page.Resources>
+        
         <ResourceDictionary>
+         
             <ResourceDictionary.MergedDictionaries>
+               
                 <!-- note you only need bring in these extra resource dictionaries when using non-default styles, so only bring them into your controls where the default style is not what you want -->
                 <ResourceDictionary Source="pack://application:,,,/MaterialDesignThemes.Wpf;component/Themes/MaterialDesignTheme.ComboBox.xaml" />
+
                 <ResourceDictionary Source="pack://application:,,,/MaterialDesignThemes.Wpf;component/Themes/MaterialDesignTheme.Slider.xaml" />
                 <ResourceDictionary Source="pack://application:,,,/MaterialDesignThemes.Wpf;component/Themes/MaterialDesignTheme.TextBox.xaml" />
                 <ResourceDictionary Source = "pack://application:,,,/MaterialDesignThemes.Wpf;component/Themes/MaterialDesignTheme.DataGrid.xaml" />
+          
             </ResourceDictionary.MergedDictionaries>
             <Style TargetType="{x:Type TextBox}" BasedOn="{StaticResource MaterialDesignTextBox}">
                 <Setter Property="Margin" Value="0 8 0 8" />
@@ -47,6 +54,7 @@
                 <Setter Property="Margin" Value="0 8 0 8" />
             </Style>
         </ResourceDictionary>
+        
     </Page.Resources>
 
     <Grid Background="Transparent" HorizontalAlignment="Left" Width="1190">
@@ -67,7 +75,20 @@
                   SelectedItem="{Binding SelectedEstadoItem,Mode=TwoWay}"
                   HorizontalAlignment="Left" Margin="305,196,0,0" VerticalAlignment="Top" Width="232" Height="27" >
         </ComboBox>
-        <Button IsEnabled="{Binding ButtonSaveEnable,Mode=OneWay}" x:Name="btnSave" Command="{Binding ButtonSaveClick, Mode =TwoWay}"  CommandParameter="{Binding ElementName=txtPassword}" Content="Guardar" HorizontalAlignment="Left" Margin="619,221,0,0" VerticalAlignment="Top" Width="121"/>
+        <Button IsEnabled="{Binding ButtonSaveEnable,Mode=OneWay}"  x:Name="btnSave"  Command="{Binding ButtonSaveClick, Mode =TwoWay}"  Content="Guardar" HorizontalAlignment="Left" Margin="619,221,0,0" VerticalAlignment="Top" Width="121">
+            <Button.Resources>
+                <Converters:Converter x:Key="MyConverter" />
+            </Button.Resources>
+            <Button.CommandParameter>
+                <MultiBinding Converter="{StaticResource MyConverter}">
+                    <Binding Path="Password" ElementName="txtPassword"/>
+                    <Binding Path="IsChecked" ElementName="cbMantenedores"/>
+                    <Binding Path="IsChecked" ElementName="cbIngresoNotas"/>
+                    <Binding Path="IsChecked" ElementName="cbConsultas"/>
+                    <Binding Path="IsChecked" ElementName="cbReportes"/>
+                </MultiBinding>
+            </Button.CommandParameter>
+        </Button>
         <Button IsEnabled="{Binding ButtonDeleteEnable,Mode=OneWay}" x:Name="btnDelete" Command="{Binding ButtonDeleteClick, Mode =TwoWay}" Content="Eliminar" HorizontalAlignment="Left" Margin="914,221,0,0" VerticalAlignment="Top" Width="121"/>
         <Button IsEnabled="{Binding ButtonUpdateEnable,Mode=OneWay}" x:Name="btnUpdate" Command="{Binding ButtonUpdateClick, Mode =TwoWay}" CommandParameter="{Binding ElementName=txtPassword}" Content="Modificar" HorizontalAlignment="Left" Margin="768,221,0,0" VerticalAlignment="Top" Width="121"/>
         <DataGrid Name="dgUsuarios" ItemsSource="{Binding DataGridColumnUsuarios,Mode=TwoWay,IsAsync=True, UpdateSourceTrigger=PropertyChanged}" AutoGenerateColumns="False" Margin="96,288,76,88">
@@ -77,7 +98,7 @@
                 <DataGridTextColumn Header="Perfil" Binding="{Binding Perfil,Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"/>
             </DataGrid.Columns>
         </DataGrid>
-        <CheckBox x:Name="cbMantenedores" IsEnabled="{Binding IsEnabledMant,Mode=TwoWay}" Tag="1" Foreground="White" IsChecked="{Binding IsSelectedMant, Mode=TwoWay}" Content="Mantenedores" HorizontalAlignment="Left" Margin="619,66,0,0" VerticalAlignment="Top" Height="28" Width="105" />
+        <CheckBox x:Name="cbMantenedores" IsEnabled="{Binding IsEnabledMant,Mode=TwoWay}" Tag="1" Foreground="White"  Content="Mantenedores" HorizontalAlignment="Left" Margin="619,66,0,0" VerticalAlignment="Top" Height="28" Width="105" />
         <CheckBox x:Name="cbIngresoNotas" Tag="2" IsEnabled="{Binding IsEnabledIng,Mode=TwoWay}" Foreground="White" IsChecked="{Binding IsSelectedIng, Mode=TwoWay}" Content="Ingreso de Notas" HorizontalAlignment="Left" Margin="752,65,0,0" VerticalAlignment="Top" Height="30" Width="108" RenderTransformOrigin="0.315,0.083" />
         <CheckBox x:Name="cbConsultas" Tag="3" IsEnabled="{Binding IsEnabledCon,Mode=TwoWay}" Foreground="White" IsChecked="{Binding IsSelectedCon, Mode=TwoWay}" Content="Consultas" HorizontalAlignment="Left" Margin="884,65,0,0" VerticalAlignment="Top" Height="30" Width="90"  />
         <CheckBox x:Name="cbReportes" Tag="4" IsEnabled="{Binding IsEnabledRep,Mode=TwoWay}" Foreground="White" IsChecked="{Binding IsSelectedRep, Mode=TwoWay}" Content="Reportes" HorizontalAlignment="Left" Margin="999,66,0,0" VerticalAlignment="Top" Height="29" Width="130"/>

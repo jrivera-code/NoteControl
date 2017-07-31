@@ -65,15 +65,18 @@ namespace NoteControl.Source.DataAccess.Source
             _db.Perfiles.Add(perfiladmin);
             Perfil perfilprofe = new Perfil() { Nombre = "Profesor" };
             _db.Perfiles.Add(perfilprofe);
+            Perfil perfilsecretaria = new Perfil() { Nombre = "Secretaria" };
+            _db.Perfiles.Add(perfilsecretaria);
             for (int i = 0; i < initialData.privilegios.Length; i++)
             {
                 Privilegio privilegio = new Privilegio() { Nombre = initialData.privilegios[i] };
                 _db.Privilegios.Add(privilegio);
                 _db.SaveChanges();
                 _db.PerfilesPrivilegios.Add(new PerfilPrivilegio() { PrivilegioId = i + 1, PerfilId = 1 });
-                if (i == 6)
-                { //add privilegio profesor
+                if (i == 5)
+                { //add privilegio profesor y secretaria
                     _db.PerfilesPrivilegios.Add(new PerfilPrivilegio() { PrivilegioId = i, PerfilId = 2 });
+                    _db.PerfilesPrivilegios.Add(new PerfilPrivilegio() { PrivilegioId = i, PerfilId = 3 });
                 }
             }
            

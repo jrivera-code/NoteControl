@@ -11,10 +11,12 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows;
 using System.Windows.Controls;
+using System.Globalization;
+using System.Windows.Data;
 
 namespace NoteControl.Source.MVVM.ViewModel 
 {
-    public class MantUsuariosViewModel : INotifyPropertyChanged
+    public class MantUsuariosViewModel : INotifyPropertyChanged,IMultiValueConverter
     {
         public event PropertyChangedEventHandler PropertyChanged;
         private BLUsuarios _blUsuarios = new BLUsuarios();
@@ -22,6 +24,10 @@ namespace NoteControl.Source.MVVM.ViewModel
         public Command ButtonSaveClick { get; set; }
         public Command ButtonDeleteClick { get; set; }
         public Command ButtonUpdateClick { get; set; }
+        private MultiBinding _multiBinding = new MultiBinding();
+        public MultiBinding MultiBindingButton {get => _multiBinding;
+            set { _multiBinding = value; NotifyPropertyChanged("MultiBindingButton"); }
+        }
         private bool _isEnabledMant;
         public bool IsEnabledMant { get=>_isEnabledMant;
             set { _isEnabledMant = value; NotifyPropertyChanged("IsEnabledMant"); }}
@@ -79,7 +85,7 @@ namespace NoteControl.Source.MVVM.ViewModel
             set {
                 if (_selectedComboBoxPerfilItems == null) return;
 
-                if (value.Content.ToString() == "Profesor") {
+                if (value.Content.ToString() == "Profesor" || value.Content.ToString() == "Secretaria") {
                     IsSelectedIng = true; IsSelectedMant = false;
                     IsSelectedCon = false; IsSelectedRep = false; IsEnabledIng = false;
                     IsEnabledMant = true; IsEnabledCon = true; IsEnabledRep = true;
@@ -126,6 +132,7 @@ namespace NoteControl.Source.MVVM.ViewModel
                 NotifyPropertyChanged("ButtonUpdateEnable");
             }
         }
+       
         private bool _buttonSaveEnable;
         public bool ButtonSaveEnable
         {
@@ -184,6 +191,7 @@ namespace NoteControl.Source.MVVM.ViewModel
         }
 
         public MantUsuariosViewModel() {
+            MultiBindingButton.Converter = this;
             //constructor
             //carga de combobox perfiles
             LoadComboBoxPerfiles();
@@ -275,20 +283,31 @@ namespace NoteControl.Source.MVVM.ViewModel
             NotifyPropertyChanged("DataGridColumnUsuarios");
             TextBoxUsuario = "";
         }
-
+        
         private void SaveClick()
         {
-            //si es igual a profesor debe referenciar el rut del usuario al profesor
-           // if(_selectedComboBoxPerfilItems.Content.ToString() == "Profesor")
-            int estado = SelectedEstadoItem.Content.ToString() == "Activo" ? 1 : 0;
-            Usuario user = new Usuario() {
-                Nombre = _textBoxUsuario,
-                Clave = GetPassword(),
-                Estado = estado
-        };
-            _blUsuarios.CrearUsuario(user, _selectedComboBoxPerfilItems.Content.ToString());
-            CargarDataGrid();
-            NotifyPropertyChanged("DataGridColumnUsuarios");
+            // recibe el arreglo de objetos del multibinding
+            var values = ButtonSaveClick.parameters;
+            if (SelectedEstadoItem.Content.ToString() != "")
+            {
+                //si es igual a profesor debe referenciar el rut del usuario al profesor
+                // if(_selectedComboBoxPerfilItems.Content.ToString() == "Profesor")
+                int estado = SelectedEstadoItem.Content.ToString() == "Activo" ? 1 : 0;
+                Usuario user = new Usuario()
+                {
+                    Nombre = _textBoxUsuario,
+                    Clave = GetPassword(),
+                    Estado = estado
+                };
+                _blUsuarios.CrearUsuario(user, _selectedComboBoxPerfilItems.Content.ToString());
+                CargarDataGrid();
+                NotifyPropertyChanged("DataGridColumnUsuarios");
+            }
+            else {
+                MessageBox.Show("Debe Asignarle un estado");
+            }
+            
+           
         }
 
         private string GetPassword() {
@@ -307,6 +326,16 @@ namespace NoteControl.Source.MVVM.ViewModel
         private void NotifyPropertyChanged(string propertyName)
         {
             PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(propertyName));
+        }
+
+        public object Convert(object[] values, Type targetType, object parameter, CultureInfo culture)
+        {
+            throw new NotImplementedException();
+        }
+
+        public object[] ConvertBack(object value, Type[] targetTypes, object parameter, CultureInfo culture)
+        {
+            throw new NotImplementedException();
         }
     }
 }

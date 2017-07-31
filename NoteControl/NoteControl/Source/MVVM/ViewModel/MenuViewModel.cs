@@ -19,6 +19,8 @@ namespace NoteControl.Source.MVVM.ViewModel
 {
     public class MenuViewModel : INotifyPropertyChanged
     {
+        private BLPrivilegiosExtra _blPrivilegiosExtra = new BLPrivilegiosExtra();
+        private Usuario userLogeado;
         private Page _frameContent;
         public Page FrameContent
         {
@@ -57,11 +59,12 @@ namespace NoteControl.Source.MVVM.ViewModel
 
         public MenuViewModel(Usuario usuario)
         {
-           
-            UsuarioLogeado = usuario.Nombre;
+            userLogeado = usuario;
+            UsuarioLogeado = userLogeado.Nombre;
             Menus = new List<MenuItem>();
             //pasa el perfil del usuario y devuelve la lista de privilegios
-            List<Privilegio> listPrivilegios = _blPerfiles.ListarPrivilegiosDelPerfil(usuario.Perfiles);
+            List<Privilegio> listPrivilegios = _blPerfiles.ListarPrivilegiosDelPerfil(userLogeado.Perfiles);
+            List<PrivilegioExtra> listPrivilegiosExtra = _blPrivilegiosExtra.ListarPrivilegiosExtra(userLogeado);
             int countIcon = 0;
             foreach (MenuItem menuitem in CrearMenu(listPrivilegios))
             {
@@ -69,7 +72,6 @@ namespace NoteControl.Source.MVVM.ViewModel
                 string[] iconName = { "mant_icon", "add_note", "search", "report" };
                 if (menuitem.Items.Count != 0)
                 {
-
                     menuitem.Icon = new Image
                     {
                         Source = new BitmapImage(new Uri(url + iconName[countIcon] + ".png"))
@@ -91,16 +93,16 @@ namespace NoteControl.Source.MVVM.ViewModel
             MenuItem listConsultas = new MenuItem() { Header = "Consultas" };
             MenuItem listInformes = new MenuItem() { Header = "Informes" };
             var mantenedores = from p in items
-                               where int.Parse(p.Tag.ToString()) < 6
+                               where int.Parse(p.Tag.ToString()) < 5
                                select p;
             var notas = from p in items
-                        where int.Parse(p.Tag.ToString()) > 5 && int.Parse(p.Tag.ToString()) < 7
+                        where int.Parse(p.Tag.ToString()) == 5 
                         select p;
             var consultas = from p in items
-                            where int.Parse(p.Tag.ToString()) > 6 && int.Parse(p.Tag.ToString()) < 9
+                            where int.Parse(p.Tag.ToString()) > 5 && int.Parse(p.Tag.ToString()) < 7
                             select p;
             var informes = from p in items
-                           where int.Parse(p.Tag.ToString()) > 8
+                           where int.Parse(p.Tag.ToString()) > 7
                            select p;
             if (mantenedores != null)
             {
@@ -173,16 +175,6 @@ namespace NoteControl.Source.MVVM.ViewModel
                         item.Click += ClickMenuItem;
                         menuItems.Add(item);
                         break;
-                    case 9:
-                        item = new MenuItem() { Header = p.Nombre, Tag = p.PrivilegioId };
-                        item.Click += ClickMenuItem;
-                        menuItems.Add(item);
-                        break;
-                    case 10:
-                        item = new MenuItem() { Header = p.Nombre, Tag = p.PrivilegioId };
-                        item.Click += ClickMenuItem;
-                        menuItems.Add(item);
-                        break;
                 }
             }
             return menuItems;
@@ -194,30 +186,27 @@ namespace NoteControl.Source.MVVM.ViewModel
             switch (id)
             {
                 case 1:
-                    FrameContent = new MantPerfiles();
-                    break;
-                case 2:
                     FrameContent = new MantUsuario();
                     break;
-                case 3:
+                case 2:
                     FrameContent = new MantCurso();
                     break;
-                case 4:
+                case 3:
                     FrameContent = new MantProfe();
                     break;
-                case 5:
+                case 4:
                     FrameContent = new MantEspecialidades();
                     break;
-                case 6:
+                case 5:
                     FrameContent = new IngNotas();
                     break;
-                case 7:
+                case 6:
                     FrameContent = new ConsAlumCurso();
                     break;
-                case 8:
+                case 7:
                     FrameContent = new ConsProfeCurso();
                     break;
-                case 9:
+                case 8:
                     FrameContent = new InformeParcial();
                     break;
             }

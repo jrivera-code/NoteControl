@@ -77,12 +77,14 @@
       <SubType>Designer</SubType>
     </ApplicationDefinition>
     <Compile Include="Source\BusinessLogic\BLAlumnos.cs" />
+    <Compile Include="Source\BusinessLogic\BLPrivilegiosExtra.cs" />
     <Compile Include="Source\BusinessLogic\BLProfesores.cs" />
     <Compile Include="Source\BusinessLogic\BLEspecialidades.cs" />
     <Compile Include="Source\BusinessLogic\BLCursos.cs" />
     <Compile Include="Source\BusinessLogic\BLAsignaturas.cs" />
     <Compile Include="Source\DataAccess\InitialData\Data.cs" />
     <Compile Include="Source\DataAccess\Source\DAAlumnos.cs" />
+    <Compile Include="Source\DataAccess\Source\DAPrivilegiosExtra.cs" />
     <Compile Include="Source\DataAccess\Source\DAProfesores.cs" />
     <Compile Include="Source\DataAccess\Source\DAEspecialidades.cs" />
     <Compile Include="Source\DataAccess\Source\DACursos .cs" />
@@ -99,6 +101,7 @@
     <Compile Include="Source\MVVM\Model\Profesor.cs" />
     <Compile Include="Source\MVVM\ViewModel\ConsAlumCursoViewModel.cs" />
     <Compile Include="Source\MVVM\ViewModel\ConsProfeCursoViewModel.cs" />
+    <Compile Include="Source\MVVM\ViewModel\Converters\Converter.cs" />
     <Compile Include="Source\MVVM\ViewModel\DataGridRowModel\AlumnoRowModel.cs" />
     <Compile Include="Source\MVVM\ViewModel\DataGridRowModel\EspecialidadRowModel.cs" />
     <Compile Include="Source\MVVM\ViewModel\DataGridRowModel\AsigCursoProfeModel.cs" />
@@ -144,10 +147,6 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="Source\MVVM\View\Menu\Pages\MantPerfiles.xaml">
-      <SubType>Designer</SubType>
-      <Generator>MSBuild:Compile</Generator>
-    </Page>
     <Page Include="Source\MVVM\View\Menu\Pages\MantProfe.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
@@ -184,16 +183,12 @@
     <Compile Include="Source\MVVM\Model\Privilegio.cs" />
     <Compile Include="Source\MVVM\Model\Usuario.cs" />
     <Compile Include="Source\MVVM\ViewModel\Commands\Command.cs" />
-    <Compile Include="Source\MVVM\ViewModel\MantPerfilesViewModel.cs" />
     <Compile Include="Source\MVVM\ViewModel\MenuViewModel.cs" />
     <Compile Include="Source\MVVM\View\Menu\Pages\MantCurso.xaml.cs">
       <DependentUpon>MantCurso.xaml</DependentUpon>
     </Compile>
     <Compile Include="Source\MVVM\View\Menu\Pages\MantEspecialidades.xaml.cs">
       <DependentUpon>MantEspecialidades.xaml</DependentUpon>
-    </Compile>
-    <Compile Include="Source\MVVM\View\Menu\Pages\MantPerfiles.xaml.cs">
-      <DependentUpon>MantPerfiles.xaml</DependentUpon>
     </Compile>
     <Compile Include="Source\MVVM\View\Menu\Pages\MantProfe.xaml.cs">
       <DependentUpon>MantProfe.xaml</DependentUpon>

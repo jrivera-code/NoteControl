@@ -2,12 +2,8 @@
 using NoteControl.Source.MVVM.Model;
 using NoteControl.Source.MVVM.ViewModel.Commands;
 using NoteControl.Source.MVVM.ViewModel.DataGridRowModel;
-using System;
 using System.Collections.Generic;
 using System.ComponentModel;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace NoteControl.Source.MVVM.ViewModel
 {

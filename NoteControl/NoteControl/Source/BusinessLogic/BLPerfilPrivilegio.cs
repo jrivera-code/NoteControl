@@ -17,7 +17,7 @@ namespace NoteControl.Source.BusinessLogic
             try
             {
                
-                _da.crearRelacionPerfilPrivilegio(perfil, indexPrivilegio);
+                _da.CrearRelacionPerfilPrivilegio(perfil, indexPrivilegio);
               
             }
             catch 

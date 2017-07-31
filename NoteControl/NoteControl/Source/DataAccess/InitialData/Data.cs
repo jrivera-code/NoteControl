@@ -8,7 +8,7 @@ namespace NoteControl.Source.DataAccess.InitialData
 {
     public class Data
     {
-       public string[] privilegios = { "Mantenedor de Perfiles", "Mantenedor de Usuarios","Mantenedor de Cursos",
+       public string[] privilegios = { "Mantenedor de Usuarios","Mantenedor de Cursos",
                 "Mantenedor de Profesores","Mantenedor de Especialidades","Ingresar Notas",
                "Consulta de Alumnos por Cursos","Consulta de Profesores por Cursos",
                 "Generacion de Informes"};
