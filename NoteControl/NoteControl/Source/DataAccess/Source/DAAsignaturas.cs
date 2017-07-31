@@ -37,10 +37,30 @@ namespace NoteControl.Source.DataAccess.Source
  on cpa.AsignaturaCode equals asig.AsignaturaCode
                       where profe.Rut == rut
                       select asig).ToList();
-       
+
             foreach (Asignatura a in li)
             {
-              list.Add(a);
+                list.Add(a);
+            }
+            return list;
+        }
+
+        public List<Asignatura> ListarAsignaturasPorProfesorYCurso(int rut, string cursoCode)
+        {
+            List<Asignatura> list = new List<Asignatura>();
+            var li = (from asig in _db.Asignaturas
+                      join cpa in _db.CursoProfeAsignaturas
+                         on asig.AsignaturaCode equals cpa.AsignaturaCode
+                      join cur in _db.Cursos
+                        on cpa.CursoCode equals cur.CursoCode
+                      join profe in _db.Profesores
+                        on cpa.Rut equals profe.Rut
+                      where profe.Rut == rut && cur.CursoCode == cursoCode
+                      select asig).ToList();
+
+            foreach (Asignatura a in li)
+            {
+                list.Add(a);
             }
             return list;
         }

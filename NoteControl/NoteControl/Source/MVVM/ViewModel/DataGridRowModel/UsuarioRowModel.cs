@@ -8,9 +8,24 @@ namespace NoteControl.Source.MVVM.ViewModel.DataGridRowModel
 {
     public class UsuarioRowModel
     {
+        string _rut;
         string _nombreUsuario;
         string _estado;
         string _perfil;
+        string _telefono;
+        string _correo;
+
+        public string Rut
+        {
+            get
+            {
+                return _rut;
+            }
+            set
+            {
+                _rut = value;
+            }
+        }
         public string NombreUsuario
         {
             get
@@ -42,6 +57,28 @@ namespace NoteControl.Source.MVVM.ViewModel.DataGridRowModel
             set
             {
                 _perfil = value;
+            }
+        }
+        public string Correo
+        {
+            get
+            {
+                return _correo;
+            }
+            set
+            {
+                _correo = value;
+            }
+        }
+        public string Telefono
+        {
+            get
+            {
+                return _telefono;
+            }
+            set
+            {
+                _telefono = value;
             }
         }
     }

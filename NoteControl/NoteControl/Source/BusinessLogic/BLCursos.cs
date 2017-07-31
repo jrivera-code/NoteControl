@@ -65,5 +65,17 @@ namespace NoteControl.Source.BusinessLogic
                 throw;
             }
         }
+
+        public List<Curso> ListarCursosPorProfesor(int rut)
+        {
+            try
+            {
+               return _da.ListarCursosPorProfesor(rut);
+            }
+            catch
+            {
+                throw;
+            }
+        }
     }
 }

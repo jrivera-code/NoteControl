@@ -15,18 +15,27 @@ namespace NoteControl.Source.DataAccess.Source
         {
 
         }
-        public void CrearRelacionUsuarioPrivilegioExtras(Usuario user, int indexPrivilegio)
+        public void CrearRelacionUsuarioPrivilegioExtras(Usuario user, int[] indexPrivilegio)
         {
-            PrivilegioExtra privilegiosExtra = new PrivilegioExtra();
-            privilegiosExtra.Usuario.Rut = user.Rut;
-            privilegiosExtra.PrivilegioId = indexPrivilegio;
-            _db.PrivilegioExtras.Add(privilegiosExtra);
-            _db.SaveChanges();
+            foreach (int i in indexPrivilegio) {
+                PrivilegioExtra privilegiosExtra = new PrivilegioExtra();
+                privilegiosExtra.Rut = user.Rut;
+                privilegiosExtra.PrivilegioId = i;
+                _db.PrivilegioExtras.Add(privilegiosExtra);
+                _db.SaveChanges();
+            }
         }
         public List<PrivilegioExtra> ListarPrivilegiosExtra(Usuario user)
         {
             List<PrivilegioExtra> list = _db.PrivilegioExtras.Where(e => e.Rut == user.Rut).ToList();
             return list;
+        }
+
+        public void RemoverTodasLasRelaciones(Usuario user)
+        {
+            _db.PrivilegioExtras.RemoveRange(_db.PrivilegioExtras.Where(e =>
+            e.Rut == user.Rut));
+            _db.SaveChanges();
         }
     }
 }

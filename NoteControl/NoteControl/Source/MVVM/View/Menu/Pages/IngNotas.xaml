@@ -53,19 +53,18 @@
         </Grid.ColumnDefinitions>
         <Label Grid.Row="1" Grid.Column="0" Content="Mis Cursos" HorizontalAlignment="Left" VerticalAlignment="Center" Margin="60,18,0,18" Width="71" Foreground="White" FontWeight="Bold"></Label>
         <Label Grid.Row="1" Grid.Column="1" Content="Asignaturas" HorizontalAlignment="Left" VerticalAlignment="Center" Margin="53,18,0,18" Width="78" Foreground="White" FontWeight="Bold"></Label>
-        <ComboBox HorizontalAlignment="Right" x:Name="CBMainCurso" Grid.Row="1" Grid.Column="0" ItemsSource="{Binding ComboBoxCurso,Mode=TwoWay}" Margin="0,17" Width="260"></ComboBox>
-        <ComboBox x:Name="CBMainAsignatura" ItemsSource="{Binding ComboBoxProfesores,Mode=TwoWay}"
+        <ComboBox HorizontalAlignment="Right" x:Name="CBMainCurso" Grid.Row="1" 
+               SelectedItem="{Binding SelectedComboBoxCurso,Mode=TwoWay}"   Grid.Column="0" ItemsSource="{Binding ComboBoxCurso,Mode=TwoWay}" Margin="0,17" Width="260"></ComboBox>
+        <ComboBox x:Name="CBMainAsignatura" ItemsSource="{Binding ComboBoxAsignaturas,Mode=TwoWay}"
         SelectedItem="{Binding SelectedComboBoxAsignaturas,Mode=TwoWay}"
                   IsEnabled="{Binding IsEnableComboBoxAsignaturas}"
                   Grid.Row="1" Grid.Column="1" HorizontalAlignment="Right" Margin="0,17" Width="260" ></ComboBox>
-        <Button Command="{Binding ButtonBuscarAsig, Mode =TwoWay,IsAsync=True}"
-              IsEnabled="{Binding IsEnableButtonBuscarAsig}"  Grid.Row="1" Grid.Column="2" Content="Buscar Alumnos" Width="150" Margin="80,15,170,15"></Button>
-        <DataGrid Name="DataGrid" Grid.Row="5"  Grid.Column="0"  Grid.ColumnSpan="3" ItemsSource="{Binding DataGridAsigCursoProfe,Mode=TwoWay,IsAsync=True, UpdateSourceTrigger=PropertyChanged}" AutoGenerateColumns="False" Margin="50" >
+        <Button Command="{Binding ButtonBuscarAlum, Mode =TwoWay,IsAsync=True}"
+              IsEnabled="{Binding IsEnableButtonBuscarAlum}"  Grid.Row="1" Grid.Column="2" Content="Buscar Alumnos" Width="150" Margin="80,15,170,15"></Button>
+        <DataGrid Name="DataGrid" Grid.Row="5"  Grid.Column="0"  Grid.ColumnSpan="3" ItemsSource="{Binding DataGridAsigNotas,Mode=TwoWay,IsAsync=True, UpdateSourceTrigger=PropertyChanged}" AutoGenerateColumns="False" Margin="50" >
             <DataGrid.Columns>
-                <DataGridTextColumn Header="Codigo de Curso" Binding="{Binding CodeCurso}" />
-                <DataGridTextColumn Header="Nombre de Curso" Binding="{Binding NombreCurso}"/>
-                <DataGridTextColumn Header="Codigo Asignatura" Binding="{Binding CodeAsignatura}"/>
-                <DataGridTextColumn Header="Nombre de Asignatura" Binding="{Binding NombreAsignatura}"/>
+                <DataGridTextColumn Header="Rut" Binding="{Binding Rut}" />
+                <DataGridTextColumn Header="NombreApellido" Binding="{Binding NombreApellido}"/>
                 <DataGridHyperlinkColumn Header="Seleccionar" Binding="{Binding Seleccionar}"></DataGridHyperlinkColumn>
             </DataGrid.Columns>
         </DataGrid>

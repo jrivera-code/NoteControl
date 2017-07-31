@@ -13,6 +13,7 @@ using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
 using NoteControl;
+using NoteControl.Source.MVVM.Model;
 using NoteControl.Source.MVVM.ViewModel;
 
 namespace NoteControl
@@ -21,12 +22,13 @@ namespace NoteControl
 	/// </summary>
 	public partial class IngNotas : Page
 	{
-        IngNotasViewModel ingNotasAsigViewModel = new IngNotasViewModel();
-		public IngNotas()
+        IngNotasViewModel ingNotasAsigViewModel;
+        public IngNotas(Usuario userLogeado)
 		{
 			InitializeComponent();
+            ingNotasAsigViewModel = new IngNotasViewModel(userLogeado);
             this.DataContext = ingNotasAsigViewModel;
 
         }
-	}
+    }
 }

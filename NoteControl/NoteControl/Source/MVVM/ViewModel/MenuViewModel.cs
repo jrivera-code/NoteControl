@@ -198,7 +198,7 @@ namespace NoteControl.Source.MVVM.ViewModel
                     FrameContent = new MantEspecialidades();
                     break;
                 case 5:
-                    FrameContent = new IngNotas();
+                    FrameContent = new IngNotas(userLogeado);
                     break;
                 case 6:
                     FrameContent = new ConsAlumCurso();

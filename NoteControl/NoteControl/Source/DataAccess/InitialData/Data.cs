@@ -23,11 +23,11 @@ namespace NoteControl.Source.DataAccess.InitialData
         public int[] RutAlum = { 203450459, 21029468, 213848479, 23482736, 212139847, 21837463, 20837463, 20383646 };
         public string[] NombresAlum = { "Matias", "Felipe", "Camilo", "Ricardo", "Emilio", "Cesar", "Francisco", "Pablo" };
         public string[] ApellidosAlum = { "Rivera", "Cardenas", "Jaramillo", "Fernandez", "Sanchez", "Vidal", "Dias", "Bravo" };
-        public int[] RutProfesor = { 162728334, 156373948, 172736737, 172838464,128384737, 133849388, 112342342, 143834853 };
+        public int[] RutProfesor = { 181303859, 156373948, 172736737, 172838464,128384737, 133849388, 112342342, 143834853 };
         public string[] ProfesoresNombre = { "Juan", "Carlos","Eduardo",
                 "Francisco","Joseph","Claudia",
                 "Carla","Emilio"};
-        public string[] ProfesoresApellido = { "Martinez", "Urrutia","Rivas",
+        public string[] ProfesoresApellido = { "Rivera", "Urrutia","Rivas",
                 "Sangueza","Lopez","Espeniza",
                 "Peters","Pereira"};
         public string[] Especialidades = { "Juan", "Carlos","Eduardo",

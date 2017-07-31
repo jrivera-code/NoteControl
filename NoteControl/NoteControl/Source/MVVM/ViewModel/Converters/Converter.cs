@@ -12,6 +12,7 @@ namespace NoteControl.Source.MVVM.ViewModel.Converters
     {
         public object Convert(object[] values, Type targetType, object parameter, CultureInfo culture)
         {
+            
             return values.ToArray();
         }
 

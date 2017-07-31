@@ -19,11 +19,20 @@ namespace NoteControl.Source.BusinessLogic
             } catch { throw; }
         }
 
-        public void CrearRelacionUsuarioPrivilegioExtras(Usuario user, int indexPrivilegio)
+        public void CrearRelacionUsuarioPrivilegioExtras(Usuario user, int[] indexPrivilegio)
         {
             try
             {
                 _da.CrearRelacionUsuarioPrivilegioExtras(user,indexPrivilegio);
+            }
+            catch { throw; }
+        }
+        
+        public void RemoverTodasLasRelaciones(Usuario user)
+        {
+            try
+            {
+                _da.RemoverTodasLasRelaciones(user);
             }
             catch { throw; }
         }

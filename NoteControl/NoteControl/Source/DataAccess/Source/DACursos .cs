@@ -57,5 +57,18 @@ namespace NoteControl.Source.DataAccess.Source
             _db.Cursos.Remove(c);
             _db.SaveChanges();
         }
+
+        public List<Curso> ListarCursosPorProfesor(int rut)
+        {
+            List<Curso> list = (from cur in _db.Cursos
+                                join cpa in _db.CursoProfeAsignaturas
+                                on cur.CursoCode equals cpa.CursoCode
+                                join prof in _db.Profesores
+                                on cpa.Rut equals prof.Rut
+                       where cpa.Rut == rut
+                                select cur).ToList();
+
+            return list;
+        }
     }
 }
