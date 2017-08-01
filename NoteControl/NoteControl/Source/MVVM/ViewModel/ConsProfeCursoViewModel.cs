@@ -20,14 +20,14 @@ namespace NoteControl.Source.MVVM.ViewModel
         private List<ComboBoxItem> _comboBoxCursosItems = new List<ComboBoxItem>();
         public List<ComboBoxItem> ComboBoxCursosItems
         {
-            get => _comboBoxCursosItems;
+            get { return _comboBoxCursosItems; }
             set  {_comboBoxCursosItems = value;
                 NotifyPropertyChanged("ComboBoxCursosItems"); }
         }
         private ComboBoxItem _selectedComboBoxCursosItems;
         public ComboBoxItem SelectedComboBoxCursosItems
         {
-            get => _selectedComboBoxCursosItems;
+            get { return _selectedComboBoxCursosItems; }
             set { _selectedComboBoxCursosItems = value;
                 NotifyPropertyChanged("SelectedComboBoxCursosItems");
             }
@@ -36,7 +36,7 @@ namespace NoteControl.Source.MVVM.ViewModel
 
         public List<ProfeRowModel> DataGridColumnProfesores
         {
-            get => _dataGridColumnProfesores; 
+            get { return _dataGridColumnProfesores; } 
             set { _dataGridColumnProfesores = value;
                 NotifyPropertyChanged("DataGridColumnProfesores");
             }

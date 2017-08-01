@@ -50,7 +50,7 @@ namespace NoteControl.Source.MVVM.ViewModel.DataGridRowModel
         }
         public string AsignaturasItems
         {
-            get => _asignaturas;
+            get { return _asignaturas; }
             set {
                 _asignaturas = value;
                 NotifyPropertyChanged("AsignaturasItems");

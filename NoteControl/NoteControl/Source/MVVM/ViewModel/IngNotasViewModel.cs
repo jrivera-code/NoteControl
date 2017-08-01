@@ -24,7 +24,7 @@ namespace NoteControl.Source.MVVM.ViewModel
         private List<ComboBoxItem> _comboBoxCurso = new List<ComboBoxItem>();
         public List<ComboBoxItem> ComboBoxCurso
         {
-            get => _comboBoxCurso;
+            get { return _comboBoxCurso; }
             set
             {
                 _comboBoxCurso = value;
@@ -58,7 +58,7 @@ namespace NoteControl.Source.MVVM.ViewModel
         public List<ComboBoxItem> _comboBoxAsignaturas = new List<ComboBoxItem>();
         public List<ComboBoxItem> ComboBoxAsignaturas
         {
-            get => _comboBoxAsignaturas;
+            get { return _comboBoxAsignaturas; }
             set
             {
                 _comboBoxAsignaturas = value;
@@ -69,7 +69,7 @@ namespace NoteControl.Source.MVVM.ViewModel
 
         public ComboBoxItem SelectedComboBoxAsig
         {
-            get => _selectedComboBoxAsig;
+            get {return _selectedComboBoxAsig; }
             set
             {
                 _selectedComboBoxAsig = value;
@@ -102,7 +102,7 @@ namespace NoteControl.Source.MVVM.ViewModel
 
         public List<AsigNotasModel> DataGridAsigNotas
         {
-            get => _dataGridAsigNotas;
+            get { return _dataGridAsigNotas; }
             set
             {
                 _dataGridAsigNotas = value;

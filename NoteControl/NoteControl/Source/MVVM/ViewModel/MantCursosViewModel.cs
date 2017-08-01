@@ -136,13 +136,13 @@ namespace NoteControl.Source.MVVM.ViewModel
         private List<ComboBoxItem> _comboBoxProfesorJefe = new List<ComboBoxItem>();
         public List<ComboBoxItem> ComboBoxProfesorJefe
         {
-            get => _comboBoxProfesorJefe; 
+            get { return _comboBoxProfesorJefe; } 
             set { _comboBoxProfesorJefe = value; NotifyPropertyChanged("ComboBoxProfesorJefe"); }
         }
         private ComboBoxItem _selectedComboBoxProfesorJefe = new ComboBoxItem();
         public ComboBoxItem SelectedComboBoxProfesorJefe
         {
-            get => _selectedComboBoxProfesorJefe;
+            get { return _selectedComboBoxProfesorJefe; }
             set { _selectedComboBoxProfesorJefe = value; NotifyPropertyChanged("SelectedComboBoxProfesorJefe"); }   
         }
 

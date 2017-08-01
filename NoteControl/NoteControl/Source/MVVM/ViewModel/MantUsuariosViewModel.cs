@@ -29,51 +29,57 @@ namespace NoteControl.Source.MVVM.ViewModel
         private bool _isEnabledMant;
         public bool IsEnabledMant
         {
-            get => _isEnabledMant;
+            get { return _isEnabledMant; }
             set { _isEnabledMant = value; NotifyPropertyChanged("IsEnabledMant"); }
         }
 
         private bool _isEnabledIng;
         public bool IsEnabledIng
         {
-            get => _isEnabledIng;
+            get { return _isEnabledIng; }
             set { _isEnabledIng = value; NotifyPropertyChanged("IsEnabledIng"); }
         }
         private bool _isEnabledCon;
         public bool IsEnabledCon
         {
-            get => _isEnabledCon;
+            get
+			{ return _isEnabledCon; }
             set { _isEnabledCon = value; NotifyPropertyChanged("IsEnabledCon"); }
         }
         private bool _isEnabledRep;
         public bool IsEnabledRep
         {
-            get => _isEnabledRep;
+            get
+			{ return _isEnabledRep; }
             set { _isEnabledRep = value; NotifyPropertyChanged("IsEnabledRep"); }
         }
         private bool _isSelectedMant;
         public bool IsSelectedMant
         {
-            get => _isSelectedMant;
+            get
+			{ return _isSelectedMant; }
             set { _isSelectedMant = value; NotifyPropertyChanged("IsSelectedMant"); }
         }
 
         private bool _isSelectedIng;
         public bool IsSelectedIng
         {
-            get => _isSelectedIng;
+            get
+			{ return _isSelectedIng; }
             set { _isSelectedIng = value; NotifyPropertyChanged("IsSelectedIng"); }
         }
         private bool _isSelectedCon;
         public bool IsSelectedCon
         {
-            get => _isSelectedCon;
+            get
+			{ return _isSelectedCon; }
             set { _isSelectedCon = value; NotifyPropertyChanged("IsSelectedCon"); }
         }
         private bool _isSelectedRep;
         public bool IsSelectedRep
         {
-            get => _isSelectedRep;
+            get
+			{ return _isSelectedRep; }
             set { _isSelectedRep = value; NotifyPropertyChanged("IsSelectedRep"); }
         }
         private Usuario _usuarioEncontrado = null;
