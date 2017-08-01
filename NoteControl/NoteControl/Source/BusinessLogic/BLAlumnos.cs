@@ -50,6 +50,17 @@ namespace NoteControl.Source.BusinessLogic
             }
         }
 
+        public List<Alumno> ListarAlumnosPorCursoYAsignatura(string asig, string curso)
+        {
+            try
+            {
+                return _da.ListarAlumnosPorCursoYAsignatura(asig, curso);
+            }
+            catch
+            {
+                throw;
+            }
+        }
     }
    
 }

@@ -209,8 +209,9 @@ namespace NoteControl.Source.MVVM.ViewModel
         private void CargarDataGrid()
         {
             DataGridAsigNotas.Clear();
-            int rut = int.Parse(_selectedComboBoxAsig.Tag.ToString());
-            foreach (Alumno alum in _blAlumnos.ListarAlumnosPorCurso(""))
+            string asig = _selectedComboBoxAsig.Tag.ToString();
+            string curso = _selectedComboBoxCurso.Tag.ToString();
+            foreach (Alumno alum in _blAlumnos.ListarAlumnosPorCursoYAsignatura(asig,curso))
             {
 
                 DataGridAsigNotas.Add(new AsigNotasModel()
@@ -218,7 +219,7 @@ namespace NoteControl.Source.MVVM.ViewModel
                     Rut = alum.Rut.ToString(),
                     NombreApellido = alum.Nombre + " " + alum.Apellido,
                 });
-                NotifyPropertyChanged("DataGridAsigCursoProfe");
+                NotifyPropertyChanged("DataGridAsigNotas");
             }
         }
 
