@@ -76,6 +76,9 @@ namespace NoteControl.Source.MVVM.ViewModel
                 if (_selectedComboBoxAsig != null) {
                     IsEnableButtonBuscarAlum = true;
                 }
+                else{
+                    IsEnableButtonBuscarAlum = false;
+                }
                
                 NotifyPropertyChanged("SelectedComboBoxAsig");
             }
@@ -208,6 +211,7 @@ namespace NoteControl.Source.MVVM.ViewModel
         }
         private void CargarDataGrid()
         {
+            
             DataGridAsigNotas.Clear();
             string asig = _selectedComboBoxAsig.Tag.ToString();
             string curso = _selectedComboBoxCurso.Tag.ToString();
@@ -218,6 +222,16 @@ namespace NoteControl.Source.MVVM.ViewModel
                 {
                     Rut = alum.Rut.ToString(),
                     NombreApellido = alum.Nombre + " " + alum.Apellido,
+                    Nota1 = "",
+                    Nota2 = "",
+                    Nota3 = "",
+                    Nota4 = "",
+                    Nota5 = "",
+                    Nota6 = "",
+                    Nota7 = "",
+                    Nota8 = "",
+                    Nota9 = "",
+                    Nota10 = "",
                 });
                 NotifyPropertyChanged("DataGridAsigNotas");
             }

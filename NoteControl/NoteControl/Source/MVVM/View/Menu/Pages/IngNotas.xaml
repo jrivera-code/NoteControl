@@ -67,7 +67,17 @@
             <DataGrid.Columns>
                 <DataGridTextColumn Header="Rut" Binding="{Binding Rut}" />
                 <DataGridTextColumn Header="NombreApellido" Binding="{Binding NombreApellido}"/>
-                <DataGridHyperlinkColumn Header="Seleccionar" Binding="{Binding Seleccionar}"></DataGridHyperlinkColumn>
+                <DataGridTextColumn Header="Nota 1" Binding="{Binding Nota1}"/>
+                <DataGridTextColumn Header="Nota 2" Binding="{Binding Nota2}"/>
+                <DataGridTextColumn Header="Nota 3" Binding="{Binding Nota3}"/>
+                <DataGridTextColumn Header="Nota 4" Binding="{Binding Nota4}"/>
+                <DataGridTextColumn Header="Nota 5" Binding="{Binding Nota5}"/>
+                <DataGridTextColumn Header="Nota 6" Binding="{Binding Nota6}"/>
+                <DataGridTextColumn Header="Nota 7" Binding="{Binding Nota7}"/>
+                <DataGridTextColumn Header="Nota 8" Binding="{Binding Nota8}"/>
+                <DataGridTextColumn Header="Nota 9" Binding="{Binding Nota9}"/>
+                <DataGridTextColumn Header="Nota 10" Binding="{Binding Nota10}"/>
+
             </DataGrid.Columns>
         </DataGrid>
     </Grid>
