@@ -67,8 +67,14 @@ namespace NoteControl.Source.DataAccess.Source
                                 on cpa.Rut equals prof.Rut
                        where cpa.Rut == rut
                                 select cur).ToList();
-
-            return list;
+            string preCodeCurso = "";
+            List<Curso> cursos = new List<Curso>();
+            list.ForEach(e => {
+                if (e.CursoCode != preCodeCurso)
+                    cursos.Add(e);
+                preCodeCurso = e.CursoCode;
+            });
+            return cursos;
         }
     }
 }

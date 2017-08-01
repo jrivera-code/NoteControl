@@ -20,13 +20,16 @@ namespace NoteControl.Source.DataAccess.InitialData
                             "Lenguaje y Comunicación",
                             "Matemática",
                             "Música" };
+        public string[] curso = {"Primero Basico", "Segundo Basico", "Tercero Basico",
+            "Cuarto Basico","Quinto Basico","Sexto Basico","Septimo Basico","Octavo Basico"};
+       
         public int[] RutAlum = { 203450459, 21029468, 213848479, 23482736, 212139847, 21837463, 20837463, 20383646 };
         public string[] NombresAlum = { "Matias", "Felipe", "Camilo", "Ricardo", "Emilio", "Cesar", "Francisco", "Pablo" };
         public string[] ApellidosAlum = { "Rivera", "Cardenas", "Jaramillo", "Fernandez", "Sanchez", "Vidal", "Dias", "Bravo" };
         public int[] RutProfesor = { 181303859, 156373948, 172736737, 172838464,128384737, 133849388, 112342342, 143834853 };
         public string[] ProfesoresNombre = { "Juan", "Carlos","Eduardo",
                 "Francisco","Joseph","Claudia",
-                "Carla","Emilio"};
+                "Ivan","Emilio"};
         public string[] ProfesoresApellido = { "Rivera", "Urrutia","Rivas",
                 "Sangueza","Lopez","Espeniza",
                 "Peters","Pereira"};

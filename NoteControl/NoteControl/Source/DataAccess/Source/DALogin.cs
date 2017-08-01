@@ -46,19 +46,58 @@ namespace NoteControl.Source.DataAccess.Source
                 _db.Profesores.Add(profe);
                 _db.SaveChanges();
             }
-            Curso curso = new Curso()
-            {
-                CursoCode = "A10",
-                Nombre = "Primero Basico",
-                Descripcion = "Conocimiento de sí mismo e ingreso al mundo de la lectura y escritura",
-                Profesor = _db.Profesores.First(),
-                Anio = 2017
-            };
-            _db.Cursos.Add(curso);
+            for (int i = 0; i < initialData.curso.Length; i++) {
+                if (i < 5)
+                {
+                    Curso curso = new Curso()
+                    {
+                        CursoCode = "A" + i,
+                        Nombre = initialData.curso[i],
+                        Descripcion = "Descripcion del curso",
+                        Profesor = _db.Profesores.Local.ElementAt(i),
+                        Anio = 2017
+                    };
+                    _db.Cursos.Add(curso);
+                }
+                else {
+                    Curso curso = new Curso()
+                    {
+                        CursoCode = "A" + i,
+                        Nombre = initialData.curso[i],
+                        Descripcion = "Descripcion del curso",
+                        Profesor = _db.Profesores.Local.ElementAt(i),
+                        Anio = 2017
+                    };
+                    _db.Cursos.Add(curso);
+                }
+                _db.SaveChanges();
+            }
+            
+           
             for (int i = 0; i < initialData.NombresAlum.Length; i++)
             {
-                Alumno alum = new Alumno() { Rut = initialData.RutAlum[i], Nombre = initialData.NombresAlum[i], Apellido = initialData.ApellidosAlum[i], Curso = curso };
-                _db.Alumnos.Add(alum);
+                if (i < 5)
+                {
+                    Alumno alum = new Alumno()
+                    {
+                        Rut = initialData.RutAlum[i],
+                        Nombre = initialData.NombresAlum[i],
+                        Apellido = initialData.ApellidosAlum[i],
+                        Curso = _db.Cursos.Where(e => e.CursoCode == "A0").FirstOrDefault()
+                    };
+                    _db.Alumnos.Add(alum);
+                }
+                else {
+                    Alumno alum = new Alumno()
+                    {
+                        Rut = initialData.RutAlum[i],
+                        Nombre = initialData.NombresAlum[i],
+                        Apellido = initialData.ApellidosAlum[i],
+                        Curso = _db.Cursos.Where(e => e.CursoCode == "A1").FirstOrDefault()
+                    };
+                    _db.Alumnos.Add(alum);
+                }
+                
                 _db.SaveChanges();
             }
             Perfil perfiladmin = new Perfil() { Nombre = "Administrador" };
@@ -80,14 +119,63 @@ namespace NoteControl.Source.DataAccess.Source
                 }
             }
            
+           
             for (int i = 0; i < initialData.asignaturas.Length; i++)
             {
                 Asignatura asig = new Asignatura() { AsignaturaCode = i.ToString(), Nombre = initialData.asignaturas[i] };
                 _db.Asignaturas.Add(asig);
                 _db.SaveChanges();
             }
-            _db.Usuarios.Add(new Usuario() {Rut = 181404858, Nombre = "JMOLINA", Clave = "1234", Estado = 1, Perfiles = perfiladmin });
+            _db.Usuarios.Add(new Usuario() {Rut = 181404858, Nombre = "JMOLINA", Clave = "1234",Telefono = "123456",
+                Email = "jmolina@gmail.com", Estado = 1, Perfiles = perfiladmin });
+            _db.Usuarios.Add(new Usuario()
+            {
+                Rut = 181303859,
+                Nombre = "JRIVERA",
+                Clave = "1234",
+                Telefono = "123456",
+                Email = "jrivera@gmail.com",
+                Estado = 1,
+                Perfiles = perfilprofe
+            });
+            _db.Usuarios.Add(new Usuario()
+            {
+                Rut = 112342342,
+                Nombre = "IPETERS",
+                Clave = "1234",
+                Telefono = "123456",
+                Email = "ipeters@gmail.com",
+                Estado = 1,
+                Perfiles = perfilprofe
+            });
             _db.SaveChanges();
+            for (int i = 0; i < 8; i++) {
+                int asig = i + 1;
+                if (i < 5)
+                {
+                    CursoProfeAsignatura cpa = new CursoProfeAsignatura()
+                    {
+                        Profesores = _db.Profesores.Where(e => e.Rut == 181303859).FirstOrDefault(),
+                        Asignaturas = _db.Asignaturas.Where(e => e.AsignaturaCode == asig.ToString()).FirstOrDefault(),
+                        Cursos = _db.Cursos.Where(e => e.CursoCode == "A0").FirstOrDefault()
+                    };
+                    _db.CursoProfeAsignaturas.Add(cpa);
+
+                }
+                else {
+                    
+                    CursoProfeAsignatura cpa = new CursoProfeAsignatura()
+                    {
+                        Profesores = _db.Profesores.Where(e => e.Rut == 112342342).FirstOrDefault(),
+                        Asignaturas = _db.Asignaturas.Where(e => e.AsignaturaCode == asig.ToString()).FirstOrDefault(),
+                        Cursos = _db.Cursos.Where(e => e.CursoCode == "A1").FirstOrDefault()
+                    };
+                    _db.CursoProfeAsignaturas.Add(cpa);
+                }
+                _db.SaveChanges();
+            }
+            
+           
         }
 
         public bool DataBaseExist()

@@ -20,6 +20,7 @@ namespace NoteControl.Source.MVVM.ViewModel
         private BLAlumnos _blAlumnos = new BLAlumnos();
         private BLCursos _blCursos = new BLCursos();
         public Command ButtonBuscarAlum { get; set; }
+        private bool _isProfe;
         private List<ComboBoxItem> _comboBoxCurso = new List<ComboBoxItem>();
         public List<ComboBoxItem> ComboBoxCurso
         {
@@ -35,7 +36,16 @@ namespace NoteControl.Source.MVVM.ViewModel
         public ComboBoxItem SelectedComboBoxCurso
         {
             get { return _selectedComboBoxCurso; }
-            set { _selectedComboBoxCurso = value; NotifyPropertyChanged("SelectedComboBoxCurso"); }
+            set
+            {
+                _selectedComboBoxCurso = value;
+                if (_selectedComboBoxCurso != null)
+                {
+                    CargarComboBoxAsignatura();
+                    IsEnableComboBoxAsignaturas = true;
+                }
+                NotifyPropertyChanged("SelectedComboBoxCurso");
+            }
         }
 
         public List<ComboBoxItem> _comboBoxAsignaturas = new List<ComboBoxItem>();
@@ -91,26 +101,66 @@ namespace NoteControl.Source.MVVM.ViewModel
         public IngNotasViewModel(Usuario userLogeado)
         {
             this.userLogeado = userLogeado;
-            CargarComboBoxCurso();
             ButtonBuscarAlum = new Command(CargarDataGrid, () => true);
-            IsEnableButtonBuscarAlum = false;
-            IsEnableComboBoxAsignaturas = false;
+            int perfil = userLogeado.Perfiles.PerfilId;
+            //define si es un profe o no
+            InitPage(perfil);
         }
-        
-        private void CargarComboBoxCurso()
+
+        private void InitPage(int perfil)
         {
-            foreach (Curso c in _blCursos.ListarCursosPorProfesor(userLogeado.Rut))
+          
+            switch (perfil)
             {
-                ComboBoxCurso.Add(new ComboBoxItem() { Content = c.Nombre, Tag = c.CursoCode, ToolTip = c.CursoCode });
+                //si es administrador
+                case 1:
+                    if (_blCursos.ListarCursos().Count > 0)
+                    {
+                        foreach (Curso c in _blCursos.ListarCursos())
+                        {
+                            ComboBoxCurso.Add(new ComboBoxItem() {
+                                Content = c.Nombre + " - Año: " + c.Anio,
+                                Tag = c.CursoCode, ToolTip = c.CursoCode });
+                        }
+                    }
+                    else
+                    {
+                        MessageBox.Show("No tiene cursos designados");
+                    }
+                    IsEnableButtonBuscarAlum = false;
+                    IsEnableComboBoxAsignaturas = false;
+                    break;
+                // si es profe
+                case 2:
+                    List<Curso> cursos = _blCursos.ListarCursosPorProfesor(userLogeado.Rut);
+                    if (cursos.Count > 0)
+                    {
+                        foreach (Curso c in cursos)
+                        {
+                            ComboBoxCurso.Add(new ComboBoxItem() { Content = c.Nombre+ " - Año:     "+c.Anio,
+                                Tag = c.CursoCode, ToolTip = c.CursoCode });
+                        }
+                    }
+                    else
+                    {
+                        MessageBox.Show("No tiene cursos designados");
+                    }
+                    IsEnableButtonBuscarAlum = false;
+                    IsEnableComboBoxAsignaturas = false;
+                break;
             }
+
         }
         private void CargarComboBoxAsignatura()
         {
             string cursoCode = _selectedComboBoxCurso.Tag.ToString();
-            foreach (Asignatura a in _blAsignaturas.ListarAsignaturasPorProfesorYCurso(1, cursoCode))
+            foreach (Asignatura a in _blAsignaturas.ListarAsignaturasPorProfesorYCurso(userLogeado.Rut, cursoCode))
             {
-                ComboBoxAsignaturas.Add(new ComboBoxItem() {
-                    Content = a.Nombre, Tag = a.AsignaturaCode, ToolTip = a.AsignaturaCode
+                ComboBoxAsignaturas.Add(new ComboBoxItem()
+                {
+                    Content = a.Nombre,
+                    Tag = a.AsignaturaCode,
+                    ToolTip = a.AsignaturaCode
                 });
             }
         }
@@ -129,13 +179,13 @@ namespace NoteControl.Source.MVVM.ViewModel
                 NotifyPropertyChanged("DataGridAsigCursoProfe");
             }
         }
-           
-    
 
-    public event PropertyChangedEventHandler PropertyChanged;
-    private void NotifyPropertyChanged(string propertyName)
-    {
-        PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(propertyName));
+
+
+        public event PropertyChangedEventHandler PropertyChanged;
+        private void NotifyPropertyChanged(string propertyName)
+        {
+            PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(propertyName));
+        }
     }
-}
 }
