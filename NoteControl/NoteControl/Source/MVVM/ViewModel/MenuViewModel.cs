@@ -99,7 +99,7 @@ namespace NoteControl.Source.MVVM.ViewModel
                         where int.Parse(p.Tag.ToString()) == 5 
                         select p;
             var consultas = from p in items
-                            where int.Parse(p.Tag.ToString()) > 5 && int.Parse(p.Tag.ToString()) < 7
+                            where int.Parse(p.Tag.ToString()) > 5 && int.Parse(p.Tag.ToString()) < 8
                             select p;
             var informes = from p in items
                            where int.Parse(p.Tag.ToString()) > 7

@@ -122,7 +122,8 @@ namespace NoteControl.Source.DataAccess.Source
            
             for (int i = 0; i < initialData.asignaturas.Length; i++)
             {
-                Asignatura asig = new Asignatura() { AsignaturaCode = i.ToString(), Nombre = initialData.asignaturas[i] };
+                int cnt = i + 1;
+                Asignatura asig = new Asignatura() { AsignaturaCode = cnt.ToString(), Nombre = initialData.asignaturas[i] };
                 _db.Asignaturas.Add(asig);
                 _db.SaveChanges();
             }
@@ -151,7 +152,7 @@ namespace NoteControl.Source.DataAccess.Source
             _db.SaveChanges();
             for (int i = 0; i < 8; i++) {
                 int asig = i + 1;
-                if (i < 5)
+                if (i < 2)
                 {
                     CursoProfeAsignatura cpa = new CursoProfeAsignatura()
                     {
@@ -161,9 +162,17 @@ namespace NoteControl.Source.DataAccess.Source
                     };
                     _db.CursoProfeAsignaturas.Add(cpa);
 
+                } else if (i<6) {
+                    CursoProfeAsignatura cpa = new CursoProfeAsignatura()
+                    {
+                        Profesores = _db.Profesores.Where(e => e.Rut == 181303859).FirstOrDefault(),
+                        Asignaturas = _db.Asignaturas.Where(e => e.AsignaturaCode == asig.ToString()).FirstOrDefault(),
+                        Cursos = _db.Cursos.Where(e => e.CursoCode == "A1").FirstOrDefault()
+                    };
+                    _db.CursoProfeAsignaturas.Add(cpa);
                 }
                 else {
-                    
+
                     CursoProfeAsignatura cpa = new CursoProfeAsignatura()
                     {
                         Profesores = _db.Profesores.Where(e => e.Rut == 112342342).FirstOrDefault(),

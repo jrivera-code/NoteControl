@@ -61,5 +61,17 @@ namespace NoteControl.Source.BusinessLogic
                 throw;
             }
         }
+
+        public List<Asignatura> ListarAsignaturasPorCurso(string cursoCode)
+        {
+            try
+            {
+                return _da.ListarAsignaturasPorCurso(cursoCode);
+            }
+            catch
+            {
+                throw;
+            }
+        }
     }
 }

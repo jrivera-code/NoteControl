@@ -65,6 +65,20 @@ namespace NoteControl.Source.DataAccess.Source
             return list;
         }
 
+        public List<Asignatura> ListarAsignaturasPorCurso(string cursoCode)
+        {
+            List<Asignatura> list = (from asig in _db.Asignaturas
+                      join cpa in _db.CursoProfeAsignaturas
+                         on asig.AsignaturaCode equals cpa.AsignaturaCode
+                      join cur in _db.Cursos
+                        on cpa.CursoCode equals cur.CursoCode
+                      join profe in _db.Profesores
+                        on cpa.Rut equals profe.Rut
+                      where cur.CursoCode == cursoCode
+                      select asig).ToList();
+            return list;
+        }
+
         public void Dispose()
         {
             throw new NotImplementedException();

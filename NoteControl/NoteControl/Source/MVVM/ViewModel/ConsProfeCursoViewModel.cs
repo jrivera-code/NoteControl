@@ -79,7 +79,11 @@ namespace NoteControl.Source.MVVM.ViewModel
         {
             foreach (Curso c in _blCursos.ListarCursos())
             {
-                ComboBoxCursosItems.Add(new ComboBoxItem() { Content = c.Nombre, Tag = c.CursoCode });
+                ComboBoxCursosItems.Add(new ComboBoxItem() {
+                    Content = c.Nombre + " - Año: "+c.Anio,
+                    Tag = c.CursoCode,
+                    ToolTip = "Seleccione un Curso"
+                });
             }
         }
         public event PropertyChangedEventHandler PropertyChanged;

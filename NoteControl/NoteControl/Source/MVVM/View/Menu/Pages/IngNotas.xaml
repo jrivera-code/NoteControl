@@ -54,10 +54,12 @@
         <Label Grid.Row="1" Grid.Column="0" Content="Mis Cursos" HorizontalAlignment="Left" VerticalAlignment="Center" Margin="60,18,0,18" Width="71" Foreground="White" FontWeight="Bold"></Label>
         <Label Grid.Row="1" Grid.Column="1" Content="Asignaturas" HorizontalAlignment="Left" VerticalAlignment="Center" Margin="53,18,0,18" Width="78" Foreground="White" FontWeight="Bold"></Label>
         <ComboBox HorizontalAlignment="Right" x:Name="CBMainCurso" Grid.Row="1" 
-               SelectedItem="{Binding SelectedComboBoxCurso,Mode=TwoWay}"   Grid.Column="0" ItemsSource="{Binding ComboBoxCurso,Mode=TwoWay}" Margin="0,17" Width="260"></ComboBox>
-        <ComboBox x:Name="CBMainAsignatura" ItemsSource="{Binding ComboBoxAsignaturas,Mode=TwoWay}"
-        SelectedItem="{Binding SelectedComboBoxAsignaturas,Mode=TwoWay}"
-                  IsEnabled="{Binding IsEnableComboBoxAsignaturas}"
+               SelectedItem="{Binding SelectedComboBoxCurso,Mode=TwoWay,UpdateSourceTrigger=PropertyChanged}" 
+                  IsEnabled="{Binding IsEnableComboBoxCursos}"
+                  Grid.Column="0" ItemsSource="{Binding ComboBoxCurso,Mode=TwoWay}" Margin="0,17" Width="260"></ComboBox>
+        <ComboBox x:Name="CBMainAsignatura" ItemsSource="{Binding ComboBoxAsignaturas,Mode=TwoWay,UpdateSourceTrigger=PropertyChanged}"
+        SelectedItem="{Binding SelectedComboBoxAsig,Mode=TwoWay}"
+                  IsEnabled="{Binding IsEnableComboBoxAsignaturas,Mode=TwoWay,UpdateSourceTrigger=PropertyChanged}"
                   Grid.Row="1" Grid.Column="1" HorizontalAlignment="Right" Margin="0,17" Width="260" ></ComboBox>
         <Button Command="{Binding ButtonBuscarAlum, Mode =TwoWay,IsAsync=True}"
               IsEnabled="{Binding IsEnableButtonBuscarAlum}"  Grid.Row="1" Grid.Column="2" Content="Buscar Alumnos" Width="150" Margin="80,15,170,15"></Button>
