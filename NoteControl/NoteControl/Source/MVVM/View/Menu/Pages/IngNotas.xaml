@@ -4,6 +4,7 @@
       xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
       xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
       xmlns:local="clr-namespace:NoteControl"
+      xmlns:Converters="clr-namespace:NoteControl.Source.MVVM.ViewModel.Converters"
       mc:Ignorable="d"
       Title="RegXMateria" Height="650.000" Width="1200.000">
 
@@ -63,20 +64,22 @@
                   Grid.Row="1" Grid.Column="1" HorizontalAlignment="Right" Margin="0,17" Width="260" ></ComboBox>
         <Button Command="{Binding ButtonBuscarAlum, Mode =TwoWay,IsAsync=True}"
               IsEnabled="{Binding IsEnableButtonBuscarAlum}"  Grid.Row="1" Grid.Column="2" Content="Buscar Alumnos" Width="150" Margin="80,15,170,15"></Button>
-        <DataGrid Name="DataGrid" Grid.Row="5"  Grid.Column="0"  Grid.ColumnSpan="3" ItemsSource="{Binding DataGridAsigNotas,Mode=TwoWay,IsAsync=True, UpdateSourceTrigger=PropertyChanged}" AutoGenerateColumns="False" Margin="50" >
-            <DataGrid.Columns>
-                <DataGridTextColumn Header="Rut" Binding="{Binding Rut}" />
-                <DataGridTextColumn Header="NombreApellido" Binding="{Binding NombreApellido}"/>
-                <DataGridTextColumn Header="Nota 1" Binding="{Binding Nota1}"/>
-                <DataGridTextColumn Header="Nota 2" Binding="{Binding Nota2}"/>
-                <DataGridTextColumn Header="Nota 3" Binding="{Binding Nota3}"/>
-                <DataGridTextColumn Header="Nota 4" Binding="{Binding Nota4}"/>
-                <DataGridTextColumn Header="Nota 5" Binding="{Binding Nota5}"/>
-                <DataGridTextColumn Header="Nota 6" Binding="{Binding Nota6}"/>
-                <DataGridTextColumn Header="Nota 7" Binding="{Binding Nota7}"/>
-                <DataGridTextColumn Header="Nota 8" Binding="{Binding Nota8}"/>
-                <DataGridTextColumn Header="Nota 9" Binding="{Binding Nota9}"/>
-                <DataGridTextColumn Header="Nota 10" Binding="{Binding Nota10}"/>
+        <DataGrid Name="DataGrid"  AutoGenerateColumns="False" CanUserAddRows="False" Grid.Row="5"  Grid.Column="0"  Grid.ColumnSpan="3" ItemsSource="{Binding DataGridAsigNotas,Mode=TwoWay,IsAsync=True, UpdateSourceTrigger=PropertyChanged}" Margin="50" >
+           
+            <DataGrid.Columns >
+                
+                <DataGridTextColumn  CanUserSort="False"  IsReadOnly="True" CanUserReorder="False"  Header="Rut" Binding="{Binding Rut}" />
+                <DataGridTextColumn CanUserSort="False"  IsReadOnly="True" CanUserReorder="False"  Header="NombreApellido" Binding="{Binding NombreApellido}"/>
+                <DataGridTextColumn  CanUserSort="False" Header="Nota 1" Binding="{Binding Nota1,UpdateSourceTrigger=LostFocus}"/>
+                <DataGridTextColumn CanUserSort="False"  Header="Nota 2" Binding="{Binding Nota2,UpdateSourceTrigger=LostFocus}"/>
+                <DataGridTextColumn CanUserSort="False"  Header="Nota 3" Binding="{Binding Nota3,UpdateSourceTrigger=LostFocus}"/>
+                <DataGridTextColumn CanUserSort="False"  Header="Nota 4" Binding="{Binding Nota4,UpdateSourceTrigger=LostFocus}"/>
+                <DataGridTextColumn CanUserSort="False"  Header="Nota 5" Binding="{Binding Nota5,UpdateSourceTrigger=LostFocus}"/>
+                <DataGridTextColumn CanUserSort="False"  Header="Nota 6" Binding="{Binding Nota6,UpdateSourceTrigger=LostFocus}"/>
+                <DataGridTextColumn CanUserSort="False"  Header="Nota 7" Binding="{Binding Nota7,UpdateSourceTrigger=LostFocus}"/>
+                <DataGridTextColumn CanUserSort="False"  Header="Nota 8" Binding="{Binding Nota8,UpdateSourceTrigger=LostFocus}"/>
+                <DataGridTextColumn CanUserSort="False"  Header="Nota 9" Binding="{Binding Nota9,UpdateSourceTrigger=LostFocus}"/>
+                <DataGridTextColumn CanUserSort="False" Header="Nota 10" Binding="{Binding Nota10,UpdateSourceTrigger=LostFocus}"/>
 
             </DataGrid.Columns>
         </DataGrid>

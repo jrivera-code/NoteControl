@@ -14,5 +14,6 @@ namespace NoteControl.Source.MVVM.ViewModel.Utils
             Regex regex = new Regex("[^0-9]+");
             return (regex.IsMatch(value)) ? null : value;
         }
+
     }
 }

@@ -11,10 +11,9 @@ namespace NoteControl.Source.MVVM.Model
     {
         [Key]
         public int AlumnoNotaAsignaturaId { get; set; }
-        public int NotaId { get; set; }
         public string AsignaturaCode { get; set; }
         public int Rut { get; set; }
-        public virtual Nota Nota { get; set; }
+        public double Calificacion { get; set; }
         public virtual Asignatura Asignatura { get; set; }
         public virtual Alumno Alumno { get; set; }
     }

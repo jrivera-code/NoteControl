@@ -38,7 +38,6 @@ namespace NoteControl.Source.DataAccess.Source
         public void ModificarCurso(Curso curso, string textBoxCodeCurso,int newProfe)
         {
            Profesor p = _db.Profesores.Where(pr => pr.Rut == newProfe).FirstOrDefault();
-
             Curso c = (from cur in _db.Cursos
                     where cur.CursoCode == textBoxCodeCurso
                     select cur).FirstOrDefault();

@@ -77,6 +77,7 @@
       <SubType>Designer</SubType>
     </ApplicationDefinition>
     <Compile Include="Source\BusinessLogic\BLAlumnos.cs" />
+    <Compile Include="Source\BusinessLogic\BLNotas.cs" />
     <Compile Include="Source\BusinessLogic\BLPrivilegiosExtra.cs" />
     <Compile Include="Source\BusinessLogic\BLProfesores.cs" />
     <Compile Include="Source\BusinessLogic\BLEspecialidades.cs" />
@@ -84,6 +85,7 @@
     <Compile Include="Source\BusinessLogic\BLAsignaturas.cs" />
     <Compile Include="Source\DataAccess\InitialData\Data.cs" />
     <Compile Include="Source\DataAccess\Source\DAAlumnos.cs" />
+    <Compile Include="Source\DataAccess\Source\DANotas.cs" />
     <Compile Include="Source\DataAccess\Source\DAPrivilegiosExtra.cs" />
     <Compile Include="Source\DataAccess\Source\DAProfesores.cs" />
     <Compile Include="Source\DataAccess\Source\DAEspecialidades.cs" />
@@ -96,11 +98,11 @@
     <Compile Include="Source\MVVM\Model\CursoProfeAsignatura.cs" />
     <Compile Include="Source\MVVM\Model\Especialidad.cs" />
     <Compile Include="Source\MVVM\Model\EspecialidadProfesor.cs" />
-    <Compile Include="Source\MVVM\Model\Nota.cs" />
     <Compile Include="Source\MVVM\Model\PrivilegioExtra.cs" />
     <Compile Include="Source\MVVM\Model\Profesor.cs" />
     <Compile Include="Source\MVVM\ViewModel\ConsAlumCursoViewModel.cs" />
     <Compile Include="Source\MVVM\ViewModel\ConsProfeCursoViewModel.cs" />
+    <Compile Include="Source\MVVM\ViewModel\Converters\BooleanToVisibilityConverter.cs" />
     <Compile Include="Source\MVVM\ViewModel\Converters\Converter.cs" />
     <Compile Include="Source\MVVM\ViewModel\DataGridRowModel\AlumnoRowModel.cs" />
     <Compile Include="Source\MVVM\ViewModel\DataGridRowModel\EspecialidadRowModel.cs" />

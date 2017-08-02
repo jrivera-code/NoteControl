@@ -83,6 +83,8 @@ namespace NoteControl.Source.MVVM.ViewModel
                 NotifyPropertyChanged("SelectedComboBoxAsig");
             }
         }
+
+        
         private bool _isEnableComboBoxAsignaturas;
 
         public bool IsEnableComboBoxAsignaturas
@@ -215,30 +217,37 @@ namespace NoteControl.Source.MVVM.ViewModel
             DataGridAsigNotas.Clear();
             string asig = _selectedComboBoxAsig.Tag.ToString();
             string curso = _selectedComboBoxCurso.Tag.ToString();
-            foreach (Alumno alum in _blAlumnos.ListarAlumnosPorCursoYAsignatura(asig,curso))
+            foreach (Alumno alum in _blAlumnos.ListarAlumnosPorCursoYAsignatura(asig, curso))
             {
+                Dictionary<string, string> notas = new Dictionary<string, string>();
+                alum.AlumnoNotaAsignaturas.ForEach(e =>
+                {
+                    var index = alum.AlumnoNotaAsignaturas.IndexOf(e);
+                    notas.Add("Nota" + index, e.Calificacion.ToString());
 
+                });
+                // toda la logica de guardar nuevas notas se hace en AsigNotasModel.cs
                 DataGridAsigNotas.Add(new AsigNotasModel()
                 {
+
                     Rut = alum.Rut.ToString(),
                     NombreApellido = alum.Nombre + " " + alum.Apellido,
-                    Nota1 = "",
-                    Nota2 = "",
-                    Nota3 = "",
-                    Nota4 = "",
-                    Nota5 = "",
-                    Nota6 = "",
-                    Nota7 = "",
-                    Nota8 = "",
-                    Nota9 = "",
-                    Nota10 = "",
+                    Nota1 = (notas.ContainsKey("Nota1")) ? notas["Nota1"] : "",
+                    Nota2 = (notas.ContainsKey("Nota2")) ? notas["Nota2"] : "",
+                    Nota3 = (notas.ContainsKey("Nota3")) ? notas["Nota3"] : "",
+                    Nota4 = (notas.ContainsKey("Nota4")) ? notas["Nota4"] : "",
+                    Nota5 = (notas.ContainsKey("Nota5")) ? notas["Nota5"] : "",
+                    Nota6 = (notas.ContainsKey("Nota6")) ? notas["Nota6"] : "",
+                    Nota7 = (notas.ContainsKey("Nota7")) ? notas["Nota7"] : "",
+                    Nota8 = (notas.ContainsKey("Nota8")) ? notas["Nota8"] : "",
+                    Nota9 = (notas.ContainsKey("Nota9")) ? notas["Nota9"] : "",
+                    Nota10 = (notas.ContainsKey("Nota10")) ? notas["Nota10"] : "",
+                    AsignaturaCode = asig
+
                 });
                 NotifyPropertyChanged("DataGridAsigNotas");
             }
         }
-
-
-
         public event PropertyChangedEventHandler PropertyChanged;
         private void NotifyPropertyChanged(string propertyName)
         {
