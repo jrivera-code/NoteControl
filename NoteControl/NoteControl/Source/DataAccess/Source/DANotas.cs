@@ -39,5 +39,23 @@ namespace NoteControl.Source.DataAccess.Source
             }
             
         }
+
+        public List<AlumnoNotaAsignatura> ListarNotasPorAlumnoCursoAsignatura(string cursoCode, string asignaturaCode, int rut)
+        {
+            List<AlumnoNotaAsignatura> list = new List<AlumnoNotaAsignatura>();
+            var notas = (from ana in _db.AlumnoNotaAsignaturas
+                         join asig in _db.Asignaturas on ana.AsignaturaCode equals
+                         asig.AsignaturaCode
+                         join cpa in _db.CursoProfeAsignaturas on asig.AsignaturaCode equals
+                         cpa.AsignaturaCode
+                               where ana.Rut == rut &&
+                               ana.AsignaturaCode == asignaturaCode &&
+                               cpa.CursoCode == cursoCode
+                               select ana);
+            foreach (AlumnoNotaAsignatura a in notas) {
+                list.Add(a);
+            }
+            return list;
+        }
     }
 }

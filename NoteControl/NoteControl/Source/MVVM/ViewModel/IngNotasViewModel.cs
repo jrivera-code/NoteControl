@@ -17,6 +17,7 @@ namespace NoteControl.Source.MVVM.ViewModel
     {
         private BLProfesores _blProfesores = new BLProfesores();
         private BLAsignaturas _blAsignaturas = new BLAsignaturas();
+        private BLNotas _blNotas = new BLNotas();
         private BLAlumnos _blAlumnos = new BLAlumnos();
         private BLCursos _blCursos = new BLCursos();
         private bool _isProfe;
@@ -217,25 +218,29 @@ namespace NoteControl.Source.MVVM.ViewModel
             DataGridAsigNotas.Clear();
             string asig = _selectedComboBoxAsig.Tag.ToString();
             string curso = _selectedComboBoxCurso.Tag.ToString();
+            List<AsigNotasModel> list = new List<AsigNotasModel>();
             foreach (Alumno alum in _blAlumnos.ListarAlumnosPorCursoYAsignatura(asig, curso))
             {
-
+             List<AlumnoNotaAsignatura> anaList = _blNotas.ListarNotasPorAlumnoCursoAsignatura(curso,asig,alum.Rut);
                 // toda la logica de guardar nuevas notas se hace en AsigNotasModel.cs
-                DataGridAsigNotas.Add(new AsigNotasModel()
-                { Rut = alum.Rut.ToString(),
+                list.Add(new AsigNotasModel()
+                {
+                    AsignaturaCode = asig,
+                    Rut = alum.Rut.ToString(),
                     NombreApellido = alum.Nombre + " " + alum.Apellido,
-                    Nota1 = (alum.AlumnoNotaAsignaturas.Exists(e => e.NumeroNota == 1)) ? alum.AlumnoNotaAsignaturas.Where(e => e.NumeroNota == 1).FirstOrDefault().Calificacion : 0,
-                    Nota2 = (alum.AlumnoNotaAsignaturas.Exists(e => e.NumeroNota == 2)) ? alum.AlumnoNotaAsignaturas.Where(e => e.NumeroNota == 2).FirstOrDefault().Calificacion : 0,
-                    Nota3 = (alum.AlumnoNotaAsignaturas.Exists(e => e.NumeroNota == 3)) ? alum.AlumnoNotaAsignaturas.Where(e => e.NumeroNota == 3).FirstOrDefault().Calificacion : 0,
-                    Nota4 = (alum.AlumnoNotaAsignaturas.Exists(e => e.NumeroNota == 4)) ? alum.AlumnoNotaAsignaturas.Where(e => e.NumeroNota == 4).FirstOrDefault().Calificacion : 0,
-                    Nota5 = (alum.AlumnoNotaAsignaturas.Exists(e => e.NumeroNota == 5)) ? alum.AlumnoNotaAsignaturas.Where(e => e.NumeroNota == 5).FirstOrDefault().Calificacion : 0,
-                    Nota6 = (alum.AlumnoNotaAsignaturas.Exists(e => e.NumeroNota == 6)) ? alum.AlumnoNotaAsignaturas.Where(e => e.NumeroNota == 6).FirstOrDefault().Calificacion : 0,
-                    Nota7 = (alum.AlumnoNotaAsignaturas.Exists(e => e.NumeroNota == 7)) ? alum.AlumnoNotaAsignaturas.Where(e => e.NumeroNota == 7).FirstOrDefault().Calificacion : 0,
-                    Nota8 = (alum.AlumnoNotaAsignaturas.Exists(e => e.NumeroNota == 8)) ? alum.AlumnoNotaAsignaturas.Where(e => e.NumeroNota == 8).FirstOrDefault().Calificacion : 0,
-                    Nota9 = (alum.AlumnoNotaAsignaturas.Exists(e => e.NumeroNota == 9)) ? alum.AlumnoNotaAsignaturas.Where(e => e.NumeroNota == 9).FirstOrDefault().Calificacion : 0,
-                    Nota10 = (alum.AlumnoNotaAsignaturas.Exists(e => e.NumeroNota == 10)) ? alum.AlumnoNotaAsignaturas.Where(e => e.NumeroNota == 10).FirstOrDefault().Calificacion : 0,
-                    AsignaturaCode = asig
+                    Nota1 = (anaList.Exists(e => e.NumeroNota == 1)) ? anaList.Where(e => e.NumeroNota == 1).FirstOrDefault().Calificacion : 0,
+                    Nota2 = (anaList.Exists(e => e.NumeroNota == 2)) ? anaList.Where(e => e.NumeroNota == 2).FirstOrDefault().Calificacion : 0,
+                    Nota3 = (anaList.Exists(e => e.NumeroNota == 3)) ? anaList.Where(e => e.NumeroNota == 3).FirstOrDefault().Calificacion : 0,
+                    Nota4 = (anaList.Exists(e => e.NumeroNota == 4)) ? anaList.Where(e => e.NumeroNota == 4).FirstOrDefault().Calificacion : 0,
+                    Nota5 = (anaList.Exists(e => e.NumeroNota == 5)) ? anaList.Where(e => e.NumeroNota == 5).FirstOrDefault().Calificacion : 0,
+                    Nota6 = (anaList.Exists(e => e.NumeroNota == 6)) ? anaList.Where(e => e.NumeroNota == 6).FirstOrDefault().Calificacion : 0,
+                    Nota7 = (anaList.Exists(e => e.NumeroNota == 7)) ? anaList.Where(e => e.NumeroNota == 7).FirstOrDefault().Calificacion : 0,
+                    Nota8 = (anaList.Exists(e => e.NumeroNota == 8)) ? anaList.Where(e => e.NumeroNota == 8).FirstOrDefault().Calificacion : 0,
+                    Nota9 = (anaList.Exists(e => e.NumeroNota == 9)) ? anaList.Where(e => e.NumeroNota == 9).FirstOrDefault().Calificacion : 0,
+                    Nota10 = (anaList.Exists(e => e.NumeroNota == 10)) ? anaList.Where(e => e.NumeroNota == 10).FirstOrDefault().Calificacion : 0
+                   
                 });
+                DataGridAsigNotas = list;
                 NotifyPropertyChanged("DataGridAsigNotas");
             }
         }

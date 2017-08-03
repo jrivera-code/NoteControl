@@ -1,4 +1,5 @@
 ﻿using NoteControl.Source.DataAccess.Source;
+using NoteControl.Source.MVVM.Model;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -18,6 +19,18 @@ namespace NoteControl.Source.BusinessLogic
 
             } catch { throw; }
        
+        }
+
+
+        public List<AlumnoNotaAsignatura> ListarNotasPorAlumnoCursoAsignatura(string cursoCode ,string asignaturaCode, int rut)
+        {
+            try
+            {
+               return _da.ListarNotasPorAlumnoCursoAsignatura(cursoCode, asignaturaCode, rut);
+
+            }
+            catch { throw; }
+
         }
     }
 }
