@@ -11,10 +11,10 @@ namespace NoteControl.Source.BusinessLogic
     {
         private DANotas _da = new DANotas();
 
-        public void AgregarNuevaNota(string calificacion, string asignaturaCode, string rut)
+        public void AgregarNuevaNota(float calificacion, string asignaturaCode, int rut,int numeroNota)
         {
             try {
-                _da.AgregarNuevaNota(calificacion, asignaturaCode, rut);
+                _da.AgregarNuevaNota(calificacion, asignaturaCode, rut, numeroNota);
 
             } catch { throw; }
        

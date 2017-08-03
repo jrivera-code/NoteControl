@@ -84,6 +84,7 @@
     <Compile Include="Source\BusinessLogic\BLCursos.cs" />
     <Compile Include="Source\BusinessLogic\BLAsignaturas.cs" />
     <Compile Include="Source\DataAccess\InitialData\Data.cs" />
+    <Compile Include="Source\DataAccess\Source\AlumnoNotaAsignaturas.cs" />
     <Compile Include="Source\DataAccess\Source\DAAlumnos.cs" />
     <Compile Include="Source\DataAccess\Source\DANotas.cs" />
     <Compile Include="Source\DataAccess\Source\DAPrivilegiosExtra.cs" />
@@ -102,8 +103,10 @@
     <Compile Include="Source\MVVM\Model\Profesor.cs" />
     <Compile Include="Source\MVVM\ViewModel\ConsAlumCursoViewModel.cs" />
     <Compile Include="Source\MVVM\ViewModel\ConsProfeCursoViewModel.cs" />
+    <Compile Include="Source\MVVM\ViewModel\Converters\BackgroundConverter.cs" />
     <Compile Include="Source\MVVM\ViewModel\Converters\BooleanToVisibilityConverter.cs" />
     <Compile Include="Source\MVVM\ViewModel\Converters\Converter.cs" />
+    <Compile Include="Source\MVVM\ViewModel\Converters\FloatConverter.cs" />
     <Compile Include="Source\MVVM\ViewModel\DataGridRowModel\AlumnoRowModel.cs" />
     <Compile Include="Source\MVVM\ViewModel\DataGridRowModel\EspecialidadRowModel.cs" />
     <Compile Include="Source\MVVM\ViewModel\DataGridRowModel\AsigNotasModel.cs" />

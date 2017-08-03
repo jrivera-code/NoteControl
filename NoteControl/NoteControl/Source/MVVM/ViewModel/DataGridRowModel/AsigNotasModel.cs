@@ -8,10 +8,11 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows;
 using System.Windows.Controls;
+using System.Globalization;
 
 namespace NoteControl.Source.MVVM.ViewModel.DataGridRowModel
 {
-    public class AsigNotasModel : DataGridTextColumn,INotifyPropertyChanged
+    public class AsigNotasModel : ValidationRule,INotifyPropertyChanged
     {
         private BLNotas _blNotas = new BLNotas();
         private string _asignaturaCode;
@@ -33,151 +34,154 @@ namespace NoteControl.Source.MVVM.ViewModel.DataGridRowModel
             get { return _nombreApellido; }
             set { _nombreApellido = value; }
         }
-        private string _nota1;
+        private float _nota1;
 
-        public string Nota1
+        public float Nota1
         {
             get { return _nota1; }
             set {
-                _nota1 = StaticMethods.NumberValidationTextBox(value);
-                if (_nota1 != null ) {
-                    GuardarNota(_nota1,_asignaturaCode,_rut);
+                _nota1 = value;
+                if (_nota1 != 0) {
+                    GuardarNota(_nota1,_asignaturaCode,_rut,1);
                     NotifyProperty("Nota1");
                 } 
-                else _nota1 = ""; 
+                else _nota1 = 0; 
             }
         }
-        private string _nota2;
+        private float _nota2;
 
-        public string Nota2
+        public float Nota2
         {
             get { return _nota2; }
             set {
-                _nota2 = StaticMethods.NumberValidationTextBox(value);
-                if (_nota2 != null) {
-                    GuardarNota(_nota2, _asignaturaCode, _rut);
+                _nota2 = value;
+                if (_nota2 != 0) {
+                    GuardarNota(_nota2, _asignaturaCode, _rut,2);
                     NotifyProperty("Nota2");
                 }
-                else _nota2 = ""; 
+                else _nota2 = 0; 
             }
         }
-        private string _nota3;
+        private float _nota3;
 
-        public string Nota3
+        public float Nota3
         {
             get { return _nota3; }
             set {
-                _nota3 = StaticMethods.NumberValidationTextBox(value);
-                if (_nota3 != null) {
-                    GuardarNota(_nota3, _asignaturaCode, _rut);
+                _nota3 = value;
+                if (_nota3 != 0) {
+                    GuardarNota(_nota3, _asignaturaCode, _rut,3);
                     NotifyProperty("Nota3"); }
-                else _nota3 = ""; 
+                else _nota3 = 0; 
             }
         }
-        private string _nota4;
+        private float _nota4;
 
-        public string Nota4
+        public float Nota4
         {
             get { return _nota4; }
             set {
-                _nota4 = StaticMethods.NumberValidationTextBox(value);
-                if (_nota4 != null) {
-                    GuardarNota(_nota4, _asignaturaCode, _rut);
+                _nota4 = value;
+                if (_nota4 != 0) {
+                    GuardarNota(_nota4, _asignaturaCode, _rut,4);
                     NotifyProperty("Nota4"); }
-                else _nota4 = ""; 
+                else _nota4 = 0; 
             }
         }
-        private string _nota5;
+        private float _nota5;
 
-        public string Nota5
+        public float Nota5
         {
             get { return _nota5; }
             set {
-                _nota5 = StaticMethods.NumberValidationTextBox(value);
-                if (_nota5 != null) {
-                    GuardarNota(_nota5, _asignaturaCode, _rut);
+                _nota5 = value;
+                if (_nota5 != 0) {
+                    GuardarNota(_nota5, _asignaturaCode, _rut,5);
                     NotifyProperty("Nota5"); }
-                else _nota5 = ""; 
+                else _nota5 = 0; 
             }
         }
-        private string _nota6;
+        private float _nota6;
 
-        public string Nota6
+        public float Nota6
         {
             get { return _nota6; }
             set {
-                _nota6 = StaticMethods.NumberValidationTextBox(value);
-                if (_nota6 != null) {
-                    GuardarNota(_nota6, _asignaturaCode, _rut);
+                _nota6 = value;
+                if (_nota6 != 0) {
+                    GuardarNota(_nota6, _asignaturaCode, _rut,6);
                     NotifyProperty("Nota6"); }
-                else _nota6 = ""; 
+                else _nota6 = 0; 
             }
         }
-        private string _nota7;
+        private float _nota7;
 
-        public string Nota7
+        public float Nota7
         {
             get { return _nota7; }
             set {
-                _nota7 = StaticMethods.NumberValidationTextBox(value);
-                if (_nota7 != null) {
-                    GuardarNota(_nota7, _asignaturaCode, _rut);
+                _nota7 = value;
+                if (_nota7 != 0) {
+                    GuardarNota(_nota7, _asignaturaCode, _rut,7);
                     NotifyProperty("Nota7"); }
-                else Nota7 = ""; 
+                else _nota7 = 0; 
             }
         }
-        private string _nota8;
+        private float _nota8;
 
-        public string Nota8
+        public float Nota8
         {
             get { return _nota8; }
             set {
 
-                _nota8 = StaticMethods.NumberValidationTextBox(value);
-                if (_nota8 != null) {
-                    GuardarNota(_nota8, _asignaturaCode, _rut);
+                _nota8 = value;
+                if (_nota8 != 0) {
+                    GuardarNota(_nota8, _asignaturaCode, _rut,8);
                     NotifyProperty("Nota8"); }
-                else _nota8 = ""; 
+                else _nota8 = 0; 
             }
         }
-        private string _nota9;
+        private float _nota9;
 
-        public string Nota9
+        public float Nota9
         {
             get { return _nota9; }
             set {
-                _nota9 = StaticMethods.NumberValidationTextBox(value);
-                if (_nota9 != null) {
-                    GuardarNota(_nota9, _asignaturaCode, _rut);
+                _nota9 = value;
+                if (_nota9 != 0) {
+                    GuardarNota(_nota9, _asignaturaCode, _rut,9);
                     NotifyProperty("Nota9"); }
-                else _nota9 = "";
+                else _nota9 = 0;
             }
         }
-        private string _nota10;
-
-        
-
-        public string Nota10
+        private float _nota10;
+        public float Nota10
         {
             get { return _nota10; }
             set {
-                _nota10 = StaticMethods.NumberValidationTextBox(value);
-                if (_nota10 != null) {
-                    GuardarNota(_nota10, _asignaturaCode, _rut);
+                _nota10 = value;
+                if (_nota10 != 0 ) {
+                    GuardarNota(_nota10, _asignaturaCode, _rut,10);
                     NotifyProperty("Nota10"); }
-                else _nota10 = ""; 
+                else _nota10 = 0; 
             }
         }
+       
 
-        private void GuardarNota(string calificacion,string asignaturaCode,string rut) {
-            if(calificacion != "" && asignaturaCode != "")
-            _blNotas.AgregarNuevaNota(calificacion, asignaturaCode, rut);
+        private void GuardarNota(float calificacion,string asignaturaCode,string rut,int numeroNota) {
+            if(calificacion != 0 && asignaturaCode != "" && asignaturaCode != null)
+            _blNotas.AgregarNuevaNota(calificacion, asignaturaCode, int.Parse(rut), numeroNota);
         }
         public event PropertyChangedEventHandler PropertyChanged;
         private void NotifyProperty(string propertyName)
         {
             
             PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(propertyName));
+        }
+
+        public override ValidationResult Validate(object value, CultureInfo cultureInfo)
+        {
+            throw new NotImplementedException();
         }
     }
 }

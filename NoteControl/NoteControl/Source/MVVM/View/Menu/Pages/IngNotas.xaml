@@ -65,21 +65,133 @@
         <Button Command="{Binding ButtonBuscarAlum, Mode =TwoWay,IsAsync=True}"
               IsEnabled="{Binding IsEnableButtonBuscarAlum}"  Grid.Row="1" Grid.Column="2" Content="Buscar Alumnos" Width="150" Margin="80,15,170,15"></Button>
         <DataGrid Name="DataGrid"  AutoGenerateColumns="False" CanUserAddRows="False" Grid.Row="5"  Grid.Column="0"  Grid.ColumnSpan="3" ItemsSource="{Binding DataGridAsigNotas,Mode=TwoWay,IsAsync=True, UpdateSourceTrigger=PropertyChanged}" Margin="50" >
-           
+            <DataGrid.Resources>
+                <Converters:BackgroundConverter x:Key="BackgroundConverter"/>
+                <Converters:FloatConverter x:Key="FloatConverter"/>
+            </DataGrid.Resources>
             <DataGrid.Columns >
-                
                 <DataGridTextColumn  CanUserSort="False"  IsReadOnly="True" CanUserReorder="False"  Header="Rut" Binding="{Binding Rut}" />
                 <DataGridTextColumn CanUserSort="False"  IsReadOnly="True" CanUserReorder="False"  Header="NombreApellido" Binding="{Binding NombreApellido}"/>
-                <DataGridTextColumn  CanUserSort="False" Header="Nota 1" Binding="{Binding Nota1,UpdateSourceTrigger=LostFocus}"/>
-                <DataGridTextColumn CanUserSort="False"  Header="Nota 2" Binding="{Binding Nota2,UpdateSourceTrigger=LostFocus}"/>
-                <DataGridTextColumn CanUserSort="False"  Header="Nota 3" Binding="{Binding Nota3,UpdateSourceTrigger=LostFocus}"/>
-                <DataGridTextColumn CanUserSort="False"  Header="Nota 4" Binding="{Binding Nota4,UpdateSourceTrigger=LostFocus}"/>
-                <DataGridTextColumn CanUserSort="False"  Header="Nota 5" Binding="{Binding Nota5,UpdateSourceTrigger=LostFocus}"/>
-                <DataGridTextColumn CanUserSort="False"  Header="Nota 6" Binding="{Binding Nota6,UpdateSourceTrigger=LostFocus}"/>
-                <DataGridTextColumn CanUserSort="False"  Header="Nota 7" Binding="{Binding Nota7,UpdateSourceTrigger=LostFocus}"/>
-                <DataGridTextColumn CanUserSort="False"  Header="Nota 8" Binding="{Binding Nota8,UpdateSourceTrigger=LostFocus}"/>
-                <DataGridTextColumn CanUserSort="False"  Header="Nota 9" Binding="{Binding Nota9,UpdateSourceTrigger=LostFocus}"/>
-                <DataGridTextColumn CanUserSort="False" Header="Nota 10" Binding="{Binding Nota10,UpdateSourceTrigger=LostFocus}"/>
+                <DataGridTextColumn CanUserSort="False" Header="Nota 1" Binding="{Binding Nota1,StringFormat={}{0:n1},Converter={StaticResource FloatConverter},UpdateSourceTrigger=LostFocus}">
+                    <DataGridTextColumn.ElementStyle>
+                        <Style TargetType="{x:Type TextBlock}">
+                            <Style.Triggers>
+                                <Trigger Property="Text" Value="0.0">
+                                    <Setter Property="Visibility" Value="Collapsed"/>
+                                </Trigger>
+                            </Style.Triggers>
+                            <Setter Property="Background" Value="{Binding Nota1,Converter={StaticResource BackgroundConverter}}"/>
+                        </Style>
+                    </DataGridTextColumn.ElementStyle>
+                </DataGridTextColumn>
+                <DataGridTextColumn CanUserSort="False"  Header="Nota 2" Binding="{Binding Nota2,StringFormat={}{0:n1},Converter={StaticResource FloatConverter},UpdateSourceTrigger=LostFocus}">
+                    <DataGridTextColumn.ElementStyle>
+                        <Style TargetType="{x:Type TextBlock}">
+                            <Style.Triggers>
+                                <Trigger Property="Text" Value="0.0">
+                                    <Setter Property="Visibility" Value="Collapsed"/>
+                                </Trigger>
+                            </Style.Triggers>
+                            <Setter Property="Background" Value="{Binding Nota2,Converter={StaticResource BackgroundConverter}}"/>
+                        </Style>
+                    </DataGridTextColumn.ElementStyle>
+                </DataGridTextColumn>
+                <DataGridTextColumn CanUserSort="False"  Header="Nota 3" Binding="{Binding Nota3,StringFormat={}{0:n1},Converter={StaticResource FloatConverter},UpdateSourceTrigger=LostFocus}">
+                    <DataGridTextColumn.ElementStyle>
+                        <Style TargetType="{x:Type TextBlock}">
+                            <Style.Triggers>
+                                <Trigger Property="Text" Value="0.0">
+                                    <Setter Property="Visibility" Value="Collapsed"/>
+                                </Trigger>
+                            </Style.Triggers>
+                            <Setter Property="Background" Value="{Binding Nota3,Converter={StaticResource BackgroundConverter}}"/>
+                        </Style>
+                    </DataGridTextColumn.ElementStyle>
+                </DataGridTextColumn>
+                <DataGridTextColumn CanUserSort="False"  Header="Nota 4" Binding="{Binding Nota4,StringFormat={}{0:n1},Converter={StaticResource FloatConverter},UpdateSourceTrigger=LostFocus}">
+                    <DataGridTextColumn.ElementStyle>
+                        <Style TargetType="{x:Type TextBlock}">
+                            <Style.Triggers>
+                                <Trigger Property="Text" Value="0.0">
+                                    <Setter Property="Visibility" Value="Collapsed"/>
+                                </Trigger>
+                            </Style.Triggers>
+                            <Setter Property="Background" Value="{Binding Nota4,Converter={StaticResource BackgroundConverter}}"/>
+                        </Style>
+                    </DataGridTextColumn.ElementStyle>
+                </DataGridTextColumn>
+                <DataGridTextColumn CanUserSort="False"  Header="Nota 5" Binding="{Binding Nota5,StringFormat={}{0:n1},Converter={StaticResource FloatConverter},UpdateSourceTrigger=LostFocus}">
+                    <DataGridTextColumn.ElementStyle>
+                        <Style TargetType="{x:Type TextBlock}">
+                            <Style.Triggers>
+                                <Trigger Property="Text" Value="0.0">
+                                    <Setter Property="Visibility" Value="Collapsed"/>
+                                </Trigger>
+                            </Style.Triggers>
+                            <Setter Property="Background" Value="{Binding Nota5,Converter={StaticResource BackgroundConverter}}"/>
+                        </Style>
+                    </DataGridTextColumn.ElementStyle>
+                </DataGridTextColumn>
+                <DataGridTextColumn CanUserSort="False"  Header="Nota 6" Binding="{Binding Nota6,StringFormat={}{0:n1},Converter={StaticResource FloatConverter},UpdateSourceTrigger=LostFocus}">
+                    <DataGridTextColumn.ElementStyle>
+                        <Style TargetType="{x:Type TextBlock}">
+                            <Style.Triggers>
+                                <Trigger Property="Text" Value="0.0">
+                                    <Setter Property="Visibility" Value="Collapsed"/>
+                                </Trigger>
+                            </Style.Triggers>
+                            <Setter Property="Background" Value="{Binding Nota6,Converter={StaticResource BackgroundConverter}}"/>
+                        </Style>
+                    </DataGridTextColumn.ElementStyle>
+                </DataGridTextColumn>
+                <DataGridTextColumn CanUserSort="False"  Header="Nota 7" Binding="{Binding Nota7,StringFormat={}{0:n1},Converter={StaticResource FloatConverter},UpdateSourceTrigger=LostFocus}">
+                    <DataGridTextColumn.ElementStyle>
+                        <Style TargetType="{x:Type TextBlock}">
+                            <Style.Triggers>
+                                <Trigger Property="Text" Value="0.0">
+                                    <Setter Property="Visibility" Value="Collapsed"/>
+                                </Trigger>
+                            </Style.Triggers>
+                            <Setter Property="Background" Value="{Binding Nota7,Converter={StaticResource BackgroundConverter}}"/>
+                        </Style>
+                    </DataGridTextColumn.ElementStyle>
+                </DataGridTextColumn>
+                <DataGridTextColumn CanUserSort="False"  Header="Nota 8" Binding="{Binding Nota8,StringFormat={}{0:n1},Converter={StaticResource FloatConverter},UpdateSourceTrigger=LostFocus}">
+                    <DataGridTextColumn.ElementStyle>
+                        <Style TargetType="{x:Type TextBlock}">
+                            <Style.Triggers>
+                                <Trigger Property="Text" Value="0.0">
+                                    <Setter Property="Visibility" Value="Collapsed"/>
+                                </Trigger>
+                            </Style.Triggers>
+                            <Setter Property="Background" Value="{Binding Nota8,Converter={StaticResource BackgroundConverter}}"/>
+                        </Style>
+                    </DataGridTextColumn.ElementStyle>
+                </DataGridTextColumn>
+                <DataGridTextColumn CanUserSort="False"  Header="Nota 9" Binding="{Binding Nota9,StringFormat={}{0:n1},Converter={StaticResource FloatConverter},UpdateSourceTrigger=LostFocus}">
+                    <DataGridTextColumn.ElementStyle>
+                        <Style TargetType="{x:Type TextBlock}">
+                            <Style.Triggers>
+                                <Trigger Property="Text" Value="0.0">
+                                    <Setter Property="Visibility" Value="Collapsed"/>
+                                </Trigger>
+                            </Style.Triggers>
+                            <Setter Property="Background" Value="{Binding Nota9,Converter={StaticResource BackgroundConverter}}"/>
+                        </Style>
+                    </DataGridTextColumn.ElementStyle>
+                </DataGridTextColumn>
+                <DataGridTextColumn CanUserSort="False" Header="Nota 10" Binding="{Binding Nota10,StringFormat={}{0:n1},Converter={StaticResource FloatConverter},UpdateSourceTrigger=LostFocus}">
+                    <DataGridTextColumn.ElementStyle>
+                        <Style TargetType="{x:Type TextBlock}">
+                            <Style.Triggers>
+                                <Trigger Property="Text" Value="0.0">
+                                    <Setter Property="Visibility" Value="Collapsed"/>
+                                </Trigger>
+                            </Style.Triggers>
+                            <Setter Property="Background" Value="{Binding Nota1,Converter={StaticResource BackgroundConverter}}"/>
+                        </Style>
+                    </DataGridTextColumn.ElementStyle>
+                </DataGridTextColumn>
 
             </DataGrid.Columns>
         </DataGrid>

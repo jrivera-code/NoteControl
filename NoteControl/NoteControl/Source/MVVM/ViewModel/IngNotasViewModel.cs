@@ -219,31 +219,22 @@ namespace NoteControl.Source.MVVM.ViewModel
             string curso = _selectedComboBoxCurso.Tag.ToString();
             foreach (Alumno alum in _blAlumnos.ListarAlumnosPorCursoYAsignatura(asig, curso))
             {
-                Dictionary<string, string> notas = new Dictionary<string, string>();
-                alum.AlumnoNotaAsignaturas.ForEach(e =>
-                {
-                    var index = alum.AlumnoNotaAsignaturas.IndexOf(e);
-                    notas.Add("Nota" + index, e.Calificacion.ToString());
 
-                });
                 // toda la logica de guardar nuevas notas se hace en AsigNotasModel.cs
                 DataGridAsigNotas.Add(new AsigNotasModel()
-                {
-
-                    Rut = alum.Rut.ToString(),
+                { Rut = alum.Rut.ToString(),
                     NombreApellido = alum.Nombre + " " + alum.Apellido,
-                    Nota1 = (notas.ContainsKey("Nota1")) ? notas["Nota1"] : "",
-                    Nota2 = (notas.ContainsKey("Nota2")) ? notas["Nota2"] : "",
-                    Nota3 = (notas.ContainsKey("Nota3")) ? notas["Nota3"] : "",
-                    Nota4 = (notas.ContainsKey("Nota4")) ? notas["Nota4"] : "",
-                    Nota5 = (notas.ContainsKey("Nota5")) ? notas["Nota5"] : "",
-                    Nota6 = (notas.ContainsKey("Nota6")) ? notas["Nota6"] : "",
-                    Nota7 = (notas.ContainsKey("Nota7")) ? notas["Nota7"] : "",
-                    Nota8 = (notas.ContainsKey("Nota8")) ? notas["Nota8"] : "",
-                    Nota9 = (notas.ContainsKey("Nota9")) ? notas["Nota9"] : "",
-                    Nota10 = (notas.ContainsKey("Nota10")) ? notas["Nota10"] : "",
+                    Nota1 = (alum.AlumnoNotaAsignaturas.Exists(e => e.NumeroNota == 1)) ? alum.AlumnoNotaAsignaturas.Where(e => e.NumeroNota == 1).FirstOrDefault().Calificacion : 0,
+                    Nota2 = (alum.AlumnoNotaAsignaturas.Exists(e => e.NumeroNota == 2)) ? alum.AlumnoNotaAsignaturas.Where(e => e.NumeroNota == 2).FirstOrDefault().Calificacion : 0,
+                    Nota3 = (alum.AlumnoNotaAsignaturas.Exists(e => e.NumeroNota == 3)) ? alum.AlumnoNotaAsignaturas.Where(e => e.NumeroNota == 3).FirstOrDefault().Calificacion : 0,
+                    Nota4 = (alum.AlumnoNotaAsignaturas.Exists(e => e.NumeroNota == 4)) ? alum.AlumnoNotaAsignaturas.Where(e => e.NumeroNota == 4).FirstOrDefault().Calificacion : 0,
+                    Nota5 = (alum.AlumnoNotaAsignaturas.Exists(e => e.NumeroNota == 5)) ? alum.AlumnoNotaAsignaturas.Where(e => e.NumeroNota == 5).FirstOrDefault().Calificacion : 0,
+                    Nota6 = (alum.AlumnoNotaAsignaturas.Exists(e => e.NumeroNota == 6)) ? alum.AlumnoNotaAsignaturas.Where(e => e.NumeroNota == 6).FirstOrDefault().Calificacion : 0,
+                    Nota7 = (alum.AlumnoNotaAsignaturas.Exists(e => e.NumeroNota == 7)) ? alum.AlumnoNotaAsignaturas.Where(e => e.NumeroNota == 7).FirstOrDefault().Calificacion : 0,
+                    Nota8 = (alum.AlumnoNotaAsignaturas.Exists(e => e.NumeroNota == 8)) ? alum.AlumnoNotaAsignaturas.Where(e => e.NumeroNota == 8).FirstOrDefault().Calificacion : 0,
+                    Nota9 = (alum.AlumnoNotaAsignaturas.Exists(e => e.NumeroNota == 9)) ? alum.AlumnoNotaAsignaturas.Where(e => e.NumeroNota == 9).FirstOrDefault().Calificacion : 0,
+                    Nota10 = (alum.AlumnoNotaAsignaturas.Exists(e => e.NumeroNota == 10)) ? alum.AlumnoNotaAsignaturas.Where(e => e.NumeroNota == 10).FirstOrDefault().Calificacion : 0,
                     AsignaturaCode = asig
-
                 });
                 NotifyPropertyChanged("DataGridAsigNotas");
             }
