@@ -166,11 +166,38 @@ namespace NoteControl.Source.MVVM.ViewModel.DataGridRowModel
                 else _nota10 = 0; 
             }
         }
-       
+        private float _promedio;
+        public float Promedio
+        {
+            get { return _promedio; }
+            set
+            {
+                _promedio = value;
+                if (_promedio != 0)
+                {
+                    NotifyProperty("Promedio");
+                }
+                else _promedio = 0;
+            }
+        }
+
 
         private void GuardarNota(float calificacion,string asignaturaCode,string rut,int numeroNota) {
-            if(calificacion != 0 && asignaturaCode != "" && asignaturaCode != null)
+            if (Promedio > 0 || float.IsNaN(Promedio))
+            {
+                //actualiza el primedio en tiempo de ejecucion
+                List<float> list = GetNotas();
+                list.Add(calificacion);
+                Promedio = list.Sum(e => e) / list.Count;
+                NotifyProperty("Promedio");
+            };
+            if (calificacion != 0 && asignaturaCode != "" && asignaturaCode != null)
             _blNotas.AgregarNuevaNota(calificacion, asignaturaCode, int.Parse(rut), numeroNota);
+        }
+
+        private List<float> GetNotas() {
+            List<float> notas = new List<float>() { Nota1, Nota2, Nota3, Nota4, Nota5, Nota6, Nota7, Nota8, Nota9, Nota10 };
+            return notas.Where(e=> e != 0).ToList();
         }
         public event PropertyChangedEventHandler PropertyChanged;
         private void NotifyProperty(string propertyName)

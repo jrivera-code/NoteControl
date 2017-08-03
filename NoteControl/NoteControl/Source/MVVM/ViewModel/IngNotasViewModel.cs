@@ -221,6 +221,7 @@ namespace NoteControl.Source.MVVM.ViewModel
             List<AsigNotasModel> list = new List<AsigNotasModel>();
             foreach (Alumno alum in _blAlumnos.ListarAlumnosPorCursoYAsignatura(asig, curso))
             {
+                //trae las notas
              List<AlumnoNotaAsignatura> anaList = _blNotas.ListarNotasPorAlumnoCursoAsignatura(curso,asig,alum.Rut);
                 // toda la logica de guardar nuevas notas se hace en AsigNotasModel.cs
                 list.Add(new AsigNotasModel()
@@ -237,11 +238,39 @@ namespace NoteControl.Source.MVVM.ViewModel
                     Nota7 = (anaList.Exists(e => e.NumeroNota == 7)) ? anaList.Where(e => e.NumeroNota == 7).FirstOrDefault().Calificacion : 0,
                     Nota8 = (anaList.Exists(e => e.NumeroNota == 8)) ? anaList.Where(e => e.NumeroNota == 8).FirstOrDefault().Calificacion : 0,
                     Nota9 = (anaList.Exists(e => e.NumeroNota == 9)) ? anaList.Where(e => e.NumeroNota == 9).FirstOrDefault().Calificacion : 0,
-                    Nota10 = (anaList.Exists(e => e.NumeroNota == 10)) ? anaList.Where(e => e.NumeroNota == 10).FirstOrDefault().Calificacion : 0
-                   
+                    Nota10 = (anaList.Exists(e => e.NumeroNota == 10)) ? anaList.Where(e => e.NumeroNota == 10).FirstOrDefault().Calificacion : 0,
+                 
                 });
-                DataGridAsigNotas = list;
-                NotifyPropertyChanged("DataGridAsigNotas");
+            }
+           list.ForEach(e => {
+                float prom = 0;
+                prom += sumarParaForEach(e.Nota1);
+                prom += sumarParaForEach(e.Nota2);
+                prom += sumarParaForEach(e.Nota3);
+                prom += sumarParaForEach(e.Nota4);
+                prom += sumarParaForEach(e.Nota5);
+                prom += sumarParaForEach(e.Nota6);
+                prom += sumarParaForEach(e.Nota7);
+                prom += sumarParaForEach(e.Nota8);
+                prom += sumarParaForEach(e.Nota9);
+                prom += sumarParaForEach(e.Nota10);
+                e.Promedio = prom / _countNotZero;
+                _countNotZero = 0;
+            });
+            DataGridAsigNotas = list;
+            NotifyPropertyChanged("DataGridAsigNotas");
+        }
+        private int _countNotZero = 0;
+        private float sumarParaForEach(float value)
+        {
+            //metodo por el cual sacamos el count
+            if (value != 0)
+            {
+                _countNotZero++;
+                return value;
+            }
+            else {
+                return 0;
             }
         }
         public event PropertyChangedEventHandler PropertyChanged;

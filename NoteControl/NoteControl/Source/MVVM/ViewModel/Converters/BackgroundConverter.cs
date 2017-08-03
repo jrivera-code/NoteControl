@@ -20,7 +20,7 @@ namespace NoteControl.Source.MVVM.ViewModel.Converters
                 nota = (float)value;
                 if (nota > 0.9 && nota < 7.1)
                 {
-                    if (nota > 0.9 && nota < 4.1)
+                    if (nota > 0.9 && nota < 4.0)
                     {
                         color = "#F6697A";
                     }
