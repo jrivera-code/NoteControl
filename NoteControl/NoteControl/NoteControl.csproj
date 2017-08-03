@@ -92,6 +92,9 @@
     <Compile Include="Source\DataAccess\Source\DAEspecialidades.cs" />
     <Compile Include="Source\DataAccess\Source\DACursos .cs" />
     <Compile Include="Source\DataAccess\Source\DAAsignaturas.cs" />
+    <Compile Include="Source\MVVM\Infor.xaml.cs">
+      <DependentUpon>Infor.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Source\MVVM\Model\Alumno.cs" />
     <Compile Include="Source\MVVM\Model\AlumnoNotaAsignatura.cs" />
     <Compile Include="Source\MVVM\Model\Asignatura.cs" />
@@ -99,6 +102,7 @@
     <Compile Include="Source\MVVM\Model\CursoProfeAsignatura.cs" />
     <Compile Include="Source\MVVM\Model\Especialidad.cs" />
     <Compile Include="Source\MVVM\Model\EspecialidadProfesor.cs" />
+    <Compile Include="Source\MVVM\Model\InformeP.cs" />
     <Compile Include="Source\MVVM\Model\PrivilegioExtra.cs" />
     <Compile Include="Source\MVVM\Model\Profesor.cs" />
     <Compile Include="Source\MVVM\ViewModel\ConsAlumCursoViewModel.cs" />
@@ -132,6 +136,10 @@
     <Compile Include="Source\MVVM\View\Menu\Pages\IngNotas.xaml.cs">
       <DependentUpon>IngNotas.xaml</DependentUpon>
     </Compile>
+    <Page Include="Source\MVVM\Infor.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="Source\MVVM\View\Menu\Pages\ConsAlumCurso.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
@@ -264,7 +272,12 @@
   <ItemGroup>
     <Resource Include="main.png" />
   </ItemGroup>
-  <ItemGroup />
+  <ItemGroup>
+    <None Include="Resources\Logo-EMG.svg.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Source\MVVM\View\Img\Logo-EMG.svg.png" />
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.

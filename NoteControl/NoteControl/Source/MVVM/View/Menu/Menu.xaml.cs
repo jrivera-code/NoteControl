@@ -32,5 +32,10 @@ namespace NoteControl
             this.Background = new ImageBrush(new BitmapImage(new Uri(@"pack://application:,,,/NoteControl;component/Source/MVVM/View/Img/background.png")));
             DataContext = menuViewModel;
         }
-    }
+
+		private void Exit_Click(object sender, RoutedEventArgs e)
+		{
+			this.Close();
+		}
+	}
 }

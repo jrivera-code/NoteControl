@@ -12,29 +12,25 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
-using NoteControl;
 using NoteControl.Source.MVVM.Model;
 using NoteControl.Source.MVVM.ViewModel;
 
-namespace NoteControl
+
+namespace NoteControl.Source.MVVM
 {
 	/// <summary>
+	/// Lógica de interacción para Infor.xaml
 	/// </summary>
-	public partial class IngNotas : Page
+	public partial class Infor : Page
 	{
-        IngNotasViewModel ingNotasAsigViewModel;
-        public IngNotas(Usuario userLogeado)
+
+		public Infor()
 		{
 			InitializeComponent();
-            ingNotasAsigViewModel = new IngNotasViewModel(userLogeado);
-            this.DataContext = ingNotasAsigViewModel;
-
-        }
-
-		private void DataGrid_SelectionChanged(object sender, SelectionChangedEventArgs e)
-		{
+		}
 		
-
+		private void dataGrid_SelectionChanged(object sender, SelectionChangedEventArgs e)
+		{
 
 		}
 	}

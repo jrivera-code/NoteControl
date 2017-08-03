@@ -34,6 +34,9 @@ namespace NoteControl.Source.MVVM.ViewModel
         }
         private ComboBoxItem _selectedComboBoxCurso;
 
+		/// <summary>
+		/// ComboBox Curso
+		/// </summary>
         public ComboBoxItem SelectedComboBoxCurso
         {
             get { return _selectedComboBoxCurso; }
@@ -125,6 +128,8 @@ namespace NoteControl.Source.MVVM.ViewModel
             InitPage(perfil);
         }
 
+
+		//Perfil
         private void InitPage(int perfil)
         {
 

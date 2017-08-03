@@ -56,7 +56,7 @@
             <Label x:Name="RutProf" Content="Rut Profesor : " Foreground="White"  HorizontalAlignment="Left" Margin="103,53,0,0" VerticalAlignment="Top" FontWeight="Bold"/>
             <Label x:Name="NombP" Content="Nombre" Foreground="White"  HorizontalAlignment="Left" Margin="103,108,0,0" VerticalAlignment="Top" FontWeight="Bold"/>
             <Label x:Name="EspeP" Content="Especialidad" Foreground="White"  HorizontalAlignment="Left" Margin="103,219,0,0" VerticalAlignment="Top" FontWeight="Bold" RenderTransformOrigin="3.086,0.577"/>
-            <TextBox x:Name="txtRut" Text="{Binding TextBoxRut, UpdateSourceTrigger=PropertyChanged, Mode=TwoWay}" HorizontalAlignment="Left" Height="48" Margin="260,27,0,0" TextWrapping="Wrap"  VerticalAlignment="Top" Width="226"  />
+            <TextBox x:Name="txtRut" Text="{Binding TextBoxRut, UpdateSourceTrigger=PropertyChanged, Mode=TwoWay}" HorizontalAlignment="Left" Height="48" Margin="260,27,0,0" TextWrapping="Wrap"  VerticalAlignment="Top" Width="226" TextChanged="txtRut_TextChanged"  />
             <TextBox x:Name="txtNombre" Text="{Binding TextBoxNombreProfe, UpdateSourceTrigger=PropertyChanged, Mode=TwoWay}" HorizontalAlignment="Left" Height="47" Margin="262,85,0,0" TextWrapping="Wrap"  VerticalAlignment="Top" Width="224"  />
             <ComboBox x:Name="CbEspe" HorizontalAlignment="Left" Margin="262,207,0,0" VerticalAlignment="Top" Width="224" Height="38"/>
             <Label x:Name="NombP_Copy" Content="Apellido" Foreground="White"  HorizontalAlignment="Left" Margin="103,159,0,0" VerticalAlignment="Top" FontWeight="Bold"/>

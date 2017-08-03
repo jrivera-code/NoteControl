@@ -64,7 +64,7 @@
                   Grid.Row="1" Grid.Column="1" HorizontalAlignment="Right" Margin="0,17" Width="260" ></ComboBox>
         <Button Command="{Binding ButtonBuscarAlum, Mode =TwoWay,IsAsync=True}"
               IsEnabled="{Binding IsEnableButtonBuscarAlum}"  Grid.Row="1" Grid.Column="2" Content="Buscar Alumnos" Width="150" Margin="80,15,170,15"></Button>
-        <DataGrid Name="DataGrid"  AutoGenerateColumns="False" CanUserAddRows="False" Grid.Row="5"  Grid.Column="0"  Grid.ColumnSpan="3" ItemsSource="{Binding DataGridAsigNotas,Mode=TwoWay,IsAsync=True, UpdateSourceTrigger=PropertyChanged}" Margin="50" >
+        <DataGrid Name="DataGrid"  AutoGenerateColumns="False" CanUserAddRows="False" Grid.Row="5"  Grid.Column="0"  Grid.ColumnSpan="3" ItemsSource="{Binding DataGridAsigNotas,Mode=TwoWay,IsAsync=True, UpdateSourceTrigger=PropertyChanged}" Margin="50" SelectionChanged="DataGrid_SelectionChanged" >
             <DataGrid.Resources>
                 <Converters:BackgroundConverter x:Key="BackgroundConverter"/>
                 <Converters:FloatConverter x:Key="FloatConverter"/>

@@ -23,6 +23,7 @@ namespace NoteControl.Source.MVVM.ViewModel
             get { return _comboBoxCursosItems; }
             set { _comboBoxCursosItems = value; NotifyPropertyChanged("ComboBoxCursosItems"); }
         }
+
         private ComboBoxItem _selectedComboBoxCursosItems = new ComboBoxItem();
         public ComboBoxItem SelectedComboBoxCursosItems
         {

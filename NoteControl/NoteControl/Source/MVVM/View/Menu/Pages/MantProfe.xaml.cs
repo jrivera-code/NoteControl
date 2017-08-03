@@ -28,5 +28,10 @@ namespace NoteControl
             InitializeComponent();
             this.DataContext = mantProfesoresViewModel;
         }
-    }
+
+		private void txtRut_TextChanged(object sender, TextChangedEventArgs e)
+		{
+
+		}
+	}
 }

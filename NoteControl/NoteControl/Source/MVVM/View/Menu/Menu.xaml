@@ -11,41 +11,48 @@
         mc:Ignorable="d" 
         WindowStyle="None" 
         Height="700.000" Width="1200.000"  Background="Transparent">
-    <Window.Resources>
-        <ResourceDictionary>
-            <ResourceDictionary.MergedDictionaries>
-                <ResourceDictionary Source="pack://application:,,,/MaterialDesignThemes.Wpf;component/Themes/MaterialDesignTheme.Defaults.xaml" />
-            </ResourceDictionary.MergedDictionaries>
-        </ResourceDictionary>
-    </Window.Resources>
-    <Grid>
-        <Grid.RowDefinitions>
-            <RowDefinition Height="50"></RowDefinition>
-            <RowDefinition Height="700"></RowDefinition>
-        </Grid.RowDefinitions>
-        <Menu  x:Name="_Menu"  HorizontalAlignment="Stretch" VerticalAlignment="Stretch" Grid.Row="0"  ItemsSource="{Binding Menus}" Margin="0,0,169,0">
+	<Window.Resources>
+		<ResourceDictionary>
+			<ResourceDictionary.MergedDictionaries>
+				<ResourceDictionary Source="pack://application:,,,/MaterialDesignThemes.Wpf;component/Themes/MaterialDesignTheme.Defaults.xaml" />
+			</ResourceDictionary.MergedDictionaries>
+		</ResourceDictionary>
+	</Window.Resources>
+	<Grid>
+		<Grid.RowDefinitions>
+			<RowDefinition Height="50"></RowDefinition>
+			<RowDefinition Height="700"></RowDefinition>
+		</Grid.RowDefinitions>
+		<Menu  x:Name="_Menu"  HorizontalAlignment="Stretch" VerticalAlignment="Stretch" Grid.Row="0"  ItemsSource="{Binding Menus}" Margin="0,0,169,0">
 
-        </Menu>
+		</Menu>
 
-        <Frame x:Name="Main" Content="{Binding Path=FrameContent, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" NavigationUIVisibility="Hidden"  Grid.Row="1" Margin="0,0,0,33" />
-        <Rectangle HorizontalAlignment="Left"  Height="50" Margin="1011,0,0,0" VerticalAlignment="Top" Width="181">
-            <Rectangle.Fill>
-                <SolidColorBrush Color="#fafafa" />
-            </Rectangle.Fill>
-        </Rectangle>
-        <Label x:Name="label" Content="Logeado como:" HorizontalContentAlignment="Center" Margin="1011,0,0,0" VerticalAlignment="Top" Width="181"/>
-        <Label x:Name="label1" Content="{Binding UsuarioLogeado}" HorizontalContentAlignment="Center" Margin="1013,0,-2,0" VerticalAlignment="Top" RenderTransformOrigin="0.5,0.5" Grid.Row="1">
-            <Label.RenderTransform>
-                <TransformGroup>
-                    <ScaleTransform/>
-                    <SkewTransform AngleY="-15.642"/>
-                    <RotateTransform Angle="15.992"/>
-                    <TranslateTransform X="-0.17" Y="-25.338"/>
-                </TransformGroup>
-            </Label.RenderTransform>
-        </Label>
+		<Frame x:Name="Main" Content="{Binding Path=FrameContent, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" NavigationUIVisibility="Hidden" Margin="0,4.714,0.286,54.286" Grid.Row="1" />
+		<Rectangle HorizontalAlignment="Left"  Height="50" Margin="1011,0,0,0" VerticalAlignment="Top" Width="181">
+			<Rectangle.Fill>
+				<SolidColorBrush Color="#fafafa" />
+			</Rectangle.Fill>
+		</Rectangle>
 
-    </Grid>
+		<Label x:Name="label" Content="Logeado como:" HorizontalContentAlignment="Center" Margin="1011,0,0,0" VerticalAlignment="Top" Width="181"/>
+		<Label x:Name="label1" Content="{Binding UsuarioLogeado}" HorizontalContentAlignment="Center" Margin="1013,0,-2,0" VerticalAlignment="Top" RenderTransformOrigin="0.5,0.5" Grid.Row="1">
+			<Label.RenderTransform>
+				<TransformGroup>
+					<ScaleTransform/>
+					<SkewTransform AngleY="-15.642"/>
+					<RotateTransform Angle="15.992"/>
+					<TranslateTransform X="-0.17" Y="-25.338"/>
+				</TransformGroup>
+			</Label.RenderTransform>
+		</Label>
+		<Button x:Name="Exit" Content="Salir" HorizontalAlignment="Left" Margin="950,0,0,0" VerticalAlignment="Top" Width="75" Height="50" Click="Exit_Click"  />
+		<Image x:Name="image" HorizontalAlignment="Left" Height="50" Margin="845,0,0,0" VerticalAlignment="Top" Width="52">
+			<Image.OpacityMask>
+				<ImageBrush ImageSource="/NoteControl;component/Source/MVVM/View/Img/Logo-EMG.svg.png" Stretch="UniformToFill"/>
+			</Image.OpacityMask>
+		</Image>
+
+	</Grid>
 
 </Window>
     
