@@ -22,7 +22,7 @@ namespace NoteControl.Source.MVVM.ViewModel.Converters
             string formatValue = value.ToString().Replace(".", "");
             var val = formatValue.Substring(0, 1) +"."+ formatValue.Substring(1);
             float floatValidate = float.Parse(val);
-            if (floatValidate > 9 && floatValidate < 71)
+            if (floatValidate > 0.9 && floatValidate < 7.01)
             {
                 return val;
             }

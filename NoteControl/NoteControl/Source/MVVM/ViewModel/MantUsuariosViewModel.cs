@@ -23,6 +23,7 @@ namespace NoteControl.Source.MVVM.ViewModel
         private BLPerfiles _blPerfiles = new BLPerfiles();
         private BLPrivilegiosExtra _blPrivilegiosExtra = new BLPrivilegiosExtra();
         public Command ButtonSaveClick { get; set; }
+        public Command ButtonEdita { get; set; }
         public Command ButtonDeleteClick { get; set; }
         public Command ButtonUpdateClick { get; set; }
 
@@ -284,6 +285,7 @@ namespace NoteControl.Source.MVVM.ViewModel
             ComboBoxEstadoItems.Add(new ComboBoxItem() { Content = "Desactivado" });
             //inicializa los command para los buttons
             ButtonSaveClick = new Command(SaveClick, () => true);
+            ButtonEdita = new Command(()=> { MessageBox.Show("Click CTM!!"); }, () => true);
             ButtonDeleteClick = new Command(DeleteClick, () => true);
             ButtonUpdateClick = new Command(UpdateClick, () => true);
             //carga data grid con los datos de todos los usuarios
